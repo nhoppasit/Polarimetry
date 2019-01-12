@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<XML_DIZ_INFO>
+<MASTER_PAD_VERSION_INFO>
+    <MASTER_PAD_VERSION>1.15</MASTER_PAD_VERSION>
+    <MASTER_PAD_INFO>Portable Application Description, or PAD for short, is a data set that is used by shareware authors to disseminate information to anyone interested in their software products. To find out more go to http://www.asp-shareware.org/pad</MASTER_PAD_INFO>
+</MASTER_PAD_VERSION_INFO>
+<Company_Info>
+        <Company_Name>Wilhelm Kurz</Company_Name>
+        <Address_1>Zenettistrasse 41</Address_1>
+        <Address_2 />
+        <City_Town>Munich</City_Town>
+        <State_Province />
+        <Zip_Postal_Code>D-80337</Zip_Postal_Code>
+        <Country>Germany</Country>
+        <Company_WebSite_URL>http://www.wilhelm-kurz-software.de</Company_WebSite_URL>
+<Contact_Info>
+        <Author_First_Name>Wilhelm</Author_First_Name>
+        <Author_Last_Name>Kurz</Author_Last_Name>
+        <Author_Email>info@wilhelm-kurz-software.de</Author_Email>
+        <Contact_First_Name>Wilhelm</Contact_First_Name>
+        <Contact_Last_Name>Kurz</Contact_Last_Name>
+        <Contact_Email>info@wilhelm-kurz-software.de</Contact_Email>
+    </Contact_Info>
+<Support_Info>
+        <Sales_Email>info@wilhelm-kurz-software.de</Sales_Email>
+        <Support_Email>info@wilhelm-kurz-software.de</Support_Email>
+        <General_Email>info@wilhelm-kurz-software.de</General_Email>
+        <Sales_Phone>+49(89)777200</Sales_Phone>
+        <Support_Phone>+49(89)777200</Support_Phone>
+        <General_Phone>+49(89)777200</General_Phone>
+        <Fax_Phone />
+    </Support_Info>
+</Company_Info>
+<Program_Info>
+        <Program_Name>DynaPlot</Program_Name>
+        <Program_Version>3.0</Program_Version>
+        <Program_Release_Month>08</Program_Release_Month>
+        <Program_Release_Day>08</Program_Release_Day>
+        <Program_Release_Year>2002</Program_Release_Year>
+        <Program_Cost_Dollars>175</Program_Cost_Dollars>
+        <Program_Cost_Other_Code />
+        <Program_Cost_Other />
+        <Program_Type>Shareware</Program_Type>
+        <Program_Release_Status>New Release</Program_Release_Status>
+        <Program_Install_Support>Install and Uninstall</Program_Install_Support>
+        <Program_OS_Support>Win95,Win98,WinME,WinNT 4.x,WinXP,Windows2000</Program_OS_Support>
+        <Program_Language>English</Program_Language>
+<File_Info>
+        <Filename_Versioned>dynap300.zip</Filename_Versioned>
+        <Filename_Previous />
+        <Filename_Generic>dynaplot.zip</Filename_Generic>
+        <Filename_Long>dynaplot.zip</Filename_Long>
+        <File_Size_Bytes>2108283</File_Size_Bytes>
+        <File_Size_K>2059</File_Size_K>
+        <File_Size_MB>2.06</File_Size_MB>
+    </File_Info>
+<Expire_Info>
+        <Has_Expire_Info>Y</Has_Expire_Info>
+        <Expire_Count>60</Expire_Count>
+        <Expire_Based_On>Days</Expire_Based_On>
+        <Expire_Other_Info />
+        <Expire_Month />
+        <Expire_Day />
+        <Expire_Year />
+    </Expire_Info>
+        <Program_Change_Info />
+        <Program_Specific_Category>Development Tools</Program_Specific_Category>
+        <Program_Categories>ActiveX, Charting, VB Components</Program_Categories>
+        <Program_System_Requirements>MFC 4.2 DLLs</Program_System_Requirements>
+        <Includes_JAVA_VM>N</Includes_JAVA_VM>
+        <Includes_VB_Runtime>N</Includes_VB_Runtime>
+        <Includes_DirectX>N</Includes_DirectX>
+</Program_Info>
+<Program_Descriptions>
+<English>
+        <Keywords>ActiveX, chart, control, plot, visualization, tolerance, curve</Keywords>
+        <Char_Desc_45>ActiveX chart for technical applications</Char_Desc_45>
+        <Char_Desc_80>Real-time ActiveX chart control with built-in tools for technical applications</Char_Desc_80>
+        <Char_Desc_250>DynaPlot is a real-time ActiveX chart control for technical  applications. It features dynamic scaling of chart elements with control size, tolerance masks, built-in tools like cursors, markers, scroll, pan, zoom...</Char_Desc_250>
+        <Char_Desc_450>DynaPlot is a real-time chart control for technical and scientific applications. It features dynamic scaling of chart elements with control size, tolerance masks, built-in tools like cursors, markers, scroll, pan, zoom... Although flexible and comprehensive, DynaPlot's programming interface is easy to learn which makes it the tool of choice for both T+M and rapid application development. Examples in VB, VC, VB.NET,C#... help you to get started.</Char_Desc_450>
+        <Char_Desc_2000>DynaPlot is a real-time chart control for technical and scientific applications. It features dynamic scaling of chart elements with control size, tolerance masks, built-in tools like cursors, markers, scroll, pan, zoom... Although flexible and comprehensive, DynaPlot's programming interface is easy to learn which makes it the tool of choice for both T+M and rapid application development. Examples in VB, VC, VB.NET,C#... help you to get started.</Char_Desc_2000>
+</English>
+</Program_Descriptions>
+<Web_Info>
+<Application_URLs>
+        <Application_Info_URL>http://www.wilhelm-kurz-software.de/dynaplot/dynaplot.htm</Application_Info_URL>
+        <Application_Order_URL>http://www.wilhelm-kurz-software.de/dynaplot/order.htm</Application_Order_URL>
+        <Application_Screenshot_URL>http://www.wilhelm-kurz-software.de/dynaplot/tol.gif</Application_Screenshot_URL>
+        <Application_Icon_URL>http://www.wilhelm-kurz-software.de/dynaplot/icon.gif</Application_Icon_URL>
+        <Application_XML_File_URL>http://www.wilhelm-kurz-software.de/dynaplot/pad_file.xml</Application_XML_File_URL>
+    </Application_URLs>
+<Download_URLs>
+        <Primary_Download_URL>http://www.wilhelm-kurz-software.de/dynaplot/dynaplot.zip</Primary_Download_URL>
+        <Secondary_Download_URL />
+        <Additional_Download_URL_1 />
+        <Additional_Download_URL_2 />
+    </Download_URLs>
+</Web_Info>
+<Permissions>
+        <Distribution_Permissions>DynaPlot is distributed as &quot;shareware&quot;.  You
+may freely copy and distribute the DynaPlot DISTRIBUTION FILE 
+in unmodified form.  However, it is prohibited to modify the
+DISTRIBUTION FILE or to distribute any components extracted
+from it.</Distribution_Permissions>
+        <EULA>DynaPlot GENERAL LICENSE AGREEMENT
+
+NOTICE: BY INSTALLING AND USING DynaPlot YOU ARE AGREEING TO BE
+BOUND BY THE TERMS OF THIS AGREEMENT. IF YOU DO NOT AGREE TO THE
+TERMS OF THIS AGREEMENT, PROMPTLY DELETE ALL DynaPlot FILES FROM
+YOUR COMPUTER.
+
+1) OWNER: The manufacturer of this software and the owner of all
+associated copyrights is Wilhelm Kurz of Zenettistrasse 41, 
+D-80337 Munich, Germany (&quot;The Author&quot;). 
+
+2) APPLICABILITY: This AGREEMENT is a GENERAL LICENSE AGREEMENT
+which applies to all users of DynaPlot. If you have other
+licensing agreements with The Author for the use of DynaPlot, 
+terms of this agreement which are not specifically addressed 
+in those agreements shall be considered amendments to those agreements.
+
+3) AS IS: DynaPlot, WHETHER OR NOT REGISTERED, IS PROVIDED &quot;AS
+IS&quot; WITHOUT WARRANTY OF ANY KIND. The Author
+DISCLAIMS ALL WARRANTIES, EITHER EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NONINFRINGEMENT. IN NO EVENT SHALL The Author
+OR HIS SUPPLIERS BE LIABLE FOR ANY DAMAGES
+WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF
+BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS
+INFORMATION, OR OTHER PECUNIARY LOSS) ARISING OUT OF THE USE
+OF OR INABILITY TO USE ANY DynaPlot SOFTWARE, EVEN IF The Author
+HAS BEEN ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGES.  BECAUSE SOME STATES DO NOT ALLOW THE EXCLUSION
+OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL
+DAMAGES, THE ABOVE LIMITATION MAY NOT APPLY TO YOU.
+
+4) DISTRIBUTION: DynaPlot is distributed as &quot;shareware&quot;.  You
+may freely copy and distribute the DynaPlot DISTRIBUTION FILE 
+in unmodified form.  However, it is prohibited to modify the
+DISTRIBUTION FILE or to distribute any components extracted
+from it. 
+
+5) LICENSE TYPES:
+DynaPlot is available as Professional Version, Student Version, 
+OEM User License, OEM Manufacturer License, Site License and 
+Global License.
+
+DynaPlot Student Version has restricted functionality and is for 
+private, educational purposes only. 
+
+DynaPlot Professional Version grants you the right to install 
+DynaPlot on one computer. You may manufacture and distribute applications 
+developed with DynaPlot Professional Version free of royalties.
+
+A DynaPlot OEM Manufacturer License grants you the right to pass on 
+the OEM USER REGISTRATION KEY provided to you by the Author to Users
+of your products which include DynaPlot as a component. By receving 
+the OEM USER REGISTRATION KEY a user (&quot;User&quot;) is granted a DynaPlot 
+OEM User License. A DynaPlot OEM Manufacturer may distribute free trial 
+versions of his product but will charge a nonegligible price for the 
+final product to prevent uncontrolled distribution of free DynaPlot 
+OEM User Licenses.
+
+A DynaPlot OEM User License grants you the right to manufacture and 
+distribute applications which include DynaPlot if and only if the 
+OEM Manufacturer's control or application is also used in and shipped
+with these applications.
+
+A DynaPlot Site License extends DynaPlot Professional Version by the 
+right to install DynaPlot on any number of computers at one company site.
+
+A DynaPlot Global License extends DynaPlot Professional Version by the 
+right to install DynaPlot on any number of computers world wide.
+ 
+6) TRIAL PERIOD:  When you install the DynaPlot program by
+extracting files from the DISTRIBUTION FILE and copying them to
+a given computer, a trial period of 60 days begins.  DynaPlot
+may be used freely for 60 days operating in an &quot;unregistered&quot;
+mode.  If you do not register DynaPlot, you agree to remove the
+DynaPlot extraction files from the computer within 60 days after
+installation.  DynaPlot will stop functioning at the end of its
+trial period.
+
+7) REGISTRATION: REGISTRATION is the process by which you gain
+full license to use DynaPlot.  REGISTRATION is initiated when you
+provide a suggested REGISTRATION NAME, an e-mail and/or postal
+address, and the required registration fee, if any, to The Author.
+Upon receipt of your registration information and fee, The Author will
+send you return registration information consisting of your
+official REGISTRATION NAME, the corresponding UNLOCK KEY NUMBER 
+and the serial number of DynaPlot to which your REGISTRATION
+applies. The Author may assign a REGISTRATION NAME other than what
+you suggest.  Your receipt of this information completes REGISTRATION, 
+which licenses you to use applicable version(s) of DynaPlot indefinitely. 
+You are licensed to use any past, present or future version of DynaPlot 
+which accepts your REGISTRATION NAME and UNLOCK KEY NUMBER.  
+
+8) ROYALTIES: DynaPlot is royalty-free. Applications created with 
+DynaPlot may be sold freely. Applications created with unregistered 
+versions of DynaPlot or with DynaPlot Student Version may not be sold.
+
+9) REGISTRATION KEY NUMBER USAGE: You agree not to disclose your
+confidential REGISTRATION KEY NUMBER to any third party. Holders of 
+a DynaPlot OEM Manufacturer License may distribute the 
+OEM USER REGISTRATION KEY provided to them by The Autor to users of
+their products which include DynaPlot as a component. 
+A single registration may be used only on a single computer; you must
+purchase multiple REGISTRATIONS or a DynaPlot Site License or 
+DynaPlot Global License to use DynaPlot on multiple computers. 
+Your REGISTRATION may be transferred to a another computer owned 
+by you simply by installing the DynaPlot files on the new computer
+and deleting them from the previous computer; however, because 
+the REGISTRATION process gives you knowledge of the confidential 
+REGISTRATION KEY NUMBER, your REGISTRATION is not transferable to 
+a third party.
+
+10) FREE REGISTRATION: The Author may grant FREE REGISTRATIONS 
+for promotional purposes.  If The Author has granted you 
+FREE REGISTRATION, it does not imply, acknowledge, or grant any 
+ownership or other rights whatsoever to DynaPlot beyond that of 
+REGISTRATION, as described above.
+
+11) GOVERNING LAW :Any action related to this License will be governed 
+by German law. No choice of law rules of any jurisdiction will apply.</EULA>
+</Permissions>
+<Simtel>
+    <Simtel_Agent />
+    <Simtel_FORM>Y</Simtel_FORM>
+    <Simtel_DOS_Category>Select - MS-DOS Platform (blank)</Simtel_DOS_Category>
+    <Simtel_Platform>win95 - Win95/Win98/WinME</Simtel_Platform>
+    <Simtel_Category>Programming - visbasic Visual Basic Programming Language</Simtel_Category>
+    <SIMTEL_FORM_VER>1.3 8/01/2002</SIMTEL_FORM_VER>
+</Simtel>
+</XML_DIZ_INFO>
