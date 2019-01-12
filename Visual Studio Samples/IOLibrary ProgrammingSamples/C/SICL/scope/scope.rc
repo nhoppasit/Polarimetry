@@ -1,0 +1,20 @@
+#include <windows.h>
+#include "scope.h"
+
+scopeicon ICON scope.ico
+
+scopemenu MENU
+{
+    POPUP "&File"
+    {
+         MENUITEM "&Exit",	   SCOPE_EXIT
+    }
+
+    POPUP "&Action"
+    {
+         MENUITEM "&get_voltage",  SCOPE_READ_VOLT
+         MENUITEM "&perform_meas", SCOPE_GET_DATA
+         MENUITEM "&show_settings",  SCOPE_HEADER
+         MENUITEM "&print_disp",   SCOPE_PRINT
+    }
+}

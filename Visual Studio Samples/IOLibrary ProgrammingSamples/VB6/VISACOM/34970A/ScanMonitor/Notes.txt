@@ -1,0 +1,12 @@
+The code in module DAQ_34970 was created by the 34970A code Wizard. You can simply modify the code in the module or remove the code module and have the code Wizard create a new module. If you create a new module, add this line of code after the call to the routine ReadData_34970A. 
+
+        '#########################################################
+        ' This code was added after the Wizard added this module
+        frmScanner.WriteDataToForm Readings, Units, ChanNumb, Time, Sweep, numberChannels
+        '#########################################################
+
+In the 34970A Code Wizard choose to include, units, channel number, and Time. If you do not you will have to change the argument list of the routine WriteDataToForm in the form frmScanner as well as some of the code.
+
+This Example is intended for demonstrating the use of Agilent VISA COM and the Agilent 34970A Data Acquisition/Switch Unit. Depending on how you use the Code Wizard, you may have to make changes or debug some of the code in this project and/or the code created by the Wizard.
+
+The code Wizard is available from www.agilent.com/find/34970A in the Library under Software.

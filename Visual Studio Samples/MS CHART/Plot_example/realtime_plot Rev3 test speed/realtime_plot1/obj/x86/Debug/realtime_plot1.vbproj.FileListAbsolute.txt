@@ -1,0 +1,24 @@
+D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\bin\Debug\realtime_plot1.exe.config
+D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\bin\Debug\realtime_plot1.exe
+D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\bin\Debug\realtime_plot1.pdb
+D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\bin\Debug\realtime_plot1.xml
+D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\obj\x86\Debug\realtime_plot1.Form1.resources
+D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\obj\x86\Debug\realtime_plot1.Resources.resources
+D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\obj\x86\Debug\realtime_plot1.exe
+D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\obj\x86\Debug\realtime_plot1.xml
+D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\obj\x86\Debug\realtime_plot1.pdb
+D:\VB\Plot_example\realtime_plot Rev3 test speed\realtime_plot1\bin\Debug\realtime_plot1.exe.config
+D:\VB\Plot_example\realtime_plot Rev3 test speed\realtime_plot1\obj\x86\Debug\realtime_plot1.exe
+D:\VB\Plot_example\realtime_plot Rev3 test speed\realtime_plot1\obj\x86\Debug\realtime_plot1.xml
+D:\VB\Plot_example\realtime_plot Rev3 test speed\realtime_plot1\obj\x86\Debug\realtime_plot1.pdb
+D:\VB\Plot_example\realtime_plot Rev3 test speed\realtime_plot1\bin\Debug\realtime_plot1.exe
+D:\VB\Plot_example\realtime_plot Rev3 test speed\realtime_plot1\bin\Debug\realtime_plot1.pdb
+D:\VB\Plot_example\realtime_plot Rev3 test speed\realtime_plot1\bin\Debug\realtime_plot1.xml
+D:\VB\Plot_example\realtime_plot Rev3 test speed\realtime_plot1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\VB\Plot_example\realtime_plot Rev3 test speed\realtime_plot1\obj\x86\Debug\realtime_plot1.Form1.resources
+D:\VB\Plot_example\realtime_plot Rev3 test speed\realtime_plot1\obj\x86\Debug\realtime_plot1.Resources.resources
+D:\VB\Plot_example\realtime_plot Rev3 test speed\realtime_plot1\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\VB\Plot_example\realtime_plot Rev3 test speed\realtime_plot1\obj\x86\Debug\GenerateResource.write.1.tlog

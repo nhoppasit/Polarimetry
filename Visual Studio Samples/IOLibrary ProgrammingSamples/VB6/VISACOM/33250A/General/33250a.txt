@@ -1,0 +1,234 @@
+
+Option Explicit
+Dim m_Count As Integer                      ' Used to sequence messages
+Private IOUtils As New AgtUtilsObject
+
+' """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
+' Copyright (c) 2000 Agilent Technologies.  All Rights Reserved.           '
+'                                                                          '
+' Agilent Technologies provides programming samples for illustration       '
+' purposes only.  This sample program assumes that you are familiar        '
+' with the programming language being demonstrated and the tools used      '
+' to create and debug procedures.  Agilent support engineers can help      '
+' answer questions relating to the functionality of the software           '
+' components provided by Agilent, but they will not modify these samples   '
+' to provide added functionality or construct procedures to meet your      '
+' specific needs.                                                          '                                                                          
+' You have a royalty-free right to use, modify, reproduce, and distribute  '
+' this sample program (and/or any modified version) in any way you find    '
+' useful, provided that you agree that Agilent has no warranty,            '
+' obligations, or liability for any sample programs.                       '
+' """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
+'
+'  Agilent 33250A 80 MHz Function/Arbitrary Waveform Generator Examples
+'
+'  Examples include Modulation, Pulse, Sweeping, Burst, and Status checking.
+'  Examples illustrate various uses of short/long form SCPI.
+'  Examples also illustrate enabling/disabling output BNCs.
+'  To view results on Scope, set scope to:
+'     Channel 1: Output BNC, 50ohms, 50us/div, 200mV/div
+'     Channel 2: Sync BNC, 50us/div, 500mV/div, trigger on Channel 2
+'
+'  Microsoft Visual Basic 6.0 Programming Examples
+'  3-30-00
+'
+Private Sub cmdStart_Click()
+
+    Dim i As Integer                        ' Used as general purpose counter
+    
+    cmdStart.Enabled = False                ' Disable Start button
+'
+' Return the 33250A to turn-ON conditions
+'
+    Arb.IO.Output "*RST"                    ' Default state of instrument
+    Arb.IO.Output "*CLS"                    ' Clear errors and status
+'
+'  AM Modulation
+'
+    Arb.Output "OUTPut:LOAD INFinity"       ' Configure for Hi Z load
+    Arb.Output "APPLy:SINusoid 1e6,1,0"     ' 1MHz Sine, 1Vpp, 0Vdc offset
+    Arb.Output "AM:INTernal:FUNCtion RAMP"  ' Modulating signal: Ramp
+    Arb.Output "AM:INTernal:FREQuency 10e3" ' Modulating frequency: 10kHz
+    Arb.Output "AM:DEPTh 80"                ' Modulating depth: 80%
+    Arb.Output "AM:STATe ON"                ' Turn ON AM modulation
+    Check_Errors                            ' Routine checks for errors
+    MsgBox "AM Modulation", vbOKOnly, "33250A Example"
+    Arb.Output "AM:STATe OFF"               ' Turn OFF AM modulation
+'
+'   FM Modulation
+'
+    Arb.Output "outp:load 50"               ' Configure for 50 ohm load
+    Arb.Output "appl:sin 20e3,1,0"          ' 20kHz Sine, 1Vpp, 0Vdc Offset
+    Arb.Output "fm:dev 20e3"                ' FM deviation: 20kHz
+    Arb.Output "fm:int:freq 1000"           ' FM Modulating Freq: 1kHz
+    Arb.Output "fm:stat on"                 ' Turn ON FM modulation
+    Check_Errors                            ' Routine checks for errors
+    MsgBox "FM Modulation", vbOKOnly, "33250A Example"
+    Arb.Output "fm:stat off"                ' Turn OFF FM modulation
+'
+'   Linear Sweep
+'
+    Arb.Output "sweep:time 1"               ' 1 second sweep time
+    Arb.Output "freq:start 100"             ' Start frequency: 100Hz
+    Arb.Output "freq:stop 20000"            ' Stop frequency: 20kHz
+    Arb.Output "sweep:stat on"              ' Turn ON sweeping
+    Check_Errors                            ' Routine checks for errors
+    MsgBox "Linear Sweep", vbOKOnly, "33250A Example"
+    Arb.Output "sweep:stat off"             ' Turn OFF sweeping
+'
+'   Pulse Waveform with variable Edge Times
+'
+    Arb.Output "output:state off"           ' Disable Output BNC
+    Arb.Output "volt:low 0;:volt:high 0.75" ' Low = 0V, High = 0.75V
+    Arb.Output "pulse:period 1e-3"          ' 1ms intervals
+    Arb.Output "pulse:width 100e-6"         ' 100us pulse width
+    Arb.Output "pulse:tran 10e-6"           ' Edge time 10us
+    Arb.Output "func pulse"                 ' Select Function Pulse
+    Arb.Output "output:state on"            ' Enable Output BNC
+    For i = 1 To 20                         ' Vary edge by 1usec steps
+        Arb.Output "puls:tran " & (0.00001 + i * 0.000001)
+        Sleep 300                           ' Wait 300msec
+    Next i
+    Check_Errors                            ' Routine checks for errors
+    MsgBox "Pulse Waveform with variable Edge Times", vbOKOnly, "33250A Example"
+'
+'   Triggered Burst
+'
+    Arb.Output "output:state off"           ' Turn OFF Output BNC
+    Arb.Output "output:sync off"            ' Disable Sync BNC
+    Arb.Output "func square"                ' Select Function square
+    Arb.Output "frequency 20e3"             ' 20kHz
+    Arb.Output "volt 1;:volt:offset 0"      ' 1Vpp and 0V offset
+    Arb.Output "func:square:dcycle 20"      ' 20% duty cycle
+    Arb.Output "trig:sour bus"              ' Bus triggering
+    Arb.Output "burst:ncycles 3"            ' Burst of 3 cycles per trigger
+    Arb.Output "burst:state on"             ' Enable Burst
+    Arb.Output "output:state on"            ' Turn ON Output BNC
+    Arb.Output "output:sync on"             ' Enable Sync BNC
+    Check_Errors                            ' Routine checks for errors
+    For i = 1 To 20
+        Arb.Output "*trg"                   ' Send BUS trigger
+        Sleep 100                           ' Wait 100msec
+    Next i
+    MsgBox "Triggered Burst", vbOKOnly, "33250A Example"
+'
+'   Download a 20 point Arbitrary waveform using ASCII.
+'
+    Dim Arb_20(0 To 19) As Double           ' Allocate array of 20 reals
+    Fill_array Arb_20                       ' Call routine to fill array
+    With Arb.IO.Write
+        .Command "data volatile,", False    ' Place command into buffer
+        .Argument(0) = Arb_20               ' Place comma separated data into buffer
+        .Send                               ' Send command + data
+    End With
+    Arb.Output "func:user volatile"         ' Select downloaded waveform
+    Arb.Output "apply:user 10e3,1,0"        ' Output waveform: 10kHz, 1Vpp
+    Check_Errors                            ' Routine checks for errors
+    MsgBox "Download a 20 point Arbitrary waveform using ASCII.", vbOKOnly, "33250A Example"
+'
+'   Download a 6 point Arbitrary waveform using Binary.
+'   This example for GPIB only
+'
+    Dim Arb_6()                             ' Create array
+    Dim Length As Long                      ' Used to find total length of array
+    Dim Command() As Byte                   ' Used to store total command sequence
+    
+    Arb_6 = Array(2047, -2047, 2047, 2047, -2047, -2047)
+    Length = IOUtils.CreateIEEEBlock(Arb_6, IIOUtils_Short, IIOUtils_BigEndian, "data:dac volatile,", Command)
+    Arb.IO.WriteBytes Length, Command       ' Download command and bytes
+    Arb.Output "apply:user 5000,1,0"        ' Output waveform: 5kHz, 1Vpp
+    Check_Errors
+    MsgBox "Download a 6 point Arbitrary waveform using Binary.", vbOKOnly, "33250A Example"
+'
+'   Using the Status Registers
+'
+    Arb.Output "apply:sin 10e3,1,0"         ' 10kHz Sine wave; 1Vpp
+    Arb.Output "trig:sour bus"              ' Bus Trigger in Burst
+    Arb.Output "burst:ncycles 50000"        ' 50000 cycles x 0.1ms = 5s
+    Arb.Output "burst:stat on"              ' Turn ON burst mode
+    Arb.Output "*ese 1"                     ' Operation complete enabled
+    Arb.Output "*sre 32"                    ' Operation complete sets SRQ
+    Check_Errors                            ' Routine checks for errors
+    Arb.Output "*trg;*opc"                  ' Trigger burst
+                                            ' *opc signals end of *trg
+    Dim Stats As Integer                    ' Variable to store status
+    Dim Done As Boolean                     ' Controls While loop
+    Done = False
+   
+    While Not Done
+        Arb.Output "*stb?"                  ' Request status byte
+        Arb.Enter Stats                     ' Read status byte
+        If Stats And 64 Then                ' Test Master Summary bit
+          Done = True
+        End If
+    Wend
+
+    MsgBox "Done", vbOKOnly, "33250A "
+    cmdStart.Enabled = True
+End Sub
+
+Private Sub Form_Load()
+    Dim IdStr As String
+    m_Count = 1
+    
+    Arb.Output "*IDN?"                      ' Query instrument information
+    Arb.Enter IdStr                         ' Read result into IdStr
+    Caption = IdStr                         ' Make that data the message on box
+End Sub
+
+Sub Check_Errors()
+    Dim ErrVal(0 To 1)
+   
+    With Arb
+        .Output "syst:err?"                 ' Query any errors data
+        .Enter ErrVal                       ' Read: Errnum,"Error String"
+        While ErrVal(0) <> 0                ' End if find: 0,"No Error"
+            lstErrors.AddItem ErrVal(0) & "," & ErrVal(1) ' Display errors
+            lstErrors.Refresh               ' Update the box
+            .Output "SYST:ERR?"             ' Request error message
+            .Enter ErrVal                   ' Read error message
+        Wend
+    End With
+End Sub
+
+Sub WaitForOPC()
+    Dim Stats As Byte
+
+    With Arb
+        Stats = .IO.Query("*STB?")          ' Read Status Byte
+    
+        Do While (Stats And 64) = 0         ' Test for Master Summary Bit
+            Sleep 100                       ' Pause for 100msec
+            Stats = .IO.Query("*STB?")      ' Read Status Byte
+        Loop
+    End With
+End Sub
+
+Sub Fill_array(ByRef data_array() As Double)
+   
+'
+' Routine can be used to fill array passed from Main Program.  Fills entire array
+' with sequence of +/- 1.0
+'
+    data_array(0) = -1#
+    data_array(1) = 1#
+    data_array(2) = -1#
+    data_array(3) = -1#
+    data_array(4) = 1#
+    data_array(5) = 1#
+    data_array(6) = -1#
+    data_array(7) = -1#
+    data_array(8) = -1#
+    data_array(9) = 1#
+    data_array(10) = 1#
+    data_array(11) = 1#
+    data_array(12) = -1#
+    data_array(13) = -1#
+    data_array(14) = -1#
+    data_array(15) = -1#
+    data_array(16) = 1#
+    data_array(17) = 1#
+    data_array(18) = 1#
+    data_array(19) = 1#
+
+End Sub

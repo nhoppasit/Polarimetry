@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ArbPulse", "ArbPulse\ArbPulse.vbproj", "{BBB6E215-E950-4359-BA6D-331F8BB72475}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{BBB6E215-E950-4359-BA6D-331F8BB72475}.Debug.ActiveCfg = Debug|.NET
+		{BBB6E215-E950-4359-BA6D-331F8BB72475}.Debug.Build.0 = Debug|.NET
+		{BBB6E215-E950-4359-BA6D-331F8BB72475}.Release.ActiveCfg = Release|.NET
+		{BBB6E215-E950-4359-BA6D-331F8BB72475}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
