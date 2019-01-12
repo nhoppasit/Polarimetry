@@ -1,0 +1,617 @@
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\bin\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\bin\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\bin\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\bin\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\bin\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\bin\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV01\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\obj\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\obj\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\obj\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\bin\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\bin\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\bin\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV03\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\obj\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\obj\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\obj\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\bin\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\bin\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\bin\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV04\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\obj\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\obj\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\obj\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\bin\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\bin\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\bin\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV05\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\obj\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\obj\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\obj\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\bin\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\bin\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\bin\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV06\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\bin\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\bin\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\bin\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\bin\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\bin\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\bin\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Copy of Polarimeter REV07\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV0160254\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV0160254\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV0160254\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV0160254\Polarimeter\obj\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV0160254\Polarimeter\obj\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV0160254\Polarimeter\obj\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\bin\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\bin\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\bin\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.exe
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.xml
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\bin\Debug\Polarimeter.exe
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\bin\Debug\Polarimeter.xml
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV1160254\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\obj\Debug\Polarimeter.exe
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\obj\Debug\Polarimeter.xml
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\bin\Debug\Polarimeter.exe
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\bin\Debug\Polarimeter.xml
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_21 Polarimeter\Polarimeter REV20110221\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\obj\Debug\Polarimeter.exe
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\obj\Debug\Polarimeter.xml
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\bin\Debug\Polarimeter.exe
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\bin\Debug\Polarimeter.xml
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110222\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\obj\Debug\Polarimeter.exe
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\obj\Debug\Polarimeter.xml
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\bin\Debug\Polarimeter.exe
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\bin\Debug\Polarimeter.xml
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\DAILY WORKS\2011\02 Febuary\2011_02_22 Polarimeter\Polarimeter REV20110223\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+H:\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+H:\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+H:\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+H:\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\Polarimeter.xml
+H:\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\bin\Debug\Polarimeter.exe
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\bin\Debug\Polarimeter.pdb
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\bin\Debug\Polarimeter.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+D:\#PROJECT#\SOFTWARE\POLARIMETER\2011_02_22 Polarimeter\Polarimeter REV20110223 (show when select nodes in tree view)\Polarimeter\obj\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\obj\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\obj\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\bin\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\bin\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV100\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\obj\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\obj\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\bin\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\bin\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV101\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\obj\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\obj\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\bin\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\bin\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\obj\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\bin\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\bin\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\obj\Debug\Polarimeter.Form1.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110317 Polarimeter REV102 (Table-Graph-report)\Polarimeter\obj\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\obj\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\obj\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\bin\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\bin\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV200\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\obj\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\obj\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\bin\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\bin\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV201 (beta)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\obj\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\obj\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\bin\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\bin\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV202 (debuging and dev)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\obj\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\bin\Debug\Polarimeter.exe
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\bin\Debug\Polarimeter.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\bin\Debug\Ivi.Visa.Interop.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\bin\Debug\Ivi.Visa.Interop.xml
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110607 Polarimeter REV203 (dev concentration cal)\Polarimeter\obj\Debug\Polarimeter.exe
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\obj\Debug\Polarimeter.exe
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\obj\Debug\Polarimeter.xml
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\bin\Debug\Polarimeter.exe
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\bin\Debug\Polarimeter.xml
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV204\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\obj\Debug\Polarimeter.xml
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\bin\Debug\Polarimeter.exe
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\bin\Debug\Polarimeter.xml
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110607 Polarimeter REV205\Polarimeter\obj\Debug\Polarimeter.exe
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\Polarimeter.xml
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\bin\Debug\Polarimeter.exe
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\bin\Debug\Polarimeter.xml
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\Polarimeter.exe
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\bin\Debug\Polarimeter.exe.manifest
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\bin\Debug\Polarimeter.application
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\Polarimeter.exe.manifest
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110614 Polarimeter REV206\Polarimeter\obj\Debug\Polarimeter.application
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\Polarimeter.exe
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\Polarimeter.xml
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\bin\Debug\Polarimeter.exe.manifest
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\bin\Debug\Polarimeter.application
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\bin\Debug\Polarimeter.exe
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\bin\Debug\Polarimeter.xml
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\Polarimeter.exe.manifest
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV207 (show all curve)\Polarimeter\obj\Debug\Polarimeter.application
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\Polarimeter.xml
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\Polarimeter.pdb
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\bin\Debug\Polarimeter.exe.manifest
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\bin\Debug\Polarimeter.application
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\bin\Debug\Polarimeter.exe
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\bin\Debug\Polarimeter.pdb
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\bin\Debug\Polarimeter.xml
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\Polarimeter.exe.manifest
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\Polarimeter.application
+E:\#000 WORK FILES\#000 KMITL\#001 MINI PROJECTS\Polarimeter\20110615 Polarimeter REV208 (first complete)\Polarimeter\obj\Debug\Polarimeter.exe
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe.manifest
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.application
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.pdb
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.xml
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe.manifest
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.application
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.xml
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.pdb
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV209 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmColorTable.resources
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe.manifest
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.application
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.pdb
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.xml
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmColorTable.resources
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe.manifest
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.application
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.xml
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV210 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.pdb
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV211 (VALIDATION 1ST)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV211 (VALIDATION 1ST)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV211 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV211 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV211 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.xml
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110705 Polarimeter REV211 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.pdb
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.xml
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.pdb
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe.manifest
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.application
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.pdb
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.xml
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmColorTable.resources
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe.manifest
+C:\Users\Batman009\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.application
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.xml
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV212 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.pdb
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.xml
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.pdb
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe.manifest
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.application
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.pdb
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.xml
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmColorTable.resources
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe.manifest
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.application
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe.config
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\bin\Debug\inimanage.dll
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\bin\Debug\inimanage.pdb
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV213 (VALIDATION 1ST)\Polarimeter\bin\Debug\inimanage.xml
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe.config
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.xml
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.pdb
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmColorTable.resources
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe.manifest
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.application
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.pdb
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.xml
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe.manifest
+C:\Documents and Settings\JIA\Desktop\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.application
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe.config
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Interop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\AxInterop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.ResolveComReference.cache
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.xml
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.pdb
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\ResolveAssemblyReference.cache
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmColorTable.resources
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmMain.resources
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.frmNewMeasurement.resources
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.Resources.resources
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.vbproj.GenerateResource.Cache
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe.manifest
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.application
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.exe
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.pdb
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Polarimeter.xml
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\Interop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\bin\Debug\AxInterop.DYNAPLOT3Lib.dll
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.exe.manifest
+J:\001 WORK FILES\KMITL\MINI PROJECTS\POLARIMETER\20110707 Polarimeter REV214 (VALIDATION 1ST)\Polarimeter\obj\Debug\Polarimeter.application

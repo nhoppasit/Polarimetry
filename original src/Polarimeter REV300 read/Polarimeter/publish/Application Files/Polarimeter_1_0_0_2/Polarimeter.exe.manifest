@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
+  <asmv1:assemblyIdentity name="Polarimeter.exe" version="1.0.0.1" publicKeyToken="a952eb906d8b459c" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="djvu040ch.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Polarimeter" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Polarimeter.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="4" minorVersion="10" buildNumber="0" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="2.0.50727.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Ivi.Visa.Interop" version="3.0.0.0" publicKeyToken="A128C98F1D7717C1" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.DYNAPLOT3Lib.dll" size="32768">
+      <assemblyIdentity name="AxInterop.DYNAPLOT3Lib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>0RTf6hItlOMaMwiZDg1tql43/4E=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.DYNAPLOT3Lib.dll" size="90112">
+      <assemblyIdentity name="Interop.DYNAPLOT3Lib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>mXnA/ROMQCnN7M91oEfsNIaBW1Q=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Polarimeter.exe" size="81920">
+      <assemblyIdentity name="Polarimeter" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>H27RlZxdv7CNLx8fbulQQod2K7o=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="djvu040ch.ico" size="766">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>N9+oQaE4oALEQlHK2iLa+jp+kbg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Polarimeter.exe.config" size="5065">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>EDex8OFlNk5upCetKXcNKmO+p84=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=COMPAQNOTEBOOK\JIA" issuerKeyHash="48e5c32a978796d9c5d07d604665d4d0d2a11834" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>W5TKPIGCGOBa2Ikq8HC9AikKwRE=</DigestValue></Reference></SignedInfo><SignatureValue>OqrnFVKZFINi47QU7RRrC4UhlIvg0KiqhHvwSVsw3thd4+ZsviKytKNSyCqX5R/4XkMksO6ZxlSsrSbsVhApymVt++Sc1veIa4pOGXfd8X+Tq8MQM8lZvAYjmNFivKoHzCDMbd09hk5YAKKVpOkMXyu+2eFliU42G9JZ6rI3jCk=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>sLt8qUklp3YKN+4PF2b/Q4xe5UiQYSHJwfXfUjdJ5L2AQno8+L1gCXc/7fj0B7bcpklAGsWEKvu63YNIsJjpGktJho5IA7AH/7aYpobS5wDrwYRdH9U6gG8s9srEuQ8Ycw2airIpjf9v3O3MS9qXPWHs5GnJeLIBzurwMV9Cpjc=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="11c10a2902bd70f02a89d85ae01882813cca945b" Description="" Url=""><as:assemblyIdentity name="Polarimeter.exe" version="1.0.0.1" publicKeyToken="a952eb906d8b459c" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=COMPAQNOTEBOOK\JIA</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>ACk6AfwKGQjOkw0eB6WEUiPwXiA=</DigestValue></Reference></SignedInfo><SignatureValue>Qc8uf0wnFmOC+wXIqgN9cLu+qU57AtB2JizeT4E1WYJLL7QKH1ht8cjb/b0Zp2O4AOORkvIhZU2U4PD8sd7YVUhuj3dUP5W0IVJWFqaSTy53ebGcUZJxWu9CzYnRBHC+eBoy05Xkn91f9tZeGVMPeVzoHvT1Yyp+N1mN+QBrELs=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>sLt8qUklp3YKN+4PF2b/Q4xe5UiQYSHJwfXfUjdJ5L2AQno8+L1gCXc/7fj0B7bcpklAGsWEKvu63YNIsJjpGktJho5IA7AH/7aYpobS5wDrwYRdH9U6gG8s9srEuQ8Ycw2airIpjf9v3O3MS9qXPWHs5GnJeLIBzurwMV9Cpjc=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB2TCCAUagAwIBAgIQCuhhnpi1X6hEKS+sqS3G3jAJBgUrDgMCHQUAMC8xLTArBgNVBAMeJABDAE8ATQBQAEEAUQBOAE8AVABFAEIATwBPAEsAXABKAEkAQTAeFw0wMjAxMDEwMDEwNDdaFw0wMzAxMDEwNjEwNDdaMC8xLTArBgNVBAMeJABDAE8ATQBQAEEAUQBOAE8AVABFAEIATwBPAEsAXABKAEkAQTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAsLt8qUklp3YKN+4PF2b/Q4xe5UiQYSHJwfXfUjdJ5L2AQno8+L1gCXc/7fj0B7bcpklAGsWEKvu63YNIsJjpGktJho5IA7AH/7aYpobS5wDrwYRdH9U6gG8s9srEuQ8Ycw2airIpjf9v3O3MS9qXPWHs5GnJeLIBzurwMV9CpjcCAwEAATAJBgUrDgMCHQUAA4GBACtcG5oDmHAzu89DN6w/NnN0KUhkFe+iSIsy6K//okYUkcCdYxaJAomO0awpt6+m8JwVRcniONrgkZQLWZJGvLp9ou/f2IjeGo8eapPYsWkO5Kec3TbrR+ZB+p8p0ipm6b59iGsJ39DnLfpSobj6E0hOa4rJeZR2SumXCnu5RuDL</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
