@@ -766,6 +766,8 @@ Public Class frmMain
 
 #End Region
 
+    'try
+
     Private Sub btnINIT_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnINIT.Click
         Try
             ConnectDevices()
