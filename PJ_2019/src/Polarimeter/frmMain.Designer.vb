@@ -89,7 +89,7 @@ Partial Class frmMain
         Me.btnPause = New System.Windows.Forms.Button
         Me.btnStop = New System.Windows.Forms.Button
         Me.btnStart = New System.Windows.Forms.Button
-        Me.AxDynaPlot1 = New AxDYNAPLOT3Lib.AxDynaPlot
+        'Me.AxDynaPlot1 = New AxDYNAPLOT3Lib.AxDynaPlot
         Me.sbMainStatus = New System.Windows.Forms.StatusStrip
         Me.lblMainStatus = New System.Windows.Forms.ToolStripStatusLabel
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel
@@ -108,7 +108,7 @@ Partial Class frmMain
         CType(Me.numRepeatNumber, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.mnuTable.SuspendLayout()
         Me.gbScanCondition.SuspendLayout()
-        CType(Me.AxDynaPlot1, System.ComponentModel.ISupportInitialize).BeginInit()
+        'CType(Me.AxDynaPlot1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.sbMainStatus.SuspendLayout()
         Me.gbMeasurement.SuspendLayout()
         Me.SuspendLayout()
@@ -618,14 +618,14 @@ Partial Class frmMain
         '
         'AxDynaPlot1
         '
-        Me.AxDynaPlot1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AxDynaPlot1.Location = New System.Drawing.Point(340, 33)
-        Me.AxDynaPlot1.Name = "AxDynaPlot1"
-        Me.AxDynaPlot1.OcxState = CType(resources.GetObject("AxDynaPlot1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxDynaPlot1.Size = New System.Drawing.Size(593, 499)
-        Me.AxDynaPlot1.TabIndex = 4
+        'Me.AxDynaPlot1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        '            Or System.Windows.Forms.AnchorStyles.Left) _
+        '            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        'Me.AxDynaPlot1.Location = New System.Drawing.Point(340, 33)
+        'Me.AxDynaPlot1.Name = "AxDynaPlot1"
+        'Me.AxDynaPlot1.OcxState = CType(resources.GetObject("AxDynaPlot1.OcxState"), System.Windows.Forms.AxHost.State)
+        'Me.AxDynaPlot1.Size = New System.Drawing.Size(593, 499)
+        'Me.AxDynaPlot1.TabIndex = 4
         '
         'sbMainStatus
         '
@@ -746,7 +746,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.gbSample)
         Me.Controls.Add(Me.mbMainMenus)
         Me.Controls.Add(Me.gbScanCondition)
-        Me.Controls.Add(Me.AxDynaPlot1)
+        'Me.Controls.Add(Me.AxDynaPlot1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.mbMainMenus
         Me.Name = "frmMain"
@@ -759,7 +759,7 @@ Partial Class frmMain
         Me.mnuTable.ResumeLayout(False)
         Me.gbScanCondition.ResumeLayout(False)
         Me.gbScanCondition.PerformLayout()
-        CType(Me.AxDynaPlot1, System.ComponentModel.ISupportInitialize).EndInit()
+        'CType(Me.AxDynaPlot1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.sbMainStatus.ResumeLayout(False)
         Me.sbMainStatus.PerformLayout()
         Me.gbMeasurement.ResumeLayout(False)
@@ -803,7 +803,7 @@ Partial Class frmMain
     Friend WithEvents MMC2ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents txtMMCAddress As System.Windows.Forms.ToolStripTextBox
     Friend WithEvents gbSample As System.Windows.Forms.GroupBox
-    Friend WithEvents AxDynaPlot1 As AxDYNAPLOT3Lib.AxDynaPlot
+    'Friend WithEvents AxDynaPlot1 As AxDYNAPLOT3Lib.AxDynaPlot
     Friend WithEvents sbMainStatus As System.Windows.Forms.StatusStrip
     Friend WithEvents lblMainStatus As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel

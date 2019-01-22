@@ -10,10 +10,10 @@ Public Class frmMain
     Const StepFactor = 0.013325 'Deg/Step
 
     'Dynaplot objects
-    Dim ReferenceCurve As DYNAPLOT3Lib.Curve
-    Dim TreatmentCurve() As DYNAPLOT3Lib.Curve
-    Dim TreatmentMinMarker As DYNAPLOT3Lib.Marker
-    Dim ReferenceMinMarker As DYNAPLOT3Lib.Marker
+    'Dim ReferenceCurve As DYNAPLOT3Lib.Curve
+    'Dim TreatmentCurve() As DYNAPLOT3Lib.Curve
+    'Dim TreatmentMinMarker As DYNAPLOT3Lib.Marker
+    'Dim ReferenceMinMarker As DYNAPLOT3Lib.Marker
 
     'SCANING & Data
     Dim TheData As BaseDataControl
@@ -307,7 +307,7 @@ Public Class frmMain
             PlotSelectedTRTMarker()
 
             'auto scale
-            AxDynaPlot1.Axes.Autoscale()
+            'AxDynaPlot1.Axes.Autoscale()
 
             '--------------------------------------------
             'MAIN READING LOOP (^0^)
@@ -373,7 +373,7 @@ Public Class frmMain
                 PlotSelectedTRTMarker()
 
                 'auto scale
-                AxDynaPlot1.Axes.Autoscale()
+                'AxDynaPlot1.Axes.Autoscale()
 
                 'check stop condition!!!
                 If ThetaA < ThetaB Then
@@ -529,20 +529,20 @@ Public Class frmMain
             Dim x(0) As Double
             Dim y(0) As Double
 
-            AxDynaPlot1.DataCurves.RemoveAll()
-            AxDynaPlot1.Markers.RemoveAll()
+            'AxDynaPlot1.DataCurves.RemoveAll()
+            'AxDynaPlot1.Markers.RemoveAll()
 
-            ReferenceCurve = AxDynaPlot1.DataCurves.Add("REF", x, y, 0, False).Curve
-            ReferenceCurve.Penstyle.MaxWidth = 2
-            ReferenceCurve.Penstyle.Color = RGB(255, 0, 0)
-            ReferenceMinMarker = AxDynaPlot1.Markers.Add(0.0, 0.0, 0, DYNAPLOT3Lib.dpsMARKERTYPE.dpsMARKER_CIRCLE)
+            'ReferenceCurve = AxDynaPlot1.DataCurves.Add("REF", x, y, 0, False).Curve
+            'ReferenceCurve.Penstyle.MaxWidth = 2
+            'ReferenceCurve.Penstyle.Color = RGB(255, 0, 0)
+            'ReferenceMinMarker = AxDynaPlot1.Markers.Add(0.0, 0.0, 0, DYNAPLOT3Lib.dpsMARKERTYPE.dpsMARKER_CIRCLE)
 
             For i As Integer = 0 To NumberOfRepeatation - 1
-                TreatmentCurve(i) = AxDynaPlot1.DataCurves.Add("TRT" & i.ToString, x, y, 0, False).Curve
-                TreatmentCurve(i).Penstyle.MaxWidth = 2
-                TreatmentCurve(i).Penstyle.Color = RGB(0, 0, 255)
+                'TreatmentCurve(i) = AxDynaPlot1.DataCurves.Add("TRT" & i.ToString, x, y, 0, False).Curve
+                'TreatmentCurve(i).Penstyle.MaxWidth = 2
+                'TreatmentCurve(i).Penstyle.Color = RGB(0, 0, 255)
             Next
-            TreatmentMinMarker = AxDynaPlot1.Markers.Add(0.0, 0.0, 0, DYNAPLOT3Lib.dpsMARKERTYPE.dpsMARKER_SQUARE)
+            'TreatmentMinMarker = AxDynaPlot1.Markers.Add(0.0, 0.0, 0, DYNAPLOT3Lib.dpsMARKERTYPE.dpsMARKER_SQUARE)
         Catch ex As Exception
             Err.Clear()
         End Try
@@ -553,10 +553,10 @@ Public Class frmMain
         Try
             If lvSummary.Items(0).Checked = True Then
                 If TheData.Reference.X IsNot Nothing Then
-                    ReferenceCurve.UpdateData(TheData.Reference.X, TheData.Reference.Y, TheData.Reference.X.Length)
-                    ReferenceCurve.Penstyle.Color = RGB(ReferenceColor.R, ReferenceColor.G, ReferenceColor.B)
-                    ReferenceMinMarker.PositionX = TheData.Reference.Xm
-                    ReferenceMinMarker.PositionY = TheData.Reference.Ym
+                    'ReferenceCurve.UpdateData(TheData.Reference.X, TheData.Reference.Y, TheData.Reference.X.Length)
+                    'ReferenceCurve.Penstyle.Color = RGB(ReferenceColor.R, ReferenceColor.G, ReferenceColor.B)
+                    'ReferenceMinMarker.PositionX = TheData.Reference.Xm
+                    'ReferenceMinMarker.PositionY = TheData.Reference.Ym
                     lblNullPoint.Text = TheData.Reference.Xm.ToString("0.0000") & " deg"
                     e = True
                 End If
@@ -573,13 +573,13 @@ Public Class frmMain
         For i As Integer = 0 To NumberOfRepeatation - 1
             Try
                 If lvSummary.Items(i + 1).Checked Then
-                    TreatmentCurve(i).UpdateData(TheData.Data(i).X, _
-                                              TheData.Data(i).Y, _
-                                              TheData.Data(i).X.Length)
-                    TreatmentCurve(i).Penstyle.Color = RGB( _
-                        ColorTable(i Mod ColorTable.Length).R, _
-                        ColorTable(i Mod ColorTable.Length).G, _
-                        ColorTable(i Mod ColorTable.Length).B)
+                    'TreatmentCurve(i).UpdateData(TheData.Data(i).X, _
+                    '                          TheData.Data(i).Y, _
+                    '                          TheData.Data(i).X.Length)
+                    'TreatmentCurve(i).Penstyle.Color = RGB( _
+                    '    ColorTable(i Mod ColorTable.Length).R, _
+                    '    ColorTable(i Mod ColorTable.Length).G, _
+                    '    ColorTable(i Mod ColorTable.Length).B)
                 End If
             Catch ex As Exception
                 Err.Clear()
@@ -591,8 +591,8 @@ Public Class frmMain
     Private Sub PlotSelectedTRTMarker()
         Try
             If lvSummary.Items(SelectedIndex).Checked Then
-                TreatmentMinMarker.PositionX = TheData.Data(SelectedIndex - 1).Xm
-                TreatmentMinMarker.PositionY = TheData.Data(SelectedIndex - 1).Ym
+                'TreatmentMinMarker.PositionX = TheData.Data(SelectedIndex - 1).Xm
+                'TreatmentMinMarker.PositionY = TheData.Data(SelectedIndex - 1).Ym
                 lblNullPoint.Text = TheData.Data(SelectedIndex - 1).Xm.ToString("0.0000") & " deg"
             End If
         Catch ex As Exception
@@ -659,7 +659,7 @@ Public Class frmMain
                 Next
 
                 'clear treatment curve
-                ReDim TreatmentCurve(0 To NumberOfRepeatation - 1)
+                'ReDim TreatmentCurve(0 To NumberOfRepeatation - 1)
 
                 gbMeasurement.Enabled = True
                 btnNewMeas.Enabled = True
@@ -877,7 +877,7 @@ Public Class frmMain
             If redlg <> Windows.Forms.DialogResult.OK Then Exit Sub
             Dim path As String = dlg.FileName
 
-            AxDynaPlot1.ToFile(path)
+            'AxDynaPlot1.ToFile(path)
 
         Catch ex As Exception
             MsgBox(ex.Message)

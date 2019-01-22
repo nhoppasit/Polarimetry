@@ -20,7 +20,7 @@
     <ManifestCertificateThumbprint>22EFD79525E7B992CEB9114FC06F52BF24365591</ManifestCertificateThumbprint>
     <ManifestKeyFile>Polarimeter_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ApplicationIcon>djvu040ch.ico</ApplicationIcon>
     <FileUpgradeFlags>
@@ -154,7 +154,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="Polarimeter_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxDYNAPLOT3Lib">
