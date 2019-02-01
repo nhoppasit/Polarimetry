@@ -39,7 +39,7 @@ namespace Exam_1
                 lvi.SubItems.Add(dlg.NickName);
                 lvi.SubItems.Add(dlg.Age.ToString());
                 lvi.SubItems.Add(dlg.Gender.ToString());
-                lvi.SubItems.Add(dlg.Gender.ToString());
+                lvi.SubItems.Add(dlg.Province);
                 //lvi.SubItems.Add(dlg.Other);
 
 
