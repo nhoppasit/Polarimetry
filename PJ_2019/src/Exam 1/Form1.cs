@@ -23,6 +23,7 @@ namespace Exam_1
             lsvData.Columns.Add("NickName", 100);
             lsvData.Columns.Add("Age", 40);
             lsvData.Columns.Add("Gender", 70);
+            lsvData.Columns.Add("Province", 70);
             
         }
 
