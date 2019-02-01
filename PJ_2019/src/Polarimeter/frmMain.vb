@@ -917,4 +917,7 @@ Public Class frmMain
         End If
     End Sub
 
+    Private Sub lvSummary_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvSummary.SelectedIndexChanged
+
+    End Sub
 End Class

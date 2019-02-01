@@ -118,7 +118,7 @@ Partial Class frmMain
         Me.mbMainMenus.Location = New System.Drawing.Point(0, 0)
         Me.mbMainMenus.Name = "mbMainMenus"
         Me.mbMainMenus.Padding = New System.Windows.Forms.Padding(12, 4, 0, 4)
-        Me.mbMainMenus.Size = New System.Drawing.Size(1890, 44)
+        Me.mbMainMenus.Size = New System.Drawing.Size(1774, 44)
         Me.mbMainMenus.TabIndex = 0
         Me.mbMainMenus.Text = "MenuStrip1"
         '
@@ -266,33 +266,33 @@ Partial Class frmMain
         '
         Me.mnuMeasureStart.Name = "mnuMeasureStart"
         Me.mnuMeasureStart.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.mnuMeasureStart.Size = New System.Drawing.Size(324, 38)
+        Me.mnuMeasureStart.Size = New System.Drawing.Size(295, 38)
         Me.mnuMeasureStart.Text = "Start"
         '
         'mnuMeasureStop
         '
         Me.mnuMeasureStop.Name = "mnuMeasureStop"
         Me.mnuMeasureStop.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.T), System.Windows.Forms.Keys)
-        Me.mnuMeasureStop.Size = New System.Drawing.Size(324, 38)
+        Me.mnuMeasureStop.Size = New System.Drawing.Size(295, 38)
         Me.mnuMeasureStop.Text = "Stop"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(321, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(292, 6)
         '
         'mnuMeasurePause
         '
         Me.mnuMeasurePause.Name = "mnuMeasurePause"
         Me.mnuMeasurePause.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.mnuMeasurePause.Size = New System.Drawing.Size(324, 38)
+        Me.mnuMeasurePause.Size = New System.Drawing.Size(295, 38)
         Me.mnuMeasurePause.Text = "Pause"
         '
         'mnuMeasureContinue
         '
         Me.mnuMeasureContinue.Name = "mnuMeasureContinue"
         Me.mnuMeasureContinue.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.mnuMeasureContinue.Size = New System.Drawing.Size(324, 38)
+        Me.mnuMeasureContinue.Size = New System.Drawing.Size(295, 38)
         Me.mnuMeasureContinue.Text = "Continue"
         '
         'mnuOptions
@@ -357,13 +357,12 @@ Partial Class frmMain
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(324, 38)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(277, 38)
         Me.AboutToolStripMenuItem.Text = "About program"
         '
         'gbSample
         '
-        Me.gbSample.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.gbSample.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.gbSample.Controls.Add(Me.numRepeatNumber)
         Me.gbSample.Controls.Add(Me.Label9)
         Me.gbSample.Controls.Add(Me.txtSampleName)
@@ -371,18 +370,19 @@ Partial Class frmMain
         Me.gbSample.Controls.Add(Me.lvSummary)
         Me.gbSample.Enabled = False
         Me.gbSample.Location = New System.Drawing.Point(24, 183)
-        Me.gbSample.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.gbSample.Margin = New System.Windows.Forms.Padding(6)
         Me.gbSample.Name = "gbSample"
-        Me.gbSample.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
-        Me.gbSample.Size = New System.Drawing.Size(644, 465)
+        Me.gbSample.Padding = New System.Windows.Forms.Padding(6)
+        Me.gbSample.Size = New System.Drawing.Size(644, 306)
         Me.gbSample.TabIndex = 1
         Me.gbSample.TabStop = False
         Me.gbSample.Text = "Samples"
         '
         'numRepeatNumber
         '
+        Me.numRepeatNumber.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.numRepeatNumber.Location = New System.Drawing.Point(200, 102)
-        Me.numRepeatNumber.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.numRepeatNumber.Margin = New System.Windows.Forms.Padding(6)
         Me.numRepeatNumber.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.numRepeatNumber.Name = "numRepeatNumber"
         Me.numRepeatNumber.Size = New System.Drawing.Size(152, 31)
@@ -402,8 +402,9 @@ Partial Class frmMain
         '
         'txtSampleName
         '
+        Me.txtSampleName.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtSampleName.Location = New System.Drawing.Point(200, 52)
-        Me.txtSampleName.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.txtSampleName.Margin = New System.Windows.Forms.Padding(6)
         Me.txtSampleName.Name = "txtSampleName"
         Me.txtSampleName.Size = New System.Drawing.Size(422, 31)
         Me.txtSampleName.TabIndex = 0
@@ -420,17 +421,15 @@ Partial Class frmMain
         '
         'lvSummary
         '
-        Me.lvSummary.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lvSummary.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lvSummary.CheckBoxes = True
         Me.lvSummary.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader4, Me.ColumnHeader2})
         Me.lvSummary.FullRowSelect = True
         Me.lvSummary.GridLines = True
         Me.lvSummary.Location = New System.Drawing.Point(12, 156)
-        Me.lvSummary.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.lvSummary.Margin = New System.Windows.Forms.Padding(6)
         Me.lvSummary.Name = "lvSummary"
-        Me.lvSummary.Size = New System.Drawing.Size(616, 294)
+        Me.lvSummary.Size = New System.Drawing.Size(616, 135)
         Me.lvSummary.TabIndex = 2
         Me.lvSummary.UseCompatibleStateImageBehavior = False
         Me.lvSummary.View = System.Windows.Forms.View.Details
@@ -483,10 +482,10 @@ Partial Class frmMain
         Me.gbScanCondition.Controls.Add(Me.Label1)
         Me.gbScanCondition.Controls.Add(Me.Label2)
         Me.gbScanCondition.Enabled = False
-        Me.gbScanCondition.Location = New System.Drawing.Point(24, 660)
-        Me.gbScanCondition.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.gbScanCondition.Location = New System.Drawing.Point(24, 501)
+        Me.gbScanCondition.Margin = New System.Windows.Forms.Padding(6)
         Me.gbScanCondition.Name = "gbScanCondition"
-        Me.gbScanCondition.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.gbScanCondition.Padding = New System.Windows.Forms.Padding(6)
         Me.gbScanCondition.Size = New System.Drawing.Size(644, 206)
         Me.gbScanCondition.TabIndex = 2
         Me.gbScanCondition.TabStop = False
@@ -495,7 +494,7 @@ Partial Class frmMain
         'btnINIT
         '
         Me.btnINIT.Location = New System.Drawing.Point(466, 38)
-        Me.btnINIT.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.btnINIT.Margin = New System.Windows.Forms.Padding(6)
         Me.btnINIT.Name = "btnINIT"
         Me.btnINIT.Size = New System.Drawing.Size(160, 83)
         Me.btnINIT.TabIndex = 3
@@ -506,7 +505,7 @@ Partial Class frmMain
         '
         Me.txtStop.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtStop.Location = New System.Drawing.Point(152, 90)
-        Me.txtStop.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.txtStop.Margin = New System.Windows.Forms.Padding(6)
         Me.txtStop.Name = "txtStop"
         Me.txtStop.Size = New System.Drawing.Size(234, 31)
         Me.txtStop.TabIndex = 1
@@ -539,7 +538,7 @@ Partial Class frmMain
         '
         Me.txtStart.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtStart.Location = New System.Drawing.Point(152, 40)
-        Me.txtStart.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.txtStart.Margin = New System.Windows.Forms.Padding(6)
         Me.txtStart.Name = "txtStart"
         Me.txtStart.Size = New System.Drawing.Size(234, 31)
         Me.txtStart.TabIndex = 0
@@ -572,7 +571,7 @@ Partial Class frmMain
         '
         Me.txtResolution.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtResolution.Location = New System.Drawing.Point(152, 140)
-        Me.txtResolution.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.txtResolution.Margin = New System.Windows.Forms.Padding(6)
         Me.txtResolution.Name = "txtResolution"
         Me.txtResolution.Size = New System.Drawing.Size(234, 31)
         Me.txtResolution.TabIndex = 2
@@ -607,7 +606,7 @@ Partial Class frmMain
         Me.btnPause.BackColor = System.Drawing.Color.Gold
         Me.btnPause.Enabled = False
         Me.btnPause.Location = New System.Drawing.Point(432, 29)
-        Me.btnPause.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.btnPause.Margin = New System.Windows.Forms.Padding(6)
         Me.btnPause.Name = "btnPause"
         Me.btnPause.Size = New System.Drawing.Size(200, 106)
         Me.btnPause.TabIndex = 2
@@ -620,7 +619,7 @@ Partial Class frmMain
         Me.btnStop.BackColor = System.Drawing.Color.Red
         Me.btnStop.Enabled = False
         Me.btnStop.Location = New System.Drawing.Point(224, 29)
-        Me.btnStop.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.btnStop.Margin = New System.Windows.Forms.Padding(6)
         Me.btnStop.Name = "btnStop"
         Me.btnStop.Size = New System.Drawing.Size(200, 106)
         Me.btnStop.TabIndex = 1
@@ -632,7 +631,7 @@ Partial Class frmMain
         Me.btnStart.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnStart.BackColor = System.Drawing.Color.Green
         Me.btnStart.Location = New System.Drawing.Point(12, 29)
-        Me.btnStart.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.btnStart.Margin = New System.Windows.Forms.Padding(6)
         Me.btnStart.Name = "btnStart"
         Me.btnStart.Size = New System.Drawing.Size(200, 106)
         Me.btnStart.TabIndex = 0
@@ -643,10 +642,10 @@ Partial Class frmMain
         '
         Me.sbMainStatus.ImageScalingSize = New System.Drawing.Size(32, 32)
         Me.sbMainStatus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblMainStatus, Me.ToolStripStatusLabel1, Me.lblSample, Me.ToolStripStatusLabel7, Me.lblNullPoint, Me.ToolStripStatusLabel2, Me.lblDMM, Me.ToolStripStatusLabel4, Me.lblMMC})
-        Me.sbMainStatus.Location = New System.Drawing.Point(0, 1047)
+        Me.sbMainStatus.Location = New System.Drawing.Point(0, 888)
         Me.sbMainStatus.Name = "sbMainStatus"
         Me.sbMainStatus.Padding = New System.Windows.Forms.Padding(2, 0, 28, 0)
-        Me.sbMainStatus.Size = New System.Drawing.Size(1890, 41)
+        Me.sbMainStatus.Size = New System.Drawing.Size(1774, 41)
         Me.sbMainStatus.TabIndex = 26
         Me.sbMainStatus.Text = "StatusStrip1"
         '
@@ -721,10 +720,10 @@ Partial Class frmMain
         Me.gbMeasurement.Controls.Add(Me.btnStart)
         Me.gbMeasurement.Controls.Add(Me.btnStop)
         Me.gbMeasurement.Enabled = False
-        Me.gbMeasurement.Location = New System.Drawing.Point(24, 877)
-        Me.gbMeasurement.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.gbMeasurement.Location = New System.Drawing.Point(24, 718)
+        Me.gbMeasurement.Margin = New System.Windows.Forms.Padding(6)
         Me.gbMeasurement.Name = "gbMeasurement"
-        Me.gbMeasurement.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.gbMeasurement.Padding = New System.Windows.Forms.Padding(6)
         Me.gbMeasurement.Size = New System.Drawing.Size(644, 146)
         Me.gbMeasurement.TabIndex = 3
         Me.gbMeasurement.TabStop = False
@@ -732,8 +731,9 @@ Partial Class frmMain
         '
         'btnNewMeas
         '
+        Me.btnNewMeas.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnNewMeas.Location = New System.Drawing.Point(38, 73)
-        Me.btnNewMeas.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.btnNewMeas.Margin = New System.Windows.Forms.Padding(6)
         Me.btnNewMeas.Name = "btnNewMeas"
         Me.btnNewMeas.Size = New System.Drawing.Size(256, 81)
         Me.btnNewMeas.TabIndex = 0
@@ -742,6 +742,7 @@ Partial Class frmMain
         '
         'Label8
         '
+        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
         Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label8.Location = New System.Drawing.Point(338, 56)
@@ -756,7 +757,7 @@ Partial Class frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1890, 1088)
+        Me.ClientSize = New System.Drawing.Size(1774, 929)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.btnNewMeas)
         Me.Controls.Add(Me.gbMeasurement)
@@ -766,8 +767,10 @@ Partial Class frmMain
         Me.Controls.Add(Me.gbScanCondition)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.mbMainMenus
-        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Margin = New System.Windows.Forms.Padding(6)
+        Me.MinimizeBox = False
         Me.Name = "frmMain"
+        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.Text = "Polarimeter"
         Me.mbMainMenus.ResumeLayout(False)
         Me.mbMainMenus.PerformLayout()
