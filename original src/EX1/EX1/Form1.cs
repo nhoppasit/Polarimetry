@@ -12,8 +12,6 @@ namespace EX1
 {
     public partial class Form1 : Form
     {
-        private DialogResult ret;
-
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +32,7 @@ namespace EX1
         {
             dlgAdd dlg = new dlgAdd();
             DialogResult result = dlg.ShowDialog();
-            if (ret == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 ListViewItem lvi = new ListViewItem(dlg.ID);
                 lvi.SubItems.Add(dlg.FirstName);
