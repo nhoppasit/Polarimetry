@@ -67,7 +67,11 @@ namespace Exam_1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-           lsvData.Clear();         
+            try {
+                lsvData.Items.Remove(lsvData.SelectedItems[0]);
+
+            }
+            catch { }
         }
     }
 }

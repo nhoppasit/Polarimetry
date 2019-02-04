@@ -39,6 +39,8 @@
             this.lsvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lsvData.FullRowSelect = true;
+            this.lsvData.GridLines = true;
             this.lsvData.Location = new System.Drawing.Point(12, 12);
             this.lsvData.Name = "lsvData";
             this.lsvData.Size = new System.Drawing.Size(1290, 662);
