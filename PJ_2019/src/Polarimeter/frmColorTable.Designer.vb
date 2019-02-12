@@ -42,26 +42,27 @@ Partial Class frmColorTable
         Dim ListViewItem18 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("18")
         Dim ListViewItem19 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("19")
         Dim ListViewItem20 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("20")
-        Me.lvColorTable = New System.Windows.Forms.ListView
-        Me.ColumnHeader1 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader2 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader3 = New System.Windows.Forms.ColumnHeader
-        Me.btnClose = New System.Windows.Forms.Button
+        Me.lvColorTable = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lvColorTable
         '
         Me.lvColorTable.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lvColorTable.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
         Me.lvColorTable.FullRowSelect = True
         Me.lvColorTable.GridLines = True
         ListViewItem1.UseItemStyleForSubItems = False
         Me.lvColorTable.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3, ListViewItem4, ListViewItem5, ListViewItem6, ListViewItem7, ListViewItem8, ListViewItem9, ListViewItem10, ListViewItem11, ListViewItem12, ListViewItem13, ListViewItem14, ListViewItem15, ListViewItem16, ListViewItem17, ListViewItem18, ListViewItem19, ListViewItem20})
-        Me.lvColorTable.Location = New System.Drawing.Point(12, 12)
+        Me.lvColorTable.Location = New System.Drawing.Point(16, 15)
+        Me.lvColorTable.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lvColorTable.Name = "lvColorTable"
-        Me.lvColorTable.Size = New System.Drawing.Size(269, 221)
+        Me.lvColorTable.Size = New System.Drawing.Size(357, 271)
         Me.lvColorTable.TabIndex = 0
         Me.lvColorTable.UseCompatibleStateImageBehavior = False
         Me.lvColorTable.View = System.Windows.Forms.View.Details
@@ -83,21 +84,23 @@ Partial Class frmColorTable
         'btnClose
         '
         Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClose.Location = New System.Drawing.Point(195, 247)
+        Me.btnClose.Location = New System.Drawing.Point(260, 304)
+        Me.btnClose.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(86, 30)
+        Me.btnClose.Size = New System.Drawing.Size(115, 37)
         Me.btnClose.TabIndex = 1
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
         '
         'frmColorTable
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(293, 289)
+        Me.ClientSize = New System.Drawing.Size(391, 356)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.lvColorTable)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmColorTable"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Color Table"

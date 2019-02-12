@@ -136,6 +136,9 @@ Public Class Form1
 
         ' Add new data point to its series.
         ptSeries.Points.AddXY(timeStamp.ToOADate(), rand.Next(10, 20))
+        ' ptSeries.Points.AddXY(timeStamp.Ticks / 10000000000000000, rand.Next(10, 20))
+
+
 
         ' remove all points from the source series older than 1.5 minutes.
         Dim removeBefore As Double = timeStamp.AddSeconds((CDbl(2) * -1)).ToOADate()

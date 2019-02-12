@@ -10,3 +10,15 @@ D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\obj\x86\Debug\GenerateResou
 D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\obj\x86\Debug\realtime_plot1.exe
 D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\obj\x86\Debug\realtime_plot1.xml
 D:\VB\Plot_example\realtime_plot Rev2\realtime_plot1\obj\x86\Debug\realtime_plot1.pdb
+D:\Polarimeter\Visual Studio Samples\MS CHART\Plot_example\realtime_plot Rev2 improve ok\realtime_plot1\bin\Debug\realtime_plot1.exe.config
+D:\Polarimeter\Visual Studio Samples\MS CHART\Plot_example\realtime_plot Rev2 improve ok\realtime_plot1\bin\Debug\realtime_plot1.exe
+D:\Polarimeter\Visual Studio Samples\MS CHART\Plot_example\realtime_plot Rev2 improve ok\realtime_plot1\bin\Debug\realtime_plot1.pdb
+D:\Polarimeter\Visual Studio Samples\MS CHART\Plot_example\realtime_plot Rev2 improve ok\realtime_plot1\bin\Debug\realtime_plot1.xml
+D:\Polarimeter\Visual Studio Samples\MS CHART\Plot_example\realtime_plot Rev2 improve ok\realtime_plot1\obj\x86\Debug\realtime_plot1.vbprojAssemblyReference.cache
+D:\Polarimeter\Visual Studio Samples\MS CHART\Plot_example\realtime_plot Rev2 improve ok\realtime_plot1\obj\x86\Debug\realtime_plot1.Form1.resources
+D:\Polarimeter\Visual Studio Samples\MS CHART\Plot_example\realtime_plot Rev2 improve ok\realtime_plot1\obj\x86\Debug\realtime_plot1.Resources.resources
+D:\Polarimeter\Visual Studio Samples\MS CHART\Plot_example\realtime_plot Rev2 improve ok\realtime_plot1\obj\x86\Debug\realtime_plot1.vbproj.GenerateResource.cache
+D:\Polarimeter\Visual Studio Samples\MS CHART\Plot_example\realtime_plot Rev2 improve ok\realtime_plot1\obj\x86\Debug\realtime_plot1.vbproj.CoreCompileInputs.cache
+D:\Polarimeter\Visual Studio Samples\MS CHART\Plot_example\realtime_plot Rev2 improve ok\realtime_plot1\obj\x86\Debug\realtime_plot1.exe
+D:\Polarimeter\Visual Studio Samples\MS CHART\Plot_example\realtime_plot Rev2 improve ok\realtime_plot1\obj\x86\Debug\realtime_plot1.xml
+D:\Polarimeter\Visual Studio Samples\MS CHART\Plot_example\realtime_plot Rev2 improve ok\realtime_plot1\obj\x86\Debug\realtime_plot1.pdb
