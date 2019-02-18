@@ -64,6 +64,9 @@
     <Compile Include="frmNewMeasurement.Designer.cs">
       <DependentUpon>frmNewMeasurement.cs</DependentUpon>
     </Compile>
+    <Compile Include="My.cs" />
+    <Compile Include="My1.cs" />
+    <Compile Include="My\MySettingsProperty.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmColorTable.resx">
@@ -100,6 +103,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo_kmitl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VisaComLib">
+      <Guid>{DB8CBF00-D6D3-11D4-AA51-00A024EE30BD}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

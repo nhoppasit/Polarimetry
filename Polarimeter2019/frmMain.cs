@@ -17,7 +17,75 @@ namespace Polarimeter2019
             InitializeComponent();
         }
 
-        public static object ReferenceColor { get; internal set; }
+        class SurroundingClass
+        {
+            private Ivi.Visa.Interop.IFormattedIO488 DMM;
+            private Ivi.Visa.Interop.IFormattedIO488 MMC;
+
+            private void DisconnectDevices()
+            {
+                try
+                {
+                    DMM.IO.Close();
+                    DMM.IO = null;
+                    MMC.IO.Close();
+                    MMC.IO = null;
+                }
+                catch (Exception ex)
+                {
+                    Interaction.MsgBox("IO Error: " + ex.Message, MsgBoxStyle.Critical);
+                    lblDMM.Text = "Disconnected";
+                    lblDMM.BackColor = Color.Red;
+                    lblMMC.Text = "Disconncected";
+                    lblMMC.BackColor = Color.Red;
+                }
+            }
+            private void ConnectedDevices()
+            {
+                try
+                {
+                    //CONNECT DMM
+                    Ivi.Visa.Interop.ResourceManager mgr1;
+                    string DMMAddress;
+                    DMMAddress = txtDMMAddress.Text;
+                    mgr1 = new Ivi.Visa.Interop.ResourceManager();
+                    DMM = new Ivi.Visa.Interop.FormattedIO488();
+                    DMM.IO() = mgr1.Open(DMMAddress);
+                    DMM.IO.Timeout = 7000;
+                    DMM.WriteString("CONF:VOLT:DC " + txtVoltageRange.Text + ", " + txtVoltageResolution.Text);
+                    DMM.WriteString("TRIG:SOUR TMM");
+                    DMM.WriteString("TRIG:DEL 1.5E-3");
+                    DMM.WriteString("TRIG:COUNT 1");
+                    DMM.WriteString("SAMP:COUNT 1");
+
+                    //CONNECT MMC
+                    Ivi.Visa.Interop.ResourceManager mgr2;
+                    string MMCAddress;
+                    MMCAddress = txtMMCAddress.Text;
+                    mgr2 = new Ivi.Visa.Interop.ResourceManager();
+                    MMC = new Ivi.Visa.Interop.FormattedIO488();
+                    MMC.IO() = mgr2.Open(MMCAddress);
+                    MMC.IO.Timeout = 7000;
+
+                    // MsgBox("Connect devices are successful.")
+                    lblDMM.Text = "Connected";
+                    lblDMM.BackColor = Color.Lime;
+                    lblMMC.Text = "Conncected";
+                    lblMMC.BackColor = Color.Lime;
+                }
+                catch(Exception ex)
+                {
+                    Interaction.MsgBox("InitIO Error:" + Constants.vbCrLf + ex.Message);
+                    lblDMM.Text = "Disconnected";
+                    lblDMM.BackColor = Color.Red;
+                    lblMMC.Text = "Disconncected";
+                    lblMMC.BackColor = Color.Red;
+                }
+            }
+        }
+        
+
+            public static object ReferenceColor { get; internal set; }
 
         private void btnNew_Click(object sender, EventArgs e)
         {

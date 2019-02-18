@@ -13,27 +13,14 @@ namespace Polarimeter2019
     public partial class frmNewMeasurement : Form
     {
         private string mSampleName;
-        private int mAverageNumber;
-        private int mNumberOfRepeatation;
+        int mAverageNumber;
+        int mNumberOfRepeatation;
 
-        public string SampleName { get { return txtSampleName.Text; } }
-        public int RepeatNumber
-        {
-            get
-            {
-                return mAverageNumber;
-            }
-        }
+        public string SampleName { get { return txtSampleNamee.Text; } }
+        public decimal RepeatNumber { get { return numAverageNumber.Value; } }
+        public decimal NumberOfRepeatation { get { return numRepeatation.Value; } }
 
-        public int NumberOfRepeatation
-        {
-            get
-            {
-                return mNumberOfRepeatation;
-            }
-        }
-
-        public frmNewMeasurement()
+            public frmNewMeasurement()
         {
             InitializeComponent();
         }
@@ -41,8 +28,6 @@ namespace Polarimeter2019
         private void btnOK_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
-            mAverageNumber = numAverageNumber.Value;
-            mNumberOfRepeatation = numRepeatation.Value;
             this.Close();
         }
 
@@ -53,7 +38,7 @@ namespace Polarimeter2019
 
         public bool Verify()
         {
-            if (txtSampleName.Text == "")
+            if (txtSampleNamee.Text == "")
                 return false;
             else
                 return true;

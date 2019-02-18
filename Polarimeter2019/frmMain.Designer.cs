@@ -47,8 +47,8 @@
             this.dMM34401AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mMC2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.clearErrorOfDMM34401AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetDMM34401AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDevicesClearDMM = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDevicesResetDMM = new System.Windows.Forms.ToolStripMenuItem();
             this.mesurementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,23 +89,27 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.sbMainStatus = new System.Windows.Forms.StatusStrip();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblMainStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblSample = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ToolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblNullPoint = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ToolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblDMM = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ToolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblMMC = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.IbISample = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.IbINullPoint = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.IbIDMM = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.IbIMMC = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtDMMAddress = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtMMCAddress = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtVoltageRange = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtVoltageResolution = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.sbMainStatus.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNew
@@ -202,8 +206,8 @@
             this.dMM34401AToolStripMenuItem,
             this.mMC2ToolStripMenuItem,
             this.toolStripSeparator6,
-            this.clearErrorOfDMM34401AToolStripMenuItem,
-            this.resetDMM34401AToolStripMenuItem});
+            this.mnuDevicesClearDMM,
+            this.mnuDevicesResetDMM});
             this.driverToolStripMenuItem.Name = "driverToolStripMenuItem";
             this.driverToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.driverToolStripMenuItem.Text = "Devices";
@@ -227,12 +231,16 @@
             // 
             // dMM34401AToolStripMenuItem
             // 
+            this.dMM34401AToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.txtDMMAddress});
             this.dMM34401AToolStripMenuItem.Name = "dMM34401AToolStripMenuItem";
             this.dMM34401AToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.dMM34401AToolStripMenuItem.Text = "DMM 34401A";
             // 
             // mMC2ToolStripMenuItem
             // 
+            this.mMC2ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.txtMMCAddress});
             this.mMC2ToolStripMenuItem.Name = "mMC2ToolStripMenuItem";
             this.mMC2ToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.mMC2ToolStripMenuItem.Text = "MMC - 2";
@@ -242,17 +250,17 @@
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(264, 6);
             // 
-            // clearErrorOfDMM34401AToolStripMenuItem
+            // mnuDevicesClearDMM
             // 
-            this.clearErrorOfDMM34401AToolStripMenuItem.Name = "clearErrorOfDMM34401AToolStripMenuItem";
-            this.clearErrorOfDMM34401AToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
-            this.clearErrorOfDMM34401AToolStripMenuItem.Text = "Clear Error of DMM 34401A";
+            this.mnuDevicesClearDMM.Name = "mnuDevicesClearDMM";
+            this.mnuDevicesClearDMM.Size = new System.Drawing.Size(267, 26);
+            this.mnuDevicesClearDMM.Text = "Clear Error of DMM 34401A";
             // 
-            // resetDMM34401AToolStripMenuItem
+            // mnuDevicesResetDMM
             // 
-            this.resetDMM34401AToolStripMenuItem.Name = "resetDMM34401AToolStripMenuItem";
-            this.resetDMM34401AToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
-            this.resetDMM34401AToolStripMenuItem.Text = "Reset DMM 34401A";
+            this.mnuDevicesResetDMM.Name = "mnuDevicesResetDMM";
+            this.mnuDevicesResetDMM.Size = new System.Drawing.Size(267, 26);
+            this.mnuDevicesResetDMM.Text = "Reset DMM 34401A";
             // 
             // mesurementToolStripMenuItem
             // 
@@ -329,14 +337,18 @@
             // 
             // rangeToolStripMenuItem
             // 
+            this.rangeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.txtVoltageRange});
             this.rangeToolStripMenuItem.Name = "rangeToolStripMenuItem";
-            this.rangeToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
+            this.rangeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.rangeToolStripMenuItem.Text = "Range";
             // 
             // resolutionToolStripMenuItem
             // 
+            this.resolutionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.txtVoltageResolution});
             this.resolutionToolStripMenuItem.Name = "resolutionToolStripMenuItem";
-            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
+            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.resolutionToolStripMenuItem.Text = "Resolution";
             // 
             // helpToolStripMenuItem
@@ -614,96 +626,111 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Start Measurement";
             // 
-            // sbMainStatus
+            // statusStrip1
             // 
-            this.sbMainStatus.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.sbMainStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblMainStatus,
-            this.ToolStripStatusLabel1,
-            this.lblSample,
-            this.ToolStripStatusLabel7,
-            this.lblNullPoint,
-            this.ToolStripStatusLabel2,
-            this.lblDMM,
-            this.ToolStripStatusLabel4,
-            this.lblMMC});
-            this.sbMainStatus.Location = new System.Drawing.Point(0, 819);
-            this.sbMainStatus.Name = "sbMainStatus";
-            this.sbMainStatus.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.sbMainStatus.Size = new System.Drawing.Size(1672, 29);
-            this.sbMainStatus.TabIndex = 27;
-            this.sbMainStatus.Text = "StatusStrip1";
+            this.toolStripStatusLabel1,
+            this.IbISample,
+            this.toolStripStatusLabel2,
+            this.IbINullPoint,
+            this.toolStripStatusLabel3,
+            this.IbIDMM,
+            this.toolStripStatusLabel5,
+            this.IbIMMC});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 823);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1672, 25);
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // lblMainStatus
             // 
             this.lblMainStatus.Name = "lblMainStatus";
-            this.lblMainStatus.Size = new System.Drawing.Size(50, 24);
+            this.lblMainStatus.Size = new System.Drawing.Size(50, 20);
             this.lblMainStatus.Text = "Ready";
             // 
-            // ToolStripStatusLabel1
+            // toolStripStatusLabel1
             // 
-            this.ToolStripStatusLabel1.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-            this.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
-            this.ToolStripStatusLabel1.Size = new System.Drawing.Size(66, 24);
-            this.ToolStripStatusLabel1.Text = "Sample:";
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(66, 20);
+            this.toolStripStatusLabel1.Text = "Sample :";
             // 
-            // lblSample
+            // IbISample
             // 
-            this.lblSample.Name = "lblSample";
-            this.lblSample.Size = new System.Drawing.Size(75, 24);
-            this.lblSample.Text = "Reference";
+            this.IbISample.Name = "IbISample";
+            this.IbISample.Size = new System.Drawing.Size(75, 20);
+            this.IbISample.Text = "Reference";
             // 
-            // ToolStripStatusLabel7
+            // toolStripStatusLabel2
             // 
-            this.ToolStripStatusLabel7.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-            this.ToolStripStatusLabel7.Name = "ToolStripStatusLabel7";
-            this.ToolStripStatusLabel7.Size = new System.Drawing.Size(80, 24);
-            this.ToolStripStatusLabel7.Text = "Null Point:";
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(86, 20);
+            this.toolStripStatusLabel2.Text = "Null point : ";
             // 
-            // lblNullPoint
+            // IbINullPoint
             // 
-            this.lblNullPoint.Name = "lblNullPoint";
-            this.lblNullPoint.Size = new System.Drawing.Size(18, 24);
-            this.lblNullPoint.Text = "...";
+            this.IbINullPoint.Name = "IbINullPoint";
+            this.IbINullPoint.Size = new System.Drawing.Size(18, 20);
+            this.IbINullPoint.Text = "...";
             // 
-            // ToolStripStatusLabel2
+            // toolStripStatusLabel3
             // 
-            this.ToolStripStatusLabel2.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-            this.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2";
-            this.ToolStripStatusLabel2.Size = new System.Drawing.Size(53, 24);
-            this.ToolStripStatusLabel2.Text = "DMM:";
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(53, 20);
+            this.toolStripStatusLabel3.Text = "DMM :";
             // 
-            // lblDMM
+            // IbIDMM
             // 
-            this.lblDMM.BackColor = System.Drawing.Color.Red;
-            this.lblDMM.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.lblDMM.Image = ((System.Drawing.Image)(resources.GetObject("lblDMM.Image")));
-            this.lblDMM.Name = "lblDMM";
-            this.lblDMM.Size = new System.Drawing.Size(99, 24);
-            this.lblDMM.Text = "Disconnected";
+            this.IbIDMM.BackColor = System.Drawing.Color.Red;
+            this.IbIDMM.Name = "IbIDMM";
+            this.IbIDMM.Size = new System.Drawing.Size(99, 20);
+            this.IbIDMM.Text = "Disconnected";
             // 
-            // ToolStripStatusLabel4
+            // toolStripStatusLabel5
             // 
-            this.ToolStripStatusLabel4.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-            this.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4";
-            this.ToolStripStatusLabel4.Size = new System.Drawing.Size(78, 24);
-            this.ToolStripStatusLabel4.Text = "MMMC-2:";
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(78, 20);
+            this.toolStripStatusLabel5.Text = "MMMC-2 :";
             // 
-            // lblMMC
+            // IbIMMC
             // 
-            this.lblMMC.BackColor = System.Drawing.Color.Red;
-            this.lblMMC.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.lblMMC.Image = ((System.Drawing.Image)(resources.GetObject("lblMMC.Image")));
-            this.lblMMC.Name = "lblMMC";
-            this.lblMMC.Size = new System.Drawing.Size(99, 24);
-            this.lblMMC.Text = "Disconnected";
+            this.IbIMMC.BackColor = System.Drawing.Color.Red;
+            this.IbIMMC.Name = "IbIMMC";
+            this.IbIMMC.Size = new System.Drawing.Size(99, 20);
+            this.IbIMMC.Text = "Disconnected";
+            // 
+            // txtDMMAddress
+            // 
+            this.txtDMMAddress.Name = "txtDMMAddress";
+            this.txtDMMAddress.Size = new System.Drawing.Size(216, 26);
+            this.txtDMMAddress.Text = "GPIB1::26::INSTR";
+            // 
+            // txtMMCAddress
+            // 
+            this.txtMMCAddress.Name = "txtMMCAddress";
+            this.txtMMCAddress.Size = new System.Drawing.Size(216, 26);
+            this.txtMMCAddress.Text = "GPIB1::7::INSTR";
+            // 
+            // txtVoltageRange
+            // 
+            this.txtVoltageRange.Name = "txtVoltageRange";
+            this.txtVoltageRange.Size = new System.Drawing.Size(216, 26);
+            this.txtVoltageRange.Text = "...";
+            // 
+            // txtVoltageResolution
+            // 
+            this.txtVoltageResolution.Name = "txtVoltageResolution";
+            this.txtVoltageResolution.Size = new System.Drawing.Size(216, 26);
+            this.txtVoltageResolution.Text = "...";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1672, 848);
-            this.Controls.Add(this.sbMainStatus);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -723,8 +750,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            this.sbMainStatus.ResumeLayout(false);
-            this.sbMainStatus.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -773,8 +800,8 @@
         private System.Windows.Forms.ToolStripMenuItem disconnectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dMM34401AToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mMC2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearErrorOfDMM34401AToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem resetDMM34401AToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuDevicesClearDMM;
+        private System.Windows.Forms.ToolStripMenuItem mnuDevicesResetDMM;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -792,16 +819,20 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.NumericUpDown numRepeatNumber;
-        internal System.Windows.Forms.StatusStrip sbMainStatus;
-        internal System.Windows.Forms.ToolStripStatusLabel lblMainStatus;
-        internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel1;
-        internal System.Windows.Forms.ToolStripStatusLabel lblSample;
-        internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel7;
-        internal System.Windows.Forms.ToolStripStatusLabel lblNullPoint;
-        internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel2;
-        internal System.Windows.Forms.ToolStripStatusLabel lblDMM;
-        internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel4;
-        internal System.Windows.Forms.ToolStripStatusLabel lblMMC;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblMainStatus;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel IbISample;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel IbINullPoint;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel IbIDMM;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel IbIMMC;
+        private System.Windows.Forms.ToolStripMenuItem txtDMMAddress;
+        private System.Windows.Forms.ToolStripMenuItem txtMMCAddress;
+        private System.Windows.Forms.ToolStripMenuItem txtVoltageRange;
+        private System.Windows.Forms.ToolStripMenuItem txtVoltageResolution;
     }
 }
 

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.Label2 = new System.Windows.Forms.Label();
-            this.numAverageNumber = new System.Windows.Forms.NumericUpDown();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.Label1 = new System.Windows.Forms.Label();
-            this.numRepeatation = new System.Windows.Forms.NumericUpDown();
-            this.txtSampleName = new System.Windows.Forms.TextBox();
+            this.txtSampleNamee = new System.Windows.Forms.TextBox();
             this.Label7 = new System.Windows.Forms.Label();
+            this.numAverageNumber = new System.Windows.Forms.NumericUpDown();
+            this.numRepeatation = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numAverageNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatation)).BeginInit();
             this.SuspendLayout();
@@ -49,25 +49,6 @@
             this.Label2.Size = new System.Drawing.Size(117, 17);
             this.Label2.TabIndex = 25;
             this.Label2.Text = "Average number:";
-            // 
-            // numAverageNumber
-            // 
-            this.numAverageNumber.Location = new System.Drawing.Point(156, 47);
-            this.numAverageNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.numAverageNumber.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numAverageNumber.Name = "numAverageNumber";
-            this.numAverageNumber.Size = new System.Drawing.Size(81, 22);
-            this.numAverageNumber.TabIndex = 19;
-            this.numAverageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numAverageNumber.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // btnCancel
             // 
@@ -102,33 +83,14 @@
             this.Label1.TabIndex = 24;
             this.Label1.Text = "Number of Samples:";
             // 
-            // numRepeatation
+            // txtSampleNamee
             // 
-            this.numRepeatation.Location = new System.Drawing.Point(156, 79);
-            this.numRepeatation.Margin = new System.Windows.Forms.Padding(4);
-            this.numRepeatation.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numRepeatation.Name = "numRepeatation";
-            this.numRepeatation.Size = new System.Drawing.Size(81, 22);
-            this.numRepeatation.TabIndex = 20;
-            this.numRepeatation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numRepeatation.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            // 
-            // txtSampleName
-            // 
-            this.txtSampleName.Location = new System.Drawing.Point(156, 15);
-            this.txtSampleName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSampleName.Name = "txtSampleName";
-            this.txtSampleName.Size = new System.Drawing.Size(320, 22);
-            this.txtSampleName.TabIndex = 18;
-            this.txtSampleName.Text = "Sample Name?";
+            this.txtSampleNamee.Location = new System.Drawing.Point(156, 15);
+            this.txtSampleNamee.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSampleNamee.Name = "txtSampleNamee";
+            this.txtSampleNamee.Size = new System.Drawing.Size(320, 22);
+            this.txtSampleNamee.TabIndex = 18;
+            this.txtSampleNamee.Text = "Sample Name?";
             // 
             // Label7
             // 
@@ -140,18 +102,44 @@
             this.Label7.TabIndex = 23;
             this.Label7.Text = "Sample Name:";
             // 
+            // numAverageNumber
+            // 
+            this.numAverageNumber.Location = new System.Drawing.Point(156, 47);
+            this.numAverageNumber.Name = "numAverageNumber";
+            this.numAverageNumber.Size = new System.Drawing.Size(76, 22);
+            this.numAverageNumber.TabIndex = 26;
+            this.numAverageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numAverageNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numRepeatation
+            // 
+            this.numRepeatation.Location = new System.Drawing.Point(156, 79);
+            this.numRepeatation.Name = "numRepeatation";
+            this.numRepeatation.Size = new System.Drawing.Size(76, 22);
+            this.numRepeatation.TabIndex = 27;
+            this.numRepeatation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numRepeatation.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
             // frmNewMeasurement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 181);
-            this.Controls.Add(this.Label2);
+            this.Controls.Add(this.numRepeatation);
             this.Controls.Add(this.numAverageNumber);
+            this.Controls.Add(this.Label2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.Label1);
-            this.Controls.Add(this.numRepeatation);
-            this.Controls.Add(this.txtSampleName);
+            this.Controls.Add(this.txtSampleNamee);
             this.Controls.Add(this.Label7);
             this.Name = "frmNewMeasurement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -166,12 +154,12 @@
         #endregion
 
         internal System.Windows.Forms.Label Label2;
-        internal System.Windows.Forms.NumericUpDown numAverageNumber;
         internal System.Windows.Forms.Button btnCancel;
         internal System.Windows.Forms.Button btnOK;
         internal System.Windows.Forms.Label Label1;
-        internal System.Windows.Forms.NumericUpDown numRepeatation;
-        internal System.Windows.Forms.TextBox txtSampleName;
+        internal System.Windows.Forms.TextBox txtSampleNamee;
         internal System.Windows.Forms.Label Label7;
+        private System.Windows.Forms.NumericUpDown numAverageNumber;
+        private System.Windows.Forms.NumericUpDown numRepeatation;
     }
 }

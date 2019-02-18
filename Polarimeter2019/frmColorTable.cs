@@ -12,8 +12,6 @@ namespace Polarimeter2019
 {
     public partial class frmColorTable : Form
     {
-        private object My;
-
         public frmColorTable()
         {
             InitializeComponent();
@@ -32,7 +30,7 @@ namespace Polarimeter2019
             LVI.Text = "Reference";
             LVI.SubItems.Add("");
             LVI.SubItems.Add(frmMain.ReferenceColor.ToString());
-            LVI.SubItems[1].BackColor = frmMain.ReferenceColor.ToString();
+            LVI.SubItems[1].BackColor = System.Drawing.Color.Red;
             lvColorTable.Items.Add(LVI);
 
             for (int i = 0; i <= 19; i++)
@@ -56,9 +54,14 @@ namespace Polarimeter2019
                 dlg.Color = lvColorTable.SelectedItems[0].SubItems[1].BackColor;
                 dlg.ShowDialog();
                 if (i == 0)
+                {
                     frmMain.ReferenceColor = dlg.Color;
+                }
                 else
+                {
                     frmMain.ColorTable(i - 1) = dlg.Color;
+                }
+
                 lvColorTable.SelectedItems[0].SubItems[1].BackColor = dlg.Color;
                 lvColorTable.SelectedItems[0].SubItems[2].Text = dlg.Color.ToString();
             switch (i)
