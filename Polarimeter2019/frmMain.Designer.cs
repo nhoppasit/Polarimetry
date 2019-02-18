@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.btnNew = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -63,7 +63,7 @@
             this.resolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbSample = new System.Windows.Forms.GroupBox();
             this.numRepeatNumber = new System.Windows.Forms.NumericUpDown();
             this.lsvData = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -72,7 +72,7 @@
             this.txtSampleName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbScanCondition = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -84,12 +84,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnOpen = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbMeasurement = new System.Windows.Forms.GroupBox();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.gbStartMea = new System.Windows.Forms.GroupBox();
+            this.MainStatus = new System.Windows.Forms.StatusStrip();
             this.lblMainStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblSample = new System.Windows.Forms.ToolStripStatusLabel();
@@ -103,13 +103,13 @@
             this.txtMMCAddress = new System.Windows.Forms.ToolStripMenuItem();
             this.txtVoltageRange = new System.Windows.Forms.ToolStripMenuItem();
             this.txtVoltageResolution = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.MainMenu.SuspendLayout();
+            this.gbSample.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.gbScanCondition.SuspendLayout();
+            this.gbMeasurement.SuspendLayout();
+            this.gbStartMea.SuspendLayout();
+            this.MainStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNew
@@ -122,20 +122,20 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // menuStrip1
+            // MainMenu
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MainMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
             this.driverToolStripMenuItem,
             this.mesurementToolStripMenuItem,
             this.optionsToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1672, 28);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.MainMenu.Location = new System.Drawing.Point(0, 0);
+            this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Size = new System.Drawing.Size(1672, 28);
+            this.MainMenu.TabIndex = 1;
+            this.MainMenu.Text = "menuStrip1";
             // 
             // newToolStripMenuItem
             // 
@@ -155,46 +155,46 @@
             // newToolStripMenuItem1
             // 
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(139, 26);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
             this.newToolStripMenuItem1.Text = "New";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(136, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(136, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.saveAsToolStripMenuItem.Text = "Save as..";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(136, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(213, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // driverToolStripMenuItem
@@ -277,30 +277,30 @@
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.startToolStripMenuItem.Text = "Start";
             // 
             // stopToolStripMenuItem
             // 
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.stopToolStripMenuItem.Text = "Stop";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(213, 6);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.pauseToolStripMenuItem.Text = "Pause";
             // 
             // coutinewToolStripMenuItem
             // 
             this.coutinewToolStripMenuItem.Name = "coutinewToolStripMenuItem";
-            this.coutinewToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.coutinewToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.coutinewToolStripMenuItem.Text = "Coutinue";
             // 
             // optionsToolStripMenuItem
@@ -365,21 +365,21 @@
             this.aboutProgramToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.aboutProgramToolStripMenuItem.Text = "About program";
             // 
-            // groupBox1
+            // gbSample
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gbSample.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.numRepeatNumber);
-            this.groupBox1.Controls.Add(this.lsvData);
-            this.groupBox1.Controls.Add(this.txtSampleName);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 208);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(412, 528);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Samples";
+            this.gbSample.Controls.Add(this.numRepeatNumber);
+            this.gbSample.Controls.Add(this.lsvData);
+            this.gbSample.Controls.Add(this.txtSampleName);
+            this.gbSample.Controls.Add(this.label2);
+            this.gbSample.Controls.Add(this.label1);
+            this.gbSample.Location = new System.Drawing.Point(12, 208);
+            this.gbSample.Name = "gbSample";
+            this.gbSample.Size = new System.Drawing.Size(412, 528);
+            this.gbSample.TabIndex = 3;
+            this.gbSample.TabStop = false;
+            this.gbSample.Text = "Samples";
             // 
             // numRepeatNumber
             // 
@@ -450,26 +450,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Sample name";
             // 
-            // groupBox2
+            // gbScanCondition
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbScanCondition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.btnRun);
-            this.groupBox2.Controls.Add(this.txtResolution);
-            this.groupBox2.Controls.Add(this.txtStop);
-            this.groupBox2.Controls.Add(this.txtStart);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(257, 31);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(468, 171);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Scan condition";
+            this.gbScanCondition.Controls.Add(this.label8);
+            this.gbScanCondition.Controls.Add(this.label7);
+            this.gbScanCondition.Controls.Add(this.label6);
+            this.gbScanCondition.Controls.Add(this.btnRun);
+            this.gbScanCondition.Controls.Add(this.txtResolution);
+            this.gbScanCondition.Controls.Add(this.txtStop);
+            this.gbScanCondition.Controls.Add(this.txtStart);
+            this.gbScanCondition.Controls.Add(this.label5);
+            this.gbScanCondition.Controls.Add(this.label4);
+            this.gbScanCondition.Controls.Add(this.label3);
+            this.gbScanCondition.Location = new System.Drawing.Point(257, 31);
+            this.gbScanCondition.Name = "gbScanCondition";
+            this.gbScanCondition.Size = new System.Drawing.Size(468, 171);
+            this.gbScanCondition.TabIndex = 4;
+            this.gbScanCondition.TabStop = false;
+            this.gbScanCondition.Text = "Scan condition";
             // 
             // label8
             // 
@@ -571,19 +571,19 @@
             this.btnOpen.Text = "Open";
             this.btnOpen.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // gbMeasurement
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbMeasurement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.btnPause);
-            this.groupBox3.Controls.Add(this.btnStop);
-            this.groupBox3.Controls.Add(this.btnStart);
-            this.groupBox3.Location = new System.Drawing.Point(731, 31);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(411, 171);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Measurement";
+            this.gbMeasurement.Controls.Add(this.btnPause);
+            this.gbMeasurement.Controls.Add(this.btnStop);
+            this.gbMeasurement.Controls.Add(this.btnStart);
+            this.gbMeasurement.Location = new System.Drawing.Point(731, 31);
+            this.gbMeasurement.Name = "gbMeasurement";
+            this.gbMeasurement.Size = new System.Drawing.Size(411, 171);
+            this.gbMeasurement.TabIndex = 6;
+            this.gbMeasurement.TabStop = false;
+            this.gbMeasurement.Text = "Measurement";
             // 
             // btnPause
             // 
@@ -615,21 +615,21 @@
             this.btnStart.Text = "START";
             this.btnStart.UseVisualStyleBackColor = false;
             // 
-            // groupBox4
+            // gbStartMea
             // 
-            this.groupBox4.Controls.Add(this.btnNew);
-            this.groupBox4.Controls.Add(this.btnOpen);
-            this.groupBox4.Location = new System.Drawing.Point(12, 31);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(239, 171);
-            this.groupBox4.TabIndex = 7;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Start Measurement";
+            this.gbStartMea.Controls.Add(this.btnNew);
+            this.gbStartMea.Controls.Add(this.btnOpen);
+            this.gbStartMea.Location = new System.Drawing.Point(12, 31);
+            this.gbStartMea.Name = "gbStartMea";
+            this.gbStartMea.Size = new System.Drawing.Size(239, 171);
+            this.gbStartMea.TabIndex = 7;
+            this.gbStartMea.TabStop = false;
+            this.gbStartMea.Text = "Start Measurement";
             // 
-            // statusStrip1
+            // MainStatus
             // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MainStatus.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.MainStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblMainStatus,
             this.toolStripStatusLabel1,
             this.lblSample,
@@ -639,11 +639,11 @@
             this.lblDMM,
             this.toolStripStatusLabel5,
             this.lblMMC});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 823);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1672, 25);
-            this.statusStrip1.TabIndex = 8;
-            this.statusStrip1.Text = "statusStrip1";
+            this.MainStatus.Location = new System.Drawing.Point(0, 823);
+            this.MainStatus.Name = "MainStatus";
+            this.MainStatus.Size = new System.Drawing.Size(1672, 25);
+            this.MainStatus.TabIndex = 8;
+            this.MainStatus.Text = "statusStrip1";
             // 
             // lblMainStatus
             // 
@@ -731,28 +731,29 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1672, 848);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.MainStatus);
+            this.Controls.Add(this.gbStartMea);
+            this.Controls.Add(this.gbMeasurement);
+            this.Controls.Add(this.gbScanCondition);
+            this.Controls.Add(this.gbSample);
+            this.Controls.Add(this.MainMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.MainMenu;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Polarimeter2019";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.MainMenu.ResumeLayout(false);
+            this.MainMenu.PerformLayout();
+            this.gbSample.ResumeLayout(false);
+            this.gbSample.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.gbScanCondition.ResumeLayout(false);
+            this.gbScanCondition.PerformLayout();
+            this.gbMeasurement.ResumeLayout(false);
+            this.gbStartMea.ResumeLayout(false);
+            this.MainStatus.ResumeLayout(false);
+            this.MainStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -761,7 +762,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip MainMenu;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -781,12 +782,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem coutinewToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbSample;
         private System.Windows.Forms.TextBox txtSampleName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView lsvData;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbScanCondition;
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.TextBox txtResolution;
         private System.Windows.Forms.TextBox txtStop;
@@ -814,13 +815,13 @@
         private System.Windows.Forms.ToolStripMenuItem rangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resolutionToolStripMenuItem;
         private System.Windows.Forms.Button btnOpen;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbMeasurement;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox gbStartMea;
         private System.Windows.Forms.NumericUpDown numRepeatNumber;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip MainStatus;
         private System.Windows.Forms.ToolStripStatusLabel lblMainStatus;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel lblSample;
