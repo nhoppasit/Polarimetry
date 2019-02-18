@@ -92,13 +92,13 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblMainStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.IbISample = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblSample = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.IbINullPoint = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblNullPoint = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.IbIDMM = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblDMM = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.IbIMMC = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblMMC = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtDMMAddress = new System.Windows.Forms.ToolStripMenuItem();
             this.txtMMCAddress = new System.Windows.Forms.ToolStripMenuItem();
             this.txtVoltageRange = new System.Windows.Forms.ToolStripMenuItem();
@@ -632,13 +632,13 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblMainStatus,
             this.toolStripStatusLabel1,
-            this.IbISample,
+            this.lblSample,
             this.toolStripStatusLabel2,
-            this.IbINullPoint,
+            this.lblNullPoint,
             this.toolStripStatusLabel3,
-            this.IbIDMM,
+            this.lblDMM,
             this.toolStripStatusLabel5,
-            this.IbIMMC});
+            this.lblMMC});
             this.statusStrip1.Location = new System.Drawing.Point(0, 823);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1672, 25);
@@ -657,11 +657,11 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(66, 20);
             this.toolStripStatusLabel1.Text = "Sample :";
             // 
-            // IbISample
+            // lblSample
             // 
-            this.IbISample.Name = "IbISample";
-            this.IbISample.Size = new System.Drawing.Size(75, 20);
-            this.IbISample.Text = "Reference";
+            this.lblSample.Name = "lblSample";
+            this.lblSample.Size = new System.Drawing.Size(75, 20);
+            this.lblSample.Text = "Reference";
             // 
             // toolStripStatusLabel2
             // 
@@ -669,11 +669,11 @@
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(86, 20);
             this.toolStripStatusLabel2.Text = "Null point : ";
             // 
-            // IbINullPoint
+            // lblNullPoint
             // 
-            this.IbINullPoint.Name = "IbINullPoint";
-            this.IbINullPoint.Size = new System.Drawing.Size(18, 20);
-            this.IbINullPoint.Text = "...";
+            this.lblNullPoint.Name = "lblNullPoint";
+            this.lblNullPoint.Size = new System.Drawing.Size(18, 20);
+            this.lblNullPoint.Text = "...";
             // 
             // toolStripStatusLabel3
             // 
@@ -681,12 +681,13 @@
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(53, 20);
             this.toolStripStatusLabel3.Text = "DMM :";
             // 
-            // IbIDMM
+            // lblDMM
             // 
-            this.IbIDMM.BackColor = System.Drawing.Color.Red;
-            this.IbIDMM.Name = "IbIDMM";
-            this.IbIDMM.Size = new System.Drawing.Size(99, 20);
-            this.IbIDMM.Text = "Disconnected";
+            this.lblDMM.BackColor = System.Drawing.Color.Red;
+            this.lblDMM.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.lblDMM.Name = "lblDMM";
+            this.lblDMM.Size = new System.Drawing.Size(99, 20);
+            this.lblDMM.Text = "Disconnected";
             // 
             // toolStripStatusLabel5
             // 
@@ -694,12 +695,12 @@
             this.toolStripStatusLabel5.Size = new System.Drawing.Size(78, 20);
             this.toolStripStatusLabel5.Text = "MMMC-2 :";
             // 
-            // IbIMMC
+            // lblMMC
             // 
-            this.IbIMMC.BackColor = System.Drawing.Color.Red;
-            this.IbIMMC.Name = "IbIMMC";
-            this.IbIMMC.Size = new System.Drawing.Size(99, 20);
-            this.IbIMMC.Text = "Disconnected";
+            this.lblMMC.BackColor = System.Drawing.Color.Red;
+            this.lblMMC.Name = "lblMMC";
+            this.lblMMC.Size = new System.Drawing.Size(99, 20);
+            this.lblMMC.Text = "Disconnected";
             // 
             // txtDMMAddress
             // 
@@ -822,13 +823,13 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblMainStatus;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel IbISample;
+        private System.Windows.Forms.ToolStripStatusLabel lblSample;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripStatusLabel IbINullPoint;
+        private System.Windows.Forms.ToolStripStatusLabel lblNullPoint;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
-        private System.Windows.Forms.ToolStripStatusLabel IbIDMM;
+        private System.Windows.Forms.ToolStripStatusLabel lblDMM;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
-        private System.Windows.Forms.ToolStripStatusLabel IbIMMC;
+        private System.Windows.Forms.ToolStripStatusLabel lblMMC;
         private System.Windows.Forms.ToolStripMenuItem txtDMMAddress;
         private System.Windows.Forms.ToolStripMenuItem txtMMCAddress;
         private System.Windows.Forms.ToolStripMenuItem txtVoltageRange;

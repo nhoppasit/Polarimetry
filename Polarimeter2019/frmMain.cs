@@ -11,7 +11,24 @@ using System.Windows.Forms;
 namespace Polarimeter2019
 {
     public partial class frmMain : Form
-    {
+    {   
+        //Constants
+        const var StepFactor = 0.013325; //Deg /Step 
+        //var คือ value??
+
+        //Scaning & Data
+        BaseDataControl TheData; 
+        bool IsScanning = false;
+        bool IsContinuing = false;
+        int CurrentPointIndex = 0;
+        double SpecificRotation;
+        int NumberOfRepeatation;
+        int SelectedIndex;
+
+        //ColorTable
+        public Color ReferenceColor = Color.Red;
+        public Color[] ColorTable; //บรรทัดนี้ทำให้ ColorTable บรรทัด110ผิด
+        
         public frmMain()
         {
             InitializeComponent();
@@ -38,6 +55,7 @@ namespace Polarimeter2019
                     lblDMM.BackColor = Color.Red;
                     lblMMC.Text = "Disconncected";
                     lblMMC.BackColor = Color.Red;
+                    
                 }
             }
             private void ConnectedDevices()
@@ -83,9 +101,6 @@ namespace Polarimeter2019
                 }
             }
         }
-        
-
-            public static object ReferenceColor { get; internal set; }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
