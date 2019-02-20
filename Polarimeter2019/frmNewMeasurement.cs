@@ -18,9 +18,9 @@ namespace Polarimeter2019
 
         public string SampleName { get { return txtSampleNamee.Text; } }
         public decimal RepeatNumber { get { return numAverageNumber.Value; } }
-        public decimal NumberOfRepeatation { get { return numRepeatation.Value; } }
+        public decimal OfRepeatation { get { return numRepeatation.Value; } }
 
-            public frmNewMeasurement()
+        public frmNewMeasurement()
         {
             InitializeComponent();
         }

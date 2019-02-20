@@ -52,21 +52,21 @@
             this.mnuDevicesClearDMM = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDevicesResetDMM = new System.Windows.Forms.ToolStripMenuItem();
             this.mesurementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuStartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuStopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.coutinewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCoutinewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.demoModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuOptionsDemomode = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuColorTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voltageMeasureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtVoltageRange = new System.Windows.Forms.ToolStripMenuItem();
             this.resolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtVoltageResolution = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbSample = new System.Windows.Forms.GroupBox();
             this.numRepeatNumber = new System.Windows.Forms.NumericUpDown();
             this.lsvData = new System.Windows.Forms.ListView();
@@ -240,7 +240,7 @@
             // txtDMMAddress
             // 
             this.txtDMMAddress.Name = "txtDMMAddress";
-            this.txtDMMAddress.Size = new System.Drawing.Size(191, 26);
+            this.txtDMMAddress.Size = new System.Drawing.Size(216, 26);
             this.txtDMMAddress.Text = "GPIB1::26::INSTR";
             // 
             // mMC2ToolStripMenuItem
@@ -254,7 +254,7 @@
             // txtMMCAddress
             // 
             this.txtMMCAddress.Name = "txtMMCAddress";
-            this.txtMMCAddress.Size = new System.Drawing.Size(183, 26);
+            this.txtMMCAddress.Size = new System.Drawing.Size(216, 26);
             this.txtMMCAddress.Text = "GPIB1::7::INSTR";
             // 
             // toolStripSeparator6
@@ -277,66 +277,70 @@
             // mesurementToolStripMenuItem
             // 
             this.mesurementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.startToolStripMenuItem,
-            this.stopToolStripMenuItem,
+            this.mnuStartToolStripMenuItem,
+            this.mnuStopToolStripMenuItem,
             this.toolStripSeparator4,
-            this.pauseToolStripMenuItem,
-            this.coutinewToolStripMenuItem});
+            this.mnuPauseToolStripMenuItem,
+            this.mnuCoutinewToolStripMenuItem});
             this.mesurementToolStripMenuItem.Name = "mesurementToolStripMenuItem";
             this.mesurementToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.mesurementToolStripMenuItem.Text = "Measure";
             // 
-            // startToolStripMenuItem
+            // mnuStartToolStripMenuItem
             // 
-            this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
-            this.startToolStripMenuItem.Text = "Start";
+            this.mnuStartToolStripMenuItem.Name = "mnuStartToolStripMenuItem";
+            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuStartToolStripMenuItem.Text = "Start";
+            this.mnuStartToolStripMenuItem.Click += new System.EventHandler(this.mnuStartToolStripMenuItem_Click);
             // 
-            // stopToolStripMenuItem
+            // mnuStopToolStripMenuItem
             // 
-            this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
-            this.stopToolStripMenuItem.Text = "Stop";
+            this.mnuStopToolStripMenuItem.Name = "mnuStopToolStripMenuItem";
+            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuStopToolStripMenuItem.Text = "Stop";
+            this.mnuStopToolStripMenuItem.Click += new System.EventHandler(this.mnuStopToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(213, 6);
             // 
-            // pauseToolStripMenuItem
+            // mnuPauseToolStripMenuItem
             // 
-            this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
-            this.pauseToolStripMenuItem.Text = "Pause";
+            this.mnuPauseToolStripMenuItem.Name = "mnuPauseToolStripMenuItem";
+            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuPauseToolStripMenuItem.Text = "Pause";
+            this.mnuPauseToolStripMenuItem.Click += new System.EventHandler(this.mnuPauseToolStripMenuItem_Click);
             // 
-            // coutinewToolStripMenuItem
+            // mnuCoutinewToolStripMenuItem
             // 
-            this.coutinewToolStripMenuItem.Name = "coutinewToolStripMenuItem";
-            this.coutinewToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
-            this.coutinewToolStripMenuItem.Text = "Coutinue";
+            this.mnuCoutinewToolStripMenuItem.Name = "mnuCoutinewToolStripMenuItem";
+            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuCoutinewToolStripMenuItem.Text = "Coutinue";
+            this.mnuCoutinewToolStripMenuItem.Click += new System.EventHandler(this.mnuCoutinewToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.demoModeToolStripMenuItem,
-            this.colorTableToolStripMenuItem,
+            this.mnuOptionsDemomode,
+            this.mnuColorTableToolStripMenuItem,
             this.voltageMeasureToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
-            // demoModeToolStripMenuItem
+            // mnuOptionsDemomode
             // 
-            this.demoModeToolStripMenuItem.Name = "demoModeToolStripMenuItem";
-            this.demoModeToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
-            this.demoModeToolStripMenuItem.Text = "Demo mode";
+            this.mnuOptionsDemomode.Name = "mnuOptionsDemomode";
+            this.mnuOptionsDemomode.Size = new System.Drawing.Size(229, 26);
+            this.mnuOptionsDemomode.Text = "Demo mode";
             // 
-            // colorTableToolStripMenuItem
+            // mnuColorTableToolStripMenuItem
             // 
-            this.colorTableToolStripMenuItem.Name = "colorTableToolStripMenuItem";
-            this.colorTableToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
-            this.colorTableToolStripMenuItem.Text = "Color Table";
-            this.colorTableToolStripMenuItem.Click += new System.EventHandler(this.colorTableToolStripMenuItem_Click);
+            this.mnuColorTableToolStripMenuItem.Name = "mnuColorTableToolStripMenuItem";
+            this.mnuColorTableToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.mnuColorTableToolStripMenuItem.Text = "Color Table";
+            this.mnuColorTableToolStripMenuItem.Click += new System.EventHandler(this.colorTableToolStripMenuItem_Click);
             // 
             // voltageMeasureToolStripMenuItem
             // 
@@ -352,7 +356,7 @@
             this.rangeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.txtVoltageRange});
             this.rangeToolStripMenuItem.Name = "rangeToolStripMenuItem";
-            this.rangeToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
+            this.rangeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.rangeToolStripMenuItem.Text = "Range";
             // 
             // txtVoltageRange
@@ -366,7 +370,7 @@
             this.resolutionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.txtVoltageResolution});
             this.resolutionToolStripMenuItem.Name = "resolutionToolStripMenuItem";
-            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
+            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.resolutionToolStripMenuItem.Text = "Resolution";
             // 
             // txtVoltageResolution
@@ -378,16 +382,17 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutProgramToolStripMenuItem});
+            this.AboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // aboutProgramToolStripMenuItem
+            // AboutToolStripMenuItem
             // 
-            this.aboutProgramToolStripMenuItem.Name = "aboutProgramToolStripMenuItem";
-            this.aboutProgramToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
-            this.aboutProgramToolStripMenuItem.Text = "About program";
+            this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.AboutToolStripMenuItem.Text = "About program";
+            this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // gbSample
             // 
@@ -531,6 +536,7 @@
             this.btnRun.TabIndex = 6;
             this.btnRun.Text = "Run";
             this.btnRun.UseVisualStyleBackColor = false;
+            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
             // txtResolution
             // 
@@ -776,12 +782,12 @@
         private System.Windows.Forms.ToolStripMenuItem mesurementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutProgramToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuStartToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuStopToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem coutinewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuPauseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuCoutinewToolStripMenuItem;
         private System.Windows.Forms.GroupBox gbSample;
         private System.Windows.Forms.TextBox txtSampleName;
         private System.Windows.Forms.Label label2;
@@ -809,8 +815,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripMenuItem demoModeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem colorTableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuOptionsDemomode;
+        private System.Windows.Forms.ToolStripMenuItem mnuColorTableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem voltageMeasureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resolutionToolStripMenuItem;
