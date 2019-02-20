@@ -45,6 +45,7 @@ namespace Timer_tick_graph
         private void btnStop_Click(object sender, EventArgs e)
         {
             timer1.Stop();
+            btnStart.Focus();
         }
 
         void StartNew()
@@ -53,8 +54,13 @@ namespace Timer_tick_graph
 
             tickIdx = 0;
 
-            chart1.ChartAreas[0].AxisX.LabelStyle.Format = "0.00";
+            chart1.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} Deg";
+            chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
+            chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+
             chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00";
+            chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
+            chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
 
             // Reset number of series in the chart.
             chart1.Series.Clear();
@@ -72,6 +78,8 @@ namespace Timer_tick_graph
             chart1.ChartAreas[0].AxisX.Maximum = (tickIdx + 1) * delta;
 
             timer1.Start();
+
+            btnStop.Focus();
         }
 
         void PushXY()
