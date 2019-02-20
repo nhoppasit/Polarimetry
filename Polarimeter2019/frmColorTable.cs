@@ -59,7 +59,7 @@ namespace Polarimeter2019
                 }
                 else
                 {
-                    frmMain.ColorTable(i - 1) = dlg.Color;
+                    frmMain.ColorTable[i - 1] = dlg.Color;
                 }
 
                 lvColorTable.SelectedItems[0].SubItems[1].BackColor = dlg.Color;
