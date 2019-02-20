@@ -41,11 +41,13 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.driverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DisconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.dMM34401AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtDMMAddress = new System.Windows.Forms.ToolStripMenuItem();
             this.mMC2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtMMCAddress = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuDevicesClearDMM = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDevicesResetDMM = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +62,9 @@
             this.colorTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voltageMeasureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtVoltageRange = new System.Windows.Forms.ToolStripMenuItem();
             this.resolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtVoltageResolution = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbSample = new System.Windows.Forms.GroupBox();
@@ -99,10 +103,6 @@
             this.lblDMM = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMMC = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtDMMAddress = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtMMCAddress = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtVoltageRange = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtVoltageResolution = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.gbSample.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).BeginInit();
@@ -155,53 +155,53 @@
             // newToolStripMenuItem1
             // 
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(139, 26);
             this.newToolStripMenuItem1.Text = "New";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(136, 6);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(136, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
             this.saveAsToolStripMenuItem.Text = "Save as..";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(136, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // driverToolStripMenuItem
             // 
             this.driverToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.connectToolStripMenuItem,
-            this.disconnectToolStripMenuItem,
+            this.ConnectToolStripMenuItem,
+            this.DisconnectToolStripMenuItem,
             this.toolStripSeparator5,
             this.dMM34401AToolStripMenuItem,
             this.mMC2ToolStripMenuItem,
@@ -212,17 +212,17 @@
             this.driverToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.driverToolStripMenuItem.Text = "Devices";
             // 
-            // connectToolStripMenuItem
+            // ConnectToolStripMenuItem
             // 
-            this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-            this.connectToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
-            this.connectToolStripMenuItem.Text = "Connect";
+            this.ConnectToolStripMenuItem.Name = "ConnectToolStripMenuItem";
+            this.ConnectToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
+            this.ConnectToolStripMenuItem.Text = "Connect";
             // 
-            // disconnectToolStripMenuItem
+            // DisconnectToolStripMenuItem
             // 
-            this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
-            this.disconnectToolStripMenuItem.Text = "Disconnect";
+            this.DisconnectToolStripMenuItem.Name = "DisconnectToolStripMenuItem";
+            this.DisconnectToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
+            this.DisconnectToolStripMenuItem.Text = "Disconnect";
             // 
             // toolStripSeparator5
             // 
@@ -237,6 +237,12 @@
             this.dMM34401AToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.dMM34401AToolStripMenuItem.Text = "DMM 34401A";
             // 
+            // txtDMMAddress
+            // 
+            this.txtDMMAddress.Name = "txtDMMAddress";
+            this.txtDMMAddress.Size = new System.Drawing.Size(191, 26);
+            this.txtDMMAddress.Text = "GPIB1::26::INSTR";
+            // 
             // mMC2ToolStripMenuItem
             // 
             this.mMC2ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -244,6 +250,12 @@
             this.mMC2ToolStripMenuItem.Name = "mMC2ToolStripMenuItem";
             this.mMC2ToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.mMC2ToolStripMenuItem.Text = "MMC - 2";
+            // 
+            // txtMMCAddress
+            // 
+            this.txtMMCAddress.Name = "txtMMCAddress";
+            this.txtMMCAddress.Size = new System.Drawing.Size(183, 26);
+            this.txtMMCAddress.Text = "GPIB1::7::INSTR";
             // 
             // toolStripSeparator6
             // 
@@ -277,30 +289,30 @@
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.startToolStripMenuItem.Text = "Start";
             // 
             // stopToolStripMenuItem
             // 
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.stopToolStripMenuItem.Text = "Stop";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(140, 6);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.pauseToolStripMenuItem.Text = "Pause";
             // 
             // coutinewToolStripMenuItem
             // 
             this.coutinewToolStripMenuItem.Name = "coutinewToolStripMenuItem";
-            this.coutinewToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.coutinewToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.coutinewToolStripMenuItem.Text = "Coutinue";
             // 
             // optionsToolStripMenuItem
@@ -340,16 +352,28 @@
             this.rangeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.txtVoltageRange});
             this.rangeToolStripMenuItem.Name = "rangeToolStripMenuItem";
-            this.rangeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.rangeToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.rangeToolStripMenuItem.Text = "Range";
+            // 
+            // txtVoltageRange
+            // 
+            this.txtVoltageRange.Name = "txtVoltageRange";
+            this.txtVoltageRange.Size = new System.Drawing.Size(93, 26);
+            this.txtVoltageRange.Text = "...";
             // 
             // resolutionToolStripMenuItem
             // 
             this.resolutionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.txtVoltageResolution});
             this.resolutionToolStripMenuItem.Name = "resolutionToolStripMenuItem";
-            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.resolutionToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.resolutionToolStripMenuItem.Text = "Resolution";
+            // 
+            // txtVoltageResolution
+            // 
+            this.txtVoltageResolution.Name = "txtVoltageResolution";
+            this.txtVoltageResolution.Size = new System.Drawing.Size(93, 26);
+            this.txtVoltageResolution.Text = "...";
             // 
             // helpToolStripMenuItem
             // 
@@ -702,30 +726,6 @@
             this.lblMMC.Size = new System.Drawing.Size(99, 20);
             this.lblMMC.Text = "Disconnected";
             // 
-            // txtDMMAddress
-            // 
-            this.txtDMMAddress.Name = "txtDMMAddress";
-            this.txtDMMAddress.Size = new System.Drawing.Size(216, 26);
-            this.txtDMMAddress.Text = "GPIB1::26::INSTR";
-            // 
-            // txtMMCAddress
-            // 
-            this.txtMMCAddress.Name = "txtMMCAddress";
-            this.txtMMCAddress.Size = new System.Drawing.Size(216, 26);
-            this.txtMMCAddress.Text = "GPIB1::7::INSTR";
-            // 
-            // txtVoltageRange
-            // 
-            this.txtVoltageRange.Name = "txtVoltageRange";
-            this.txtVoltageRange.Size = new System.Drawing.Size(216, 26);
-            this.txtVoltageRange.Text = "...";
-            // 
-            // txtVoltageResolution
-            // 
-            this.txtVoltageResolution.Name = "txtVoltageResolution";
-            this.txtVoltageResolution.Size = new System.Drawing.Size(216, 26);
-            this.txtVoltageResolution.Text = "...";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -798,8 +798,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem disconnectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ConnectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DisconnectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dMM34401AToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mMC2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuDevicesClearDMM;

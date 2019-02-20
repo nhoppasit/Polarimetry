@@ -53,7 +53,10 @@ namespace Polarimeter2019
                 }
                 catch (Exception ex)
                 {
-                    Interaction.MsgBox("IO Error: " + ex.Message, MsgBoxStyle.Critical); //// กล่องข้อความ
+                    string message = "IO Error";
+                    string caption = "Error";
+                    //Interaction.MsgBox("IO Error: " + ex.Message, MsgBoxStyle.Critical); //// กล่องข้อความ??
+                    MessageBox.Show(message, caption, MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning); ////ขึ้นข้อความเตือน
                     lblDMM.Text = "Disconnected";
                     lblDMM.BackColor = Color.Red;
                     lblMMC.Text = "Disconncected";
@@ -96,7 +99,10 @@ namespace Polarimeter2019
                 }
                 catch(Exception ex)
                 {
-                    Interaction.MsgBox("InitIO Error:" + Constants.vbCrLf + ex.Message); //// กล่องข้อความ
+                    string message = "InitIO Error";
+                    string caption = "Error";
+                    //Interaction.MsgBox("InitIO Error:" + Constants.vbCrLf + ex.Message); //// กล่องข้อความ
+                    MessageBox.Show(message, caption, MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning); ////ขึ้นข้อความเตือน
                     lblDMM.Text = "Disconnected";
                     lblDMM.BackColor = Color.Red;
                     lblMMC.Text = "Disconncected";
@@ -127,26 +133,7 @@ namespace Polarimeter2019
             frmColorTable f = new frmColorTable();
             DialogResult result = f.ShowDialog();
         }
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            LoadSetting();  //// loadSetting มาจากไหน??
-        }
-
-        private void Form1_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
-        {
-            if (Interaction.MsgBox("Do you want to quit program?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Quit") == MsgBoxResult.Yes) ////กล่องข้อความ
-            {
-                IsScanning = false;
-                SaveSetting();  //// SaveSetting มาจากไหน??
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
-
+        
         #region Control Panel
 
         private void DoStart()
@@ -517,10 +504,53 @@ namespace Polarimeter2019
         #endregion
 
         #region Menu
-
+        
         #region File
 
+        private void ConnectToolStripMenuItem_Click(System.Object sender, System.EventArgs e)
+        {
+            ConnectDevices();
+        }
+
+        private void DisconnectToolStripMenuItem_Click(System.Object sender, System.EventArgs e)
+        {
+            DisconnectDevices();
+        }
+
         #endregion
+        #endregion
+
+        #region Form Event
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            LoadSetting();  //// loadSetting มาจากไหน??
+        }
+
+        private void Form1_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        {
+            //if (Interaction.MsgBox("Do you want to quit program?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Quit") == MsgBoxResult.Yes) 
+            //{
+            //    IsScanning = false;
+            //    SaveSetting();  //// SaveSetting มาจากไหน??
+            //}
+            //else
+            //{
+            //    e.Cancel = true;
+            //}
+            string message = "Do you want to quit program?";
+            string caption = "Polarimeter2019";
+            if (MessageBox.Show(message, caption,MessageBoxButtons.YesNo,MessageBoxIcon.Question)) 
+            {
+                IsScanning = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
         #endregion
     }
 }
