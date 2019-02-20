@@ -21,14 +21,9 @@ namespace Timer_tick_graph
         {
             InitializeComponent();
 
-            chart1.ChartAreas[0].AxisX.LabelStyle.Format = "0.00";
-            chart1.ChartAreas[0].AxisX.IntervalAutoMode = IntervalAutoMode.VariableCount;
-
-            chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00";
-
             timer1.Stop();
             timer1.Enabled = false;
-            timer1.Interval = 1000;
+            timer1.Interval = 200;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -58,14 +53,19 @@ namespace Timer_tick_graph
 
             tickIdx = 0;
 
+            chart1.ChartAreas[0].AxisX.LabelStyle.Format = "0.00";
+            chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00";
+
             // Reset number of series in the chart.
             chart1.Series.Clear();
 
             // create a line chart series
-            Series newSeries = new Series("Series1");
-            newSeries.ChartType = SeriesChartType.Line;
-            newSeries.BorderWidth = 2;
-            newSeries.XValueType = ChartValueType.DateTime;
+            Series newSeries = new Series("Series1")
+            {
+                ChartType = SeriesChartType.Line,
+                BorderWidth = 2,
+                XValueType = ChartValueType.Auto
+            };
             chart1.Series.Add(newSeries);
 
             chart1.ChartAreas[0].AxisX.Minimum = tickIdx * delta;
