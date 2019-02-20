@@ -1,0 +1,10 @@
+C:\Users\Pee\source\repos\EX3 ver.2\EX3 ver.2\bin\Debug\EX3 ver2.exe.config
+C:\Users\Pee\source\repos\EX3 ver.2\EX3 ver.2\bin\Debug\EX3 ver2.exe
+C:\Users\Pee\source\repos\EX3 ver.2\EX3 ver.2\bin\Debug\EX3 ver2.pdb
+C:\Users\Pee\source\repos\EX3 ver.2\EX3 ver.2\obj\Debug\EX3 ver2.csprojAssemblyReference.cache
+C:\Users\Pee\source\repos\EX3 ver.2\EX3 ver.2\obj\Debug\EX3_ver._2.Form1.resources
+C:\Users\Pee\source\repos\EX3 ver.2\EX3 ver.2\obj\Debug\EX3_ver_2.Properties.Resources.resources
+C:\Users\Pee\source\repos\EX3 ver.2\EX3 ver.2\obj\Debug\EX3 ver2.csproj.GenerateResource.cache
+C:\Users\Pee\source\repos\EX3 ver.2\EX3 ver.2\obj\Debug\EX3 ver2.csproj.CoreCompileInputs.cache
+C:\Users\Pee\source\repos\EX3 ver.2\EX3 ver.2\obj\Debug\EX3 ver2.exe
+C:\Users\Pee\source\repos\EX3 ver.2\EX3 ver.2\obj\Debug\EX3 ver2.pdb
