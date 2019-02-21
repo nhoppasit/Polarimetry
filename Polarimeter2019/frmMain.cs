@@ -47,10 +47,10 @@ namespace Polarimeter2019
                 }
                 catch (Exception ex)
                 {
-                    string message = "IO Error";
+                    string message = "IO Error: ";
                     string caption = "Error";
                     //Interaction.MsgBox("IO Error: " + ex.Message, MsgBoxStyle.Critical); //// กล่องข้อความ??
-                    MessageBox.Show(message, caption, MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning); ////ขึ้นข้อความเตือน
+                    MessageBox.Show(message + ex.Message);
                     lblDMM.Text = "Disconnected";
                     lblDMM.BackColor = Color.Red;
                     lblMMC.Text = "Disconncected";
@@ -70,7 +70,7 @@ namespace Polarimeter2019
                     DMM = new Ivi.Visa.Interop.FormattedIO488();
                     DMM.IO() = mgr1.Open(DMMAddress);
                     DMM.IO.Timeout = 7000;
-                    DMM.WriteString("CONF:VOLT:DC " + txtVoltageRange.Text + ", " + txtVoltageResolution.Text); //// กล่องข้อความ
+                    DMM.WriteString("CONF:VOLT:DC " + txtVoltageRange.Text + ", " + txtVoltageResolution.Text);
                     DMM.WriteString("TRIG:SOUR TMM");
                     DMM.WriteString("TRIG:DEL 1.5E-3");
                     DMM.WriteString("TRIG:COUNT 1");
@@ -167,7 +167,7 @@ namespace Polarimeter2019
                 // ----------------------------------------
                 if (btnPause.Text == "PAUSE")
                 {
-                    DoPauseScanning();
+                    DoPasuseScanning();
                 }
 
                 else
@@ -495,25 +495,15 @@ namespace Polarimeter2019
             private void frmMain_Load(object sender, EventArgs e)
             {
                 this.WindowState = FormWindowState.Maximized;
-                LoadSetting();  //// loadSetting มาจากไหน??
+                LoadSetting();  
             }
 
             private void Form1_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
             {
-                //if (Interaction.MsgBox("Do you want to quit program?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Quit") == MsgBoxResult.Yes) 
-                //{
-                //    IsScanning = false;
-                //    SaveSetting();  //// SaveSetting มาจากไหน??
-                //}
-                //else
-                //{
-                //    e.Cancel = true;
-                //}
-                string message = "Do you want to quit program?";
-                string caption = "Polarimeter2019";
-                if (MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                if(MessageBox.Show("Do you want to quit program?", "Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     IsScanning = false;
+                    SaveSetting();
                 }
                 else
                 {
@@ -642,7 +632,7 @@ namespace Polarimeter2019
                         numRepeatNumber.Value = f.RepeatNumber;
 
                         // initialize the data object
-                        TheData = new BaseDataControl();    ////สร้าง pubic BaseDataControl แล้ว แต่ข้อมูลข้างไม่ได้ ???
+                        TheData = new BaseDataControl();    ////สร้าง pubic BaseDataControl แล้ว แต่ใส่ข้อมูลข้างในไม่ได้ ???
                         TheData.SampleName = txtSampleName.Text;
 
                         // clear
@@ -787,7 +777,7 @@ namespace Polarimeter2019
 
         #endregion
 
-        private void btnRun_Click(object sender, EventArgs e)
+        private void btnRun_Click(object sender, EventArgs e)   ////ยังไม่เสร็จ
         {
             try
             {

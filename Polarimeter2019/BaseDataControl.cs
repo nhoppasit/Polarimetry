@@ -4,6 +4,7 @@
     {
         public BaseDataControl()
         {
+            
         }
     }
 }
