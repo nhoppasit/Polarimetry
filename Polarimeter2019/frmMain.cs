@@ -47,10 +47,8 @@ namespace Polarimeter2019
                 }
                 catch (Exception ex)
                 {
-                    string message = "IO Error: ";
-                    string caption = "Error";
                     //Interaction.MsgBox("IO Error: " + ex.Message, MsgBoxStyle.Critical); //// กล่องข้อความ??
-                    MessageBox.Show(message + ex.Message);
+                    MessageBox.Show("IO Error" + ex.Message);
                     lblDMM.Text = "Disconnected";
                     lblDMM.BackColor = Color.Red;
                     lblMMC.Text = "Disconncected";
@@ -93,16 +91,14 @@ namespace Polarimeter2019
                 }
                 catch (Exception ex)
                 {
-                    string message = "InitIO Error";
-                    string caption = "Error";
-                    //Interaction.MsgBox("InitIO Error:" + Constants.vbCrLf + ex.Message); //// กล่องข้อความ
-                    MessageBox.Show(message, caption, MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning); ////ขึ้นข้อความเตือน
+                    //Interaction.MsgBox("InitIO Error:" + Constants.vbCrLf + ex.Message);
+                    MessageBox.Show("InitIO Error:" + MessageBoxButtons.RetryCancel + ex.Message);
                     lblDMM.Text = "Disconnected";
                     lblDMM.BackColor = Color.Red;
                     lblMMC.Text = "Disconncected";
                     lblMMC.BackColor = Color.Red;
                 }
-            }
+            }   //DMM.IO ??
 
         #endregion
                 
@@ -205,17 +201,18 @@ namespace Polarimeter2019
             }
 
         #endregion
+        
+        #region Scanning Procedure    
 
-        #region Scanning Procedure
-
-            private void DoScanLightIntensity()
+            private void DoScanLightIntensity()   //กล่องข้อความ
             {
                 // --------------------------------------------
                 // validate selected index of repeats
                 // --------------------------------------------
                 if (lsvData.SelectedItems.Count <= 0)
                 {
-                    Interaction.MsgBox("Please select item in samples list view that you want to measure!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly);
+                    //Interaction.MsgBox("Please select item in samples list view that you want to measure!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly);
+                    MessageBox.Show("Please select item in samples list view that you want to measure!"+ MessageBoxButtons.OK);
                     btnStart.Enabled = true;
                     btnStop.Enabled = false;
                     btnPause.Enabled = false;
@@ -226,30 +223,8 @@ namespace Polarimeter2019
                     return;
                 }
 
-                // --------------------------------------------
-                // Confirmation
-                // --------------------------------------------
-                // If Not IsContinuing Then
-                // Dim trt As String
-                // If SelectedIndex = 0 Then
-                // trt = "Reference data"
-                // Else
-                // trt = "Sample " & SelectedIndex
-                // End If
-                // If MsgBox("Are you sure to measure " & trt & "?", MsgBoxStyle.YesNo) <> MsgBoxResult.Yes Then
-                // btnStart.Enabled = True
-                // btnStop.Enabled = False
-                // btnPause.Enabled = False
-                // btnPause.Text = "PAUSE"
-                // btnNewMeas.Enabled = True
-                // gbSample.Enabled = True
-                // gbScanCondition.Enabled = True
-                // Exit Sub
-                // End If
-                // End If
-
                 if (!mnuOptionsDemomode.Checked)
-                    ConnectDevices();
+                ConnectedDevices();
 
                 try
                 {
@@ -298,7 +273,7 @@ namespace Polarimeter2019
                         MMC.WriteString(MSG);
 
                         // 0.5 Read first
-                        int nAvg = numRepeatNumber.Value;
+                        int nAvg = numRepeatNumber.Value();
                         CurrentLightIntensity = 0;
                         for (int tt = 0; tt <= nAvg - 1; tt++)
                         {
@@ -308,27 +283,30 @@ namespace Polarimeter2019
                         CurrentLightIntensity = CurrentLightIntensity / nAvg;
                     }
                     else
+                    {
                         CurrentLightIntensity = VBMath.Rnd() * 0.1 + Math.Cos((CurrentTheta - VBMath.Rnd() * 50) * Math.PI / 180) + 2;
-
-                    // ----------------------------------------------------------------
-                    // STORE DATA AND PLOT
-                    // ----------------------------------------------------------------
-                    // Save to memory
+                    }
+                        // ----------------------------------------------------------------
+                        // STORE DATA AND PLOT
+                        // ----------------------------------------------------------------
+                        // Save to memory
                     if (SelectedIndex == 0)
+                    {
                         TheData.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                    }
                     else
                         TheData.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                    DefineAngleOfRotation();
-                    PlotReferenceCurve();
-                    PlotTreatmentsCurve();
-                    PlotSelectedTRTMarker();
+                        DefineAngleOfRotation();
+                        PlotReferenceCurve();
+                        PlotTreatmentsCurve();
+                        PlotSelectedTRTMarker();
 
-                    // auto scale
-                    // AxDynaPlot1.Axes.Autoscale()
+                        // auto scale
+                        // AxDynaPlot1.Axes.Autoscale()
 
-                    // --------------------------------------------
-                    // MAIN READING LOOP (^0^)
-                    // --------------------------------------------
+                        // --------------------------------------------
+                        // MAIN READING LOOP (^0^)
+                        // --------------------------------------------
                     while (IsScanning)
                     {
                         Application.DoEvents();
@@ -354,7 +332,7 @@ namespace Polarimeter2019
                             MMC.WriteString(MSG);
 
                             // 3. Read light intensity
-                            int nAvg = numRepeatNumber.Value;
+                            int nAvg = numRepeatNumber.Value();
                             CurrentLightIntensity = 0;
                             for (int tt = 0; tt <= nAvg - 1; tt++)
                             {
@@ -377,16 +355,19 @@ namespace Polarimeter2019
                             // 'Simulation
                             CurrentLightIntensity = VBMath.Rnd() * 0.1 + Math.Cos((CurrentTheta - VBMath.Rnd() * 50) * Math.PI / 180) + 2;
 
-                        // Save to memory and update curve
+                            // Save to memory and update curve
                         if (SelectedIndex == 0)
+                        {
                             TheData.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                        }
                         else
+                        {
                             TheData.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                        DefineAngleOfRotation();
-                        PlotReferenceCurve();
-                        PlotTreatmentsCurve();
-                        PlotSelectedTRTMarker();
-
+                            DefineAngleOfRotation();
+                            PlotReferenceCurve();
+                            PlotTreatmentsCurve();
+                            PlotSelectedTRTMarker();
+                        }
                         // auto scale
                         // AxDynaPlot1.Axes.Autoscale()
 
@@ -436,7 +417,7 @@ namespace Polarimeter2019
                 }
                 catch (Exception ex)
                 {
-                    Interaction.MsgBox(ex.Message);
+                    MessageBox.Show(ex.Message);
 
                     // ----------------------------------------
                     // 1. stop Test loop of reading light intensity
@@ -612,8 +593,10 @@ namespace Polarimeter2019
                 if (lsvData.Items.Count > 0)
                 {
                     //if (Interaction.MsgBox("Data will be deleted. Do you want to new measurement?", MsgBoxStyle.YesNo) != MsgBoxResult.Yes)
-                    if (MessageBox.Show("Data will be deleted. Do you want to new measurement?", MessageBoxButtons.YesNo))
+                    if (MessageBox.Show("Data will be deleted. Do you want to new measurement?",MessageBoxButtons.YesNo)==DialogResult.Yes)
+                    {
                         return;
+                    }
                 }
 
                 // load dialog

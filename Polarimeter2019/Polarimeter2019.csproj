@@ -65,9 +65,6 @@
     <Compile Include="frmNewMeasurement.Designer.cs">
       <DependentUpon>frmNewMeasurement.cs</DependentUpon>
     </Compile>
-    <Compile Include="My.cs" />
-    <Compile Include="My1.cs" />
-    <Compile Include="My\MySettingsProperty.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmColorTable.resx">
@@ -101,9 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Logo_kmitl.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="VisaComLib">

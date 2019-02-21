@@ -29,7 +29,7 @@ namespace Polarimeter2019
             LVI.UseItemStyleForSubItems = false;
             LVI.Text = "Reference";
             LVI.SubItems.Add("");
-            LVI.SubItems.Add(frmMain.ReferenceColor.ToString());
+            LVI.SubItems.Add(frmMain.ReferenceColor.ToString);
             LVI.SubItems[1].BackColor = System.Drawing.Color.Red;
             lvColorTable.Items.Add(LVI);
 
@@ -39,7 +39,7 @@ namespace Polarimeter2019
                 LVI.UseItemStyleForSubItems = false;
                 LVI.Text = "Sample " + (i + 1).ToString();
                 LVI.SubItems.Add("");
-                LVI.SubItems.Add(frmMain.ColorTable(i).ToString());
+                LVI.SubItems.Add(frmMain.ColorTable(i).ToString);
                 LVI.SubItems[1].BackColor = frmMain.ColorTable(i);
                 lvColorTable.Items.Add(LVI);
             }
