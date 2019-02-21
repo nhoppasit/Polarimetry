@@ -1,0 +1,12 @@
+C:\Users\Pee\source\repos\Polarimeter2019\Polarimeter2019\bin\Debug\Polarimeter2019.exe.config
+C:\Users\Pee\source\repos\Polarimeter2019\Polarimeter2019\bin\Debug\Polarimeter2019.exe
+C:\Users\Pee\source\repos\Polarimeter2019\Polarimeter2019\bin\Debug\Polarimeter2019.pdb
+C:\Users\Pee\source\repos\Polarimeter2019\Polarimeter2019\obj\Debug\Polarimeter2019.csprojAssemblyReference.cache
+C:\Users\Pee\source\repos\Polarimeter2019\Polarimeter2019\obj\Debug\Polarimeter2019.Properties.Resources.resources
+C:\Users\Pee\source\repos\Polarimeter2019\Polarimeter2019\obj\Debug\Polarimeter2019.csproj.GenerateResource.cache
+C:\Users\Pee\source\repos\Polarimeter2019\Polarimeter2019\obj\Debug\Polarimeter2019.csproj.CoreCompileInputs.cache
+C:\Users\Pee\source\repos\Polarimeter2019\Polarimeter2019\obj\Debug\Polarimeter2019.exe
+C:\Users\Pee\source\repos\Polarimeter2019\Polarimeter2019\obj\Debug\Polarimeter2019.pdb
+C:\Users\Pee\source\repos\Polarimeter2019\Polarimeter2019\obj\Debug\Polarimeter2019.frmMain.resources
+C:\Users\Pee\source\repos\Polarimeter2019\Polarimeter2019\obj\Debug\Polarimeter2019.frmNewMeasurement.resources
+C:\Users\Pee\source\repos\Polarimeter2019\Polarimeter2019\obj\Debug\Polarimeter2019.frmColorTable.resources
