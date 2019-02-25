@@ -68,131 +68,131 @@ namespace Polarimeter2019
             {
                 case 0:
                     {
-                        My.Settings.ReferenceColor = dlg.Color;
+                        Properties.Settings.Default.ReferenceColor = dlg.Color;
                         break;
                     }
 
                 case 1:
                     {
-                        My.Settings.Color1 = dlg.Color;
+                        Properties.Settings.Default.Color1 = dlg.Color;
                         break;
                     }
 
                 case 2:
                     {
-                        My.Settings.Color2 = dlg.Color;
+                        Properties.Settings.Default.Color2 = dlg.Color;
                         break;
                     }
 
                 case 3:
                     {
-                        My.Settings.Color3 = dlg.Color;
+                        Properties.Settings.Default.Color3 = dlg.Color;
                         break;
                     }
 
                 case 4:
                     {
-                        My.Settings.Color4 = dlg.Color;
+                        Properties.Settings.Default.Color4 = dlg.Color;
                         break;
                     }
 
                 case 5:
                     {
-                        My.Settings.Color5 = dlg.Color;
+                        Properties.Settings.Default.Color5 = dlg.Color;
                         break;
                     }
 
                 case 6:
                     {
-                        My.Settings.Color6 = dlg.Color;
+                        Properties.Settings.Default.Color6 = dlg.Color;
                         break;
                     }
 
                 case 7:
                     {
-                        My.Settings.Color7 = dlg.Color;
+                        Properties.Settings.Default.Color7 = dlg.Color;
                         break;
                     }
 
                 case 8:
                     {
-                        My.Settings.Color8 = dlg.Color;
+                        Properties.Settings.Default.Color8 = dlg.Color;
                         break;
                     }
 
                 case 9:
                     {
-                        My.Settings.Color9 = dlg.Color;
+                        Properties.Settings.Default.Color9 = dlg.Color;
                         break;
                     }
 
                 case 10:
                     {
-                        My.Settings.Color10 = dlg.Color;
+                        Properties.Settings.Default.Color10 = dlg.Color;
                         break;
                     }
 
                 case 11:
                     {
-                        My.Settings.Color11 = dlg.Color;
+                        Properties.Settings.Default.Color11 = dlg.Color;
                         break;
                     }
 
                 case 12:
                     {
-                        My.Settings.Color12 = dlg.Color;
+                        Properties.Settings.Default.Color12 = dlg.Color;
                         break;
                     }
 
                 case 13:
                     {
-                        My.Settings.Color13 = dlg.Color;
+                        Properties.Settings.Default.Color13 = dlg.Color;
                         break;
                     }
 
                 case 14:
                     {
-                        My.Settings.Color14 = dlg.Color;
+                        Properties.Settings.Default.Color14 = dlg.Color;
                         break;
                     }
 
                 case 15:
                     {
-                        My.Settings.Color15 = dlg.Color;
+                        Properties.Settings.Default.Color15 = dlg.Color;
                         break;
                     }
 
                 case 16:
                     {
-                        My.Settings.Color16 = dlg.Color;
+                        Properties.Settings.Default.Color16 = dlg.Color;
                         break;
                     }
 
                 case 17:
                     {
-                        My.Settings.Color17 = dlg.Color;
+                        Properties.Settings.Default.Color17 = dlg.Color;
                         break;
                     }
 
                 case 18:
                     {
-                        My.Settings.Color18 = dlg.Color;
+                        Properties.Settings.Default.Color18 = dlg.Color;
                         break;
                     }
 
                 case 19:
                     {
-                        My.Settings.Color19 = dlg.Color;
+                        Properties.Settings.Default.Color19 = dlg.Color;
                         break;
                     }
 
                 case 20:
                     {
-                        My.Settings.Color20 = dlg.Color;
+                        Properties.Settings.Default.Color20 = dlg.Color;
                         break;
                     }
             }
-            My.Settings.Save();
+            Properties.Settings.Default.Save();
             frmMain.ApplyColorTableToSamples();
             }
             catch (Exception ex)

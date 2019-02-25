@@ -273,8 +273,8 @@ namespace Polarimeter2019
                         MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
                         MMC.WriteString(MSG);
 
-                        // 0.5 Read first
-                        int nAvg = numRepeatNumber.Value();
+                    // 0.5 Read first
+                    int nAvg = numRepeatNumber.Value();
                         CurrentLightIntensity = 0;
                         for (int tt = 0; tt <= nAvg - 1; tt++)
                         {
@@ -645,7 +645,7 @@ namespace Polarimeter2019
                             lvi.SubItems.Add("-");
                             lvi.SubItems.Add("-");
                             lvi.Checked = true;
-                            lvi.BackColor = ColorTable((i - 1) % ColorTable.Length);
+                            lvi.BackColor = ColorTable[(i - 1) % ColorTable.Length];
                             lvi.UseItemStyleForSubItems = false;
                             lsvData.Items.Add(lvi);
                         }
@@ -686,36 +686,36 @@ namespace Polarimeter2019
 
             private void LoadSetting()
             {
-                txtVoltageRange.Text = My.Settings.VoltageRange.ToString;
-                txtVoltageResolution.Text = My.Settings.VoltageResolution.ToString;
-                mnuOptionsDemomode.Checked = My.Settings.IsDemo;
-                ReferenceColor = My.Settings.ReferenceColor;
-                ColorTable(0) = My.Settings.Color1;
-                ColorTable(1) = My.Settings.Color2;
-                ColorTable(2) = My.Settings.Color3;
-                ColorTable(3) = My.Settings.Color4;
-                ColorTable(4) = My.Settings.Color5;
-                ColorTable(5) = My.Settings.Color6;
-                ColorTable(6) = My.Settings.Color7;
-                ColorTable(7) = My.Settings.Color8;
-                ColorTable(8) = My.Settings.Color9;
-                ColorTable(9) = My.Settings.Color10;
-                ColorTable(10) = My.Settings.Color11;
-                ColorTable(11) = My.Settings.Color12;
-                ColorTable(12) = My.Settings.Color13;
-                ColorTable(13) = My.Settings.Color14;
-                ColorTable(14) = My.Settings.Color15;
-                ColorTable(15) = My.Settings.Color16;
-                ColorTable(16) = My.Settings.Color17;
-                ColorTable(17) = My.Settings.Color18;
-                ColorTable(18) = My.Settings.Color19;
-                ColorTable(19) = My.Settings.Color20;
-            }   //// My.Setting คือ ???
+                txtVoltageRange.Text = Properties.Settings.Default.VoltageRange.ToString();
+                txtVoltageResolution.Text = Properties.Settings.Default.VoltageResolution.ToString();
+            mnuOptionsDemomode.Checked = Properties.Settings.Default.IsDemo();
+                ReferenceColor = Properties.Settings.Default.ReferenceColor;
+                ColorTable[0] = Properties.Settings.Default.Color1;
+                ColorTable[1] = Properties.Settings.Default.Color2;
+                ColorTable[2] = Properties.Settings.Default.Color3;
+                ColorTable[3] = Properties.Settings.Default.Color4;
+                ColorTable[4] = Properties.Settings.Default.Color5;
+                ColorTable[5] = Properties.Settings.Default.Color6;
+                ColorTable[6] = Properties.Settings.Default.Color7;
+                ColorTable[7] = Properties.Settings.Default.Color8;
+                ColorTable[8] = Properties.Settings.Default.Color9;
+                ColorTable[9] = Properties.Settings.Default.Color10;
+                ColorTable[10] = Properties.Settings.Default.Color11;
+                ColorTable[11] = Properties.Settings.Default.Color12;
+                ColorTable[12] = Properties.Settings.Default.Color13;
+                ColorTable[13] = Properties.Settings.Default.Color14;
+                ColorTable[14] = Properties.Settings.Default.Color15;
+                ColorTable[15] = Properties.Settings.Default.Color16;
+                ColorTable[16] = Properties.Settings.Default.Color17;
+                ColorTable[17] = Properties.Settings.Default.Color18;
+                ColorTable[18] = Properties.Settings.Default.Color19;
+                ColorTable[19] = Properties.Settings.Default.Color20;
+            }   
 
             private void SaveSetting()
             {
-                My.Settings.IsDemo = mnuOptionsDemomode.Checked;
-                My.Settings.Save();
+                Properties.Settings.Default.IsDemo = mnuOptionsDemomode.Checked;
+                Properties.Settings.Default.Save();
             }
 
             public void ApplyColorTableToSamples()
@@ -724,7 +724,7 @@ namespace Polarimeter2019
                 {
                     lsvData.Items[0].BackColor = ReferenceColor;
                     for (int i = 1; i <= lsvData.Items.Count - 1; i++)
-                        lsvData.Items[i].BackColor = ColorTable((i - 1) % ColorTable.Length);
+                        lsvData.Items[i].BackColor = ColorTable[(i - 1) % ColorTable.Length];
                 }
                 catch (Exception ex)
                 {
@@ -846,8 +846,8 @@ namespace Polarimeter2019
         {
             try
             {
-                My.Settings.VoltageRange = Val(txtVoltageRange.Text);
-                My.Settings.Save();
+                Properties.Settings.Default.VoltageRange = Val(txtVoltageRange.Text);
+                Properties.Settings.Default.Save();
             }
             catch (Exception ex)
             {
@@ -858,8 +858,8 @@ namespace Polarimeter2019
         {
             try
             {
-                My.Settings.VoltageResolution = Val(txtVoltageResolution.Text);
-                My.Settings.Save();
+                Properties.Settings.Default.VoltageResolution = Val(txtVoltageResolution.Text);
+                Properties.Settings.Default.Save();
             }
             catch (Exception ex)
             {
