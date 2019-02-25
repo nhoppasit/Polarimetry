@@ -98,11 +98,11 @@ namespace Project4
                     ListViewItem lvi = new ListViewItem();
                     lvi.Text = i.ToString();
                     lvi.SubItems.Add(tn[i].ToString());
-                   // chart1.ChartAreas[0].AxisX.Minimum = tn[i];
-                   // chart1.ChartAreas[0].AxisX.Maximum = tn[i] + 1;
+                    chart1.ChartAreas[0].AxisX.Minimum = tn[i];
+                    chart1.ChartAreas[0].AxisX.Maximum = tn[i] + 1;
                     lvi.SubItems.Add(yn[i].ToString());
-                   // chart1.ChartAreas[0].AxisX.Minimum = yn[i];
-                   // chart1.ChartAreas[0].AxisX.Maximum = yn[i] + 1;
+                    chart1.ChartAreas[0].AxisX.Minimum = yn[i];
+                    chart1.ChartAreas[0].AxisX.Maximum = yn[i] + 1;
                     LsvData.Items.Add(lvi);
                 }
             }
