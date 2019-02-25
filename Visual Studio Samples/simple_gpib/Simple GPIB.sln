@@ -1,21 +1,24 @@
-Microsoft Visual Studio Solution File, Format Version 7.00
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple GPIB", "Simple GPIB.csproj", "{6E44C6DB-B286-48B8-A912-5A8FD64E822A}"
 EndProject
 Global
-	GlobalSection(SolutionConfiguration) = preSolution
-		ConfigName.0 = Debug
-		ConfigName.1 = Release
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectDependencies) = postSolution
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E44C6DB-B286-48B8-A912-5A8FD64E822A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E44C6DB-B286-48B8-A912-5A8FD64E822A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E44C6DB-B286-48B8-A912-5A8FD64E822A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E44C6DB-B286-48B8-A912-5A8FD64E822A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectConfiguration) = postSolution
-		{6E44C6DB-B286-48B8-A912-5A8FD64E822A}.Debug.ActiveCfg = Debug|.NET
-		{6E44C6DB-B286-48B8-A912-5A8FD64E822A}.Debug.Build.0 = Debug|.NET
-		{6E44C6DB-B286-48B8-A912-5A8FD64E822A}.Release.ActiveCfg = Release|.NET
-		{6E44C6DB-B286-48B8-A912-5A8FD64E822A}.Release.Build.0 = Release|.NET
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-	EndGlobalSection
-	GlobalSection(ExtensibilityAddIns) = postSolution
+		SolutionGuid = {7D67461E-8D45-4E6A-B8EA-8FBE2DE9A8CC}
 	EndGlobalSection
 EndGlobal
