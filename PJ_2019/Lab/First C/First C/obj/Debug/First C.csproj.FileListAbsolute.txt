@@ -1,0 +1,9 @@
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\Lab\First C\First C\bin\Debug\First C.exe.config
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\Lab\First C\First C\bin\Debug\First C.exe
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\Lab\First C\First C\bin\Debug\First C.pdb
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\Lab\First C\First C\obj\Debug\First_C.Form1.resources
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\Lab\First C\First C\obj\Debug\First_C.Properties.Resources.resources
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\Lab\First C\First C\obj\Debug\First C.csproj.GenerateResource.cache
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\Lab\First C\First C\obj\Debug\First C.csproj.CoreCompileInputs.cache
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\Lab\First C\First C\obj\Debug\First C.exe
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\Lab\First C\First C\obj\Debug\First C.pdb

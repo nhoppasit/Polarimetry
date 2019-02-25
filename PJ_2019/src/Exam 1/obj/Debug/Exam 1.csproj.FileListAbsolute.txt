@@ -1,0 +1,10 @@
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\src\Exam 1\bin\Debug\Exam 1.exe
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\src\Exam 1\bin\Debug\Exam 1.pdb
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\src\Exam 1\obj\Debug\Exam_1.Form1.resources
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\src\Exam 1\obj\Debug\Exam_1.Properties.Resources.resources
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\src\Exam 1\obj\Debug\Exam 1.csproj.GenerateResource.cache
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\src\Exam 1\obj\Debug\Exam 1.csproj.CoreCompileInputs.cache
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\src\Exam 1\obj\Debug\Exam 1.exe
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\src\Exam 1\obj\Debug\Exam 1.pdb
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\src\Exam 1\obj\Debug\Exam_1.dlgAdd.resources
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\PJ_2019\src\Exam 1\obj\Debug\Exam 1.csprojAssemblyReference.cache

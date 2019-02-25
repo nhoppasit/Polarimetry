@@ -1,0 +1,9 @@
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\Visual Studio Samples\simple_gpib\obj\Debug\Simple GPIB.csprojAssemblyReference.cache
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\Visual Studio Samples\simple_gpib\obj\Debug\Interop.CWUIControlsLib.dll
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\Visual Studio Samples\simple_gpib\obj\Debug\AxInterop.CWUIControlsLib.dll
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\Visual Studio Samples\simple_gpib\obj\Debug\Simple GPIB.csproj.ResolveComReference.cache
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\Visual Studio Samples\simple_gpib\obj\Debug\Simple_GPIB.Form1.resources
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\Visual Studio Samples\simple_gpib\obj\Debug\Simple GPIB.csproj.GenerateResource.cache
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\Visual Studio Samples\simple_gpib\obj\Debug\Simple GPIB.csproj.CoreCompileInputs.cache
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\Visual Studio Samples\simple_gpib\obj\Debug\Simple GPIB.exe
+C:\Users\MANGMOOM\Documents\GitHub\Polarimeter\Visual Studio Samples\simple_gpib\obj\Debug\Simple GPIB.pdb
