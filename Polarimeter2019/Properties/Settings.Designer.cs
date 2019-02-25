@@ -14,6 +14,7 @@ namespace Polarimeter2019.Properties
 
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
+    [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
     {
 
@@ -28,3 +29,26 @@ namespace Polarimeter2019.Properties
         }
     }
 }
+
+namespace My
+{
+    [global::Microsoft.VisualBasic.HideModuleName()]
+    [global::System.Diagnostics.DebuggerNonUserCode()]
+    [global::System.Runtime.CompilerServices.CompilerGenerated()]
+    internal static class MySettingsProperty
+    {
+        [global::System.ComponentModel.Design.HelpKeyword("My.Settings")]
+        internal static global::Polarimeter2019.Properties.Settings()
+
+    }
+}
+
+//            get
+//            {
+                
+//                //return global::Polarimeter.My.MySettings.Default;
+//            }
+//        }
+//    }
+//}
+
