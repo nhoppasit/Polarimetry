@@ -218,6 +218,7 @@ namespace Polarimeter2019
                     btnPause.Enabled = false;
                     btnPause.Text = "PAUSE";
                     btnNew.Enabled = true;
+                    btnOpen.Enabled = true;
                     gbSample.Enabled = true;
                     gbScanCondition.Enabled = true;
                     return;
@@ -403,6 +404,7 @@ namespace Polarimeter2019
                         btnPause.Enabled = false;
                         btnPause.Text = "PAUSE";
                         btnNew.Enabled = true;
+                        btnOpen.Enabled = true;
                         gbSample.Enabled = true;
                         gbScanCondition.Enabled = true;
                     }
@@ -432,6 +434,7 @@ namespace Polarimeter2019
                     btnPause.Enabled = false;
                     btnPause.Text = "PAUSE";
                     btnNew.Enabled = true;
+                    btnOpen.Enabled = true;
                     gbSample.Enabled = true;
                     gbScanCondition.Enabled = true;
                 }
@@ -652,6 +655,7 @@ namespace Polarimeter2019
 
                         gbMeasurement.Enabled = true;
                         btnNew.Enabled = true;
+                        btnOpen.Enabled = true;
                         gbSample.Enabled = true;
                         gbScanCondition.Enabled = true;
 
