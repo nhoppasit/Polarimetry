@@ -22,7 +22,6 @@ namespace Polarimeter2019
         private string mSampleName;
         private double mSpecificRotation;
         //public strucCurveData Reference;
-        //public Collection DataCollection = new Collection();
         //public strucCurveData Data;
 
         #endregion
@@ -156,12 +155,7 @@ namespace Polarimeter2019
             byte[] info = new UTF8Encoding(true).GetBytes(value);
             fs.Write(info, 0, info.Length);
         }
-
-        public void DeleteData(int RepeatID)
-        {
-
-        }
-
+        
         public void OpenFile()
         {
             OpenFileDialog dlg = new OpenFileDialog();
@@ -185,23 +179,7 @@ namespace Polarimeter2019
             {
             }
         }
-
-        private void AnalyzeData2(int RepeatID)
-        {
-            try
-            {
-                if (Reference.X == null)
-                    return;
-                strucCurveData _Data = DataCollection(RepeatID.ToString());
-                if (_Data.X == null)
-                    return;
-                _Data.AngleOfRotation = Math.Abs(_Data.Xm - Reference.Xm);
-            }
-            catch (Exception ex)
-            {
-            }
-        }
-
+        
         private void AnalyzeAllData()
         {
             int i = 0;
