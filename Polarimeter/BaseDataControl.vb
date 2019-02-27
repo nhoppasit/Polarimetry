@@ -13,7 +13,7 @@ Public Class BaseDataControl
         Dim AngleOfRotation As Double
     End Structure
 
-    'test
+    'testas d
     Dim mSampleName As String
     Dim mSpecificRotation As Double
     Public Reference As strucCurveData
