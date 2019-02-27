@@ -1,6 +1,78 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Polarimeter2019.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="IsDemo" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="VoltageRange" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="VoltageResolution" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.0001</Value>
+    </Setting>
+    <Setting Name="ReferenceColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Red</Value>
+    </Setting>
+    <Setting Name="color1" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Blue</Value>
+    </Setting>
+    <Setting Name="color2" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Yellow</Value>
+    </Setting>
+    <Setting Name="color3" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Lime</Value>
+    </Setting>
+    <Setting Name="color4" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">255, 128, 0</Value>
+    </Setting>
+    <Setting Name="color5" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">192, 0, 192</Value>
+    </Setting>
+    <Setting Name="color6" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">0, 192, 192</Value>
+    </Setting>
+    <Setting Name="color7" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">64, 64, 64</Value>
+    </Setting>
+    <Setting Name="color8" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">192, 192, 0</Value>
+    </Setting>
+    <Setting Name="color9" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">255, 128, 255</Value>
+    </Setting>
+    <Setting Name="color10" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">192, 64, 0</Value>
+    </Setting>
+    <Setting Name="color11" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">0, 0, 64</Value>
+    </Setting>
+    <Setting Name="color12" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Olive</Value>
+    </Setting>
+    <Setting Name="color13" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Teal</Value>
+    </Setting>
+    <Setting Name="color14" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">64, 0, 0</Value>
+    </Setting>
+    <Setting Name="color15" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Purple</Value>
+    </Setting>
+    <Setting Name="color16" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">192, 0, 0</Value>
+    </Setting>
+    <Setting Name="color17" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">0, 64, 0</Value>
+    </Setting>
+    <Setting Name="color18" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">128, 64, 0</Value>
+    </Setting>
+    <Setting Name="color19" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Gray</Value>
+    </Setting>
+    <Setting Name="color20" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">128, 64, 64</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
