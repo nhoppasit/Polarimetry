@@ -7,7 +7,8 @@ using System.Windows.Forms;
 namespace Polarimeter2019
 {
     public class BaseDataControl
-    {
+    {   
+        //ทดสอบ
         #region Members
 
         struct strucCurveData
