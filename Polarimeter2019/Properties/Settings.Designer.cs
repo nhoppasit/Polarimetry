@@ -31,7 +31,7 @@ namespace Polarimeter2019.Properties
         [global::System.Configuration.UserScopedSetting()]
         [global::System.Diagnostics.DebuggerNonUserCode()]
         [global::System.Configuration.DefaultSettingValue("False")]
-        public bool IsDemo
+        private bool IsDemo
         {
             get
             {
