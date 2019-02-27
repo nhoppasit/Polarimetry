@@ -23,7 +23,7 @@ namespace Polarimeter2019
             public Collection DataCollection = new Collection();
             public strucCurveData[] Data;
         }
-
+        
         #endregion
        
         #region Properties
