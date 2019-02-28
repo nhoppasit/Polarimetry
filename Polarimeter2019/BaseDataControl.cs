@@ -173,12 +173,9 @@ namespace Polarimeter2019
 
         #region New
 
-        //Pulic sub new()
-        //Reference.Ym = 999999
-        //End sub
-        public SurroundingClass()
+        public void New()
         {
-            Reference.Ym = 9999999;
+            //Reference.Ym = 9999999;
         }
 
         #endregion
