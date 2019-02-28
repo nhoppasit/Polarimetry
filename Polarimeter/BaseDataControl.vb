@@ -194,9 +194,9 @@ Public Class BaseDataControl
         Dim i As Integer = 0
         For Each d As strucCurveData In Data
             If d.X IsNot Nothing Then
-                AnalyzeData(i)
+                AnalyzeData(i)      'มุมของแผ่นอนาไรซ์ที่ตำแหน่ง i โดย i=0
             End If
-            i += 1
+            i += 1      'i = i+1 ดังนั้นค่า i จะเพิ่มขึ้นเรื่อยๆ ส่งผลให้มุมของแผ่นอนาไรซ์เปลี่ยนไปเรื่อยๆตามตำแหน่ง จาก0,1,2,...
         Next
     End Sub
 
