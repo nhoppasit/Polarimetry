@@ -12,9 +12,12 @@ namespace Polarimeter2019
 {
     public partial class frmColorTable : Form
     {
-        public frmColorTable()
+        public frmMain f1;
+
+        public frmColorTable(frmMain f)
         {
             InitializeComponent();
+            f1 = f;
         }
 
         private void frmColorTable_Load(object sender, EventArgs e)
@@ -29,7 +32,7 @@ namespace Polarimeter2019
             LVI.UseItemStyleForSubItems = false;
             LVI.Text = "Reference";
             LVI.SubItems.Add("");
-            LVI.SubItems.Add(frmMain.ReferenceColor.ToString);
+            LVI.SubItems.Add(f1.ReferenceColor.ToString());
             LVI.SubItems[1].BackColor = System.Drawing.Color.Red;
             lvColorTable.Items.Add(LVI);
 
@@ -39,8 +42,8 @@ namespace Polarimeter2019
                 LVI.UseItemStyleForSubItems = false;
                 LVI.Text = "Sample " + (i + 1).ToString();
                 LVI.SubItems.Add("");
-                LVI.SubItems.Add(frmMain.ColorTable(i).ToString);
-                LVI.SubItems[1].BackColor = frmMain.ColorTable(i);
+                LVI.SubItems.Add(f1.ColorTable[i].ToString());
+                LVI.SubItems[1].BackColor = f1.ColorTable[i];
                 lvColorTable.Items.Add(LVI);
             }
         }
@@ -55,11 +58,11 @@ namespace Polarimeter2019
                 dlg.ShowDialog();
                 if (i == 0)
                 {
-                    frmMain.ReferenceColor = dlg.Color;
+                    f1.ReferenceColor = dlg.Color;
                 }
                 else
                 {
-                    frmMain.ColorTable[i - 1] = dlg.Color;
+                    f1.ColorTable[i - 1] = dlg.Color;
                 }
 
                 lvColorTable.SelectedItems[0].SubItems[1].BackColor = dlg.Color;
@@ -193,7 +196,7 @@ namespace Polarimeter2019
                     }
             }
             Properties.Settings.Default.Save();
-            frmMain.ApplyColorTableToSamples();
+            f1.ApplyColorTableToSamples();
             }
             catch (Exception ex)
             {
