@@ -688,28 +688,28 @@ namespace Polarimeter2019
             {
                 txtVoltageRange.Text = Properties.Settings.Default.VoltageRange.ToString();
                 txtVoltageResolution.Text = Properties.Settings.Default.VoltageResolution.ToString();
-            mnuOptionsDemomode.Checked = Properties.Settings.Default.IsDemo();
+            mnuOptionsDemomode.Checked = Properties.Settings.Default.IsDemo;
                 ReferenceColor = Properties.Settings.Default.ReferenceColor;
-                ColorTable[0] = Properties.Settings.Default.Color1;
-                ColorTable[1] = Properties.Settings.Default.Color2;
-                ColorTable[2] = Properties.Settings.Default.Color3;
-                ColorTable[3] = Properties.Settings.Default.Color4;
-                ColorTable[4] = Properties.Settings.Default.Color5;
-                ColorTable[5] = Properties.Settings.Default.Color6;
-                ColorTable[6] = Properties.Settings.Default.Color7;
-                ColorTable[7] = Properties.Settings.Default.Color8;
-                ColorTable[8] = Properties.Settings.Default.Color9;
-                ColorTable[9] = Properties.Settings.Default.Color10;
-                ColorTable[10] = Properties.Settings.Default.Color11;
-                ColorTable[11] = Properties.Settings.Default.Color12;
-                ColorTable[12] = Properties.Settings.Default.Color13;
-                ColorTable[13] = Properties.Settings.Default.Color14;
-                ColorTable[14] = Properties.Settings.Default.Color15;
-                ColorTable[15] = Properties.Settings.Default.Color16;
-                ColorTable[16] = Properties.Settings.Default.Color17;
-                ColorTable[17] = Properties.Settings.Default.Color18;
-                ColorTable[18] = Properties.Settings.Default.Color19;
-                ColorTable[19] = Properties.Settings.Default.Color20;
+                ColorTable[0] = Properties.Settings.Default.color1;
+                ColorTable[1] = Properties.Settings.Default.color2;
+                ColorTable[2] = Properties.Settings.Default.color3;
+                ColorTable[3] = Properties.Settings.Default.color4;
+                ColorTable[4] = Properties.Settings.Default.color5;
+                ColorTable[5] = Properties.Settings.Default.color6;
+                ColorTable[6] = Properties.Settings.Default.color7;
+                ColorTable[7] = Properties.Settings.Default.color8;
+                ColorTable[8] = Properties.Settings.Default.color9;
+                ColorTable[9] = Properties.Settings.Default.color10;
+                ColorTable[10] = Properties.Settings.Default.color11;
+                ColorTable[11] = Properties.Settings.Default.color12;
+                ColorTable[12] = Properties.Settings.Default.color13;
+                ColorTable[13] = Properties.Settings.Default.color14;
+                ColorTable[14] = Properties.Settings.Default.color15;
+                ColorTable[15] = Properties.Settings.Default.color16;
+                ColorTable[16] = Properties.Settings.Default.color17;
+                ColorTable[17] = Properties.Settings.Default.color18;
+                ColorTable[18] = Properties.Settings.Default.color19;
+                ColorTable[19] = Properties.Settings.Default.color20;
             }   
 
             private void SaveSetting()
