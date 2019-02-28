@@ -76,7 +76,7 @@ namespace Polarimeter2019
             }
         }
         
-        public bool SaveFile()
+        public void SaveFile()
         {
             SaveFileDialog dlg = new SaveFileDialog();
             dlg.Filter = "Text File (*.txt)|*.txt|CSV File (*.csv)|*.csv|Polarimeter File (*.pom)|*.pom|All File (*.*)|*.*";
