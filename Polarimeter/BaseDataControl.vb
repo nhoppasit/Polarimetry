@@ -48,15 +48,16 @@ Public Class BaseDataControl
         End If
     End Sub
 
+    'กำหนดค่าต่างๆของข้อมูลการทดลอง
     Public Sub PatchData(ByVal RepeatID As Integer, ByVal PointID As Integer, ByVal X As Double, ByVal Y As Double)
         'zero base, careful!!!
-        If Data Is Nothing Then
+        If Data Is Nothing Then     'ถ้ายังไม่ทดลอง
             ReDim Preserve Data(0 To RepeatID)
-            Data(RepeatID).Ym = 999999
+            Data(RepeatID).Ym = 999999      'สมมุติว่า ym ของการทดลอง=999999
         Else
-            If Data.Length - 1 < RepeatID Then
+            If Data.Length - 1 < RepeatID Then      'ถ้ามีค่าการทดลอง-1 จะน้อยกว่า repeatID
                 ReDim Preserve Data(0 To RepeatID)
-                Data(RepeatID).Ym = 999999
+                Data(RepeatID).Ym = 999999      'สมมุติว่า ym ของการทดลอง=999999
             End If
         End If
 
@@ -66,10 +67,10 @@ Public Class BaseDataControl
         Data(RepeatID).X(PointID) = X
         Data(RepeatID).Y(PointID) = Y
 
-        If Y < Data(RepeatID).Ym Then
-            Data(RepeatID).Ym = Y
-            Data(RepeatID).Xm = X
-            AnalyzeData(RepeatID)
+        If Y < Data(RepeatID).Ym Then      'ถ้า y น้อยกว่า ym ของการทดลอง
+            Data(RepeatID).Ym = Y       'ym จะเท่ากับ y คือ จุดต่ำสุดของ curve
+            Data(RepeatID).Xm = X       'xm จะเท่ากับ x 
+            AnalyzeData(RepeatID)       'จะได้มุมอนาไรซ์เซอร์ของการทดลอง
         End If
 
     End Sub
