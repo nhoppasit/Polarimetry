@@ -42,9 +42,9 @@ Public Class BaseDataControl
         ReDim Preserve Reference.Y(0 To PointID)    'กำหนดขนาดของแกน y เป็นค่าที่เยอะมากๆ
         Reference.X(PointID) = X    'ค่า x ของ reference
         Reference.Y(PointID) = Y    'ค่า y ของ reference
-        If Y < Reference.Ym Then    'ถ้า ym น้อยกว่า y จะเป็นดังนี้
-            Reference.Ym = Y    'y reference
-            Reference.Xm = X    'x reference
+        If Y < Reference.Ym Then    'ถ้า y น้อยกว่า ym ของ reference 
+            Reference.Ym = Y    'ym ของ reference จะเท่ากับ y แล้วมันไปแสดงในกราฟ
+            Reference.Xm = X    'xm ของ reference จะเท่ากับ x 
         End If
     End Sub
 
