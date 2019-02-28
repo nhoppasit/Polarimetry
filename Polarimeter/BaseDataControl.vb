@@ -190,6 +190,7 @@ Public Class BaseDataControl
         End Try
     End Sub
 
+    'ตำแหน่งของแผ่นอนาไรซ์
     Private Sub AnalyzeAllData()
         Dim i As Integer = 0
         For Each d As strucCurveData In Data
