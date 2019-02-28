@@ -13,12 +13,19 @@ namespace Polarimeter2019
 {
     public partial class frmMain : Form
     {
+        public BaseDataControl BDC;
+
+        public frmMain (BaseDataControl BDCs)
+        {
+            InitializeComponent();
+            BDC = BDCs;
+        }
+
         #region DECRALATION
             //Constants
             const double StepFactor = 0.013325; //Deg /Step 
             
             //Scaning & Data
-            BaseDataControl TheData;
             bool IsScanning = false;
             bool IsContinuing = false;
             int CurrentPointIndex = 0;
@@ -242,11 +249,11 @@ namespace Polarimeter2019
                     if (!IsContinuing)
                     {
                         if (SelectedIndex == 0)
-                            TheData.Reference.Ym = 99999999;
-                        else if (TheData.Data != null)
+                            BDC.Reference.Ym = 99999999;
+                        else if (BDC.Data != null)
                         {
-                            if (SelectedIndex <= TheData.Data.Length)
-                                TheData.Data(SelectedIndex - 1).Ym = 99999999;
+                            if (SelectedIndex <= BDC.Data.Length)
+                                BDC.Data(SelectedIndex - 1).Ym = 99999999;
                         }
                     }
 
@@ -293,10 +300,10 @@ namespace Polarimeter2019
                         // Save to memory
                     if (SelectedIndex == 0)
                     {
-                        TheData.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                        BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     }
                     else
-                        TheData.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                        BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         DefineAngleOfRotation();
                         PlotReferenceCurve();
                         PlotTreatmentsCurve();
@@ -359,11 +366,11 @@ namespace Polarimeter2019
                             // Save to memory and update curve
                         if (SelectedIndex == 0)
                         {
-                            TheData.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                            BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         }
                         else
                         {
-                            TheData.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                            BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                             DefineAngleOfRotation();
                             PlotReferenceCurve();
                             PlotTreatmentsCurve();
@@ -532,13 +539,13 @@ namespace Polarimeter2019
                 {
                     if (lsvData.Items[0].Checked == true)
                     {
-                        if (TheData.Reference.X != null)
+                        if (BDC.Reference.X != null)
                         {
                             // ReferenceCurve.UpdateData(TheData.Reference.X, TheData.Reference.Y, TheData.Reference.X.Length)
                             // ReferenceCurve.Penstyle.Color = RGB(ReferenceColor.R, ReferenceColor.G, ReferenceColor.B)
                             // ReferenceMinMarker.PositionX = TheData.Reference.Xm
                             // ReferenceMinMarker.PositionY = TheData.Reference.Ym
-                            lblNullPoint.Text = TheData.Reference.Xm.ToString("0.0000") + " deg";
+                            lblNullPoint.Text = BDC.Reference.Xm.ToString("0.0000") + " deg";
                             e = true;
                         }
                     }
@@ -551,9 +558,9 @@ namespace Polarimeter2019
 
             private bool PlotTreatmentsCurve()
             {
-                if (TheData == null)
+                if (BDC == null)
                     return false;
-                if (TheData.Data == null)
+                if (BDC.Data == null)
                     return false;
                 for (int i = 0; i <= NumberOfRepeatation - 1; i++)
                 {
@@ -578,7 +585,7 @@ namespace Polarimeter2019
                     if (lsvData.Items[SelectedIndex].Checked)
                         // TreatmentMinMarker.PositionX = TheData.Data(SelectedIndex - 1).Xm
                         // TreatmentMinMarker.PositionY = TheData.Data(SelectedIndex - 1).Ym
-                        lblNullPoint.Text = TheData.Data(SelectedIndex - 1).Xm.ToString("0.0000") + " deg";
+                        lblNullPoint.Text = BDC.Data(SelectedIndex - 1).Xm.ToString("0.0000") + " deg";
                 }
                 catch (Exception ex)
                 {
@@ -674,13 +681,13 @@ namespace Polarimeter2019
                 lvi = lsvData.Items[SelectedIndex];
                 if (SelectedIndex == 0)
                 {
-                    lvi.SubItems[1].Text = "(" + TheData.Reference.Xm.ToString("0.00") + ", " + TheData.Reference.Ym.ToString("0.0000") + ")";
+                    lvi.SubItems[1].Text = "(" + BDC.Reference.Xm.ToString("0.00") + ", " + BDC.Reference.Ym.ToString("0.0000") + ")";
                 }
                 else
                 {
                     lvi = lsvData.Items[SelectedIndex];
-                    lvi.SubItems[1].Text = "(" + TheData.Data(SelectedIndex - 1).Xm.ToString("0.00") + ", " + TheData.Data(SelectedIndex - 1).Ym.ToString("0.0000") + ")";
-                    lvi.SubItems[2].Text = TheData.Data(SelectedIndex - 1).AngleOfRotation.ToString("0.00");
+                    lvi.SubItems[1].Text = "(" + BDC.Data(SelectedIndex - 1).Xm.ToString("0.00") + ", " + BDC.Data(SelectedIndex - 1).Ym.ToString("0.0000") + ")";
+                    lvi.SubItems[2].Text = BDC.Data(SelectedIndex - 1).AngleOfRotation.ToString("0.00");
                 }
             }
 

@@ -21,6 +21,8 @@ namespace Polarimeter2019
 
         private string mSampleName;
         private double mSpecificRotation;
+        public string Reference;
+        public string Data;
         //public strucCurveData Reference;
         //public strucCurveData Data;
 
