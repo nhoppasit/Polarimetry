@@ -168,11 +168,12 @@ Public Class BaseDataControl
         fs.Write(info, 0, info.Length)
     End Sub
 
+    'หาค่าของแผ่นอนาไรซ์
     Private Sub AnalyzeData(ByVal RepeatID As Integer)
         Try
             If Reference.X Is Nothing Then Exit Sub
             If Data(RepeatID).X Is Nothing Then Exit Sub
-            Data(RepeatID).AngleOfRotation = Math.Abs(Data(RepeatID).Xm - Reference.Xm)
+            Data(RepeatID).AngleOfRotation = Math.Abs(Data(RepeatID).Xm - Reference.Xm)     'มุมของการหมุนในการทดลอง = |xm ของการทดลอง - xm ของ reference|
         Catch ex As Exception
             'do nothing
         End Try
