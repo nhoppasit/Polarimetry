@@ -7,8 +7,7 @@ using System.Windows.Forms;
 namespace Polarimeter2019
 {
     public class BaseDataControl
-    {   
-        //ทดสอบ
+    {
         #region Members
 
         struct strucCurveData
@@ -19,6 +18,7 @@ namespace Polarimeter2019
             public double Ym;
             public double AngleOfRotation;
         }
+
         private string mSampleName;
         private double mSpecificRotation;
         //public strucCurveData Reference;
@@ -53,18 +53,18 @@ namespace Polarimeter2019
 
         public void PatchData(int RepeatID, int PointID, double X, double Y)
         {
-            if (Data == null)
-            {
-                System.Data(RepeatID).Ym = 999999;
-            }
-            else if (System.Data.Length - 1 < RepeatID)
-            {
-            Input: Data(0 To RepeatID);
+        //    if (Data == null)
+        //    {
+        //        System.Data(RepeatID).Ym = 999999;
+        //    }
+        //    else if (System.Data.Length - 1 < RepeatID)
+        //    {
+        //    Input: Data(0 To RepeatID);
 
-                System.Data(RepeatID).Ym = 999999;
-            }
-        Input: Data(RepeatID).X(0 To PointID);
-        Input: Data(RepeatID).Y(0 To PointID);
+        //        System.Data(RepeatID).Ym = 999999;
+        //    }
+        //Input: Data(RepeatID).X(0 To PointID);
+        //Input: Data(RepeatID).Y(0 To PointID);
             System.Data(RepeatID).X(PointID) = X;
             System.Data(RepeatID).Y(PointID) = Y;
 
@@ -75,29 +75,7 @@ namespace Polarimeter2019
                 AnalyzeData(RepeatID);
             }
         }
-
-        public void PatchData2(int RepeatID, int PointID, double X, double Y)
-        {
-            strucCurveData _Data = new strucCurveData();
-            _Data.Ym = 999999;
-        Input: _Data.X(0 To PointID);
-        Input: _Data.Y(0 To PointID);
-
-            _Data.X(PointID) = X;
-            _Data.Y(PointID) = Y;
-
-            if (Y < _Data.Ym)
-            {
-                _Data.Ym = Y;
-                _Data.Xm = X;
-                AnalyzeData2(RepeatID);
-            }
-
-            if (DataCollection.Contains(RepeatID.ToString()))
-                DataCollection.Remove(RepeatID.ToString());
-            DataCollection.Add(_Data, RepeatID.ToString());
-        }
-
+        
         public bool SaveFile()
         {
             SaveFileDialog dlg = new SaveFileDialog();

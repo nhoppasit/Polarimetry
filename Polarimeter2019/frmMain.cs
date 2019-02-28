@@ -15,9 +15,8 @@ namespace Polarimeter2019
     {
         #region DECRALATION
             //Constants
-            const var StepFactor = 0.013325; //Deg /Step 
-            ////var คือ value??
-
+            const double StepFactor = 0.013325; //Deg /Step 
+            
             //Scaning & Data
             BaseDataControl TheData;
             bool IsScanning = false;
