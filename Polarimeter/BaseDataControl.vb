@@ -13,7 +13,6 @@ Public Class BaseDataControl
         Dim AngleOfRotation As Double
     End Structure
 
-    'testas d
     Dim mSampleName As String
     Dim mSpecificRotation As Double
     Public Reference As strucCurveData
@@ -37,14 +36,15 @@ Public Class BaseDataControl
 
 #Region "Functions/Method"
 
+    'กำหนดค่าต่างๆของ Reference
     Public Sub PatchReference(ByVal PointID As Integer, ByVal X As Double, ByVal Y As Double)
-        ReDim Preserve Reference.X(0 To PointID)
-        ReDim Preserve Reference.Y(0 To PointID)
-        Reference.X(PointID) = X
-        Reference.Y(PointID) = Y
-        If Y < Reference.Ym Then
-            Reference.Ym = Y
-            Reference.Xm = X
+        ReDim Preserve Reference.X(0 To PointID)    'กำหนดขนาดของแกน x เป็นค่าที่เยอะมากๆๆ
+        ReDim Preserve Reference.Y(0 To PointID)    'กำหนดขนาดของแกน y เป็นค่าที่เยอะมากๆ
+        Reference.X(PointID) = X    'ค่า x ของ reference
+        Reference.Y(PointID) = Y    'ค่า y ของ reference
+        If Y < Reference.Ym Then    'ถ้า ym น้อยกว่า y จะเป็นดังนี้
+            Reference.Ym = Y    'y reference
+            Reference.Xm = X    'x reference
         End If
     End Sub
 
