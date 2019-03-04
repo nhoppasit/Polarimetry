@@ -107,21 +107,22 @@ namespace Polarimeter2019
             AddText(fs, "[Sample Name]" + Environment.NewLine); // Sample name
             AddText(fs, mSampleName);
             AddText(fs, "[Specific Rotation]" + Environment.NewLine); // Specific rotation
-            AddText(fs, mSpecificRotation);
             AddText(fs, "[Samples]" + Environment.NewLine); // Number of samples
-            AddText(fs, System.Data.Length.ToString);
+            //AddText(fs, Data.Length.ToString);
+            AddText(fs, Data.ToString());
 
             // Reference
             AddText(fs, "[Reference]");
-            for (int i = 0; i <= Reference.X.Length - 1; i++)
-                AddText(fs, Reference.X(i).ToString + "," + Reference.Y(i).ToString + Environment.NewLine);
-
+            //for (int i = 0; i <= Reference.X.Length - 1; i++)
+            for (int i = 0; i <= Reference.X - 1; i++)
+                //AddText(fs, Reference.X(i).ToString + "," + Reference.Y(i).ToString + Environment.NewLine);
+                AddText(fs, Reference.X.ToString() + "," + Reference.Y.ToString() + Environment.NewLine);
             // Data
-            for (int k = 0; k <= System.Data.Length - 1; k++)
+            for (int k = 0; k <= Data.Length - 1; k++)
             {
                 AddText(fs, "[Sample " + (k + 1).ToString() + "]");
-                for (int i = 0; i <= System.Data(k).X.Length - 1; i++)
-                    AddText(fs, System.Data(k).X(i).ToString + "," + System.Data(k).Y(i).ToString + Environment.NewLine);
+                for (int i = 0; i <= Data(k).X.Length - 1; i++)
+                    AddText(fs, Data(k).X(i).ToString + "," + Data(k).Y(i).ToString + Environment.NewLine);
             }
 
             // Ending
@@ -149,9 +150,9 @@ namespace Polarimeter2019
             {
                 if (Reference.X == null)
                     return;
-                if (System.Data(RepeatID).X == null)
+                if (Data.X == null)
                     return;
-                System.Data(RepeatID).AngleOfRotation = Math.Abs(System.Data(RepeatID).Xm - Reference.Xm);
+                Data.AngleOfRotation = Math.Abs(Data.Xm - Reference.Xm);
             }
             catch (Exception ex)
             {

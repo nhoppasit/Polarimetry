@@ -560,7 +560,7 @@ namespace Polarimeter2019
             {
                 if (BDC == null)
                     return false;
-                if (BDC.Data == null)
+                if (BDC.Data.ToString() == null)
                     return false;
                 for (int i = 0; i <= NumberOfRepeatation - 1; i++)
                 {
