@@ -286,7 +286,7 @@ namespace Polarimeter2019
                         for (int tt = 0; tt <= nAvg - 1; tt++)
                         {
                             DMM.WriteString("READ?");
-                            CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber;
+                            CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
                         }
                         CurrentLightIntensity = CurrentLightIntensity / nAvg;
                     }
@@ -345,7 +345,7 @@ namespace Polarimeter2019
                             for (int tt = 0; tt <= nAvg - 1; tt++)
                             {
                                 DMM.WriteString("READ?");
-                                CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber;
+                                CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
                             }
                             CurrentLightIntensity = CurrentLightIntensity / nAvg;
                         }
