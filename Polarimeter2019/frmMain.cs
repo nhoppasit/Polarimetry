@@ -853,7 +853,7 @@ namespace Polarimeter2019
         {
             try
             {
-                Properties.Settings.Default.VoltageRange = Val(txtVoltageRange.Text);
+                Properties.Settings.Default.VoltageRange = Convert.ToDouble(txtVoltageRange.Text);
                 Properties.Settings.Default.Save();
             }
             catch (Exception ex)
@@ -865,7 +865,7 @@ namespace Polarimeter2019
         {
             try
             {
-                Properties.Settings.Default.VoltageResolution = Val(txtVoltageResolution.Text);
+                Properties.Settings.Default.VoltageResolution = Convert.ToDouble(txtVoltageResolution.Text);
                 Properties.Settings.Default.Save();
             }
             catch (Exception ex)
