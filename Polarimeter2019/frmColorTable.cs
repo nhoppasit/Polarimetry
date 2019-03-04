@@ -14,10 +14,10 @@ namespace Polarimeter2019
     {
         public frmMain f1;
 
-        public frmColorTable(frmMain f)
+        public frmColorTable()
         {
             InitializeComponent();
-            f1 = f;
+            //f1 = f;
         }
 
         private void frmColorTable_Load(object sender, EventArgs e)

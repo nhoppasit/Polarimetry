@@ -625,8 +625,8 @@ namespace Polarimeter2019
                         NumberOfRepeatation = f.OfRepeatation;
 
                         // initialize the data object
-                        TheData = new BaseDataControl();    
-                        TheData.SampleName = txtSampleName.Text;
+                        BDC = new BaseDataControl();    
+                        BDC.SampleName = txtSampleName.Text;
 
                         // clear
                         lsvData.Items.Clear();
