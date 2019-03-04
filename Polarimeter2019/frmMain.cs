@@ -794,7 +794,7 @@ namespace Polarimeter2019
 
         private void txtAvageNumber_KeyPress(System.Object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
-            if (e.KeyChar == Chr(Keys.Enter))   //// Chr=Char ??
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))   
             {
                 btnStart.Focus();
             }
@@ -802,7 +802,7 @@ namespace Polarimeter2019
 
         private void lsvData_KeyPress(System.Object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
-            if (e.KeyChar == Chr(Keys.Enter))
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 SendKeys.Send("{TAB}");
         }
 
