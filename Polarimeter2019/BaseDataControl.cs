@@ -53,25 +53,25 @@ namespace Polarimeter2019
 
         public void PatchData(int RepeatID, int PointID, double X, double Y)
         {
-        //    if (Data == null)
-        //    {
-        //        System.Data(RepeatID).Ym = 999999;
-        //    }
-        //    else if (System.Data.Length - 1 < RepeatID)
-        //    {
-        //    Input: Data(0 To RepeatID);
+            //    if (Data == null)
+            //    {
+            //        System.Data(RepeatID).Ym = 999999;
+            //    }
+            //    else if (System.Data.Length - 1 < RepeatID)
+            //    {
+            //    Input: Data(0 To RepeatID);
 
-        //        System.Data(RepeatID).Ym = 999999;
-        //    }
-        //Input: Data(RepeatID).X(0 To PointID);
-        //Input: Data(RepeatID).Y(0 To PointID);
-            System.Data(RepeatID).X(PointID) = X;
-            System.Data(RepeatID).Y(PointID) = Y;
+            //        System.Data(RepeatID).Ym = 999999;
+            //    }
+            //Input: Data(RepeatID).X(0 To PointID);
+            //Input: Data(RepeatID).Y(0 To PointID);
 
-            if (Y < System.Data(RepeatID).Ym)
+            Data.X = X;
+            Data.Y = Y;
+            if (Y < Data.Ym)
             {
-                System.Data(RepeatID).Ym = Y;
-                System.Data(RepeatID).Xm = X;
+                Data.Ym = Y;
+                Data.Xm = X;
                 AnalyzeData(RepeatID);
             }
         }
