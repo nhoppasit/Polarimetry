@@ -528,7 +528,7 @@ namespace Polarimeter2019
                 // TreatmentMinMarker = AxDynaPlot1.Markers.Add(0.0, 0.0, 0, DYNAPLOT3Lib.dpsMARKERTYPE.dpsMARKER_SQUARE)
                 catch (Exception ex)
                 {
-                    Information.Err.Clear();  //// กล่องข้อความ Error ?
+                    //Information.Err.Clear();  //// กล่องข้อความ Error ?
                 }
             }
 
@@ -572,7 +572,7 @@ namespace Polarimeter2019
                     }
                     catch (Exception ex)
                     {
-                        Information.Err.Clear();  ////กล่องข้อความ Error ??
+                        //Information.Err.Clear();  ////กล่องข้อความ Error ??
                     }
                 }
                 return true;
@@ -589,7 +589,7 @@ namespace Polarimeter2019
                 }
                 catch (Exception ex)
                 {
-                    Information.Err.Clear(); //// กล่องข้อความ Error ??
+                    //Information.Err.Clear(); //// กล่องข้อความ Error ??
                 }
             }
 

@@ -10,7 +10,7 @@ namespace Polarimeter2019
     {
         #region Members
 
-        struct strucCurveData
+        public struct strucCurveData
         {
             public double X;
             public double Y;
@@ -21,10 +21,8 @@ namespace Polarimeter2019
 
         private string mSampleName;
         private double mSpecificRotation;
-        public string Reference;
-        public string Data;
-        //public strucCurveData Reference;
-        //public strucCurveData Data;
+        public strucCurveData Reference;
+        public strucCurveData Data;
 
         #endregion
 
