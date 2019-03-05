@@ -46,9 +46,23 @@ namespace Polarimeter2019
 
         public void PatchReference(int PointID, double X, double Y)
         {
-            // !!!!!
+            //    ReDim Preserve Reference.X(0 To PointID)
+            //ReDim Preserve Reference.Y(0 To PointID)   
+            //Reference.X(PointID) = X    
+            //Reference.Y(PointID) = Y    
+            //If Y<Reference.Ym Then     
+            //    Reference.Ym = Y    
+            //    Reference.Xm = X    
+            //End If
             double[] a;
             a = new double[2345];
+            Reference.X = X;
+            Reference.Y = Y;
+            if (Y < Reference.Ym)
+            {
+                Reference.Ym = Y;
+                Reference.Xm = X;
+            }
         }
 
         public void PatchData(int RepeatID, int PointID, double X, double Y)

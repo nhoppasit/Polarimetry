@@ -743,7 +743,7 @@ namespace Polarimeter2019
         #region Summary
 
             private void lvSummary_ItemSelectionChanged(object sender, System.Windows.Forms.ListViewItemSelectionChangedEventArgs e)
-        {
+            {
             if (lsvData.SelectedIndices == null)
                 return;
             if (lsvData.SelectedIndices.Count <= 0)
@@ -767,7 +767,7 @@ namespace Polarimeter2019
             catch (Exception ex)
             {
             }
-        }
+            }
 
         #endregion
 
@@ -777,8 +777,7 @@ namespace Polarimeter2019
             {
                 ConnectedDevices();
                 //Dim MSG As String = "A:WP" & CInt(-1 * Val(txtStart.Text) / StepFactor).ToString & "P" & CInt(-1 * Val(txtStart.Text) / StepFactor).ToString
-                //// คำสั่งให้มอเตอร์หมุน ??
-                string MSG = "A:WP";
+                string MSG = "A:WP" & System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text)/ StepFactor).ToString & "P" & System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString;
                 MMC.WriteString(MSG);
             }
             catch (Exception ex)
