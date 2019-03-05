@@ -402,7 +402,7 @@ namespace Polarimeter2019
                     {
                         if (!mnuOptionsDemomode.Checked)
                         {
-                            MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString;
+                        MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
                             MMC.WriteString(MSG);
                             DisconnectDevices();
                         }
