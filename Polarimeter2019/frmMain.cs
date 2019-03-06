@@ -218,8 +218,7 @@ namespace Polarimeter2019
                 // --------------------------------------------
                 if (lsvData.SelectedItems.Count <= 0)
                 {
-                    //Interaction.MsgBox("Please select item in samples list view that you want to measure!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly);
-                    MessageBox.Show("Please select item in samples list view that you want to measure!"+ MessageBoxButtons.OK);
+                    MessageBox.Show("Please select item in samples list view that you want to measure!"+ MessageBoxButtons.OK+ MessageBoxIcon.Exclamation);
                     btnStart.Enabled = true;
                     btnStop.Enabled = false;
                     btnPause.Enabled = false;
@@ -771,7 +770,7 @@ namespace Polarimeter2019
 
         #endregion
 
-        private void btnRun_Click(object sender, EventArgs e)   ////ยังไม่เสร็จ
+        private void btnRun_Click(object sender, EventArgs e)   
         {
             try
             {
