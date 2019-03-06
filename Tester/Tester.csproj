@@ -56,10 +56,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Polarimeter2019\Polarimeter2019.csproj">
-      <Project>{b581f382-0d34-494a-bdc1-a2cf640d9875}</Project>
-      <Name>Polarimeter2019</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Polarimeter_Control\Polarimeter_Control.csproj">
       <Project>{958a69c1-1012-40bd-94d4-e181af5f7448}</Project>
       <Name>Polarimeter_Control</Name>

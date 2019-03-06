@@ -27,8 +27,8 @@ namespace Tester
                     double max = double.Parse(s_max);
                     int PointCount = (int)((max - min) / resolution + 1);
 
-                    //bdc.Reference.X = new double[PointCount]; 
-                    //bdc.Reference.Y = new double[PointCount]; // destroy
+                    bdc.Reference.X = new double[PointCount]; 
+                    bdc.Reference.Y = new double[PointCount]; // destroy
                 }
             }
         }
