@@ -105,7 +105,7 @@ namespace Polarimeter2019
                     lblMMC.Text = "Disconncected";
                     lblMMC.BackColor = Color.Red;
                 }
-            }   //DMM.IO ??
+            }
 
         #endregion
                 
@@ -211,7 +211,7 @@ namespace Polarimeter2019
         
         #region Scanning Procedure    
 
-            private void DoScanLightIntensity()   //กล่องข้อความ
+            private void DoScanLightIntensity()
             {
                 // --------------------------------------------
                 // validate selected index of repeats
