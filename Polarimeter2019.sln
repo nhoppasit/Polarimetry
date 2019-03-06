@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polarimeter2019", "Polarimeter2019\Polarimeter2019.csproj", "{B581F382-0D34-494A-BDC1-A2CF640D9875}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{1759B238-EB46-4022-9376-40BA7B2C8CBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polarimeter_Control", "Polarimeter_Control\Polarimeter_Control.csproj", "{958A69C1-1012-40BD-94D4-E181AF5F7448}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,9 +16,16 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{958A69C1-1012-40BD-94D4-E181AF5F7448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{958A69C1-1012-40BD-94D4-E181AF5F7448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{958A69C1-1012-40BD-94D4-E181AF5F7448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{958A69C1-1012-40BD-94D4-E181AF5F7448}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

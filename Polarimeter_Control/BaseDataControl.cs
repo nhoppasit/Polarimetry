@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Polarimeter2019
+namespace Polarimeter_Control
 {
     public class BaseDataControl
     {

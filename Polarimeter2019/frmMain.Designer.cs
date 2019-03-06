@@ -39,6 +39,8 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuExportToImageFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.driverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ConnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,8 +105,6 @@
             this.lblDMM = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMMC = new System.Windows.Forms.ToolStripStatusLabel();
-            this.mnuExportToImageFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.MainMenu.SuspendLayout();
             this.gbSample.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).BeginInit();
@@ -194,6 +194,18 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(222, 6);
+            // 
+            // mnuExportToImageFileToolStripMenuItem
+            // 
+            this.mnuExportToImageFileToolStripMenuItem.Name = "mnuExportToImageFileToolStripMenuItem";
+            this.mnuExportToImageFileToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.mnuExportToImageFileToolStripMenuItem.Text = "Export to image file...";
+            this.mnuExportToImageFileToolStripMenuItem.Click += new System.EventHandler(this.mnuExportToImageFileToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(222, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -293,33 +305,33 @@
             // mnuStartToolStripMenuItem
             // 
             this.mnuStartToolStripMenuItem.Name = "mnuStartToolStripMenuItem";
-            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuStartToolStripMenuItem.Text = "Start";
             this.mnuStartToolStripMenuItem.Click += new System.EventHandler(this.mnuStartToolStripMenuItem_Click);
             // 
             // mnuStopToolStripMenuItem
             // 
             this.mnuStopToolStripMenuItem.Name = "mnuStopToolStripMenuItem";
-            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuStopToolStripMenuItem.Text = "Stop";
             this.mnuStopToolStripMenuItem.Click += new System.EventHandler(this.mnuStopToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(140, 6);
             // 
             // mnuPauseToolStripMenuItem
             // 
             this.mnuPauseToolStripMenuItem.Name = "mnuPauseToolStripMenuItem";
-            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuPauseToolStripMenuItem.Text = "Pause";
             this.mnuPauseToolStripMenuItem.Click += new System.EventHandler(this.mnuPauseToolStripMenuItem_Click);
             // 
             // mnuCoutinewToolStripMenuItem
             // 
             this.mnuCoutinewToolStripMenuItem.Name = "mnuCoutinewToolStripMenuItem";
-            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuCoutinewToolStripMenuItem.Text = "Coutinue";
             this.mnuCoutinewToolStripMenuItem.Click += new System.EventHandler(this.mnuCoutinewToolStripMenuItem_Click);
             // 
@@ -550,6 +562,7 @@
             this.txtResolution.TabIndex = 5;
             this.txtResolution.Text = "2.0";
             this.txtResolution.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtResolution.TextChanged += new System.EventHandler(this.txtResolution_TextChanged);
             // 
             // txtStop
             // 
@@ -735,18 +748,6 @@
             this.lblMMC.Name = "lblMMC";
             this.lblMMC.Size = new System.Drawing.Size(99, 20);
             this.lblMMC.Text = "Disconnected";
-            // 
-            // mnuExportToImageFileToolStripMenuItem
-            // 
-            this.mnuExportToImageFileToolStripMenuItem.Name = "mnuExportToImageFileToolStripMenuItem";
-            this.mnuExportToImageFileToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
-            this.mnuExportToImageFileToolStripMenuItem.Text = "Export to image file...";
-            this.mnuExportToImageFileToolStripMenuItem.Click += new System.EventHandler(this.mnuExportToImageFileToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(222, 6);
             // 
             // frmMain
             // 

@@ -15,272 +15,332 @@ namespace Polarimeter2019
     {
         public BaseDataControl BDC;
 
-        public frmMain (BaseDataControl BDCs)
+        public frmMain()
         {
             InitializeComponent();
-            BDC = BDCs;
+
+            BDC = new BaseDataControl();
         }
 
         #region DECRALATION
-            //Constants
-            const double StepFactor = 0.013325; //Deg /Step 
-            
-            //Scaning & Data
-            bool IsScanning = false;
-            bool IsContinuing = false;
-            int CurrentPointIndex = 0;
-            double SpecificRotation;
-            int NumberOfRepeatation;
-            int SelectedIndex;
+        //Constants
+        const double StepFactor = 0.013325; //Deg /Step 
 
-            //ColorTable
-            public Color ReferenceColor = Color.Red;
-            public Color[] ColorTable;
+        //Scaning & Data
+        bool IsScanning = false;
+        bool IsContinuing = false;
+        int CurrentPointIndex = 0;
+        double SpecificRotation;
+        int NumberOfRepeatation;
+        int SelectedIndex;
+
+        //ColorTable
+        public Color ReferenceColor = Color.Red;
+        public Color[] ColorTable;
         #endregion
-        
+
         #region Devices
 
-            private Ivi.Visa.Interop.IFormattedIO488 DMM;
-            private Ivi.Visa.Interop.IFormattedIO488 MMC;
+        private Ivi.Visa.Interop.IFormattedIO488 DMM;
+        private Ivi.Visa.Interop.IFormattedIO488 MMC;
 
-            void DisconnectDevices()
+        void DisconnectDevices()
+        {
+            try
             {
-                try
-                {
-                    DMM.IO.Close();
-                    DMM.IO = null;
-                    MMC.IO.Close();
-                    MMC.IO = null;
-                }
-                catch (Exception ex)
-                {
-                    //Interaction.MsgBox("IO Error: " + ex.Message, MsgBoxStyle.Critical); //// กล่องข้อความ??
-                    MessageBox.Show("IO Error" + ex.Message);
-                    lblDMM.Text = "Disconnected";
-                    lblDMM.BackColor = Color.Red;
-                    lblMMC.Text = "Disconncected";
-                    lblMMC.BackColor = Color.Red;
-
-                }
+                DMM.IO.Close();
+                DMM.IO = null;
+                MMC.IO.Close();
+                MMC.IO = null;
             }
-            void ConnectedDevices()
+            catch (Exception ex)
             {
-                try
-                {
-                    //CONNECT DMM
-                    Ivi.Visa.Interop.ResourceManager mgr1;
-                    string DMMAddress;
-                    DMMAddress = txtDMMAddress.Text;
-                    mgr1 = new Ivi.Visa.Interop.ResourceManager();
-                    DMM = new Ivi.Visa.Interop.FormattedIO488();
-                    DMM.IO() = mgr1.Open(DMMAddress);
-                    DMM.IO.Timeout = 7000;
-                    DMM.WriteString("CONF:VOLT:DC " + txtVoltageRange.Text + ", " + txtVoltageResolution.Text);
-                    DMM.WriteString("TRIG:SOUR TMM");
-                    DMM.WriteString("TRIG:DEL 1.5E-3");
-                    DMM.WriteString("TRIG:COUNT 1");
-                    DMM.WriteString("SAMP:COUNT 1");
+                //Interaction.MsgBox("IO Error: " + ex.Message, MsgBoxStyle.Critical); //// กล่องข้อความ??
+                MessageBox.Show("IO Error" + ex.Message);
+                lblDMM.Text = "Disconnected";
+                lblDMM.BackColor = Color.Red;
+                lblMMC.Text = "Disconncected";
+                lblMMC.BackColor = Color.Red;
 
-                    //CONNECT MMC
-                    Ivi.Visa.Interop.ResourceManager mgr2;
-                    string MMCAddress;
-                    MMCAddress = txtMMCAddress.Text;
-                    mgr2 = new Ivi.Visa.Interop.ResourceManager();
-                    MMC = new Ivi.Visa.Interop.FormattedIO488();
-                    MMC.IO() = mgr2.Open(MMCAddress);
-                    MMC.IO.Timeout = 7000;
-
-                    // MsgBox("Connect devices are successful.")
-                    lblDMM.Text = "Connected";
-                    lblDMM.BackColor = Color.Lime;
-                    lblMMC.Text = "Conncected";
-                    lblMMC.BackColor = Color.Lime;
-                }
-                catch (Exception ex)
-                {
-                    //Interaction.MsgBox("InitIO Error:" + Constants.vbCrLf + ex.Message);
-                    MessageBox.Show("InitIO Error:" + MessageBoxButtons.RetryCancel + ex.Message);
-                    lblDMM.Text = "Disconnected";
-                    lblDMM.BackColor = Color.Red;
-                    lblMMC.Text = "Disconncected";
-                    lblMMC.BackColor = Color.Red;
-                }
             }
+        }
+        void ConnectedDevices()
+        {
+            try
+            {
+                //CONNECT DMM
+                Ivi.Visa.Interop.ResourceManager mgr1;
+                string DMMAddress;
+                DMMAddress = txtDMMAddress.Text;
+                mgr1 = new Ivi.Visa.Interop.ResourceManager();
+                DMM = new Ivi.Visa.Interop.FormattedIO488();
+                DMM.IO() = mgr1.Open(DMMAddress);
+                DMM.IO.Timeout = 7000;
+                DMM.WriteString("CONF:VOLT:DC " + txtVoltageRange.Text + ", " + txtVoltageResolution.Text);
+                DMM.WriteString("TRIG:SOUR TMM");
+                DMM.WriteString("TRIG:DEL 1.5E-3");
+                DMM.WriteString("TRIG:COUNT 1");
+                DMM.WriteString("SAMP:COUNT 1");
+
+                //CONNECT MMC
+                Ivi.Visa.Interop.ResourceManager mgr2;
+                string MMCAddress;
+                MMCAddress = txtMMCAddress.Text;
+                mgr2 = new Ivi.Visa.Interop.ResourceManager();
+                MMC = new Ivi.Visa.Interop.FormattedIO488();
+                MMC.IO() = mgr2.Open(MMCAddress);
+                MMC.IO.Timeout = 7000;
+
+                // MsgBox("Connect devices are successful.")
+                lblDMM.Text = "Connected";
+                lblDMM.BackColor = Color.Lime;
+                lblMMC.Text = "Conncected";
+                lblMMC.BackColor = Color.Lime;
+            }
+            catch (Exception ex)
+            {
+                //Interaction.MsgBox("InitIO Error:" + Constants.vbCrLf + ex.Message);
+                MessageBox.Show("InitIO Error:" + MessageBoxButtons.RetryCancel + ex.Message);
+                lblDMM.Text = "Disconnected";
+                lblDMM.BackColor = Color.Red;
+                lblMMC.Text = "Disconncected";
+                lblMMC.BackColor = Color.Red;
+            }
+        }
 
         #endregion
-                
+
         #region Control Panel
 
-            private void DoStart()
+        private void DoStart()
+        {
+            // Add curve
+            double[] x = new double[1];
+            double[] y = new double[1];
+
+            ResetDynaplot();
+
+            PlotReferenceCurve();
+
+            // ----------------------------------------
+            // 1. Update buttons
+            // ----------------------------------------
+            btnStart.Enabled = false;
+            btnStop.Enabled = true;
+            btnPause.Enabled = true;
+
+            // ----------------------------------------
+            // disable box
+            // ----------------------------------------
+            gbStartMea.Enabled = false;
+            gbSample.Enabled = false;
+            gbScanCondition.Enabled = false;
+
+            // ----------------------------------------
+            // 2. start Test loop of reading light intensity
+            // ----------------------------------------
+            CurrentPointIndex = 0;
+            IsScanning = true;
+            lblMainStatus.Text = "Measuring...";
+
+            DoScanLightIntensity();
+
+            lblMainStatus.Text = "Ready";
+        }
+
+        private void DoStop()
+        {
+            //----------------------------------------
+            //1. stop Test loop of reading light intensity
+            //----------------------------------------
+            StopScanning();
+
+            //----------------------------------------
+            //2. Update buttons
+            //----------------------------------------
+            btnStart.Enabled = true;
+            btnStop.Enabled = false;
+            btnPause.Enabled = false;
+            btnPause.Text = "PAUSE";
+        }
+
+        private void DoPause()
+        {
+            // ----------------------------------------
+            // 1. pause/continue Test loop of reading light intensity
+            // ----------------------------------------
+            if (btnPause.Text == "PAUSE")
             {
-                // Add curve
-                double[] x = new double[1];
-                double[] y = new double[1];
-
-                ResetDynaplot();
-
-                PlotReferenceCurve();
-
-                // ----------------------------------------
-                // 1. Update buttons
-                // ----------------------------------------
-                btnStart.Enabled = false;
-                btnStop.Enabled = true;
-                btnPause.Enabled = true;
-
-                // ----------------------------------------
-                // disable box
-                // ----------------------------------------
-                gbStartMea.Enabled = false;
-                gbSample.Enabled = false;
-                gbScanCondition.Enabled = false;
-
-                // ----------------------------------------
-                // 2. start Test loop of reading light intensity
-                // ----------------------------------------
-                CurrentPointIndex = 0;
-                IsScanning = true;
-                lblMainStatus.Text = "Measuring...";
-
-                DoScanLightIntensity();
-
-                lblMainStatus.Text = "Ready";
+                DoPasuseScanning();
             }
 
-            private void DoStop()
+            else
             {
-                //----------------------------------------
-                //1. stop Test loop of reading light intensity
-                //----------------------------------------
-                StopScanning();
+                DoContinueScanning();
+            }
+            // ----------------------------------------
+            // 2. Update buttons
+            // ----------------------------------------
+            btnStart.Enabled = false;
+            btnStop.Enabled = true;
+            btnPause.Enabled = true;
+            if (btnPause.Text == "PAUSE")
+                btnPause.Text = "CONTINUE";
+            else
+            {
+                btnPause.Text = "PAUSE";
+                DoScanLightIntensity();
+            }
+        }
 
-                //----------------------------------------
-                //2. Update buttons
-                //----------------------------------------
+        private void btnStart_Click(System.Object sender, System.EventArgs e)
+        {
+            DoStart();
+        }
+
+        private void btnStop_Click(System.Object sender, System.EventArgs e)
+        {
+            DoStop();
+        }
+
+        private void btnPause_Click(System.Object sender, System.EventArgs e)
+        {
+            DoPause();
+        }
+
+        #endregion
+
+        #region Scanning Procedure    
+
+        private void DoScanLightIntensity()
+        {
+            // --------------------------------------------
+            // validate selected index of repeats
+            // --------------------------------------------
+            if (lsvData.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("Please select item in samples list view that you want to measure!" + MessageBoxButtons.OK + MessageBoxIcon.Exclamation);
                 btnStart.Enabled = true;
                 btnStop.Enabled = false;
                 btnPause.Enabled = false;
                 btnPause.Text = "PAUSE";
+                btnNew.Enabled = true;
+                btnOpen.Enabled = true;
+                gbSample.Enabled = true;
+                gbScanCondition.Enabled = true;
+                return;
             }
 
-            private void DoPause()
-            {
-                // ----------------------------------------
-                // 1. pause/continue Test loop of reading light intensity
-                // ----------------------------------------
-                if (btnPause.Text == "PAUSE")
-                {
-                    DoPasuseScanning();
-                }
-
-                else
-                {
-                    DoContinueScanning();
-                }
-                // ----------------------------------------
-                // 2. Update buttons
-                // ----------------------------------------
-                btnStart.Enabled = false;
-                btnStop.Enabled = true;
-                btnPause.Enabled = true;
-                if (btnPause.Text == "PAUSE")
-                    btnPause.Text = "CONTINUE";
-                else
-                {
-                    btnPause.Text = "PAUSE";
-                    DoScanLightIntensity();
-                }
-            }
-
-            private void btnStart_Click(System.Object sender, System.EventArgs e)
-            {
-                DoStart();
-            }
-
-            private void btnStop_Click(System.Object sender, System.EventArgs e)
-            {
-                DoStop();
-            }
-
-            private void btnPause_Click(System.Object sender, System.EventArgs e)
-            {
-                DoPause();
-            }
-
-        #endregion
-        
-        #region Scanning Procedure    
-
-            private void DoScanLightIntensity()
-            {
-                // --------------------------------------------
-                // validate selected index of repeats
-                // --------------------------------------------
-                if (lsvData.SelectedItems.Count <= 0)
-                {
-                    MessageBox.Show("Please select item in samples list view that you want to measure!"+ MessageBoxButtons.OK+ MessageBoxIcon.Exclamation);
-                    btnStart.Enabled = true;
-                    btnStop.Enabled = false;
-                    btnPause.Enabled = false;
-                    btnPause.Text = "PAUSE";
-                    btnNew.Enabled = true;
-                    btnOpen.Enabled = true;
-                    gbSample.Enabled = true;
-                    gbScanCondition.Enabled = true;
-                    return;
-                }
-
-                if (!mnuOptionsDemomode.Checked)
+            if (!mnuOptionsDemomode.Checked)
                 ConnectedDevices();
 
-                try
+            try
+            {
+                // --------------------------------------------
+                // get read conditions
+                // --------------------------------------------
+                double ThetaA = System.Convert.ToDouble(txtStart.Text);
+                double ThetaB = System.Convert.ToDouble(txtStop.Text);
+                double Delta = System.Convert.ToDouble(txtResolution.Text);
+
+                // --------------------------------------------
+                // initialize minimum finder
+                // --------------------------------------------
+                if (!IsContinuing)
                 {
-                    // --------------------------------------------
-                    // get read conditions
-                    // --------------------------------------------
-                    double ThetaA = System.Convert.ToDouble(txtStart.Text);
-                    double ThetaB = System.Convert.ToDouble(txtStop.Text);
-                    double Delta = System.Convert.ToDouble(txtResolution.Text);
-
-                    // --------------------------------------------
-                    // initialize minimum finder
-                    // --------------------------------------------
-                    if (!IsContinuing)
+                    if (SelectedIndex == 0)
+                        BDC.Reference.Ym = 99999999;
+                    else if (BDC.Data != null)
                     {
-                        if (SelectedIndex == 0)
-                            BDC.Reference.Ym = 99999999;
-                        else if (BDC.Data != null)
-                        {
-                            if (SelectedIndex <= BDC.Data.Length)
-                                BDC.Data(SelectedIndex - 1).Ym = 99999999;
-                        }
+                        if (SelectedIndex <= BDC.Data.Length)
+                            BDC.Data(SelectedIndex - 1).Ym = 99999999;
                     }
+                }
 
-                    // ----------------------------------------------------------------
-                    // REAL INTERFACE YES OR NOT (Theta,I)
-                    // ----------------------------------------------------------------
-                    double CurrentLightIntensity;
-                    int StepNumber;
-                    string MSG;
-                    double CurrentTheta;
+                // ----------------------------------------------------------------
+                // REAL INTERFACE YES OR NOT (Theta,I)
+                // ----------------------------------------------------------------
+                double CurrentLightIntensity;
+                int StepNumber;
+                string MSG;
+                double CurrentTheta;
+                if (ThetaA < ThetaB)
+                {
+                    CurrentTheta = ThetaA + CurrentPointIndex * Delta;
+                }
+                else if (ThetaA > ThetaB)
+                {
+                    CurrentTheta = ThetaA - CurrentPointIndex * Delta;
+                }
+                // check demo mode
+                if (mnuOptionsDemomode.Checked == false)
+                {
+                    // 0.4 GOTO Theta A
+                    StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
+                    MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
+                    MMC.WriteString(MSG);
+
+                    // 0.5 Read first
+                    int nAvg = numRepeatNumber.Value();
+                    CurrentLightIntensity = 0;
+                    for (int tt = 0; tt <= nAvg - 1; tt++)
+                    {
+                        DMM.WriteString("READ?");
+                        CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
+                    }
+                    CurrentLightIntensity = CurrentLightIntensity / nAvg;
+                }
+                else
+                {
+                    CurrentLightIntensity = VBMath.Rnd() * 0.1 + Math.Cos((CurrentTheta - VBMath.Rnd() * 50) * Math.PI / 180) + 2;
+                }
+                // ----------------------------------------------------------------
+                // STORE DATA AND PLOT
+                // ----------------------------------------------------------------
+                // Save to memory
+                if (SelectedIndex == 0)
+                {
+                    BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                }
+                else
+                    BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                DefineAngleOfRotation();
+                PlotReferenceCurve();
+                PlotTreatmentsCurve();
+                PlotSelectedTRTMarker();
+
+                // auto scale
+                // AxDynaPlot1.Axes.Autoscale()
+
+                // --------------------------------------------
+                // MAIN READING LOOP (^0^)
+                // --------------------------------------------
+                while (IsScanning)
+                {
+                    Application.DoEvents();
+
+                    // Update current THETA
                     if (ThetaA < ThetaB)
-                    {
                         CurrentTheta = ThetaA + CurrentPointIndex * Delta;
-                    }
                     else if (ThetaA > ThetaB)
-                    {
                         CurrentTheta = ThetaA - CurrentPointIndex * Delta;
-                    }
-                    // check demo mode
+
+                    // --------------------------------------------
+                    // CHECK DEMO MODE
+                    // --------------------------------------------
                     if (mnuOptionsDemomode.Checked == false)
                     {
-                        // 0.4 GOTO Theta A
+
+                        // --------------------------------------------
+                        // REAL INTERFACING
+                        // --------------------------------------------
+                        // 1. Move polarizer 
                         StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
                         MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
                         MMC.WriteString(MSG);
 
-                    // 0.5 Read first
-                    int nAvg = numRepeatNumber.Value();
+                        // 3. Read light intensity
+                        int nAvg = numRepeatNumber.Value();
                         CurrentLightIntensity = 0;
                         for (int tt = 0; tt <= nAvg - 1; tt++)
                         {
@@ -290,151 +350,62 @@ namespace Polarimeter2019
                         CurrentLightIntensity = CurrentLightIntensity / nAvg;
                     }
                     else
-                    {
+
+                        // --------------------------------------------
+                        // DEMO MODE
+                        // --------------------------------------------
+                        // Delay.
+                        // Dim sw As New Stopwatch
+                        // sw.Start()
+                        // Do
+                        // 'do nothing
+                        // Loop Until sw.ElapsedMilliseconds > 50 'ms
+                        // 'Simulation
                         CurrentLightIntensity = VBMath.Rnd() * 0.1 + Math.Cos((CurrentTheta - VBMath.Rnd() * 50) * Math.PI / 180) + 2;
-                    }
-                        // ----------------------------------------------------------------
-                        // STORE DATA AND PLOT
-                        // ----------------------------------------------------------------
-                        // Save to memory
+
+                    // Save to memory and update curve
                     if (SelectedIndex == 0)
                     {
                         BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     }
                     else
+                    {
                         BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         DefineAngleOfRotation();
                         PlotReferenceCurve();
                         PlotTreatmentsCurve();
                         PlotSelectedTRTMarker();
-
-                        // auto scale
-                        // AxDynaPlot1.Axes.Autoscale()
-
-                        // --------------------------------------------
-                        // MAIN READING LOOP (^0^)
-                        // --------------------------------------------
-                    while (IsScanning)
-                    {
-                        Application.DoEvents();
-
-                        // Update current THETA
-                        if (ThetaA < ThetaB)
-                            CurrentTheta = ThetaA + CurrentPointIndex * Delta;
-                        else if (ThetaA > ThetaB)
-                            CurrentTheta = ThetaA - CurrentPointIndex * Delta;
-
-                        // --------------------------------------------
-                        // CHECK DEMO MODE
-                        // --------------------------------------------
-                        if (mnuOptionsDemomode.Checked == false)
-                        {
-
-                            // --------------------------------------------
-                            // REAL INTERFACING
-                            // --------------------------------------------
-                            // 1. Move polarizer 
-                            StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
-                            MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
-                            MMC.WriteString(MSG);
-
-                            // 3. Read light intensity
-                            int nAvg = numRepeatNumber.Value();
-                            CurrentLightIntensity = 0;
-                            for (int tt = 0; tt <= nAvg - 1; tt++)
-                            {
-                                DMM.WriteString("READ?");
-                                CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
-                            }
-                            CurrentLightIntensity = CurrentLightIntensity / nAvg;
-                        }
-                        else
-
-                            // --------------------------------------------
-                            // DEMO MODE
-                            // --------------------------------------------
-                            // Delay.
-                            // Dim sw As New Stopwatch
-                            // sw.Start()
-                            // Do
-                            // 'do nothing
-                            // Loop Until sw.ElapsedMilliseconds > 50 'ms
-                            // 'Simulation
-                            CurrentLightIntensity = VBMath.Rnd() * 0.1 + Math.Cos((CurrentTheta - VBMath.Rnd() * 50) * Math.PI / 180) + 2;
-
-                            // Save to memory and update curve
-                        if (SelectedIndex == 0)
-                        {
-                            BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                        }
-                        else
-                        {
-                            BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                            DefineAngleOfRotation();
-                            PlotReferenceCurve();
-                            PlotTreatmentsCurve();
-                            PlotSelectedTRTMarker();
-                        }
-                        // auto scale
-                        // AxDynaPlot1.Axes.Autoscale()
-
-                        // check stop condition!!!
-                        if (ThetaA < ThetaB)
-                        {
-                            if (ThetaB < CurrentTheta)
-                                IsScanning = false;
-                        }
-                        else if (ThetaA > ThetaB)
-                        {
-                            if (CurrentTheta < ThetaB)
-                                IsScanning = false;
-                        }
-                        // --------------------------------------------
-
-                        // next point
-                        CurrentPointIndex += 1;
                     }
-                    // --------------------------------------------(^0^)
+                    // auto scale
+                    // AxDynaPlot1.Axes.Autoscale()
 
-                    // if stop update buttons to a new start
-                    if (btnPause.Text != "CONTINUE")
+                    // check stop condition!!!
+                    if (ThetaA < ThetaB)
                     {
-                        if (!mnuOptionsDemomode.Checked)
-                        {
-                        MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
-                            MMC.WriteString(MSG);
-                            DisconnectDevices();
-                        }
-                        btnStart.Enabled = true;
-                        btnStop.Enabled = false;
-                        btnPause.Enabled = false;
-                        btnPause.Text = "PAUSE";
-                        btnNew.Enabled = true;
-                        btnOpen.Enabled = true;
-                        gbSample.Enabled = true;
-                        gbScanCondition.Enabled = true;
+                        if (ThetaB < CurrentTheta)
+                            IsScanning = false;
                     }
-                    else
+                    else if (ThetaA > ThetaB)
                     {
-                        if (!mnuOptionsDemomode.Checked)
-                            DisconnectDevices();
-                        btnStart.Enabled = false;
-                        btnStop.Enabled = true;
-                        btnPause.Enabled = true;
+                        if (CurrentTheta < ThetaB)
+                            IsScanning = false;
                     }
+                    // --------------------------------------------
+
+                    // next point
+                    CurrentPointIndex += 1;
                 }
-                catch (Exception ex)
+                // --------------------------------------------(^0^)
+
+                // if stop update buttons to a new start
+                if (btnPause.Text != "CONTINUE")
                 {
-                    MessageBox.Show(ex.Message);
-
-                    // ----------------------------------------
-                    // 1. stop Test loop of reading light intensity
-                    // ----------------------------------------
-                    StopScanning();
-
-                    // ----------------------------------------
-                    // 2. Update buttons
-                    // ----------------------------------------
+                    if (!mnuOptionsDemomode.Checked)
+                    {
+                        MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
+                        MMC.WriteString(MSG);
+                        DisconnectDevices();
+                    }
                     btnStart.Enabled = true;
                     btnStop.Enabled = false;
                     btnPause.Enabled = false;
@@ -444,305 +415,335 @@ namespace Polarimeter2019
                     gbSample.Enabled = true;
                     gbScanCondition.Enabled = true;
                 }
+                else
+                {
+                    if (!mnuOptionsDemomode.Checked)
+                        DisconnectDevices();
+                    btnStart.Enabled = false;
+                    btnStop.Enabled = true;
+                    btnPause.Enabled = true;
+                }
             }
-
-            private void StopScanning()
+            catch (Exception ex)
             {
-                IsScanning = false;
-                IsContinuing = false;
-            }
+                MessageBox.Show(ex.Message);
 
-            private void DoPasuseScanning()
-            {
-                IsScanning = false;
-                IsContinuing = false;
-            }
+                // ----------------------------------------
+                // 1. stop Test loop of reading light intensity
+                // ----------------------------------------
+                StopScanning();
 
-            private void DoContinueScanning()
-            {
-                IsScanning = true;
-                IsContinuing = true;
+                // ----------------------------------------
+                // 2. Update buttons
+                // ----------------------------------------
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+                btnPause.Enabled = false;
+                btnPause.Text = "PAUSE";
+                btnNew.Enabled = true;
+                btnOpen.Enabled = true;
+                gbSample.Enabled = true;
+                gbScanCondition.Enabled = true;
             }
+        }
+
+        private void StopScanning()
+        {
+            IsScanning = false;
+            IsContinuing = false;
+        }
+
+        private void DoPasuseScanning()
+        {
+            IsScanning = false;
+            IsContinuing = false;
+        }
+
+        private void DoContinueScanning()
+        {
+            IsScanning = true;
+            IsContinuing = true;
+        }
 
         #endregion
 
         #region Menu
 
-            private void ConnectToolStripMenuItem_Click(System.Object sender, System.EventArgs e)
-            {
-                ConnectedDevices();
-            }
+        private void ConnectToolStripMenuItem_Click(System.Object sender, System.EventArgs e)
+        {
+            ConnectedDevices();
+        }
 
-            private void DisconnectToolStripMenuItem_Click(System.Object sender, System.EventArgs e)
-            {
-                DisconnectDevices();
-            }
+        private void DisconnectToolStripMenuItem_Click(System.Object sender, System.EventArgs e)
+        {
+            DisconnectDevices();
+        }
 
         #endregion
 
         #region Form Event
 
-            private void frmMain_Load(object sender, EventArgs e)
-            {
-                this.WindowState = FormWindowState.Maximized;
-                LoadSetting();  
-            }
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            LoadSetting();
+        }
 
-            private void Form1_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        private void Form1_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Do you want to quit program?", "Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if(MessageBox.Show("Do you want to quit program?", "Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    IsScanning = false;
-                    SaveSetting();
-                }
-                else
-                {
-                    e.Cancel = true;
-                }
+                IsScanning = false;
+                SaveSetting();
             }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
 
         #endregion
 
         #region PLOT when select curve
 
-            private void ResetDynaplot()
+        private void ResetDynaplot()
+        {
+            try
             {
-                try
-                {
-                    double[] x = new double[1];
-                    double[] y = new double[1];
+                double[] x = new double[1];
+                double[] y = new double[1];
 
-                    // AxDynaPlot1.DataCurves.RemoveAll()
-                    // AxDynaPlot1.Markers.RemoveAll()
+                // AxDynaPlot1.DataCurves.RemoveAll()
+                // AxDynaPlot1.Markers.RemoveAll()
 
-                    // ReferenceCurve = AxDynaPlot1.DataCurves.Add("REF", x, y, 0, False).Curve
-                    // ReferenceCurve.Penstyle.MaxWidth = 2
-                    // ReferenceCurve.Penstyle.Color = RGB(255, 0, 0)
-                    // ReferenceMinMarker = AxDynaPlot1.Markers.Add(0.0, 0.0, 0, DYNAPLOT3Lib.dpsMARKERTYPE.dpsMARKER_CIRCLE)
+                // ReferenceCurve = AxDynaPlot1.DataCurves.Add("REF", x, y, 0, False).Curve
+                // ReferenceCurve.Penstyle.MaxWidth = 2
+                // ReferenceCurve.Penstyle.Color = RGB(255, 0, 0)
+                // ReferenceMinMarker = AxDynaPlot1.Markers.Add(0.0, 0.0, 0, DYNAPLOT3Lib.dpsMARKERTYPE.dpsMARKER_CIRCLE)
 
-                    for (int i = 0; i <= NumberOfRepeatation - 1; i++)
-                    {
-                    }
-                }
-                // TreatmentMinMarker = AxDynaPlot1.Markers.Add(0.0, 0.0, 0, DYNAPLOT3Lib.dpsMARKERTYPE.dpsMARKER_SQUARE)
-                catch (Exception ex)
-                {
-                    //Information.Err.Clear();  //// กล่องข้อความ Error ?
-                }
-            }
-
-            private bool PlotReferenceCurve()
-            {
-                bool e = false;
-                try
-                {
-                    if (lsvData.Items[0].Checked == true)
-                    {
-                        if (BDC.Reference.X != null)
-                        {
-                            // ReferenceCurve.UpdateData(TheData.Reference.X, TheData.Reference.Y, TheData.Reference.X.Length)
-                            // ReferenceCurve.Penstyle.Color = RGB(ReferenceColor.R, ReferenceColor.G, ReferenceColor.B)
-                            // ReferenceMinMarker.PositionX = TheData.Reference.Xm
-                            // ReferenceMinMarker.PositionY = TheData.Reference.Ym
-                            lblNullPoint.Text = BDC.Reference.Xm.ToString("0.0000") + " deg";
-                            e = true;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                }
-                return e;
-            }
-
-            private bool PlotTreatmentsCurve()
-            {
-                if (BDC == null)
-                    return false;
-                if (BDC.Data.ToString() == null)
-                    return false;
                 for (int i = 0; i <= NumberOfRepeatation - 1; i++)
                 {
-                    try
+                }
+            }
+            // TreatmentMinMarker = AxDynaPlot1.Markers.Add(0.0, 0.0, 0, DYNAPLOT3Lib.dpsMARKERTYPE.dpsMARKER_SQUARE)
+            catch (Exception ex)
+            {
+                //Information.Err.Clear();  //// กล่องข้อความ Error ?
+            }
+        }
+
+        private bool PlotReferenceCurve()
+        {
+            bool e = false;
+            try
+            {
+                if (lsvData.Items[0].Checked == true)
+                {
+                    if (BDC.Reference.X != null)
                     {
-                        if (lsvData.Items[i + 1].Checked)
-                        {
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        //Information.Err.Clear();  ////กล่องข้อความ Error ??
+                        // ReferenceCurve.UpdateData(TheData.Reference.X, TheData.Reference.Y, TheData.Reference.X.Length)
+                        // ReferenceCurve.Penstyle.Color = RGB(ReferenceColor.R, ReferenceColor.G, ReferenceColor.B)
+                        // ReferenceMinMarker.PositionX = TheData.Reference.Xm
+                        // ReferenceMinMarker.PositionY = TheData.Reference.Ym
+                        lblNullPoint.Text = BDC.Reference.Xm.ToString("0.0000") + " deg";
+                        e = true;
                     }
                 }
-                return true;
             }
+            catch (Exception ex)
+            {
+            }
+            return e;
+        }
 
-            private void PlotSelectedTRTMarker()
+        private bool PlotTreatmentsCurve()
+        {
+            if (BDC == null)
+                return false;
+            if (BDC.Data.ToString() == null)
+                return false;
+            for (int i = 0; i <= NumberOfRepeatation - 1; i++)
             {
                 try
                 {
-                    if (lsvData.Items[SelectedIndex].Checked)
-                        // TreatmentMinMarker.PositionX = TheData.Data(SelectedIndex - 1).Xm
-                        // TreatmentMinMarker.PositionY = TheData.Data(SelectedIndex - 1).Ym
-                        lblNullPoint.Text = BDC.Data(SelectedIndex - 1).Xm.ToString("0.0000") + " deg";
+                    if (lsvData.Items[i + 1].Checked)
+                    {
+                    }
                 }
                 catch (Exception ex)
                 {
-                    //Information.Err.Clear(); //// กล่องข้อความ Error ??
+                    //Information.Err.Clear();  ////กล่องข้อความ Error ??
                 }
             }
+            return true;
+        }
+
+        private void PlotSelectedTRTMarker()
+        {
+            try
+            {
+                if (lsvData.Items[SelectedIndex].Checked)
+                    // TreatmentMinMarker.PositionX = TheData.Data(SelectedIndex - 1).Xm
+                    // TreatmentMinMarker.PositionY = TheData.Data(SelectedIndex - 1).Ym
+                    lblNullPoint.Text = BDC.Data(SelectedIndex - 1).Xm.ToString("0.0000") + " deg";
+            }
+            catch (Exception ex)
+            {
+                //Information.Err.Clear(); //// กล่องข้อความ Error ??
+            }
+        }
 
         #endregion
 
         #region Sub-Routine
 
-            private void NewMeasurement()
+        private void NewMeasurement()
+        {
+            // verify user
+            if (lsvData.Items.Count > 0)
             {
-                // verify user
-                if (lsvData.Items.Count > 0)
+                //if (Interaction.MsgBox("Data will be deleted. Do you want to new measurement?", MsgBoxStyle.YesNo) != MsgBoxResult.Yes)
+                if (MessageBox.Show("Data will be deleted. Do you want to new measurement?" + MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    //if (Interaction.MsgBox("Data will be deleted. Do you want to new measurement?", MsgBoxStyle.YesNo) != MsgBoxResult.Yes)
-                    if (MessageBox.Show("Data will be deleted. Do you want to new measurement?"+ MessageBoxButtons.YesNo)==DialogResult.Yes)
-                    {
-                        return;
-                    }
+                    return;
                 }
+            }
 
-                // load dialog
-                frmNewMeasurement f = new frmNewMeasurement();
-                f.StartPosition = FormStartPosition.CenterScreen;
-                f.ShowDialog();
+            // load dialog
+            frmNewMeasurement f = new frmNewMeasurement();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.ShowDialog();
 
-                // do update the job
-                if (f.Verify() == true)
+            // do update the job
+            if (f.Verify() == true)
+            {
+                try
                 {
-                    try
+                    // get information
+                    txtSampleName.Text = f.SampleName;
+                    numRepeatNumber.Value = f.RepeatNumber;
+                    NumberOfRepeatation = f.OfRepeatation;
+
+                    // initialize the data object
+                    BDC = new BaseDataControl();
+                    BDC.SampleName = txtSampleName.Text;
+
+                    // clear
+                    lsvData.Items.Clear();
+                    ListViewItem lvi;
+
+                    // add ref.
+                    lvi = new ListViewItem();
+                    lvi.Text = "Reference";
+                    lvi.SubItems.Add("-");
+                    lvi.SubItems.Add("-");
+                    lvi.SubItems.Add("-");
+                    lvi.Checked = true;
+                    lvi.BackColor = ReferenceColor;
+                    lvi.UseItemStyleForSubItems = false;
+                    lsvData.Items.Add(lvi);
+
+                    // add repeats
+                    for (int i = 1; i <= NumberOfRepeatation; i++)
                     {
-                        // get information
-                        txtSampleName.Text = f.SampleName;
-                        numRepeatNumber.Value = f.RepeatNumber;
-                        NumberOfRepeatation = f.OfRepeatation;
-
-                        // initialize the data object
-                        BDC = new BaseDataControl();    
-                        BDC.SampleName = txtSampleName.Text;
-
-                        // clear
-                        lsvData.Items.Clear();
-                        ListViewItem lvi;
-
-                        // add ref.
                         lvi = new ListViewItem();
-                        lvi.Text = "Reference";
+                        lvi.Text = "Sample " + i.ToString();
                         lvi.SubItems.Add("-");
                         lvi.SubItems.Add("-");
                         lvi.SubItems.Add("-");
                         lvi.Checked = true;
-                        lvi.BackColor = ReferenceColor;
+                        lvi.BackColor = ColorTable[(i - 1) % ColorTable.Length];
                         lvi.UseItemStyleForSubItems = false;
                         lsvData.Items.Add(lvi);
-
-                        // add repeats
-                        for (int i = 1; i <= NumberOfRepeatation; i++)
-                        {
-                            lvi = new ListViewItem();
-                            lvi.Text = "Sample " + i.ToString();
-                            lvi.SubItems.Add("-");
-                            lvi.SubItems.Add("-");
-                            lvi.SubItems.Add("-");
-                            lvi.Checked = true;
-                            lvi.BackColor = ColorTable[(i - 1) % ColorTable.Length];
-                            lvi.UseItemStyleForSubItems = false;
-                            lsvData.Items.Add(lvi);
-                        }
-
-                        // clear treatment curve
-                        // ReDim TreatmentCurve(0 To NumberOfRepeatation - 1)
-
-                        gbMeasurement.Enabled = true;
-                        btnNew.Enabled = true;
-                        btnOpen.Enabled = true;
-                        gbSample.Enabled = true;
-                        gbScanCondition.Enabled = true;
-
-                        lsvData.Items[0].Selected = true;
-                        lsvData.Focus();
                     }
-                    catch (Exception ex)
-                    {
-                    }
-                }
-            }
 
-            private void DefineAngleOfRotation()
-            {
-                ListViewItem lvi;
-                lvi = lsvData.Items[SelectedIndex];
-                if (SelectedIndex == 0)
-                {
-                    lvi.SubItems[1].Text = "(" + BDC.Reference.Xm.ToString("0.00") + ", " + BDC.Reference.Ym.ToString("0.0000") + ")";
-                }
-                else
-                {
-                    lvi = lsvData.Items[SelectedIndex];
-                    lvi.SubItems[1].Text = "(" + BDC.Data(SelectedIndex - 1).Xm.ToString("0.00") + ", " + BDC.Data(SelectedIndex - 1).Ym.ToString("0.0000") + ")";
-                    lvi.SubItems[2].Text = BDC.Data(SelectedIndex - 1).AngleOfRotation.ToString("0.00");
-                }
-            }
+                    // clear treatment curve
+                    // ReDim TreatmentCurve(0 To NumberOfRepeatation - 1)
 
-            private void LoadSetting()
-            {
-                txtVoltageRange.Text = Properties.Settings.Default.VoltageRange.ToString();
-                txtVoltageResolution.Text = Properties.Settings.Default.VoltageResolution.ToString();
-            mnuOptionsDemomode.Checked = Properties.Settings.Default.IsDemo;
-                ReferenceColor = Properties.Settings.Default.ReferenceColor;
-                ColorTable[0] = Properties.Settings.Default.color1;
-                ColorTable[1] = Properties.Settings.Default.color2;
-                ColorTable[2] = Properties.Settings.Default.color3;
-                ColorTable[3] = Properties.Settings.Default.color4;
-                ColorTable[4] = Properties.Settings.Default.color5;
-                ColorTable[5] = Properties.Settings.Default.color6;
-                ColorTable[6] = Properties.Settings.Default.color7;
-                ColorTable[7] = Properties.Settings.Default.color8;
-                ColorTable[8] = Properties.Settings.Default.color9;
-                ColorTable[9] = Properties.Settings.Default.color10;
-                ColorTable[10] = Properties.Settings.Default.color11;
-                ColorTable[11] = Properties.Settings.Default.color12;
-                ColorTable[12] = Properties.Settings.Default.color13;
-                ColorTable[13] = Properties.Settings.Default.color14;
-                ColorTable[14] = Properties.Settings.Default.color15;
-                ColorTable[15] = Properties.Settings.Default.color16;
-                ColorTable[16] = Properties.Settings.Default.color17;
-                ColorTable[17] = Properties.Settings.Default.color18;
-                ColorTable[18] = Properties.Settings.Default.color19;
-                ColorTable[19] = Properties.Settings.Default.color20;
-            }   
+                    gbMeasurement.Enabled = true;
+                    btnNew.Enabled = true;
+                    btnOpen.Enabled = true;
+                    gbSample.Enabled = true;
+                    gbScanCondition.Enabled = true;
 
-            private void SaveSetting()
-            {
-                Properties.Settings.Default.IsDemo = mnuOptionsDemomode.Checked;
-                Properties.Settings.Default.Save();
-            }
-
-            public void ApplyColorTableToSamples()
-            {
-                try
-                {
-                    lsvData.Items[0].BackColor = ReferenceColor;
-                    for (int i = 1; i <= lsvData.Items.Count - 1; i++)
-                        lsvData.Items[i].BackColor = ColorTable[(i - 1) % ColorTable.Length];
+                    lsvData.Items[0].Selected = true;
+                    lsvData.Focus();
                 }
                 catch (Exception ex)
                 {
                 }
             }
+        }
+
+        private void DefineAngleOfRotation()
+        {
+            ListViewItem lvi;
+            lvi = lsvData.Items[SelectedIndex];
+            if (SelectedIndex == 0)
+            {
+                lvi.SubItems[1].Text = "(" + BDC.Reference.Xm.ToString("0.00") + ", " + BDC.Reference.Ym.ToString("0.0000") + ")";
+            }
+            else
+            {
+                lvi = lsvData.Items[SelectedIndex];
+                lvi.SubItems[1].Text = "(" + BDC.Data(SelectedIndex - 1).Xm.ToString("0.00") + ", " + BDC.Data(SelectedIndex - 1).Ym.ToString("0.0000") + ")";
+                lvi.SubItems[2].Text = BDC.Data(SelectedIndex - 1).AngleOfRotation.ToString("0.00");
+            }
+        }
+
+        private void LoadSetting()
+        {
+            txtVoltageRange.Text = Properties.Settings.Default.VoltageRange.ToString();
+            txtVoltageResolution.Text = Properties.Settings.Default.VoltageResolution.ToString();
+            mnuOptionsDemomode.Checked = Properties.Settings.Default.IsDemo;
+            ReferenceColor = Properties.Settings.Default.ReferenceColor;
+            ColorTable[0] = Properties.Settings.Default.color1;
+            ColorTable[1] = Properties.Settings.Default.color2;
+            ColorTable[2] = Properties.Settings.Default.color3;
+            ColorTable[3] = Properties.Settings.Default.color4;
+            ColorTable[4] = Properties.Settings.Default.color5;
+            ColorTable[5] = Properties.Settings.Default.color6;
+            ColorTable[6] = Properties.Settings.Default.color7;
+            ColorTable[7] = Properties.Settings.Default.color8;
+            ColorTable[8] = Properties.Settings.Default.color9;
+            ColorTable[9] = Properties.Settings.Default.color10;
+            ColorTable[10] = Properties.Settings.Default.color11;
+            ColorTable[11] = Properties.Settings.Default.color12;
+            ColorTable[12] = Properties.Settings.Default.color13;
+            ColorTable[13] = Properties.Settings.Default.color14;
+            ColorTable[14] = Properties.Settings.Default.color15;
+            ColorTable[15] = Properties.Settings.Default.color16;
+            ColorTable[16] = Properties.Settings.Default.color17;
+            ColorTable[17] = Properties.Settings.Default.color18;
+            ColorTable[18] = Properties.Settings.Default.color19;
+            ColorTable[19] = Properties.Settings.Default.color20;
+        }
+
+        private void SaveSetting()
+        {
+            Properties.Settings.Default.IsDemo = mnuOptionsDemomode.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        public void ApplyColorTableToSamples()
+        {
+            try
+            {
+                lsvData.Items[0].BackColor = ReferenceColor;
+                for (int i = 1; i <= lsvData.Items.Count - 1; i++)
+                    lsvData.Items[i].BackColor = ColorTable[(i - 1) % ColorTable.Length];
+            }
+            catch (Exception ex)
+            {
+            }
+        }
 
         #endregion
 
         #region Summary
 
-            private void lvSummary_ItemSelectionChanged(object sender, System.Windows.Forms.ListViewItemSelectionChangedEventArgs e)
-            {
+        private void lvSummary_ItemSelectionChanged(object sender, System.Windows.Forms.ListViewItemSelectionChangedEventArgs e)
+        {
             if (lsvData.SelectedIndices == null)
                 return;
             if (lsvData.SelectedIndices.Count <= 0)
@@ -766,17 +767,17 @@ namespace Polarimeter2019
             catch (Exception ex)
             {
             }
-            }
+        }
 
         #endregion
 
-        private void btnRun_Click(object sender, EventArgs e)   
+        private void btnRun_Click(object sender, EventArgs e)
         {
             try
             {
                 ConnectedDevices();
                 //Dim MSG As String = "A:WP" & CInt(-1 * Val(txtStart.Text) / StepFactor).ToString & "P" & CInt(-1 * Val(txtStart.Text) / StepFactor).ToString
-                string MSG = "A:WP" & System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text)/ StepFactor).ToString & "P" & System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString;
+                string MSG = "A:WP" & System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString & "P" & System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString;
                 MMC.WriteString(MSG);
             }
             catch (Exception ex)
@@ -792,7 +793,7 @@ namespace Polarimeter2019
 
         private void txtAvageNumber_KeyPress(System.Object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))   
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 btnStart.Focus();
             }
@@ -906,7 +907,7 @@ namespace Polarimeter2019
                 SaveFileDialog dlg = new SaveFileDialog();
                 dlg.Filter = "Bit map (*.bmp)|*.bmp|All File (*.*)|*.*";
                 DialogResult redlg = dlg.ShowDialog();
-                if (redlg != System.Windows.Forms.DialogResult.OK);
+                if (redlg != System.Windows.Forms.DialogResult.OK) ;
                 {
                     return;
                 }
@@ -943,6 +944,24 @@ namespace Polarimeter2019
             Graphics g = Graphics.FromImage(bm2);
             g.DrawImage(bm, 0, 0, new Rectangle(dx, dy, wid, hgt), GraphicsUnit.Pixel);
             return bm2;
+        }
+
+        private void txtResolution_TextChanged(object sender, EventArgs e)
+        {
+            // Validation Text to float
+            if (double.TryParse(txtResolution.Text, out double resolution))
+            {
+                if (0.02 <= resolution && resolution <= 10) //deg
+                {
+                    // Change BDC
+                    double min = double.Parse(txtStart.Text);
+                    double max = double.Parse(txtStop.Text);
+                    int PointCount = (int)((max - min) / resolution + 1);
+
+                    BDC.Reference.X = new double[PointCount];
+                    BDC.Reference.Y = new double[PointCount]; // destroy
+                }
+            }
         }
     }
 }
