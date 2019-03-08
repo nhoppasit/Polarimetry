@@ -455,9 +455,9 @@
             this.columnHeader2,
             this.columnHeader3});
             this.lsvData.GridLines = true;
-            this.lsvData.Location = new System.Drawing.Point(22, 114);
+            this.lsvData.Location = new System.Drawing.Point(22, 92);
             this.lsvData.Name = "lsvData";
-            this.lsvData.Size = new System.Drawing.Size(357, 390);
+            this.lsvData.Size = new System.Drawing.Size(357, 409);
             this.lsvData.TabIndex = 4;
             this.lsvData.UseCompatibleStateImageBehavior = false;
             this.lsvData.View = System.Windows.Forms.View.Details;
@@ -470,12 +470,12 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Null Point";
-            this.columnHeader2.Width = 128;
+            this.columnHeader2.Width = 87;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Angle of Rotation";
-            this.columnHeader3.Width = 144;
+            this.columnHeader3.Width = 161;
             // 
             // txtSampleName
             // 
@@ -788,6 +788,9 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(431, 209);
@@ -803,7 +806,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(703, 498);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Data";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -813,7 +816,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(703, 498);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Graph";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // frmMain

@@ -61,6 +61,7 @@ namespace Polarimeter2019
         public void PatchData(int RepeatID, int PointID, double X, double Y)
         {
             // !!!!!!!!
+
             Data[RepeatID].X[PointID] = X;
             Data[RepeatID].Y[PointID] = Y;
             if (Y < Data[RepeatID].Ym)
