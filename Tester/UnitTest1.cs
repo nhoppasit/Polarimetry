@@ -6,13 +6,13 @@ namespace Tester
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void Cal_Point_Count()
-        {
             string s_res = "0.2";
             string s_min = "0";
             string s_max = "360";
 
+        [TestMethod]
+        public void Cal_Point_Count()
+        {
             Polarimeter_Control.BaseDataControl bdc;
 
             bdc = new Polarimeter_Control.BaseDataControl();

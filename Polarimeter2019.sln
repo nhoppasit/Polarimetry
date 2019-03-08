@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polarimeter2019", "Polarime
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{1759B238-EB46-4022-9376-40BA7B2C8CBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polarimeter_Control", "Polarimeter_Control\Polarimeter_Control.csproj", "{958A69C1-1012-40BD-94D4-E181AF5F7448}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{958A69C1-1012-40BD-94D4-E181AF5F7448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{958A69C1-1012-40BD-94D4-E181AF5F7448}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{958A69C1-1012-40BD-94D4-E181AF5F7448}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{958A69C1-1012-40BD-94D4-E181AF5F7448}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
