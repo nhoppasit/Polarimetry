@@ -79,6 +79,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gbScanCondition = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtPointCount = new System.Windows.Forms.TextBox();
+            this.labal6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -105,9 +108,9 @@
             this.lblDMM = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMMC = new System.Windows.Forms.ToolStripStatusLabel();
-            this.labal6 = new System.Windows.Forms.Label();
-            this.txtPointCount = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.MainMenu.SuspendLayout();
             this.gbSample.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).BeginInit();
@@ -115,6 +118,7 @@
             this.gbMeasurement.SuspendLayout();
             this.gbStartMea.SuspendLayout();
             this.MainStatus.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNew
@@ -522,6 +526,33 @@
             this.gbScanCondition.TabStop = false;
             this.gbScanCondition.Text = "Scan condition";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(274, 124);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 17);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Deg.";
+            // 
+            // txtPointCount
+            // 
+            this.txtPointCount.Location = new System.Drawing.Point(110, 121);
+            this.txtPointCount.Name = "txtPointCount";
+            this.txtPointCount.Size = new System.Drawing.Size(140, 22);
+            this.txtPointCount.TabIndex = 11;
+            this.txtPointCount.Text = "-";
+            this.txtPointCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // labal6
+            // 
+            this.labal6.AutoSize = true;
+            this.labal6.Location = new System.Drawing.Point(29, 124);
+            this.labal6.Name = "labal6";
+            this.labal6.Size = new System.Drawing.Size(77, 17);
+            this.labal6.TabIndex = 10;
+            this.labal6.Text = "PointCount";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -755,38 +786,42 @@
             this.lblMMC.Size = new System.Drawing.Size(99, 20);
             this.lblMMC.Text = "Disconnected";
             // 
-            // labal6
+            // tabControl1
             // 
-            this.labal6.AutoSize = true;
-            this.labal6.Location = new System.Drawing.Point(29, 124);
-            this.labal6.Name = "labal6";
-            this.labal6.Size = new System.Drawing.Size(77, 17);
-            this.labal6.TabIndex = 10;
-            this.labal6.Text = "PointCount";
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(431, 209);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(711, 527);
+            this.tabControl1.TabIndex = 9;
             // 
-            // txtPointCount
+            // tabPage1
             // 
-            this.txtPointCount.Location = new System.Drawing.Point(110, 121);
-            this.txtPointCount.Name = "txtPointCount";
-            this.txtPointCount.Size = new System.Drawing.Size(140, 22);
-            this.txtPointCount.TabIndex = 11;
-            this.txtPointCount.Text = "-";
-            this.txtPointCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(703, 498);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // tabPage2
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(274, 124);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 17);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Deg.";
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(703, 498);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1672, 848);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.MainStatus);
             this.Controls.Add(this.gbStartMea);
             this.Controls.Add(this.gbMeasurement);
@@ -810,6 +845,7 @@
             this.gbStartMea.ResumeLayout(false);
             this.MainStatus.ResumeLayout(false);
             this.MainStatus.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -896,6 +932,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtPointCount;
         private System.Windows.Forms.Label labal6;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 

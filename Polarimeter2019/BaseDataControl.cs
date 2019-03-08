@@ -36,7 +36,7 @@ namespace Polarimeter2019
             }
             set
             {
-                SampleName = value;
+                //SampleName = value;
             }
         }
 
@@ -110,12 +110,10 @@ namespace Polarimeter2019
             AddText(fs, "[Reference]");
             for (int i = 0; i <= Reference.X.Length - 1; i++)
                 AddText(fs, Reference.X[i].ToString() + "," + Reference.Y[i].ToString() + Environment.NewLine);
-                //AddText(fs, Reference.X.ToString() + "," + Reference.Y.ToString() + Environment.NewLine);
             // Data
             for (int k = 0; k <= Data.Length - 1; k++)
             {
                 AddText(fs, "[Sample " + (k + 1).ToString() + "]");
-                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 for (int i = 0; i <= Data[k].X.Length - 1; i++)
                 {
                     AddText(fs, Data[k].X[i].ToString() + "," + Data[k].Y[i].ToString() + Environment.NewLine);

@@ -37,7 +37,7 @@ namespace Polarimeter2019
 
         //ColorTable
         public Color ReferenceColor = Color.Red;
-        public Color[] ColorTable;
+        public Color[] ColorTable = new Color[20];
         #endregion
 
         #region Devices
@@ -604,8 +604,7 @@ namespace Polarimeter2019
             // verify user
             if (lsvData.Items.Count > 0)
             {
-                //if (Interaction.MsgBox("Data will be deleted. Do you want to new measurement?", MsgBoxStyle.YesNo) != MsgBoxResult.Yes)
-                if (MessageBox.Show("Data will be deleted. Do you want to new measurement?" + MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Data will be deleted. Do you want to new measurement?") == DialogResult.Yes)
                 {
                     return;
                 }
