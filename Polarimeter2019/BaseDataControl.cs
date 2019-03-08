@@ -46,17 +46,10 @@ namespace Polarimeter2019
     
         public void PatchReference(int PointID, double X, double Y)
         {
-            //    ReDim Preserve Reference.X(0 To PointID)
+            //    ReDim Preserve Reference.X(0 To PointID)  
 
             //ReDim Preserve Reference.Y(0 To PointID)   
-
-            //Reference.X(PointID) = X    
-            //Reference.Y(PointID) = Y    
-            //If Y<Reference.Ym Then     
-            //    Reference.Ym = Y    
-            //    Reference.Xm = X    
-            //End If
-
+            
             Reference.X[PointID] = X;
             Reference.Y[PointID] = Y;
             if (Y < Reference.Ym)
@@ -68,6 +61,7 @@ namespace Polarimeter2019
 
         public void PatchData(int RepeatID, int PointID, double X, double Y)
         {
+            // !!!!!!!!
             Data.X[RepeatID] = X;
             Data.Y[RepeatID] = Y;
             if (Y < Data.Ym)
@@ -116,17 +110,17 @@ namespace Polarimeter2019
             // Reference
             AddText(fs, "[Reference]");
             for (int i = 0; i <= Reference.X.Length - 1; i++)
-                //AddText(fs, Reference.X(i).ToString + "," + Reference.Y(i).ToString + Environment.NewLine);
-                AddText(fs, Reference.X.ToString() + "," + Reference.Y.ToString() + Environment.NewLine);
+                AddText(fs, Reference.X(i).ToString + "," + Reference.Y(i).ToString + Environment.NewLine);
+                //AddText(fs, Reference.X.ToString() + "," + Reference.Y.ToString() + Environment.NewLine);
             // Data
             for (int k = 0; k <= Data.X.Length - 1; k++)
             {
                 AddText(fs, "[Sample " + (k + 1).ToString() + "]");
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                //for (int i = 0; i <= Data(k).X.Length - 1; i++)
-                //{
-                //    //AddText(fs, Data[k].X(i).ToString + "," + Data(k).Y(i).ToString + Environment.NewLine);
-                //}
+                for (int i = 0; i <= Data(k).X.Length - 1; i++)
+                {
+                    AddText(fs, Data(k).X(i).ToString + "," + Data(k).Y(i).ToString + Environment.NewLine);
+                }
             }
 
             // Ending
@@ -167,12 +161,12 @@ namespace Polarimeter2019
         {
             int i = 0;
             ///!!!!!!!!!!!!!!!!!!!!!
-            //foreach (strucCurveData d in Data [] <-----)
-            //{
-            //    if (d.X != null)
-            //        AnalyzeData(i);
-            //    i += 1;
-            //}
+            foreach (strucCurveData d in Data)
+            {
+                if (d.X != null)
+                    AnalyzeData(i);
+                i += 1;
+            }
         }
 
         #endregion

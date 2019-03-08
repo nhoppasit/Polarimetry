@@ -105,6 +105,9 @@
             this.lblDMM = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMMC = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labal6 = new System.Windows.Forms.Label();
+            this.txtPointCount = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.MainMenu.SuspendLayout();
             this.gbSample.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).BeginInit();
@@ -499,6 +502,9 @@
             // 
             this.gbScanCondition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbScanCondition.Controls.Add(this.label10);
+            this.gbScanCondition.Controls.Add(this.txtPointCount);
+            this.gbScanCondition.Controls.Add(this.labal6);
             this.gbScanCondition.Controls.Add(this.label8);
             this.gbScanCondition.Controls.Add(this.label7);
             this.gbScanCondition.Controls.Add(this.label6);
@@ -519,7 +525,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(274, 129);
+            this.label8.Location = new System.Drawing.Point(274, 96);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 17);
             this.label8.TabIndex = 9;
@@ -528,7 +534,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(274, 83);
+            this.label7.Location = new System.Drawing.Point(274, 68);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 17);
             this.label7.TabIndex = 8;
@@ -556,7 +562,7 @@
             // 
             // txtResolution
             // 
-            this.txtResolution.Location = new System.Drawing.Point(110, 126);
+            this.txtResolution.Location = new System.Drawing.Point(110, 93);
             this.txtResolution.Name = "txtResolution";
             this.txtResolution.Size = new System.Drawing.Size(140, 22);
             this.txtResolution.TabIndex = 5;
@@ -566,7 +572,7 @@
             // 
             // txtStop
             // 
-            this.txtStop.Location = new System.Drawing.Point(110, 80);
+            this.txtStop.Location = new System.Drawing.Point(110, 65);
             this.txtStop.Name = "txtStop";
             this.txtStop.Size = new System.Drawing.Size(140, 22);
             this.txtStop.TabIndex = 4;
@@ -585,7 +591,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 129);
+            this.label5.Location = new System.Drawing.Point(29, 96);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 17);
             this.label5.TabIndex = 2;
@@ -594,7 +600,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 83);
+            this.label4.Location = new System.Drawing.Point(43, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 17);
             this.label4.TabIndex = 1;
@@ -749,6 +755,33 @@
             this.lblMMC.Size = new System.Drawing.Size(99, 20);
             this.lblMMC.Text = "Disconnected";
             // 
+            // labal6
+            // 
+            this.labal6.AutoSize = true;
+            this.labal6.Location = new System.Drawing.Point(29, 124);
+            this.labal6.Name = "labal6";
+            this.labal6.Size = new System.Drawing.Size(77, 17);
+            this.labal6.TabIndex = 10;
+            this.labal6.Text = "PointCount";
+            // 
+            // txtPointCount
+            // 
+            this.txtPointCount.Location = new System.Drawing.Point(110, 121);
+            this.txtPointCount.Name = "txtPointCount";
+            this.txtPointCount.Size = new System.Drawing.Size(140, 22);
+            this.txtPointCount.TabIndex = 11;
+            this.txtPointCount.Text = "-";
+            this.txtPointCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(274, 124);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 17);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Deg.";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -860,6 +893,9 @@
         private System.Windows.Forms.ToolStripMenuItem txtVoltageResolution;
         private System.Windows.Forms.ToolStripMenuItem mnuExportToImageFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtPointCount;
+        private System.Windows.Forms.Label labal6;
     }
 }
 

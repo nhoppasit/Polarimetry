@@ -29,7 +29,7 @@ namespace Polarimeter2019
             LVI.UseItemStyleForSubItems = false;
             LVI.Text = "Reference";
             LVI.SubItems.Add("");
-            //LVI.SubItems.Add(f1.ReferenceColor.ToString());
+            LVI.SubItems.Add(f1.ReferenceColor.ToString());
             LVI.SubItems[1].BackColor = System.Drawing.Color.Red;
             lvColorTable.Items.Add(LVI);
 
@@ -39,8 +39,7 @@ namespace Polarimeter2019
                 LVI.UseItemStyleForSubItems = false;
                 LVI.Text = "Sample " + (i + 1).ToString();
                 LVI.SubItems.Add("");
-                //LVI.SubItems.Add(f1.ColorTable[i].ToString());
-              //  LVI.SubItems[1].BackColor = f1.ColorTable[i];
+                LVI.SubItems[1].BackColor = f1.ColorTable[i];
                 lvColorTable.Items.Add(LVI);
             }
         }
@@ -55,11 +54,11 @@ namespace Polarimeter2019
                 dlg.ShowDialog();
                 if (i == 0)
                 {
-                    //f1.ReferenceColor = dlg.Color;
+                    f1.ReferenceColor = dlg.Color;
                 }
                 else
                 {
-                    //f1.ColorTable[i - 1] = dlg.Color;
+                    f1.ColorTable[i - 1] = dlg.Color;
                 }
 
                 lvColorTable.SelectedItems[0].SubItems[1].BackColor = dlg.Color;
@@ -193,7 +192,7 @@ namespace Polarimeter2019
                     }
             }
             Properties.Settings.Default.Save();
-            //f1.ApplyColorTableToSamples();
+            f1.ApplyColorTableToSamples();
             }
             catch (Exception ex)
             {
@@ -201,5 +200,14 @@ namespace Polarimeter2019
             }
         }
 
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -773,6 +773,9 @@ namespace Polarimeter2019
 
         private void btnRun_Click(object sender, EventArgs e)
         {
+            txtStart.Enabled = false;
+            txtStop.Enabled = false;
+            txtResolution.Enabled = false;
             try
             {
                 ConnectedDevices();
@@ -957,6 +960,7 @@ namespace Polarimeter2019
                     double min = double.Parse(txtStart.Text);
                     double max = double.Parse(txtStop.Text);
                     int PointCount = (int)((max - min) / resolution + 1);
+                    txtPointCount.Text = PointCount.ToString();
 
                     BDC.Reference.X = new double[PointCount];
                     BDC.Reference.Y = new double[PointCount]; // destroy
