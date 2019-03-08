@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Ivi.Visa.Interop;
 
 namespace Polarimeter2019
 {
@@ -74,7 +75,7 @@ namespace Polarimeter2019
                 DMMAddress = txtDMMAddress.Text;
                 mgr1 = new Ivi.Visa.Interop.ResourceManager();
                 DMM = new Ivi.Visa.Interop.FormattedIO488();
-                DMM.IO() = mgr1.Open(DMMAddress);
+                DMM.IO = (IMessage)mgr1.Open(DMMAddress);
                 DMM.IO.Timeout = 7000;
                 DMM.WriteString("CONF:VOLT:DC " + txtVoltageRange.Text + ", " + txtVoltageResolution.Text);
                 DMM.WriteString("TRIG:SOUR TMM");
@@ -88,7 +89,7 @@ namespace Polarimeter2019
                 MMCAddress = txtMMCAddress.Text;
                 mgr2 = new Ivi.Visa.Interop.ResourceManager();
                 MMC = new Ivi.Visa.Interop.FormattedIO488();
-                MMC.IO() = mgr2.Open(MMCAddress);
+                MMC.IO = (IMessage)mgr2.Open(MMCAddress);
                 MMC.IO.Timeout = 7000;
 
                 // MsgBox("Connect devices are successful.")
@@ -212,6 +213,7 @@ namespace Polarimeter2019
 
         #region Scanning Procedure    
 
+        Random Rnd = new Random();
         private void DoScanLightIntensity()
         {
             // --------------------------------------------
@@ -253,7 +255,7 @@ namespace Polarimeter2019
                     else if (BDC.Data != null)
                     {
                         if (SelectedIndex <= BDC.Data.Length)
-                            BDC.Data(SelectedIndex - 1).Ym = 99999999;
+                            BDC.Data[SelectedIndex - 1].Ym = 99999999;
                     }
                 }
 
@@ -263,7 +265,7 @@ namespace Polarimeter2019
                 double CurrentLightIntensity;
                 int StepNumber;
                 string MSG;
-                double CurrentTheta;
+                double CurrentTheta = 0;
                 if (ThetaA < ThetaB)
                 {
                     CurrentTheta = ThetaA + CurrentPointIndex * Delta;
@@ -281,7 +283,7 @@ namespace Polarimeter2019
                     MMC.WriteString(MSG);
 
                     // 0.5 Read first
-                    int nAvg = numRepeatNumber.Value();
+                    int nAvg = (int)numRepeatNumber.Value;
                     CurrentLightIntensity = 0;
                     for (int tt = 0; tt <= nAvg - 1; tt++)
                     {
@@ -292,7 +294,7 @@ namespace Polarimeter2019
                 }
                 else
                 {
-                    CurrentLightIntensity = VBMath.Rnd() * 0.1 + Math.Cos((CurrentTheta - VBMath.Rnd() * 50) * Math.PI / 180) + 2;
+                    CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
                 }
                 // ----------------------------------------------------------------
                 // STORE DATA AND PLOT
@@ -340,7 +342,7 @@ namespace Polarimeter2019
                         MMC.WriteString(MSG);
 
                         // 3. Read light intensity
-                        int nAvg = numRepeatNumber.Value();
+                        int nAvg = (int)numRepeatNumber.Value;
                         CurrentLightIntensity = 0;
                         for (int tt = 0; tt <= nAvg - 1; tt++)
                         {
@@ -361,7 +363,7 @@ namespace Polarimeter2019
                         // 'do nothing
                         // Loop Until sw.ElapsedMilliseconds > 50 'ms
                         // 'Simulation
-                        CurrentLightIntensity = VBMath.Rnd() * 0.1 + Math.Cos((CurrentTheta - VBMath.Rnd() * 50) * Math.PI / 180) + 2;
+                        CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
 
                     // Save to memory and update curve
                     if (SelectedIndex == 0)
@@ -585,7 +587,7 @@ namespace Polarimeter2019
                 if (lsvData.Items[SelectedIndex].Checked)
                     // TreatmentMinMarker.PositionX = TheData.Data(SelectedIndex - 1).Xm
                     // TreatmentMinMarker.PositionY = TheData.Data(SelectedIndex - 1).Ym
-                    lblNullPoint.Text = BDC.Data(SelectedIndex - 1).Xm.ToString("0.0000") + " deg";
+                    lblNullPoint.Text = BDC.Data[SelectedIndex - 1].Xm.ToString("0.0000") + " deg";
             }
             catch (Exception ex)
             {
@@ -622,7 +624,7 @@ namespace Polarimeter2019
                     // get information
                     txtSampleName.Text = f.SampleName;
                     numRepeatNumber.Value = f.RepeatNumber;
-                    NumberOfRepeatation = f.OfRepeatation;
+                    NumberOfRepeatation = (int)f.OfRepeatation;
 
                     // initialize the data object
                     BDC = new BaseDataControl();
@@ -686,8 +688,8 @@ namespace Polarimeter2019
             else
             {
                 lvi = lsvData.Items[SelectedIndex];
-                lvi.SubItems[1].Text = "(" + BDC.Data(SelectedIndex - 1).Xm.ToString("0.00") + ", " + BDC.Data(SelectedIndex - 1).Ym.ToString("0.0000") + ")";
-                lvi.SubItems[2].Text = BDC.Data(SelectedIndex - 1).AngleOfRotation.ToString("0.00");
+                lvi.SubItems[1].Text = "(" + BDC.Data[SelectedIndex - 1].Xm.ToString("0.00") + ", " + BDC.Data[SelectedIndex - 1].Ym.ToString("0.0000") + ")";
+                lvi.SubItems[2].Text = BDC.Data[SelectedIndex - 1].AngleOfRotation.ToString("0.00");
             }
         }
 
@@ -779,8 +781,7 @@ namespace Polarimeter2019
             try
             {
                 ConnectedDevices();
-                //Dim MSG As String = "A:WP" & CInt(-1 * Val(txtStart.Text) / StepFactor).ToString & "P" & CInt(-1 * Val(txtStart.Text) / StepFactor).ToString
-                string MSG = "A:WP" & System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString & "P" & System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString;
+                string MSG = "A:WP"+ System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString();
                 MMC.WriteString(MSG);
             }
             catch (Exception ex)
@@ -823,7 +824,7 @@ namespace Polarimeter2019
 
         private void colorTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmColorTable f = new frmColorTable();
+            frmColorTable f = new frmColorTable(this);
             DialogResult result = f.ShowDialog();
             ResetDynaplot();
             PlotReferenceCurve();

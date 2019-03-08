@@ -33,7 +33,7 @@ namespace Polarimeter2019
             LVI.Text = "Reference";
             LVI.SubItems.Add("");
             LVI.SubItems.Add(f1.ReferenceColor.ToString());
-            LVI.SubItems[1].BackColor = System.Drawing.Color.Red;
+            LVI.SubItems[1].BackColor = f1.ReferenceColor;
             lvColorTable.Items.Add(LVI);
 
             for (int i = 0; i <= 19; i++)
@@ -205,7 +205,7 @@ namespace Polarimeter2019
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-              
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
