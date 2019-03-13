@@ -967,5 +967,10 @@ namespace Polarimeter2019
                 }
             }
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
