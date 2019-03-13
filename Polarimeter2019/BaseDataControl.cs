@@ -17,6 +17,8 @@ namespace Polarimeter2019
             public double Xm;
             public double Ym;
             public double AngleOfRotation;
+
+            public int Length { get; internal set; }
         }
 
         private string mSampleName;
