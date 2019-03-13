@@ -602,6 +602,21 @@ namespace Polarimeter2019
 
         #endregion
 
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Polarimeter2019 program. (c)2019, Physics, KMITL. Design by S. Saejia.");  //// แก้เป็นปี 2019
+        }
+
+        private void colorTableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmColorTable f = new frmColorTable(this);
+            DialogResult result = f.ShowDialog();
+            ResetDynaplot();
+            PlotReferenceCurve();
+            PlotTreatmentsCurve();
+            PlotSelectedTRTMarker();
+        }
+
         #endregion
 
         #region Form Event
@@ -805,6 +820,86 @@ namespace Polarimeter2019
                 }
             }
         }
+        
+        private void NewMeasurement2()
+        {
+            // verify user
+            if (lsvData2.Items.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("Data will be deleted. Do you want to new measurement?", "New measurement", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
+
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
+
+            // load dialog
+            frmNewMeasurement f = new frmNewMeasurement();
+
+            // do update the job
+            if (f.Verify() == true)
+            {
+                try
+                {
+                    // get information
+                    txtSampleName.Text = f.SampleName;
+                    numRepeatNumber.Value = f.RepeatNumber;
+                    NumberOfRepeatation = (int)f.OfRepeatation;
+
+                    // initialize the data object
+                    BDC = new BaseDataControl();
+                    BDC.SampleName = txtSampleName.Text;
+
+                    // clear
+                    lsvData2.Items.Clear();
+                    ListViewItem lvi;
+
+                    // add ref.
+                    lvi = new ListViewItem();
+                    lvi.Text = "Reference";
+                    lvi.SubItems.Add("-");
+                    lvi.SubItems.Add("-");
+                    lvi.SubItems.Add("-");
+                    lvi.Checked = true;
+                    lvi.BackColor = ReferenceColor;
+                    lvi.UseItemStyleForSubItems = false;
+                    lsvData2.Items.Add(lvi);
+
+                    // add repeats
+                    for (int i = 1; i <= NumberOfRepeatation; i++)
+                    {
+                        lvi = new ListViewItem();
+                        lvi.Text = "Sample " + i.ToString();
+                        lvi.SubItems.Add("-");
+                        lvi.SubItems.Add("-");
+                        lvi.SubItems.Add("-");
+                        lvi.Checked = true;
+                        lvi.BackColor = ColorTable[(i - 1) % ColorTable.Length];
+                        lvi.UseItemStyleForSubItems = false;
+                        lsvData2.Items.Add(lvi);
+                    }
+
+                    // clear treatment curve
+                    // ReDim TreatmentCurve(0 To NumberOfRepeatation - 1)
+
+                    gbMeasurement.Enabled = true;
+                    btnNew.Enabled = true;
+                    btnOpen.Enabled = true;
+                    gbSample.Enabled = true;
+                    gbScanCondition.Enabled = true;
+
+                    lsvData.Items[0].Selected = true;
+                    lsvData.Focus();
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+        }
 
         private void DefineAngleOfRotation()
         {
@@ -968,6 +1063,7 @@ namespace Polarimeter2019
         private void btnNew_Click(object sender, EventArgs e)
         {
             NewMeasurement();
+            NewMeasurement2();
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -1007,21 +1103,6 @@ namespace Polarimeter2019
 
         private void lvSummary_ItemChecked(System.Object sender, System.Windows.Forms.ItemCheckedEventArgs e)
         {
-            ResetDynaplot();
-            PlotReferenceCurve();
-            PlotTreatmentsCurve();
-            PlotSelectedTRTMarker();
-        }
-
-        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Polarimeter2019 program. (c)2019, Physics, KMITL. Design by S. Saejia.");  //// แก้เป็นปี 2019
-        }
-
-        private void colorTableToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmColorTable f = new frmColorTable(this);
-            DialogResult result = f.ShowDialog();
             ResetDynaplot();
             PlotReferenceCurve();
             PlotTreatmentsCurve();

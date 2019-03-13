@@ -158,7 +158,6 @@ namespace Polarimeter2019
         private void AnalyzeAllData()
         {
             int i = 0;
-            ///!!!!!!!!!!!!!!!!!!!!!
             foreach (strucCurveData d in Data)
             {
                 if (d.X != null)
