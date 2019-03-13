@@ -136,6 +136,7 @@ namespace Polarimeter2019
             gbStartMea.Enabled = false;
             gbSample.Enabled = false;
             gbScanCondition.Enabled = false;
+            gbMeasurement.Enabled = false;
 
             // ----------------------------------------
             // 2. start Test loop of reading light intensity
@@ -471,6 +472,96 @@ namespace Polarimeter2019
 
         #region Menu
 
+        #region File
+
+        private void newToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            NewMeasurement();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BDC.OpenFile();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BDC.SaveFile();
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)  //ยังไม่เสร็จ
+        {
+            //try
+            //{
+            //    if()
+            //    {
+            //        BDC.SaveFile();
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("The data have been save")
+            //    }
+            //}
+            //catch
+            //{
+                
+            //}
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void mnuExportToImageFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog dlg = new SaveFileDialog();
+                dlg.Filter = "Bit map (*.bmp)|*.bmp|All File (*.*)|*.*";
+                DialogResult redlg = dlg.ShowDialog();
+                if (redlg != System.Windows.Forms.DialogResult.OK) ;
+                {
+                    return;
+                }
+                string path = dlg.FileName;
+
+                //AxDynaPlot1.ToFile(path)
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region Measure
+
+        private void mnuStartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoStart();
+        }
+
+        private void mnuStopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoStop();
+        }
+
+        private void mnuPauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoPause();
+        }
+
+        private void mnuCoutinewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoPause();
+        }
+
+        #endregion
+
+        #region Devices
+
         private void ConnectToolStripMenuItem_Click(System.Object sender, System.EventArgs e)
         {
             ConnectedDevices();
@@ -481,6 +572,36 @@ namespace Polarimeter2019
             DisconnectDevices();
         }
 
+        private void mnuDevicesClearDMM_Click(System.Object sender, System.EventArgs e)
+        {
+            try
+            {
+                ConnectedDevices();
+                DMM.WriteString("*CLS");
+                DisconnectDevices();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void mnuDevicesResetDMM_Click(System.Object sender, System.EventArgs e)
+        {
+            try
+            {
+                ConnectedDevices();
+                DMM.WriteString("*RST");
+                DisconnectDevices();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion
+
         #endregion
 
         #region Form Event
@@ -489,16 +610,20 @@ namespace Polarimeter2019
         {
             this.WindowState = FormWindowState.Maximized;
             LoadSetting();
+            gbSample.Enabled = false;
+            gbMeasurement.Enabled = false;
+            gbScanCondition.Enabled = false;
         }
 
         private void Form1_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Do you want to quit program?", "Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            DialogResult result = MessageBox.Show("Do you want to quit program?", "Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
                 IsScanning = false;
                 SaveSetting();
             }
-            else
+            else if (result == DialogResult.No)
             {
                 e.Cancel = true;
             }
@@ -604,7 +729,12 @@ namespace Polarimeter2019
             // verify user
             if (lsvData.Items.Count > 0)
             {
-                if (MessageBox.Show("Data will be deleted. Do you want to new measurement?") == DialogResult.Yes)
+                DialogResult result = MessageBox.Show("Data will be deleted. Do you want to new measurement?", "New measurement", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
+                    
+                }
+                else if (result == DialogResult.Cancel)
                 {
                     return;
                 }
@@ -772,11 +902,57 @@ namespace Polarimeter2019
 
         #endregion
 
+        #region Textbox
+     
+        private void txtStart_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verify that the pressed key isn't CTRL or any non-numeric digit
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // If you want, you can allow decimal (float) numbers
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtStop_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verify that the pressed key isn't CTRL or any non-numeric digit
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // If you want, you can allow decimal (float) numbers
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtResoluton_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verify that the pressed key isn't CTRL or any non-numeric digit
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // If you want, you can allow decimal (float) numbers
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        #endregion
+
         private void btnRun_Click(object sender, EventArgs e)
         {
-            txtStart.Enabled = false;
-            txtStop.Enabled = false;
-            txtResolution.Enabled = false;
             try
             {
                 ConnectedDevices();
@@ -785,7 +961,7 @@ namespace Polarimeter2019
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message );
             }
         }
 
@@ -794,12 +970,33 @@ namespace Polarimeter2019
             NewMeasurement();
         }
 
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            BDC.OpenFile();
+        }
+
+        private void btnPointCount_Click(object sender, EventArgs e)
+        {
+            // Validation Text to float
+            if (double.TryParse(txtResolution.Text, out double resolution))
+            {
+                if (0.02 <= resolution && resolution <= 10) //deg
+                {
+                    // Change BDC
+                    double min = double.Parse(txtStart.Text);
+                    double max = double.Parse(txtStop.Text);
+                    int PointCount = (int)((max - min) / resolution + 1);
+                    txtPointCount.Text = PointCount.ToString();
+
+                    BDC.Reference.X = new double[PointCount];
+                    BDC.Reference.Y = new double[PointCount]; // destroy
+                }
+            }
+        }
+
         private void txtAvageNumber_KeyPress(System.Object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                btnStart.Focus();
-            }
+
         }
 
         private void lsvData_KeyPress(System.Object sender, System.Windows.Forms.KeyPressEventArgs e)
@@ -831,26 +1028,6 @@ namespace Polarimeter2019
             PlotSelectedTRTMarker();
         }
 
-        private void mnuStartToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DoStart();
-        }
-
-        private void mnuStopToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DoStop();
-        }
-
-        private void mnuPauseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DoPause();
-        }
-
-        private void mnuCoutinewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DoPause();
-        }
-
         private void txtVoltageRange_TextChanged(object sender, System.EventArgs e)
         {
             try
@@ -872,55 +1049,6 @@ namespace Polarimeter2019
             }
             catch (Exception ex)
             {
-            }
-        }
-
-        private void mnuDevicesClearDMM_Click(System.Object sender, System.EventArgs e)
-        {
-            try
-            {
-                ConnectedDevices();
-                DMM.WriteString("*CLS");
-                DisconnectDevices();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void mnuDevicesResetDMM_Click(System.Object sender, System.EventArgs e)
-        {
-            try
-            {
-                ConnectedDevices();
-                DMM.WriteString("*RST");
-                DisconnectDevices();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void mnuExportToImageFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                SaveFileDialog dlg = new SaveFileDialog();
-                dlg.Filter = "Bit map (*.bmp)|*.bmp|All File (*.*)|*.*";
-                DialogResult redlg = dlg.ShowDialog();
-                if (redlg != System.Windows.Forms.DialogResult.OK) ;
-                {
-                    return;
-                }
-                string path = dlg.FileName;
-
-                //AxDynaPlot1.ToFile(path)
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
 
@@ -947,25 +1075,6 @@ namespace Polarimeter2019
             Graphics g = Graphics.FromImage(bm2);
             g.DrawImage(bm, 0, 0, new Rectangle(dx, dy, wid, hgt), GraphicsUnit.Pixel);
             return bm2;
-        }
-
-        private void txtResolution_TextChanged(object sender, EventArgs e)
-        {
-            // Validation Text to float
-            if (double.TryParse(txtResolution.Text, out double resolution))
-            {
-                if (0.02 <= resolution && resolution <= 10) //deg
-                {
-                    // Change BDC
-                    double min = double.Parse(txtStart.Text);
-                    double max = double.Parse(txtStop.Text);
-                    int PointCount = (int)((max - min) / resolution + 1);
-                    txtPointCount.Text = PointCount.ToString();
-
-                    BDC.Reference.X = new double[PointCount];
-                    BDC.Reference.Y = new double[PointCount]; // destroy
-                }
-            }
         }
     }
 }

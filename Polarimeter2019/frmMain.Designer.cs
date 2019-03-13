@@ -79,6 +79,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gbScanCondition = new System.Windows.Forms.GroupBox();
+            this.btnPointCount = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtPointCount = new System.Windows.Forms.TextBox();
             this.labal6 = new System.Windows.Forms.Label();
@@ -168,6 +169,7 @@
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
             this.newToolStripMenuItem1.Size = new System.Drawing.Size(225, 26);
             this.newToolStripMenuItem1.Text = "New";
+            this.newToolStripMenuItem1.Click += new System.EventHandler(this.newToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
@@ -179,6 +181,7 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -190,12 +193,14 @@
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.saveAsToolStripMenuItem.Text = "Save as..";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -219,6 +224,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // driverToolStripMenuItem
             // 
@@ -312,33 +318,33 @@
             // mnuStartToolStripMenuItem
             // 
             this.mnuStartToolStripMenuItem.Name = "mnuStartToolStripMenuItem";
-            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.mnuStartToolStripMenuItem.Text = "Start";
             this.mnuStartToolStripMenuItem.Click += new System.EventHandler(this.mnuStartToolStripMenuItem_Click);
             // 
             // mnuStopToolStripMenuItem
             // 
             this.mnuStopToolStripMenuItem.Name = "mnuStopToolStripMenuItem";
-            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.mnuStopToolStripMenuItem.Text = "Stop";
             this.mnuStopToolStripMenuItem.Click += new System.EventHandler(this.mnuStopToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(213, 6);
             // 
             // mnuPauseToolStripMenuItem
             // 
             this.mnuPauseToolStripMenuItem.Name = "mnuPauseToolStripMenuItem";
-            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.mnuPauseToolStripMenuItem.Text = "Pause";
             this.mnuPauseToolStripMenuItem.Click += new System.EventHandler(this.mnuPauseToolStripMenuItem_Click);
             // 
             // mnuCoutinewToolStripMenuItem
             // 
             this.mnuCoutinewToolStripMenuItem.Name = "mnuCoutinewToolStripMenuItem";
-            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.mnuCoutinewToolStripMenuItem.Text = "Coutinue";
             this.mnuCoutinewToolStripMenuItem.Click += new System.EventHandler(this.mnuCoutinewToolStripMenuItem_Click);
             // 
@@ -506,6 +512,7 @@
             // 
             this.gbScanCondition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbScanCondition.Controls.Add(this.btnPointCount);
             this.gbScanCondition.Controls.Add(this.label10);
             this.gbScanCondition.Controls.Add(this.txtPointCount);
             this.gbScanCondition.Controls.Add(this.labal6);
@@ -526,10 +533,21 @@
             this.gbScanCondition.TabStop = false;
             this.gbScanCondition.Text = "Scan condition";
             // 
+            // btnPointCount
+            // 
+            this.btnPointCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnPointCount.Location = new System.Drawing.Point(311, 32);
+            this.btnPointCount.Name = "btnPointCount";
+            this.btnPointCount.Size = new System.Drawing.Size(133, 55);
+            this.btnPointCount.TabIndex = 13;
+            this.btnPointCount.Text = "Point";
+            this.btnPointCount.UseVisualStyleBackColor = false;
+            this.btnPointCount.Click += new System.EventHandler(this.btnPointCount_Click);
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(274, 124);
+            this.label10.Location = new System.Drawing.Point(256, 124);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(38, 17);
             this.label10.TabIndex = 12;
@@ -539,6 +557,7 @@
             // 
             this.txtPointCount.Location = new System.Drawing.Point(110, 121);
             this.txtPointCount.Name = "txtPointCount";
+            this.txtPointCount.ReadOnly = true;
             this.txtPointCount.Size = new System.Drawing.Size(140, 22);
             this.txtPointCount.TabIndex = 11;
             this.txtPointCount.Text = "-";
@@ -556,7 +575,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(274, 96);
+            this.label8.Location = new System.Drawing.Point(256, 96);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 17);
             this.label8.TabIndex = 9;
@@ -565,7 +584,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(274, 68);
+            this.label7.Location = new System.Drawing.Point(256, 68);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 17);
             this.label7.TabIndex = 8;
@@ -574,7 +593,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(274, 40);
+            this.label6.Location = new System.Drawing.Point(256, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 17);
             this.label6.TabIndex = 7;
@@ -583,9 +602,9 @@
             // btnRun
             // 
             this.btnRun.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnRun.Location = new System.Drawing.Point(329, 40);
+            this.btnRun.Location = new System.Drawing.Point(311, 91);
             this.btnRun.Name = "btnRun";
-            this.btnRun.Size = new System.Drawing.Size(121, 95);
+            this.btnRun.Size = new System.Drawing.Size(133, 55);
             this.btnRun.TabIndex = 6;
             this.btnRun.Text = "Run";
             this.btnRun.UseVisualStyleBackColor = false;
@@ -599,7 +618,7 @@
             this.txtResolution.TabIndex = 5;
             this.txtResolution.Text = "2.0";
             this.txtResolution.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtResolution.TextChanged += new System.EventHandler(this.txtResolution_TextChanged);
+            this.txtResolution.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtResoluton_KeyPress);
             // 
             // txtStop
             // 
@@ -609,6 +628,7 @@
             this.txtStop.TabIndex = 4;
             this.txtStop.Text = "360";
             this.txtStop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtStop.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStop_KeyPress);
             // 
             // txtStart
             // 
@@ -618,6 +638,7 @@
             this.txtStart.TabIndex = 3;
             this.txtStart.Text = "0";
             this.txtStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtStart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStart_KeyPress);
             // 
             // label5
             // 
@@ -654,6 +675,7 @@
             this.btnOpen.TabIndex = 5;
             this.btnOpen.Text = "Open";
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // gbMeasurement
             // 
@@ -836,6 +858,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Polarimeter2019";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
@@ -938,6 +961,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button btnPointCount;
     }
 }
 
