@@ -169,7 +169,7 @@ namespace Polarimeter2019.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("255, 128, 255")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Fuchsia")]
         public global::System.Drawing.Color color9 {
             get {
                 return ((global::System.Drawing.Color)(this["color9"]));
@@ -193,7 +193,7 @@ namespace Polarimeter2019.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0, 64")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255, 255, 128")]
         public global::System.Drawing.Color color11 {
             get {
                 return ((global::System.Drawing.Color)(this["color11"]));
@@ -229,7 +229,7 @@ namespace Polarimeter2019.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("64, 0, 0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255, 128, 255")]
         public global::System.Drawing.Color color14 {
             get {
                 return ((global::System.Drawing.Color)(this["color14"]));
@@ -265,7 +265,7 @@ namespace Polarimeter2019.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 64, 0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("128, 255, 128")]
         public global::System.Drawing.Color color17 {
             get {
                 return ((global::System.Drawing.Color)(this["color17"]));

@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.btnNew = new System.Windows.Forms.Button();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
@@ -113,10 +110,6 @@
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMMC = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lsvData2 = new System.Windows.Forms.ListView();
             this.MainMenu.SuspendLayout();
             this.gbSample.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).BeginInit();
@@ -124,10 +117,6 @@
             this.gbMeasurement.SuspendLayout();
             this.gbStartMea.SuspendLayout();
             this.MainStatus.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNew
@@ -326,33 +315,33 @@
             // mnuStartToolStripMenuItem
             // 
             this.mnuStartToolStripMenuItem.Name = "mnuStartToolStripMenuItem";
-            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuStartToolStripMenuItem.Text = "Start";
             this.mnuStartToolStripMenuItem.Click += new System.EventHandler(this.mnuStartToolStripMenuItem_Click);
             // 
             // mnuStopToolStripMenuItem
             // 
             this.mnuStopToolStripMenuItem.Name = "mnuStopToolStripMenuItem";
-            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuStopToolStripMenuItem.Text = "Stop";
             this.mnuStopToolStripMenuItem.Click += new System.EventHandler(this.mnuStopToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(140, 6);
             // 
             // mnuPauseToolStripMenuItem
             // 
             this.mnuPauseToolStripMenuItem.Name = "mnuPauseToolStripMenuItem";
-            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuPauseToolStripMenuItem.Text = "Pause";
             this.mnuPauseToolStripMenuItem.Click += new System.EventHandler(this.mnuPauseToolStripMenuItem_Click);
             // 
             // mnuCoutinewToolStripMenuItem
             // 
             this.mnuCoutinewToolStripMenuItem.Name = "mnuCoutinewToolStripMenuItem";
-            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuCoutinewToolStripMenuItem.Text = "Coutinue";
             this.mnuCoutinewToolStripMenuItem.Click += new System.EventHandler(this.mnuCoutinewToolStripMenuItem_Click);
             // 
@@ -821,65 +810,12 @@
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(431, 209);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(711, 527);
             this.tabControl1.TabIndex = 9;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.lsvData2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(703, 498);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Data";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.chart1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(703, 498);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Graph";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // chart1
-            // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(7, 7);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(690, 485);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
-            // 
-            // lsvData2
-            // 
-            this.lsvData2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lsvData2.Location = new System.Drawing.Point(7, 7);
-            this.lsvData2.Name = "lsvData2";
-            this.lsvData2.Size = new System.Drawing.Size(690, 485);
-            this.lsvData2.TabIndex = 0;
-            this.lsvData2.UseCompatibleStateImageBehavior = false;
+            this.tabControl1.TabStop = false;
             // 
             // frmMain
             // 
@@ -911,10 +847,6 @@
             this.gbStartMea.ResumeLayout(false);
             this.MainStatus.ResumeLayout(false);
             this.MainStatus.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1002,11 +934,7 @@
         private System.Windows.Forms.TextBox txtPointCount;
         private System.Windows.Forms.Label labal6;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnPointCount;
-        private System.Windows.Forms.ListView lsvData2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 

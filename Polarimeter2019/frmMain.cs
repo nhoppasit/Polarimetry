@@ -222,20 +222,22 @@ namespace Polarimeter2019
             // --------------------------------------------
             if (lsvData.SelectedItems.Count <= 0)
             {
-                MessageBox.Show("Please select item in samples list view that you want to measure!" + MessageBoxButtons.OK + MessageBoxIcon.Exclamation);
-                btnStart.Enabled = true;
-                btnStop.Enabled = false;
-                btnPause.Enabled = false;
-                btnPause.Text = "PAUSE";
-                btnNew.Enabled = true;
-                btnOpen.Enabled = true;
-                gbSample.Enabled = true;
-                gbScanCondition.Enabled = true;
+                MessageBox.Show("Please select item in samples list view that you want to measure!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //btnStart.Enabled = true;
+                //btnStop.Enabled = false;
+                //btnPause.Enabled = false;
+                //btnPause.Text = "PAUSE";
+                //btnNew.Enabled = true;
+                //btnOpen.Enabled = true;
+                gbSample.Enabled = false;
+                gbScanCondition.Enabled = false;
                 return;
             }
 
             if (!mnuOptionsDemomode.Checked)
+            {
                 ConnectedDevices();
+            }
 
             try
             {
@@ -751,7 +753,7 @@ namespace Polarimeter2019
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    return;
+                    return; 
                 }
             }
 
@@ -819,88 +821,17 @@ namespace Polarimeter2019
                 {
                 }
             }
-        }
-        
-        private void NewMeasurement2()
-        {
-            // verify user
-            if (lsvData2.Items.Count > 0)
+            TabPage TP;
+            tabControl1.TabPages.Clear();
+            tabControl1.TabPages.Add("Graphe");
+            tabControl1.TabPages.Add("Reference");
+            for (int i = 1; i <= NumberOfRepeatation; i++)
             {
-                DialogResult result = MessageBox.Show("Data will be deleted. Do you want to new measurement?", "New measurement", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (result == DialogResult.OK)
-                {
-
-                }
-                else if (result == DialogResult.Cancel)
-                {
-                    return;
-                }
-            }
-
-            // load dialog
-            frmNewMeasurement f = new frmNewMeasurement();
-
-            // do update the job
-            if (f.Verify() == true)
-            {
-                try
-                {
-                    // get information
-                    txtSampleName.Text = f.SampleName;
-                    numRepeatNumber.Value = f.RepeatNumber;
-                    NumberOfRepeatation = (int)f.OfRepeatation;
-
-                    // initialize the data object
-                    BDC = new BaseDataControl();
-                    BDC.SampleName = txtSampleName.Text;
-
-                    // clear
-                    lsvData2.Items.Clear();
-                    ListViewItem lvi;
-
-                    // add ref.
-                    lvi = new ListViewItem();
-                    lvi.Text = "Reference";
-                    lvi.SubItems.Add("-");
-                    lvi.SubItems.Add("-");
-                    lvi.SubItems.Add("-");
-                    lvi.Checked = true;
-                    lvi.BackColor = ReferenceColor;
-                    lvi.UseItemStyleForSubItems = false;
-                    lsvData2.Items.Add(lvi);
-
-                    // add repeats
-                    for (int i = 1; i <= NumberOfRepeatation; i++)
-                    {
-                        lvi = new ListViewItem();
-                        lvi.Text = "Sample " + i.ToString();
-                        lvi.SubItems.Add("-");
-                        lvi.SubItems.Add("-");
-                        lvi.SubItems.Add("-");
-                        lvi.Checked = true;
-                        lvi.BackColor = ColorTable[(i - 1) % ColorTable.Length];
-                        lvi.UseItemStyleForSubItems = false;
-                        lsvData2.Items.Add(lvi);
-                    }
-
-                    // clear treatment curve
-                    // ReDim TreatmentCurve(0 To NumberOfRepeatation - 1)
-
-                    gbMeasurement.Enabled = true;
-                    btnNew.Enabled = true;
-                    btnOpen.Enabled = true;
-                    gbSample.Enabled = true;
-                    gbScanCondition.Enabled = true;
-
-                    lsvData.Items[0].Selected = true;
-                    lsvData.Focus();
-                }
-                catch (Exception ex)
-                {
-                }
+                TP = new TabPage();
+                tabControl1.TabPages.Add("Sample" + i.ToString());
             }
         }
-
+                
         private void DefineAngleOfRotation()
         {
             ListViewItem lvi;
@@ -1063,7 +994,6 @@ namespace Polarimeter2019
         private void btnNew_Click(object sender, EventArgs e)
         {
             NewMeasurement();
-            NewMeasurement2();
         }
 
         private void btnOpen_Click(object sender, EventArgs e)

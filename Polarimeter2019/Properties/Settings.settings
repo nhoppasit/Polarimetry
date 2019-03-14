@@ -39,13 +39,13 @@
       <Value Profile="(Default)">192, 192, 0</Value>
     </Setting>
     <Setting Name="color9" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">255, 128, 255</Value>
+      <Value Profile="(Default)">Fuchsia</Value>
     </Setting>
     <Setting Name="color10" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">192, 64, 0</Value>
     </Setting>
     <Setting Name="color11" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">0, 0, 64</Value>
+      <Value Profile="(Default)">255, 255, 128</Value>
     </Setting>
     <Setting Name="color12" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Olive</Value>
@@ -54,7 +54,7 @@
       <Value Profile="(Default)">Teal</Value>
     </Setting>
     <Setting Name="color14" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">64, 0, 0</Value>
+      <Value Profile="(Default)">255, 128, 255</Value>
     </Setting>
     <Setting Name="color15" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Purple</Value>
@@ -63,7 +63,7 @@
       <Value Profile="(Default)">192, 0, 0</Value>
     </Setting>
     <Setting Name="color17" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">0, 64, 0</Value>
+      <Value Profile="(Default)">128, 255, 128</Value>
     </Setting>
     <Setting Name="color18" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">128, 64, 0</Value>
