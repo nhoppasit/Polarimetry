@@ -48,7 +48,9 @@ namespace Polarimeter2019
         {
             //ReDim Preserve Reference.X(0 To PointID)  
             //ReDim Preserve Reference.Y(0 To PointID)   
-            
+            double Xvalue = Reference.X[PointID];
+            double Yvalue = Reference.Y[PointID];
+
             Reference.X[PointID] = X;
             Reference.Y[PointID] = Y;
             if (Y < Reference.Ym)
@@ -60,7 +62,33 @@ namespace Polarimeter2019
 
         public void PatchData(int RepeatID, int PointID, double X, double Y)
         {
-            // !!!!!!!!
+            //    !!!!!!!!
+            //    'zero base, careful!!!
+            //If Data Is Nothing Then     
+            //    ReDim Preserve Data(0 To RepeatID)
+            //    Data(RepeatID).Ym = 999999   
+            //Else
+            //    If Data.Length - 1 < RepeatID Then     
+            //        ReDim Preserve Data(0 To RepeatID)
+            //        Data(RepeatID).Ym = 999999      
+            //      End If
+
+            if (Data==null)
+            {
+                strucCurveData Z = Data[RepeatID];
+                Data[RepeatID].Ym = 999999;
+            }
+            else
+            {
+                if (Data.Length - 1 <= RepeatID)
+                {
+                    strucCurveData Q = Data[RepeatID];
+                    Data[RepeatID].Ym = 999999;
+                }
+            }
+
+            double Xdata = Data[RepeatID].X[PointID];
+            double Ydata = Data[RepeatID].Y[PointID];
 
             Data[RepeatID].X[PointID] = X;
             Data[RepeatID].Y[PointID] = Y;
