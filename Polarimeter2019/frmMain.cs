@@ -53,17 +53,15 @@ namespace Polarimeter2019
                 DMM.IO = null;
                 MMC.IO.Close();
                 MMC.IO = null;
-            }
-            catch (Exception ex)
-            {
-                //Interaction.MsgBox("IO Error: " + ex.Message, MsgBoxStyle.Critical); //// กล่องข้อความ??
-                MessageBox.Show("IO Error" + ex.Message);
                 lblDMM.Text = "Disconnected";
                 lblDMM.BackColor = Color.Red;
                 lblMMC.Text = "Disconncected";
                 lblMMC.BackColor = Color.Red;
-
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("IO Error" + ex.Message);
+            }    
         }
         void ConnectedDevices()
         {
@@ -657,19 +655,10 @@ namespace Polarimeter2019
                 double[] x = new double[1];
                 double[] y = new double[1];
 
-                // AxDynaPlot1.DataCurves.RemoveAll()
-                // AxDynaPlot1.Markers.RemoveAll()
-
-                // ReferenceCurve = AxDynaPlot1.DataCurves.Add("REF", x, y, 0, False).Curve
-                // ReferenceCurve.Penstyle.MaxWidth = 2
-                // ReferenceCurve.Penstyle.Color = RGB(255, 0, 0)
-                // ReferenceMinMarker = AxDynaPlot1.Markers.Add(0.0, 0.0, 0, DYNAPLOT3Lib.dpsMARKERTYPE.dpsMARKER_CIRCLE)
-
                 for (int i = 0; i <= NumberOfRepeatation - 1; i++)
                 {
                 }
             }
-            // TreatmentMinMarker = AxDynaPlot1.Markers.Add(0.0, 0.0, 0, DYNAPLOT3Lib.dpsMARKERTYPE.dpsMARKER_SQUARE)
             catch (Exception ex)
             {
                 //Information.Err.Clear();  //// กล่องข้อความ Error ?
@@ -685,7 +674,7 @@ namespace Polarimeter2019
                 {
                     if (BDC.Reference.X != null)
                     {
-                        // ReferenceCurve.UpdateData(TheData.Reference.X, TheData.Reference.Y, TheData.Reference.X.Length)
+                        //ReferenceCurve.UpdateData(TheData.Reference.X, TheData.Reference.Y, TheData.Reference.X.Length)
                         // ReferenceCurve.Penstyle.Color = RGB(ReferenceColor.R, ReferenceColor.G, ReferenceColor.B)
                         // ReferenceMinMarker.PositionX = TheData.Reference.Xm
                         // ReferenceMinMarker.PositionY = TheData.Reference.Ym
@@ -702,10 +691,10 @@ namespace Polarimeter2019
 
         private bool PlotTreatmentsCurve()
         {
-            if (BDC == null)
-                return false;
-            if (BDC.Data.ToString() == null)
-                return false;
+            //if (BDC == null)
+            //    return false;
+            //if (BDC.Data.ToString() == null)
+            //    return false;
             for (int i = 0; i <= NumberOfRepeatation - 1; i++)
             {
                 try
@@ -999,6 +988,16 @@ namespace Polarimeter2019
         private void btnOpen_Click(object sender, EventArgs e)
         {
             BDC.OpenFile();
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            ConnectedDevices();
+        }
+
+        private void btnDisconnect_Click(object sender, EventArgs e)
+        {
+            DisconnectDevices();
         }
 
         private void btnPointCount_Click(object sender, EventArgs e)

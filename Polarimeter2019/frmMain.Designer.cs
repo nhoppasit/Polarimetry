@@ -110,6 +110,9 @@
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMMC = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.btnDisconnect = new System.Windows.Forms.Button();
             this.MainMenu.SuspendLayout();
             this.gbSample.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).BeginInit();
@@ -117,6 +120,7 @@
             this.gbMeasurement.SuspendLayout();
             this.gbStartMea.SuspendLayout();
             this.MainStatus.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNew
@@ -243,12 +247,14 @@
             this.ConnectToolStripMenuItem.Name = "ConnectToolStripMenuItem";
             this.ConnectToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.ConnectToolStripMenuItem.Text = "Connect";
+            this.ConnectToolStripMenuItem.Click += new System.EventHandler(this.ConnectToolStripMenuItem_Click);
             // 
             // DisconnectToolStripMenuItem
             // 
             this.DisconnectToolStripMenuItem.Name = "DisconnectToolStripMenuItem";
             this.DisconnectToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.DisconnectToolStripMenuItem.Text = "Disconnect";
+            this.DisconnectToolStripMenuItem.Click += new System.EventHandler(this.DisconnectToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -293,12 +299,14 @@
             this.mnuDevicesClearDMM.Name = "mnuDevicesClearDMM";
             this.mnuDevicesClearDMM.Size = new System.Drawing.Size(267, 26);
             this.mnuDevicesClearDMM.Text = "Clear Error of DMM 34401A";
+            this.mnuDevicesClearDMM.Click += new System.EventHandler(this.mnuDevicesClearDMM_Click);
             // 
             // mnuDevicesResetDMM
             // 
             this.mnuDevicesResetDMM.Name = "mnuDevicesResetDMM";
             this.mnuDevicesResetDMM.Size = new System.Drawing.Size(267, 26);
             this.mnuDevicesResetDMM.Text = "Reset DMM 34401A";
+            this.mnuDevicesResetDMM.Click += new System.EventHandler(this.mnuDevicesResetDMM_Click);
             // 
             // mesurementToolStripMenuItem
             // 
@@ -523,7 +531,7 @@
             this.gbScanCondition.Controls.Add(this.label5);
             this.gbScanCondition.Controls.Add(this.label4);
             this.gbScanCondition.Controls.Add(this.label3);
-            this.gbScanCondition.Location = new System.Drawing.Point(257, 31);
+            this.gbScanCondition.Location = new System.Drawing.Point(502, 31);
             this.gbScanCondition.Name = "gbScanCondition";
             this.gbScanCondition.Size = new System.Drawing.Size(468, 171);
             this.gbScanCondition.TabIndex = 4;
@@ -681,7 +689,7 @@
             this.gbMeasurement.Controls.Add(this.btnPause);
             this.gbMeasurement.Controls.Add(this.btnStop);
             this.gbMeasurement.Controls.Add(this.btnStart);
-            this.gbMeasurement.Location = new System.Drawing.Point(731, 31);
+            this.gbMeasurement.Location = new System.Drawing.Point(976, 31);
             this.gbMeasurement.Name = "gbMeasurement";
             this.gbMeasurement.Size = new System.Drawing.Size(411, 171);
             this.gbMeasurement.TabIndex = 6;
@@ -810,18 +818,52 @@
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Location = new System.Drawing.Point(431, 209);
+            this.tabControl1.Location = new System.Drawing.Point(430, 208);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(711, 527);
             this.tabControl1.TabIndex = 9;
             this.tabControl1.TabStop = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnConnect);
+            this.groupBox1.Controls.Add(this.btnDisconnect);
+            this.groupBox1.Location = new System.Drawing.Point(257, 31);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(239, 171);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Devices";
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnConnect.Location = new System.Drawing.Point(52, 25);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(132, 57);
+            this.btnConnect.TabIndex = 0;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = false;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // btnDisconnect
+            // 
+            this.btnDisconnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDisconnect.Location = new System.Drawing.Point(52, 88);
+            this.btnDisconnect.Name = "btnDisconnect";
+            this.btnDisconnect.Size = new System.Drawing.Size(132, 60);
+            this.btnDisconnect.TabIndex = 5;
+            this.btnDisconnect.Text = "Disconnect";
+            this.btnDisconnect.UseVisualStyleBackColor = false;
+            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1672, 848);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.MainStatus);
             this.Controls.Add(this.gbStartMea);
@@ -847,6 +889,7 @@
             this.gbStartMea.ResumeLayout(false);
             this.MainStatus.ResumeLayout(false);
             this.MainStatus.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -935,6 +978,9 @@
         private System.Windows.Forms.Label labal6;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btnPointCount;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnDisconnect;
     }
 }
 
