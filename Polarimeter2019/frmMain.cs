@@ -19,7 +19,8 @@ namespace Polarimeter2019
         public frmMain()
         {
             InitializeComponent();
-
+            comboAxis.Items.Add("X");
+            comboAxis.Items.Add("Y");
             BDC = new BaseDataControl();
         }
 
@@ -216,8 +217,8 @@ namespace Polarimeter2019
         Random Rnd = new Random();
         private void DoScanLightIntensity()
         {
-            // --------------------------------------------
-            // validate selected index of repeats
+            //--------------------------------------------
+            //validate selected index of repeats
             // --------------------------------------------
             if (lsvData.SelectedItems.Count <= 0)
             {

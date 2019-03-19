@@ -97,6 +97,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnOpen = new System.Windows.Forms.Button();
             this.gbMeasurement = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboAxis = new System.Windows.Forms.ComboBox();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
@@ -112,9 +114,7 @@
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMMC = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MainMenu.SuspendLayout();
             this.gbSample.SuspendLayout();
@@ -124,7 +124,6 @@
             this.gbStartMea.SuspendLayout();
             this.MainStatus.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -250,6 +249,7 @@
             this.ConnectToolStripMenuItem.Name = "ConnectToolStripMenuItem";
             this.ConnectToolStripMenuItem.Size = new System.Drawing.Size(409, 38);
             this.ConnectToolStripMenuItem.Text = "Connect";
+            this.ConnectToolStripMenuItem.Click += new System.EventHandler(this.ConnectToolStripMenuItem_Click);
             // 
             // DisconnectToolStripMenuItem
             // 
@@ -440,7 +440,7 @@
             this.gbSample.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbSample.Name = "gbSample";
             this.gbSample.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbSample.Size = new System.Drawing.Size(618, 825);
+            this.gbSample.Size = new System.Drawing.Size(618, 930);
             this.gbSample.TabIndex = 3;
             this.gbSample.TabStop = false;
             this.gbSample.Text = "Samples";
@@ -461,8 +461,6 @@
             // 
             // lsvData
             // 
-            this.lsvData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.lsvData.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -471,7 +469,7 @@
             this.lsvData.Location = new System.Drawing.Point(33, 144);
             this.lsvData.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lsvData.Name = "lsvData";
-            this.lsvData.Size = new System.Drawing.Size(534, 637);
+            this.lsvData.Size = new System.Drawing.Size(534, 758);
             this.lsvData.TabIndex = 4;
             this.lsvData.UseCompatibleStateImageBehavior = false;
             this.lsvData.View = System.Windows.Forms.View.Details;
@@ -690,8 +688,8 @@
             // 
             // gbMeasurement
             // 
-            this.gbMeasurement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbMeasurement.Controls.Add(this.label9);
+            this.gbMeasurement.Controls.Add(this.comboAxis);
             this.gbMeasurement.Controls.Add(this.btnPause);
             this.gbMeasurement.Controls.Add(this.btnStop);
             this.gbMeasurement.Controls.Add(this.btnStart);
@@ -704,10 +702,27 @@
             this.gbMeasurement.TabStop = false;
             this.gbMeasurement.Text = "Measurement";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(39, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 25);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Axis :";
+            // 
+            // comboAxis
+            // 
+            this.comboAxis.FormattingEnabled = true;
+            this.comboAxis.Location = new System.Drawing.Point(110, 47);
+            this.comboAxis.Name = "comboAxis";
+            this.comboAxis.Size = new System.Drawing.Size(102, 33);
+            this.comboAxis.TabIndex = 0;
+            // 
             // btnPause
             // 
             this.btnPause.BackColor = System.Drawing.Color.Yellow;
-            this.btnPause.Location = new System.Drawing.Point(220, 59);
+            this.btnPause.Location = new System.Drawing.Point(221, 102);
             this.btnPause.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(182, 148);
@@ -718,7 +733,7 @@
             // btnStop
             // 
             this.btnStop.BackColor = System.Drawing.Color.Red;
-            this.btnStop.Location = new System.Drawing.Point(411, 59);
+            this.btnStop.Location = new System.Drawing.Point(411, 102);
             this.btnStop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(182, 148);
@@ -729,7 +744,7 @@
             // btnStart
             // 
             this.btnStart.BackColor = System.Drawing.Color.Lime;
-            this.btnStart.Location = new System.Drawing.Point(30, 59);
+            this.btnStart.Location = new System.Drawing.Point(30, 102);
             this.btnStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(182, 148);
@@ -829,30 +844,13 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(646, 327);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1066, 823);
+            this.tabControl1.Size = new System.Drawing.Size(1787, 928);
             this.tabControl1.TabIndex = 9;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.listView1);
-            this.tabPage1.Location = new System.Drawing.Point(8, 39);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(1050, 776);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Data";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // tabPage2
             // 
@@ -861,18 +859,10 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(1050, 776);
+            this.tabPage2.Size = new System.Drawing.Size(1771, 881);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Graph";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(3, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1036, 765);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // chart1
             // 
@@ -880,14 +870,14 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Location = new System.Drawing.Point(7, 3);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1047, 768);
+            this.chart1.Size = new System.Drawing.Size(1819, 860);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -918,11 +908,11 @@
             this.gbScanCondition.ResumeLayout(false);
             this.gbScanCondition.PerformLayout();
             this.gbMeasurement.ResumeLayout(false);
+            this.gbMeasurement.PerformLayout();
             this.gbStartMea.ResumeLayout(false);
             this.MainStatus.ResumeLayout(false);
             this.MainStatus.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
@@ -1012,10 +1002,10 @@
         private System.Windows.Forms.TextBox txtPointCount;
         private System.Windows.Forms.Label labal6;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboAxis;
     }
 }
 
