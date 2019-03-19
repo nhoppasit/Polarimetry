@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.btnNew = new System.Windows.Forms.Button();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
@@ -79,10 +82,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gbScanCondition = new System.Windows.Forms.GroupBox();
-            this.btnPointCount = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtPointCount = new System.Windows.Forms.TextBox();
-            this.labal6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -95,6 +94,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnOpen = new System.Windows.Forms.Button();
             this.gbMeasurement = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboAxis = new System.Windows.Forms.ComboBox();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
@@ -109,10 +110,10 @@
             this.lblDMM = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMMC = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnDisconnect = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MainMenu.SuspendLayout();
             this.gbSample.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).BeginInit();
@@ -121,6 +122,7 @@
             this.gbStartMea.SuspendLayout();
             this.MainStatus.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNew
@@ -323,33 +325,33 @@
             // mnuStartToolStripMenuItem
             // 
             this.mnuStartToolStripMenuItem.Name = "mnuStartToolStripMenuItem";
-            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.mnuStartToolStripMenuItem.Text = "Start";
             this.mnuStartToolStripMenuItem.Click += new System.EventHandler(this.mnuStartToolStripMenuItem_Click);
             // 
             // mnuStopToolStripMenuItem
             // 
             this.mnuStopToolStripMenuItem.Name = "mnuStopToolStripMenuItem";
-            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.mnuStopToolStripMenuItem.Text = "Stop";
             this.mnuStopToolStripMenuItem.Click += new System.EventHandler(this.mnuStopToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(213, 6);
             // 
             // mnuPauseToolStripMenuItem
             // 
             this.mnuPauseToolStripMenuItem.Name = "mnuPauseToolStripMenuItem";
-            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.mnuPauseToolStripMenuItem.Text = "Pause";
             this.mnuPauseToolStripMenuItem.Click += new System.EventHandler(this.mnuPauseToolStripMenuItem_Click);
             // 
             // mnuCoutinewToolStripMenuItem
             // 
             this.mnuCoutinewToolStripMenuItem.Name = "mnuCoutinewToolStripMenuItem";
-            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.mnuCoutinewToolStripMenuItem.Text = "Coutinue";
             this.mnuCoutinewToolStripMenuItem.Click += new System.EventHandler(this.mnuCoutinewToolStripMenuItem_Click);
             // 
@@ -439,7 +441,7 @@
             this.gbSample.Controls.Add(this.label1);
             this.gbSample.Location = new System.Drawing.Point(12, 208);
             this.gbSample.Name = "gbSample";
-            this.gbSample.Size = new System.Drawing.Size(412, 528);
+            this.gbSample.Size = new System.Drawing.Size(412, 600);
             this.gbSample.TabIndex = 3;
             this.gbSample.TabStop = false;
             this.gbSample.Text = "Samples";
@@ -468,7 +470,7 @@
             this.lsvData.GridLines = true;
             this.lsvData.Location = new System.Drawing.Point(22, 92);
             this.lsvData.Name = "lsvData";
-            this.lsvData.Size = new System.Drawing.Size(357, 409);
+            this.lsvData.Size = new System.Drawing.Size(357, 481);
             this.lsvData.TabIndex = 4;
             this.lsvData.UseCompatibleStateImageBehavior = false;
             this.lsvData.View = System.Windows.Forms.View.Details;
@@ -486,7 +488,7 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Angle of Rotation";
-            this.columnHeader3.Width = 161;
+            this.columnHeader3.Width = 119;
             // 
             // txtSampleName
             // 
@@ -515,12 +517,6 @@
             // 
             // gbScanCondition
             // 
-            this.gbScanCondition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbScanCondition.Controls.Add(this.btnPointCount);
-            this.gbScanCondition.Controls.Add(this.label10);
-            this.gbScanCondition.Controls.Add(this.txtPointCount);
-            this.gbScanCondition.Controls.Add(this.labal6);
             this.gbScanCondition.Controls.Add(this.label8);
             this.gbScanCondition.Controls.Add(this.label7);
             this.gbScanCondition.Controls.Add(this.label6);
@@ -538,49 +534,10 @@
             this.gbScanCondition.TabStop = false;
             this.gbScanCondition.Text = "Scan condition";
             // 
-            // btnPointCount
-            // 
-            this.btnPointCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnPointCount.Location = new System.Drawing.Point(311, 32);
-            this.btnPointCount.Name = "btnPointCount";
-            this.btnPointCount.Size = new System.Drawing.Size(133, 55);
-            this.btnPointCount.TabIndex = 13;
-            this.btnPointCount.Text = "Point";
-            this.btnPointCount.UseVisualStyleBackColor = false;
-            this.btnPointCount.Click += new System.EventHandler(this.btnPointCount_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(256, 124);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 17);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Deg.";
-            // 
-            // txtPointCount
-            // 
-            this.txtPointCount.Location = new System.Drawing.Point(110, 121);
-            this.txtPointCount.Name = "txtPointCount";
-            this.txtPointCount.ReadOnly = true;
-            this.txtPointCount.Size = new System.Drawing.Size(140, 22);
-            this.txtPointCount.TabIndex = 11;
-            this.txtPointCount.Text = "-";
-            this.txtPointCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // labal6
-            // 
-            this.labal6.AutoSize = true;
-            this.labal6.Location = new System.Drawing.Point(29, 124);
-            this.labal6.Name = "labal6";
-            this.labal6.Size = new System.Drawing.Size(77, 17);
-            this.labal6.TabIndex = 10;
-            this.labal6.Text = "PointCount";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(256, 96);
+            this.label8.Location = new System.Drawing.Point(254, 110);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 17);
             this.label8.TabIndex = 9;
@@ -589,7 +546,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(256, 68);
+            this.label7.Location = new System.Drawing.Point(254, 76);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 17);
             this.label7.TabIndex = 8;
@@ -598,7 +555,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(256, 40);
+            this.label6.Location = new System.Drawing.Point(254, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 17);
             this.label6.TabIndex = 7;
@@ -607,9 +564,9 @@
             // btnRun
             // 
             this.btnRun.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnRun.Location = new System.Drawing.Point(311, 91);
+            this.btnRun.Location = new System.Drawing.Point(318, 34);
             this.btnRun.Name = "btnRun";
-            this.btnRun.Size = new System.Drawing.Size(133, 55);
+            this.btnRun.Size = new System.Drawing.Size(121, 95);
             this.btnRun.TabIndex = 6;
             this.btnRun.Text = "Run";
             this.btnRun.UseVisualStyleBackColor = false;
@@ -617,7 +574,7 @@
             // 
             // txtResolution
             // 
-            this.txtResolution.Location = new System.Drawing.Point(110, 93);
+            this.txtResolution.Location = new System.Drawing.Point(108, 107);
             this.txtResolution.Name = "txtResolution";
             this.txtResolution.Size = new System.Drawing.Size(140, 22);
             this.txtResolution.TabIndex = 5;
@@ -627,7 +584,7 @@
             // 
             // txtStop
             // 
-            this.txtStop.Location = new System.Drawing.Point(110, 65);
+            this.txtStop.Location = new System.Drawing.Point(108, 73);
             this.txtStop.Name = "txtStop";
             this.txtStop.Size = new System.Drawing.Size(140, 22);
             this.txtStop.TabIndex = 4;
@@ -637,7 +594,7 @@
             // 
             // txtStart
             // 
-            this.txtStart.Location = new System.Drawing.Point(110, 37);
+            this.txtStart.Location = new System.Drawing.Point(108, 40);
             this.txtStart.Name = "txtStart";
             this.txtStart.Size = new System.Drawing.Size(140, 22);
             this.txtStart.TabIndex = 3;
@@ -648,7 +605,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 96);
+            this.label5.Location = new System.Drawing.Point(27, 110);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 17);
             this.label5.TabIndex = 2;
@@ -657,7 +614,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 68);
+            this.label4.Location = new System.Drawing.Point(41, 76);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 17);
             this.label4.TabIndex = 1;
@@ -666,7 +623,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(42, 40);
+            this.label3.Location = new System.Drawing.Point(41, 43);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 17);
             this.label3.TabIndex = 0;
@@ -686,20 +643,40 @@
             // 
             this.gbMeasurement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbMeasurement.Controls.Add(this.label9);
+            this.gbMeasurement.Controls.Add(this.comboAxis);
             this.gbMeasurement.Controls.Add(this.btnPause);
             this.gbMeasurement.Controls.Add(this.btnStop);
             this.gbMeasurement.Controls.Add(this.btnStart);
             this.gbMeasurement.Location = new System.Drawing.Point(976, 31);
             this.gbMeasurement.Name = "gbMeasurement";
-            this.gbMeasurement.Size = new System.Drawing.Size(411, 171);
+            this.gbMeasurement.Size = new System.Drawing.Size(534, 171);
             this.gbMeasurement.TabIndex = 6;
             this.gbMeasurement.TabStop = false;
             this.gbMeasurement.Text = "Measurement";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(20, 65);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 17);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Axis :";
+            // 
+            // comboAxis
+            // 
+            this.comboAxis.FormattingEnabled = true;
+            this.comboAxis.Location = new System.Drawing.Point(67, 62);
+            this.comboAxis.Name = "comboAxis";
+            this.comboAxis.Size = new System.Drawing.Size(62, 24);
+            this.comboAxis.TabIndex = 3;
+            this.comboAxis.Text = "X";
+            // 
             // btnPause
             // 
             this.btnPause.BackColor = System.Drawing.Color.Yellow;
-            this.btnPause.Location = new System.Drawing.Point(147, 38);
+            this.btnPause.Location = new System.Drawing.Point(273, 34);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(121, 95);
             this.btnPause.TabIndex = 2;
@@ -709,7 +686,7 @@
             // btnStop
             // 
             this.btnStop.BackColor = System.Drawing.Color.Red;
-            this.btnStop.Location = new System.Drawing.Point(274, 38);
+            this.btnStop.Location = new System.Drawing.Point(400, 34);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(121, 95);
             this.btnStop.TabIndex = 1;
@@ -719,7 +696,7 @@
             // btnStart
             // 
             this.btnStart.BackColor = System.Drawing.Color.Lime;
-            this.btnStart.Location = new System.Drawing.Point(20, 38);
+            this.btnStart.Location = new System.Drawing.Point(146, 34);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(121, 95);
             this.btnStart.TabIndex = 0;
@@ -813,18 +790,6 @@
             this.lblMMC.Size = new System.Drawing.Size(99, 20);
             this.lblMMC.Text = "Disconnected";
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Location = new System.Drawing.Point(430, 208);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(711, 527);
-            this.tabControl1.TabIndex = 9;
-            this.tabControl1.TabStop = false;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnConnect);
@@ -858,13 +823,32 @@
             this.btnDisconnect.UseVisualStyleBackColor = false;
             this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
+            // chart1
+            // 
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(430, 208);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(1080, 600);
+            this.chart1.TabIndex = 6;
+            this.chart1.Text = "chart1";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1672, 848);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.MainStatus);
             this.Controls.Add(this.gbStartMea);
             this.Controls.Add(this.gbMeasurement);
@@ -886,10 +870,12 @@
             this.gbScanCondition.ResumeLayout(false);
             this.gbScanCondition.PerformLayout();
             this.gbMeasurement.ResumeLayout(false);
+            this.gbMeasurement.PerformLayout();
             this.gbStartMea.ResumeLayout(false);
             this.MainStatus.ResumeLayout(false);
             this.MainStatus.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -973,14 +959,12 @@
         private System.Windows.Forms.ToolStripMenuItem txtVoltageResolution;
         private System.Windows.Forms.ToolStripMenuItem mnuExportToImageFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtPointCount;
-        private System.Windows.Forms.Label labal6;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.Button btnPointCount;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Button btnDisconnect;
+        private System.Windows.Forms.ComboBox comboAxis;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 

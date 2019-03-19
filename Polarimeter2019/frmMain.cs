@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Ivi.Visa.Interop;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Polarimeter2019
 {
@@ -19,6 +20,8 @@ namespace Polarimeter2019
         public frmMain()
         {
             InitializeComponent();
+            comboAxis.Items.Add("X");
+            comboAxis.Items.Add("Y");
 
             BDC = new BaseDataControl();
         }
@@ -805,19 +808,24 @@ namespace Polarimeter2019
 
                     lsvData.Items[0].Selected = true;
                     lsvData.Focus();
+
+                    chart1.Series.Clear();
+                    Series newSeries = new Series("Reference");
+                    //chart1.Series.Add("Reference");
+                    newSeries.ChartType = SeriesChartType.Line;
+                    chart1.ChartAreas[0].AxisX.Minimum = 0;
+                    chart1.ChartAreas[0].AxisY.Maximum = BDC.Reference.Ym;
+                    chart1.Series.Add(newSeries);
+                    for (int i = 1; i <= NumberOfRepeatation; i++)
+                    {
+                        chart1.Series.Add("Sample" + i.ToString());
+                        chart1.ForeColor = ColorTable[(i - 1) % ColorTable.Length];
+                        chart1.Series.Add(newSeries);
+                    }
                 }
                 catch (Exception ex)
                 {
                 }
-            }
-            TabPage TP;
-            tabControl1.TabPages.Clear();
-            tabControl1.TabPages.Add("Graphe");
-            tabControl1.TabPages.Add("Reference");
-            for (int i = 1; i <= NumberOfRepeatation; i++)
-            {
-                TP = new TabPage();
-                tabControl1.TabPages.Add("Sample" + i.ToString());
             }
         }
                 
@@ -998,25 +1006,6 @@ namespace Polarimeter2019
         private void btnDisconnect_Click(object sender, EventArgs e)
         {
             DisconnectDevices();
-        }
-
-        private void btnPointCount_Click(object sender, EventArgs e)
-        {
-            // Validation Text to float
-            if (double.TryParse(txtResolution.Text, out double resolution))
-            {
-                if (0.02 <= resolution && resolution <= 10) //deg
-                {
-                    // Change BDC
-                    double min = double.Parse(txtStart.Text);
-                    double max = double.Parse(txtStop.Text);
-                    int PointCount = (int)((max - min) / resolution + 1);
-                    txtPointCount.Text = PointCount.ToString();
-
-                    BDC.Reference.X = new double[PointCount];
-                    BDC.Reference.Y = new double[PointCount]; // destroy
-                }
-            }
         }
 
         private void txtAvageNumber_KeyPress(System.Object sender, System.Windows.Forms.KeyPressEventArgs e)
