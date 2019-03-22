@@ -473,8 +473,10 @@ namespace Polarimeter2019
 
         #endregion
 
+        //ยังไม่เสร็จ
         #region Menu
 
+        //ยังไม่เสร็จ
         #region File
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -813,8 +815,8 @@ namespace Polarimeter2019
                     Series newSeries = new Series("Reference");
                     //chart1.Series.Add("Reference");
                     newSeries.ChartType = SeriesChartType.Line;
-                    chart1.ChartAreas[0].AxisX.Minimum = 0;
-                    chart1.ChartAreas[0].AxisY.Maximum = BDC.Reference.Ym;
+                    //chart1.ChartAreas[0].AxisX.Minimum = 0;
+                    //chart1.ChartAreas[0].AxisY.Maximum = BDC.Reference.Ym;
                     chart1.Series.Add(newSeries);
                     for (int i = 1; i <= NumberOfRepeatation; i++)
                     {

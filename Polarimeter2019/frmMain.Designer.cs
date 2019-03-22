@@ -325,33 +325,33 @@
             // mnuStartToolStripMenuItem
             // 
             this.mnuStartToolStripMenuItem.Name = "mnuStartToolStripMenuItem";
-            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuStartToolStripMenuItem.Text = "Start";
             this.mnuStartToolStripMenuItem.Click += new System.EventHandler(this.mnuStartToolStripMenuItem_Click);
             // 
             // mnuStopToolStripMenuItem
             // 
             this.mnuStopToolStripMenuItem.Name = "mnuStopToolStripMenuItem";
-            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuStopToolStripMenuItem.Text = "Stop";
             this.mnuStopToolStripMenuItem.Click += new System.EventHandler(this.mnuStopToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(140, 6);
             // 
             // mnuPauseToolStripMenuItem
             // 
             this.mnuPauseToolStripMenuItem.Name = "mnuPauseToolStripMenuItem";
-            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuPauseToolStripMenuItem.Text = "Pause";
             this.mnuPauseToolStripMenuItem.Click += new System.EventHandler(this.mnuPauseToolStripMenuItem_Click);
             // 
             // mnuCoutinewToolStripMenuItem
             // 
             this.mnuCoutinewToolStripMenuItem.Name = "mnuCoutinewToolStripMenuItem";
-            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuCoutinewToolStripMenuItem.Text = "Coutinue";
             this.mnuCoutinewToolStripMenuItem.Click += new System.EventHandler(this.mnuCoutinewToolStripMenuItem_Click);
             // 
@@ -666,12 +666,12 @@
             // 
             // comboAxis
             // 
+            this.comboAxis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboAxis.FormattingEnabled = true;
             this.comboAxis.Location = new System.Drawing.Point(67, 62);
             this.comboAxis.Name = "comboAxis";
             this.comboAxis.Size = new System.Drawing.Size(62, 24);
             this.comboAxis.TabIndex = 3;
-            this.comboAxis.Text = "X";
             // 
             // btnPause
             // 
@@ -846,6 +846,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1672, 848);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.groupBox1);
@@ -855,6 +856,7 @@
             this.Controls.Add(this.gbScanCondition);
             this.Controls.Add(this.gbSample);
             this.Controls.Add(this.MainMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MainMenu;
             this.Name = "frmMain";

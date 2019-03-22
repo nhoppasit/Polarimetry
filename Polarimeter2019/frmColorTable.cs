@@ -53,6 +53,7 @@ namespace Polarimeter2019
             {
                 int i = lvColorTable.SelectedIndices[0];
                 ColorDialog dlg = new ColorDialog();
+                colorDialog1.ShowDialog();
                 dlg.Color = lvColorTable.SelectedItems[0].SubItems[1].BackColor;
                 dlg.ShowDialog();
                 if (i == 0)
@@ -205,12 +206,19 @@ namespace Polarimeter2019
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void lvColorValue_DoubleClick(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            lvColorTable.SelectedItems[0].SubItems[1].BackColor = colorDialog1.Color;
         }
     }
 }
