@@ -43,7 +43,7 @@
             // Label2
             // 
             this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(37, 49);
+            this.Label2.Location = new System.Drawing.Point(35, 71);
             this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(117, 17);
@@ -53,7 +53,7 @@
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(16, 81);
+            this.Label1.Location = new System.Drawing.Point(14, 103);
             this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(136, 17);
@@ -62,7 +62,7 @@
             // 
             // txtSampleNamee
             // 
-            this.txtSampleNamee.Location = new System.Drawing.Point(156, 15);
+            this.txtSampleNamee.Location = new System.Drawing.Point(154, 37);
             this.txtSampleNamee.Margin = new System.Windows.Forms.Padding(4);
             this.txtSampleNamee.Name = "txtSampleNamee";
             this.txtSampleNamee.Size = new System.Drawing.Size(320, 22);
@@ -72,7 +72,7 @@
             // Label7
             // 
             this.Label7.AutoSize = true;
-            this.Label7.Location = new System.Drawing.Point(47, 18);
+            this.Label7.Location = new System.Drawing.Point(45, 40);
             this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(100, 17);
@@ -81,7 +81,7 @@
             // 
             // numAverageNumber
             // 
-            this.numAverageNumber.Location = new System.Drawing.Point(156, 47);
+            this.numAverageNumber.Location = new System.Drawing.Point(154, 69);
             this.numAverageNumber.Name = "numAverageNumber";
             this.numAverageNumber.Size = new System.Drawing.Size(76, 22);
             this.numAverageNumber.TabIndex = 26;
@@ -94,7 +94,7 @@
             // 
             // numRepeatation
             // 
-            this.numRepeatation.Location = new System.Drawing.Point(156, 79);
+            this.numRepeatation.Location = new System.Drawing.Point(154, 101);
             this.numRepeatation.Name = "numRepeatation";
             this.numRepeatation.Size = new System.Drawing.Size(76, 22);
             this.numRepeatation.TabIndex = 27;
