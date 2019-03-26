@@ -58,7 +58,7 @@ namespace Polarimeter2019
                 dlg.ShowDialog();
                 if (i == 0)
                 {
-                   f1.ReferenceColor = dlg.Color;
+                    f1.ReferenceColor = dlg.Color;
                 }
                 else
                 {
@@ -67,136 +67,136 @@ namespace Polarimeter2019
 
                 lvColorTable.SelectedItems[0].SubItems[1].BackColor = dlg.Color;
                 lvColorTable.SelectedItems[0].SubItems[2].Text = dlg.Color.ToString();
-            switch (i)
-            {
-                case 0:
-                    {
-                        Properties.Settings.Default.ReferenceColor = dlg.Color;
-                        break;
-                    }
+                switch (i)
+                {
+                    case 0:
+                        {
+                            Properties.Settings.Default.ReferenceColor = dlg.Color;
+                            break;
+                        }
 
-                case 1:
-                    {
-                        Properties.Settings.Default.color1 = dlg.Color;
-                        break;
-                    }
+                    case 1:
+                        {
+                            Properties.Settings.Default.color1 = dlg.Color;
+                            break;
+                        }
 
-                case 2:
-                    {
-                        Properties.Settings.Default.color2 = dlg.Color;
-                        break;
-                    }
+                    case 2:
+                        {
+                            Properties.Settings.Default.color2 = dlg.Color;
+                            break;
+                        }
 
-                case 3:
-                    {
-                        Properties.Settings.Default.color3 = dlg.Color;
-                        break;
-                    }
+                    case 3:
+                        {
+                            Properties.Settings.Default.color3 = dlg.Color;
+                            break;
+                        }
 
-                case 4:
-                    {
-                        Properties.Settings.Default.color4 = dlg.Color;
-                        break;
-                    }
+                    case 4:
+                        {
+                            Properties.Settings.Default.color4 = dlg.Color;
+                            break;
+                        }
 
-                case 5:
-                    {
-                        Properties.Settings.Default.color5 = dlg.Color;
-                        break;
-                    }
+                    case 5:
+                        {
+                            Properties.Settings.Default.color5 = dlg.Color;
+                            break;
+                        }
 
-                case 6:
-                    {
-                        Properties.Settings.Default.color6 = dlg.Color;
-                        break;
-                    }
+                    case 6:
+                        {
+                            Properties.Settings.Default.color6 = dlg.Color;
+                            break;
+                        }
 
-                case 7:
-                    {
-                        Properties.Settings.Default.color7 = dlg.Color;
-                        break;
-                    }
+                    case 7:
+                        {
+                            Properties.Settings.Default.color7 = dlg.Color;
+                            break;
+                        }
 
-                case 8:
-                    {
-                        Properties.Settings.Default.color8 = dlg.Color;
-                        break;
-                    }
+                    case 8:
+                        {
+                            Properties.Settings.Default.color8 = dlg.Color;
+                            break;
+                        }
 
-                case 9:
-                    {
-                        Properties.Settings.Default.color9 = dlg.Color;
-                        break;
-                    }
+                    case 9:
+                        {
+                            Properties.Settings.Default.color9 = dlg.Color;
+                            break;
+                        }
 
-                case 10:
-                    {
-                        Properties.Settings.Default.color10 = dlg.Color;
-                        break;
-                    }
+                    case 10:
+                        {
+                            Properties.Settings.Default.color10 = dlg.Color;
+                            break;
+                        }
 
-                case 11:
-                    {
-                        Properties.Settings.Default.color11 = dlg.Color;
-                        break;
-                    }
+                    case 11:
+                        {
+                            Properties.Settings.Default.color11 = dlg.Color;
+                            break;
+                        }
 
-                case 12:
-                    {
-                        Properties.Settings.Default.color12 = dlg.Color;
-                        break;
-                    }
+                    case 12:
+                        {
+                            Properties.Settings.Default.color12 = dlg.Color;
+                            break;
+                        }
 
-                case 13:
-                    {
-                        Properties.Settings.Default.color13 = dlg.Color;
-                        break;
-                    }
+                    case 13:
+                        {
+                            Properties.Settings.Default.color13 = dlg.Color;
+                            break;
+                        }
 
-                case 14:
-                    {
-                        Properties.Settings.Default.color14 = dlg.Color;
-                        break;
-                    }
+                    case 14:
+                        {
+                            Properties.Settings.Default.color14 = dlg.Color;
+                            break;
+                        }
 
-                case 15:
-                    {
-                        Properties.Settings.Default.color15 = dlg.Color;
-                        break;
-                    }
+                    case 15:
+                        {
+                            Properties.Settings.Default.color15 = dlg.Color;
+                            break;
+                        }
 
-                case 16:
-                    {
-                        Properties.Settings.Default.color16 = dlg.Color;
-                        break;
-                    }
+                    case 16:
+                        {
+                            Properties.Settings.Default.color16 = dlg.Color;
+                            break;
+                        }
 
-                case 17:
-                    {
-                        Properties.Settings.Default.color17 = dlg.Color;
-                        break;
-                    }
+                    case 17:
+                        {
+                            Properties.Settings.Default.color17 = dlg.Color;
+                            break;
+                        }
 
-                case 18:
-                    {
-                        Properties.Settings.Default.color18 = dlg.Color;
-                        break;
-                    }
+                    case 18:
+                        {
+                            Properties.Settings.Default.color18 = dlg.Color;
+                            break;
+                        }
 
-                case 19:
-                    {
-                        Properties.Settings.Default.color19 = dlg.Color;
-                        break;
-                    }
+                    case 19:
+                        {
+                            Properties.Settings.Default.color19 = dlg.Color;
+                            break;
+                        }
 
-                case 20:
-                    {
-                        Properties.Settings.Default.color20 = dlg.Color;
-                        break;
-                    }
-            }
-            Properties.Settings.Default.Save();
-            f1.ApplyColorTableToSamples();
+                    case 20:
+                        {
+                            Properties.Settings.Default.color20 = dlg.Color;
+                            break;
+                        }
+                }
+                Properties.Settings.Default.Save();
+                f1.ApplyColorTableToSamples();
             }
             catch (Exception ex)
             {
@@ -219,6 +219,7 @@ namespace Polarimeter2019
         {
             colorDialog1.ShowDialog();
             lvColorTable.SelectedItems[0].SubItems[1].BackColor = colorDialog1.Color;
+            f1.ColorTable[lvColorTable.SelectedIndices[0] - 1] = colorDialog1.Color;
         }
     }
 }

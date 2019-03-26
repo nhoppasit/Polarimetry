@@ -636,6 +636,7 @@ namespace Polarimeter2019
         }
 
         private void Form1_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+
         {
             DialogResult result = MessageBox.Show("Do you want to quit program?", "Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -813,17 +814,13 @@ namespace Polarimeter2019
 
                     chart1.Series.Clear();
                     Series newSeries = new Series("Reference");
-                    //chart1.Series.Add("Reference");
                     newSeries.ChartType = SeriesChartType.Line;
-                    //chart1.ChartAreas[0].AxisX.Minimum = 0;
-                    //chart1.ChartAreas[0].AxisY.Maximum = BDC.Reference.Ym;
-                    chart1.Series.Add(newSeries);
                     for (int i = 1; i <= NumberOfRepeatation; i++)
                     {
                         chart1.Series.Add("Sample" + i.ToString());
-                        chart1.ForeColor = ColorTable[(i - 1) % ColorTable.Length];
-                        chart1.Series.Add(newSeries);
+                        //chart1.BackColor = ColorTable[(i - 1) % ColorTable.Length];
                     }
+                    chart1.Series.Add(newSeries);
                 }
                 catch (Exception ex)
                 {
@@ -980,7 +977,6 @@ namespace Polarimeter2019
         {
             try
             {
-                ConnectedDevices();
                 string MSG = "A:WP"+ System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString();
                 MMC.WriteString(MSG);
             }

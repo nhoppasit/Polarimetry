@@ -127,7 +127,7 @@
             // 
             // btnNew
             // 
-            this.btnNew.BackColor = System.Drawing.Color.White;
+            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnNew.Location = new System.Drawing.Point(52, 25);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(132, 57);
@@ -326,33 +326,33 @@
             // mnuStartToolStripMenuItem
             // 
             this.mnuStartToolStripMenuItem.Name = "mnuStartToolStripMenuItem";
-            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuStartToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuStartToolStripMenuItem.Text = "Start";
             this.mnuStartToolStripMenuItem.Click += new System.EventHandler(this.mnuStartToolStripMenuItem_Click);
             // 
             // mnuStopToolStripMenuItem
             // 
             this.mnuStopToolStripMenuItem.Name = "mnuStopToolStripMenuItem";
-            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuStopToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuStopToolStripMenuItem.Text = "Stop";
             this.mnuStopToolStripMenuItem.Click += new System.EventHandler(this.mnuStopToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(140, 6);
             // 
             // mnuPauseToolStripMenuItem
             // 
             this.mnuPauseToolStripMenuItem.Name = "mnuPauseToolStripMenuItem";
-            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuPauseToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuPauseToolStripMenuItem.Text = "Pause";
             this.mnuPauseToolStripMenuItem.Click += new System.EventHandler(this.mnuPauseToolStripMenuItem_Click);
             // 
             // mnuCoutinewToolStripMenuItem
             // 
             this.mnuCoutinewToolStripMenuItem.Name = "mnuCoutinewToolStripMenuItem";
-            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mnuCoutinewToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
             this.mnuCoutinewToolStripMenuItem.Text = "Coutinue";
             this.mnuCoutinewToolStripMenuItem.Click += new System.EventHandler(this.mnuCoutinewToolStripMenuItem_Click);
             // 
@@ -427,7 +427,7 @@
             // AboutToolStripMenuItem
             // 
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.AboutToolStripMenuItem.Text = "About program";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
@@ -464,6 +464,7 @@
             // 
             this.lsvData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lsvData.CheckBoxes = true;
             this.lsvData.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
