@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -114,6 +115,7 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnDisconnect = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MainMenu.SuspendLayout();
             this.gbSample.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).BeginInit();
@@ -685,6 +687,7 @@
             this.btnPause.TabIndex = 2;
             this.btnPause.Text = "PAUSE";
             this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // btnStop
             // 
@@ -695,6 +698,7 @@
             this.btnStop.TabIndex = 1;
             this.btnStop.Text = "STOP";
             this.btnStop.UseVisualStyleBackColor = false;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnStart
             // 
@@ -705,6 +709,7 @@
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "START";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // gbStartMea
             // 
@@ -845,6 +850,10 @@
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -970,6 +979,7 @@
         private System.Windows.Forms.ComboBox comboAxis;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

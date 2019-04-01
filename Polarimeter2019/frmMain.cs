@@ -16,6 +16,7 @@ namespace Polarimeter2019
     public partial class frmMain : Form
     {
         public BaseDataControl BDC;
+        Random rand = new Random();
 
         public frmMain()
         {
@@ -24,6 +25,10 @@ namespace Polarimeter2019
             comboAxis.Items.Add("Y");
 
             BDC = new BaseDataControl();
+
+            timer1.Stop();
+            timer1.Enabled = false;
+            timer1.Interval = 1000;
         }
 
         #region DECRALATION
@@ -199,11 +204,13 @@ namespace Polarimeter2019
         private void btnStart_Click(System.Object sender, System.EventArgs e)
         {
             DoStart();
+            timer1.Start();
         }
 
         private void btnStop_Click(System.Object sender, System.EventArgs e)
         {
             DoStop();
+            timer1.Stop();
         }
 
         private void btnPause_Click(System.Object sender, System.EventArgs e)
@@ -815,6 +822,16 @@ namespace Polarimeter2019
                     chart1.Series.Clear();
                     Series newSeries = new Series("Reference");
                     newSeries.ChartType = SeriesChartType.Line;
+                    chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text));
+                    chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToInt32(-1 * Convert.ToDouble(txtStop.Text));
+                    chart1.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
+                    chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
+                    chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+
+                    chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
+                    chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
+                    chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                    chart1.Series.Clear();
                     for (int i = 1; i <= NumberOfRepeatation; i++)
                     {
                         chart1.Series.Add("Sample" + i.ToString());
@@ -973,6 +990,34 @@ namespace Polarimeter2019
 
         #endregion
 
+        #region Axis
+
+        public void MotorAxis()
+        {
+            switch (comboAxis.Text)
+            {
+                case "X":
+                    AxisX();
+                    break;
+                case "Y":
+                    AxisY();
+                    break;
+            }
+            
+            void AxisX()
+            {
+
+            }
+            
+            void AxisY()
+            {
+
+            }
+        }
+
+
+        #endregion
+
         private void btnRun_Click(object sender, EventArgs e)
         {
             try
@@ -1072,6 +1117,20 @@ namespace Polarimeter2019
             Graphics g = Graphics.FromImage(bm2);
             g.DrawImage(bm, 0, 0, new Rectangle(dx, dy, wid, hgt), GraphicsUnit.Pixel);
             return bm2;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            foreach (Series ptseries in chart1.Series)
+            {
+                double x = System.Convert.ToInt32(-1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text));
+                double y = rand.Next(10, 20);
+                System.Diagnostics.Trace.WriteLine(string.Format(">>>(X,Y)=([0],[1])", x, y));
+
+                ptseries.Points.Add(x, y);
+                chart1.ChartAreas[0].AxisX.Maximum = ptseries.Points[ptseries.Points.Count - 1].XValue;
+                chart1.Invalidate();
+            }
         }
     }
 }
