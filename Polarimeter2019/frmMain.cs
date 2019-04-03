@@ -17,6 +17,7 @@ namespace Polarimeter2019
     {
         public BaseDataControl BDC;
         Random rand = new Random();
+        int tick = 0;
 
         public frmMain()
         {
@@ -29,6 +30,10 @@ namespace Polarimeter2019
             timer1.Stop();
             timer1.Enabled = false;
             timer1.Interval = 1000;
+
+            DMM = new Ivi.Visa.Interop.FormattedIO488();
+            MMC = new Ivi.Visa.Interop.FormattedIO488();
+
         }
 
         #region DECRALATION
@@ -53,25 +58,52 @@ namespace Polarimeter2019
         private Ivi.Visa.Interop.IFormattedIO488 DMM;
         private Ivi.Visa.Interop.IFormattedIO488 MMC;
 
-        void DisconnectDevices()
+        //Disconnect
+        void MMCDisconnectDevices()
         {
             try
             {
-                DMM.IO.Close();
-                DMM.IO = null;
                 MMC.IO.Close();
                 MMC.IO = null;
-                lblDMM.Text = "Disconnected";
-                lblDMM.BackColor = Color.Red;
                 lblMMC.Text = "Disconncected";
                 lblMMC.BackColor = Color.Red;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("IO Error" + ex.Message);
-            }    
+            }
         }
-        void ConnectedDevices()
+
+        void DMMDisconnectDevices()
+        {
+            try
+            {
+                DMM.IO.Close();
+                DMM.IO = null;
+                lblDMM.Text = "Disconnected";
+                lblDMM.BackColor = Color.Red;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("IO Error" + ex.Message);
+            }
+        }
+
+        void DisconnectDevices()
+        {
+            try
+            {
+                DMMDisconnectDevices();
+                MMCDisconnectDevices();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("IO Error" + ex.Message);
+            }
+        }
+
+        //Connect
+        void DMMConnection()
         {
             try
             {
@@ -80,38 +112,61 @@ namespace Polarimeter2019
                 string DMMAddress;
                 DMMAddress = txtDMMAddress.Text;
                 mgr1 = new Ivi.Visa.Interop.ResourceManager();
-                DMM = new Ivi.Visa.Interop.FormattedIO488();
                 DMM.IO = (IMessage)mgr1.Open(DMMAddress);
                 DMM.IO.Timeout = 7000;
+                DMM.WriteString("*CLS");
+                System.Threading.Thread.Sleep(100);
                 DMM.WriteString("CONF:VOLT:DC " + txtVoltageRange.Text + ", " + txtVoltageResolution.Text);
-                DMM.WriteString("TRIG:SOUR TMM");
+                DMM.WriteString("TRIG:SOUR IMM");
                 DMM.WriteString("TRIG:DEL 1.5E-3");
                 DMM.WriteString("TRIG:COUNT 1");
                 DMM.WriteString("SAMP:COUNT 1");
+                // MsgBox("Connect devices are successful.")
+                lblDMM.Text = "Connected";
+                lblDMM.BackColor = Color.Lime;
+            }
+            catch (Exception ex)
+            {                 //Interaction.MsgBox("InitIO Error:" + Constants.vbCrLf + ex.Message);
+                MessageBox.Show("InitIO Error:" + MessageBoxButtons.RetryCancel + ex.Message);
+                lblDMM.Text = "Disconnected";
+                lblDMM.BackColor = Color.Red;
+            }
 
-                //CONNECT MMC
+        }
+
+        void MMCConnection()
+        {
+            try
+            { //CONNECT MMC
                 Ivi.Visa.Interop.ResourceManager mgr2;
                 string MMCAddress;
                 MMCAddress = txtMMCAddress.Text;
                 mgr2 = new Ivi.Visa.Interop.ResourceManager();
-                MMC = new Ivi.Visa.Interop.FormattedIO488();
                 MMC.IO = (IMessage)mgr2.Open(MMCAddress);
                 MMC.IO.Timeout = 7000;
-
-                // MsgBox("Connect devices are successful.")
-                lblDMM.Text = "Connected";
-                lblDMM.BackColor = Color.Lime;
                 lblMMC.Text = "Conncected";
                 lblMMC.BackColor = Color.Lime;
             }
             catch (Exception ex)
             {
-                //Interaction.MsgBox("InitIO Error:" + Constants.vbCrLf + ex.Message);
-                MessageBox.Show("InitIO Error:" + MessageBoxButtons.RetryCancel + ex.Message);
-                lblDMM.Text = "Disconnected";
-                lblDMM.BackColor = Color.Red;
                 lblMMC.Text = "Disconncected";
                 lblMMC.BackColor = Color.Red;
+            }
+
+        }
+
+        void ConnectedDevices()
+        {
+            try
+            {
+                DMMConnection();
+                MMCConnection();
+                //DMMDisconnectDevices();
+                //MMCDisconnectDevices();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -152,6 +207,7 @@ namespace Polarimeter2019
             lblMainStatus.Text = "Measuring...";
 
             DoScanLightIntensity();
+            timer1.Start();
 
             lblMainStatus.Text = "Ready";
         }
@@ -162,6 +218,7 @@ namespace Polarimeter2019
             //1. stop Test loop of reading light intensity
             //----------------------------------------
             StopScanning();
+            timer1.Stop();
 
             //----------------------------------------
             //2. Update buttons
@@ -204,13 +261,11 @@ namespace Polarimeter2019
         private void btnStart_Click(System.Object sender, System.EventArgs e)
         {
             DoStart();
-            timer1.Start();
         }
 
         private void btnStop_Click(System.Object sender, System.EventArgs e)
         {
             DoStop();
-            timer1.Stop();
         }
 
         private void btnPause_Click(System.Object sender, System.EventArgs e)
@@ -241,6 +296,7 @@ namespace Polarimeter2019
                 gbScanCondition.Enabled = false;
                 return;
             }
+
 
             if (!mnuOptionsDemomode.Checked)
             {
@@ -516,7 +572,7 @@ namespace Polarimeter2019
             //}
             //catch
             //{
-                
+
             //}
         }
 
@@ -751,11 +807,11 @@ namespace Polarimeter2019
                 DialogResult result = MessageBox.Show("Data will be deleted. Do you want to new measurement?", "New measurement", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
-                    
+
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    return; 
+                    return;
                 }
             }
 
@@ -822,20 +878,26 @@ namespace Polarimeter2019
                     chart1.Series.Clear();
                     Series newSeries = new Series("Reference");
                     newSeries.ChartType = SeriesChartType.Line;
-                    chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text));
-                    chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToInt32(-1 * Convert.ToDouble(txtStop.Text));
+                    newSeries.BorderWidth = 2;
+                    newSeries.XValueType = ChartValueType.Auto;
+                    chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStart.Text));
+                    chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStop.Text));
+
                     chart1.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
                     chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
                     chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-
                     chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
                     chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
                     chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
                     chart1.Series.Clear();
+
+                    double Value = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text));
+                    chart1.ChartAreas[0].AxisX.Minimum = tick * Value;
+                    chart1.ChartAreas[0].AxisX.Maximum = (tick + 1) * Value;
                     for (int i = 1; i <= NumberOfRepeatation; i++)
                     {
                         chart1.Series.Add("Sample" + i.ToString());
-                        //chart1.BackColor = ColorTable[(i - 1) % ColorTable.Length];
+                        chart1.ForeColor = ColorTable[(i - 1) % ColorTable.Length];
                     }
                     chart1.Series.Add(newSeries);
                 }
@@ -844,7 +906,7 @@ namespace Polarimeter2019
                 }
             }
         }
-                
+
         private void DefineAngleOfRotation()
         {
             ListViewItem lvi;
@@ -942,7 +1004,7 @@ namespace Polarimeter2019
         #endregion
 
         #region Textbox
-     
+
         private void txtStart_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verify that the pressed key isn't CTRL or any non-numeric digit
@@ -959,7 +1021,7 @@ namespace Polarimeter2019
         }
 
         private void txtStop_KeyPress(object sender, KeyPressEventArgs e)
-      {
+        {
             // Verify that the pressed key isn't CTRL or any non-numeric digit
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
@@ -1003,31 +1065,30 @@ namespace Polarimeter2019
                     AxisY();
                     break;
             }
-            
+
             void AxisX()
             {
 
             }
-            
+
             void AxisY()
             {
 
             }
         }
-
-
+        
         #endregion
 
         private void btnRun_Click(object sender, EventArgs e)
         {
             try
             {
-                string MSG = "A:WP"+ System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString();
+                string MSG = "A:WP" + System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text) / StepFactor).ToString();
                 MMC.WriteString(MSG);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message );
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -1119,11 +1180,12 @@ namespace Polarimeter2019
             return bm2;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public void PushXY()
         {
             foreach (Series ptseries in chart1.Series)
             {
-                double x = System.Convert.ToInt32(-1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text));
+                double Value = System.Convert.ToInt32(-1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToInt32(-1 * Convert.ToDouble(txtStart.Text));
+                double x = tick * Value;
                 double y = rand.Next(10, 20);
                 System.Diagnostics.Trace.WriteLine(string.Format(">>>(X,Y)=([0],[1])", x, y));
 
@@ -1131,6 +1193,12 @@ namespace Polarimeter2019
                 chart1.ChartAreas[0].AxisX.Maximum = ptseries.Points[ptseries.Points.Count - 1].XValue;
                 chart1.Invalidate();
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            PushXY();
+            tick++;
         }
     }
 }

@@ -33,6 +33,7 @@ namespace Polarimeter2019
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -45,3 +46,4 @@ namespace Polarimeter2019
         }
     }
 }
+

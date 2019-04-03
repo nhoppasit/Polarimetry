@@ -13,24 +13,24 @@ namespace Tester
         [TestMethod]
         public void Cal_Point_Count()
         {
-            Polarimeter_Control.BaseDataControl bdc;
+            //Polarimeter_Control.BaseDataControl bdc;
 
-            bdc = new Polarimeter_Control.BaseDataControl();
+            //bdc = new Polarimeter_Control.BaseDataControl();
 
-            // Validation Text to float
-            if (double.TryParse(s_res, out double resolution))
-            {
-                if (0.02 <= resolution && resolution <= 10) //deg
-                {
-                    // Change BDC
-                    double min = double.Parse(s_min);
-                    double max = double.Parse(s_max);
-                    int PointCount = (int)((max - min) / resolution + 1);
+            //// Validation Text to float
+            //if (double.TryParse(s_res, out double resolution))
+            //{
+            //    if (0.02 <= resolution && resolution <= 10) //deg
+            //    {
+            //        // Change BDC
+            //        double min = double.Parse(s_min);
+            //        double max = double.Parse(s_max);
+            //        int PointCount = (int)((max - min) / resolution + 1);
 
-                    bdc.Reference.X = new double[PointCount]; 
-                    bdc.Reference.Y = new double[PointCount]; // destroy
-                }
-            }
+            //        bdc.Reference.X = new double[PointCount]; 
+            //        bdc.Reference.Y = new double[PointCount]; // destroy
+            //    }
+            //}
         }
     }
 }
