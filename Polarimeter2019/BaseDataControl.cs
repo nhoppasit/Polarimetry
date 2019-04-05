@@ -1,4 +1,4 @@
-﻿using System;
+﻿                                                    using System;
 using System.Data;
 using System.IO;
 using System.Text;
@@ -15,7 +15,7 @@ namespace Polarimeter2019
             public double[] X;
             public double[] Y;
             public double Xm;
-            public double Ym;
+            public double Ym;                                                           
             public double AngleOfRotation;
         }
 
