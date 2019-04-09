@@ -25,6 +25,9 @@ namespace Polarimeter2019
             comboAxis.Items.Add("X");
             comboAxis.Items.Add("Y");
 
+            // double delta = 0.1; // ลอง
+            Random rand = new Random(); //เพิ่ม Random เข้ามา
+
             BDC = new BaseDataControl();
 
             timer1.Stop();
@@ -186,8 +189,8 @@ namespace Polarimeter2019
             // 1. Update buttons
             // ----------------------------------------
             btnStart.Enabled = false;
-            btnStop.Enabled = true;
-            btnPause.Enabled = true;
+            btnStop.Enabled = false;
+            btnPause.Enabled = false;
 
             // ----------------------------------------
             // disable box
@@ -271,6 +274,7 @@ namespace Polarimeter2019
         {
             DoPause();
         }
+
 
         #endregion
 
@@ -1174,28 +1178,42 @@ namespace Polarimeter2019
             return bm2;
         }
 
-        private void PushXY()
+        //private void PushXY()
+        //{
+        //    foreach (Series ptseries in chart1.Series)
+        //    {
+        //        tick++;
+        //        double Value = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToDouble(-1 * Convert.ToDouble(txtStart.Text));
+        //        double x = tick * Value; 
+        //        double y = rand.Next(10,20);
+        //        //System.Diagnostics.Trace.WriteLine(string.Format(">>>(X,Y)=([0],[1])", x, y));
+        //        System.Diagnostics.Trace.WriteLine(string.Format(System.Convert.ToString(x), System.Convert.ToString(y)));
+
+        //        ptseries.Points.Add(x, y);
+        //        //chart1.Series["Reference"].Points.Add(x, y);
+        //        //for (int i = 1; i <= NumberOfRepeatation; i++)
+        //        //{
+        //        //    chart1.Series["Sample" + i.ToString()].Points.Add(x, y);
+        //        //}
+        //        chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text));
+        //        chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text));
+
+        //        //chart1.ChartAreas[0].AxisY.Minimum = System.Convert.ToDouble("0.00");
+        //        //chart1.ChartAreas[0].AxisY.Minimum = System.Convert.ToDouble("-50000");
+        //        chart1.Invalidate();
+        //    }
+        //}
+
+        void PushXY() // ลองทำให้เป็น Random ดู อันข้างบนไม่เวิร์ค
         {
-            foreach (Series ptseries in chart1.Series)
+            foreach (Series ptSeries in chart1.Series)
             {
-                tick++;
-                double Value = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToDouble(-1 * Convert.ToDouble(txtStart.Text));
-                double x = tick * Value; 
-                double y = rand.Next(10,20);
-                //System.Diagnostics.Trace.WriteLine(string.Format(">>>(X,Y)=([0],[1])", x, y));
-                System.Diagnostics.Trace.WriteLine(string.Format(System.Convert.ToString(x), System.Convert.ToString(y)));
+                double x = tick * 0.1;
+                double y = rand.Next(10, 20);
+                System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
 
-                ptseries.Points.Add(x, y);
-                //chart1.Series["Reference"].Points.Add(x, y);
-                //for (int i = 1; i <= NumberOfRepeatation; i++)
-                //{
-                //    chart1.Series["Sample" + i.ToString()].Points.Add(x, y);
-                //}
-                chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text));
-                chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text));
-
-                //chart1.ChartAreas[0].AxisY.Minimum = System.Convert.ToDouble("0.00");
-                //chart1.ChartAreas[0].AxisY.Minimum = System.Convert.ToDouble("-50000");
+                ptSeries.Points.AddXY(x, y);
+                chart1.ChartAreas[0].AxisX.Maximum = ptSeries.Points[ptSeries.Points.Count - 1].XValue;
                 chart1.Invalidate();
             }
         }
