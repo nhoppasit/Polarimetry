@@ -206,13 +206,6 @@ namespace Polarimeter2019
 
             DoScanLightIntensity();
 
-            //chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStart.Text));
-            //chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStop.Text));
-            
-            //double Value = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToDouble(-1 * Convert.ToDouble(txtStart.Text));
-            //chart1.ChartAreas[0].AxisX.Minimum = tick * Value;
-            //chart1.ChartAreas[0].AxisX.Maximum = (tick + 1) * Value;
-
             timer1.Start();
 
             lblMainStatus.Text = "Ready";
@@ -895,7 +888,7 @@ namespace Polarimeter2019
                     for (int i = 1; i <= NumberOfRepeatation; i++)
                     {
                         chart1.Series.Add("Sample" + i.ToString());
-                        chart1.ForeColor = ColorTable[(i - 1) % ColorTable.Length];
+                        chart1.ForeColor = ColorTable[(i - 1) % ColorTable.Length];     //กำหนดเส้นตามสีไม่ได้
                     }
                     chart1.Series.Add(newSeries);
                 }
@@ -1178,7 +1171,7 @@ namespace Polarimeter2019
             return bm2;
         }
 
-        public void PushXY()
+        private void PushXY()
         {
             foreach (Series ptseries in chart1.Series)
             {
@@ -1186,12 +1179,13 @@ namespace Polarimeter2019
                 double Value = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToDouble(-1 * Convert.ToDouble(txtStart.Text));
                 double x = tick * Value; 
                 double y = rand.Next(10, 20);
-                //System.Diagnostics.Trace.WriteLine(string.Format(">>>(X,Y)=([0],[1])", x, y));
-                System.Diagnostics.Trace.WriteLine(string.Format(System.Convert.ToString(x), System.Convert.ToString(y)));
+                System.Diagnostics.Trace.WriteLine(string.Format(">>>(X,Y)=([0],[1])", x, y));
+                //System.Diagnostics.Trace.WriteLine(string.Format(System.Convert.ToString(x), System.Convert.ToString(y)));
 
                 ptseries.Points.Add(x, y);
-                chart1.ChartAreas[0].AxisX.Maximum = ptseries.Points[ptseries.Points.Count - 1].XValue;
-                //chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStop.Text));
+                //chart1.ChartAreas[0].AxisX.Maximum = ptseries.Points[ptseries.Points.Count - 1].XValue;
+                chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text));
+                chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text));
                 chart1.Invalidate();
             }
         }
@@ -1199,7 +1193,7 @@ namespace Polarimeter2019
         private void timer1_Tick(object sender, EventArgs e)
         {
             PushXY();
-            //tick++;
+            tick++;
         }
     }
 }
