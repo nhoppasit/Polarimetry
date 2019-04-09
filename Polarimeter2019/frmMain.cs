@@ -182,15 +182,14 @@ namespace Polarimeter2019
             double[] y = new double[1];
 
             ResetDynaplot();
-
             PlotReferenceCurve();
 
             // ----------------------------------------
             // 1. Update buttons
             // ----------------------------------------
             btnStart.Enabled = false;
-            btnStop.Enabled = false;
-            btnPause.Enabled = false;
+            btnStop.Enabled = true;
+            btnPause.Enabled = true;
 
             // ----------------------------------------
             // disable box
@@ -198,7 +197,7 @@ namespace Polarimeter2019
             gbStartMea.Enabled = false;
             gbSample.Enabled = false;
             gbScanCondition.Enabled = false;
-            gbMeasurement.Enabled = false;
+            gbMeasurement.Enabled = true;
 
             // ----------------------------------------
             // 2. start Test loop of reading light intensity
@@ -238,7 +237,7 @@ namespace Polarimeter2019
             // ----------------------------------------
             if (btnPause.Text == "PAUSE")
             {
-                DoPasuseScanning();
+                DoPauseScanning();
             }
 
             else
@@ -479,8 +478,8 @@ namespace Polarimeter2019
                         DisconnectDevices();
                     }
                     btnStart.Enabled = true;
-                    btnStop.Enabled = false;
-                    btnPause.Enabled = false;
+                    btnStop.Enabled = true;
+                    btnPause.Enabled = true;
                     btnPause.Text = "PAUSE";
                     btnNew.Enabled = true;
                     btnOpen.Enabled = true;
@@ -509,8 +508,8 @@ namespace Polarimeter2019
                 // 2. Update buttons
                 // ----------------------------------------
                 btnStart.Enabled = true;
-                btnStop.Enabled = false;
-                btnPause.Enabled = false;
+                btnStop.Enabled = true;
+                btnPause.Enabled = true;
                 btnPause.Text = "PAUSE";
                 btnNew.Enabled = true;
                 btnOpen.Enabled = true;
@@ -525,14 +524,16 @@ namespace Polarimeter2019
             IsContinuing = false;
         }
 
-        private void DoPasuseScanning()
+        private void DoPauseScanning()
         {
+            DoStop();
             IsScanning = false;
             IsContinuing = false;
         }
 
         private void DoContinueScanning()
         {
+            DoStart();
             IsScanning = true;
             IsContinuing = true;
         }
