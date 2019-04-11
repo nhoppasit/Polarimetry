@@ -529,6 +529,7 @@ namespace Polarimeter2019
 
         private void DoContinueScanning()
         {
+            DoStart();
             IsScanning = true;
             IsContinuing = true;
         }
@@ -877,13 +878,16 @@ namespace Polarimeter2019
                     chart1.Series.Clear();
                     Series newSeries = new Series("Reference");
                     newSeries.ChartType = SeriesChartType.Line;
-                    newSeries.BorderWidth = 2;
+                    newSeries.BorderWidth = 3;
                     newSeries.XValueType = ChartValueType.Auto;
                     newSeries.YValueType = ChartValueType.Auto;
                     for (int i = 1; i <= NumberOfRepeatation; i++)
                     {
                         Series sample = new Series("Sample" + i.ToString());
                         sample.ChartType = SeriesChartType.Line;
+                        sample.BorderWidth = 3;
+                        sample.XValueType = ChartValueType.Auto;
+                        sample.YValueType = ChartValueType.Auto;
                         chart1.Series.Add(sample);
                         //chart1.ForeColor = ColorTable[(i - 1) % ColorTable.Length];     //กำหนดเส้นตามสีไม่ได้
                     }
@@ -1178,24 +1182,40 @@ namespace Polarimeter2019
         {
             foreach (Series ptseries in chart1.Series)
             {
-                tick++;
-                double Value = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToDouble(-1 * Convert.ToDouble(txtStart.Text));
-                double x = tick * Value; 
-                double y = rand.Next(10,20);
-                //System.Diagnostics.Trace.WriteLine(string.Format(">>>(X,Y)=([0],[1])", x, y));
-                System.Diagnostics.Trace.WriteLine(string.Format(System.Convert.ToString(x), System.Convert.ToString(y)));
+                //tick++;
+                //double Value = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToDouble(-1 * Convert.ToDouble(txtStart.Text));
+                //double x = tick * Value; 
+                //double y = rand.Next(10,20);
+                ////System.Diagnostics.Trace.WriteLine(string.Format(">>>(X,Y)=([0],[1])", x, y));
+                //System.Diagnostics.Trace.WriteLine(string.Format(System.Convert.ToString(x), System.Convert.ToString(y)));
 
-                ptseries.Points.Add(x, y);
-                //chart1.Series["Reference"].Points.Add(x, y);
-                //for (int i = 1; i <= NumberOfRepeatation; i++)
-                //{
-                //    chart1.Series["Sample" + i.ToString()].Points.Add(x, y);
-                //}
+                //ptseries.Points.Add(x, y);
+                ////chart1.Series["Reference"].Points.Add(x, y);
+                ////for (int i = 1; i <= NumberOfRepeatation; i++)
+                ////{
+                ////    chart1.Series["Sample" + i.ToString()].Points.Add(x, y);
+                ////}
+                //chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text));
+                //chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text));
+
+                ////chart1.ChartAreas[0].AxisY.Minimum = System.Convert.ToDouble("0.00");
+                ////chart1.ChartAreas[0].AxisY.Minimum = System.Convert.ToDouble("-50000");
+
+                //double x = tick * 0.1;
+                for (int i=0;i<= System.Convert.ToInt32(1 * Convert.ToInt32(txtStop.Text)); i++)
+                {
+                    //double N = ((System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text))) / System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))) + i;
+                    //double Xf = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text) + N * (System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))));
+                    //double x = (System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text))+ System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text)))*i;
+                    double x = ((System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text)) + (tick * (System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))))));
+                    double y = rand.Next(5, 20);
+                    System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
+
+                    ptseries.Points.AddXY(x, y);
+                }
+                chart1.ChartAreas[0].AxisX.Maximum = ptseries.Points[ptseries.Points.Count - 1].XValue;
                 chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text));
-                chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text));
-
-                //chart1.ChartAreas[0].AxisY.Minimum = System.Convert.ToDouble("0.00");
-                //chart1.ChartAreas[0].AxisY.Minimum = System.Convert.ToDouble("-50000");
+                //chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text));
                 chart1.Invalidate();
             }
         }
