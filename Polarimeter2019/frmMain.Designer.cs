@@ -466,7 +466,6 @@
             // 
             this.lsvData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lsvData.CheckBoxes = true;
             this.lsvData.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -873,7 +872,7 @@
             this.MainMenuStrip = this.MainMenu;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Polarimeter2019";
+            this.Text = "  ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.MainMenu.ResumeLayout(false);

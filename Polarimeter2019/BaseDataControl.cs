@@ -1,4 +1,4 @@
-﻿                                                    using System;
+﻿using System;
 using System.Data;
 using System.IO;
 using System.Text;
@@ -46,8 +46,6 @@ namespace Polarimeter2019
     
         public void PatchReference(int PointID, double X, double Y)
         {
-            //ReDim Preserve Reference.X(0 To PointID)  
-            //ReDim Preserve Reference.Y(0 To PointID)   
             double Xvalue = Reference.X[PointID];
             double Yvalue = Reference.Y[PointID];
 
@@ -64,14 +62,6 @@ namespace Polarimeter2019
         {
             //    !!!!!!!!
             //    'zero base, careful!!!
-            //If Data Is Nothing Then     
-            //    ReDim Preserve Data(0 To RepeatID)
-            //    Data(RepeatID).Ym = 999999   
-            //Else
-            //    If Data.Length - 1 < RepeatID Then     
-            //        ReDim Preserve Data(0 To RepeatID)
-            //        Data(RepeatID).Ym = 999999      
-            //      End If
 
             if (Data==null)
             {

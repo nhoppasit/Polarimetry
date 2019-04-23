@@ -15,6 +15,7 @@ namespace Polarimeter2019
 {
     public partial class frmMain : Form
     {
+        private Ivi.Visa.Interop.FormattedIO488 ioDmm;
         public BaseDataControl BDC;
         Random rand = new Random();
         int tick = 0;
@@ -204,9 +205,8 @@ namespace Polarimeter2019
             IsScanning = true;
             lblMainStatus.Text = "Measuring...";
 
-            DoScanLightIntensity();
 
-            timer1.Start();
+            DoScanLightIntensity();
 
             lblMainStatus.Text = "Ready";
         }
@@ -296,7 +296,6 @@ namespace Polarimeter2019
                 return;
             }
 
-
             if (!mnuOptionsDemomode.Checked)
             {
                 ConnectedDevices();
@@ -366,16 +365,21 @@ namespace Polarimeter2019
                 // STORE DATA AND PLOT
                 // ----------------------------------------------------------------
                 // Save to memory
-                if (SelectedIndex == 0)
+                try
                 {
-                    BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                    if (SelectedIndex == 0)
+                    {
+                        BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                    }
                 }
-                else
+                catch (Exception)
+                {
                     BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                DefineAngleOfRotation();
-                PlotReferenceCurve();
-                PlotTreatmentsCurve();
-                PlotSelectedTRTMarker();
+                    DefineAngleOfRotation();
+                    PlotReferenceCurve();
+                    PlotTreatmentsCurve();
+                    PlotSelectedTRTMarker();
+                }
 
                 // auto scale
                 // AxDynaPlot1.Axes.Autoscale()
@@ -432,11 +436,14 @@ namespace Polarimeter2019
                         CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
 
                     // Save to memory and update curve
-                    if (SelectedIndex == 0)
+                    try
                     {
-                        BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                        if (SelectedIndex == 0)
+                        {
+                            BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                        }
                     }
-                    else
+                    catch(Exception)
                     {
                         BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         DefineAngleOfRotation();
@@ -491,6 +498,7 @@ namespace Polarimeter2019
                     btnStop.Enabled = true;
                     btnPause.Enabled = true;
                 }
+                timer1.Start();
             }
             catch (Exception ex)
             {
@@ -512,6 +520,7 @@ namespace Polarimeter2019
                 btnOpen.Enabled = true;
                 gbSample.Enabled = true;
                 gbScanCondition.Enabled = true;
+                timer1.Stop();
             }
         }
 
@@ -873,14 +882,16 @@ namespace Polarimeter2019
                     gbScanCondition.Enabled = true;
 
                     lsvData.Items[0].Selected = true;
+                    lsvData.CheckBoxes = true;
                     lsvData.Focus();
 
                     chart1.Series.Clear();
                     Series newSeries = new Series("Reference");
                     newSeries.ChartType = SeriesChartType.Line;
                     newSeries.BorderWidth = 3;
-                    newSeries.XValueType = ChartValueType.Auto;
-                    newSeries.YValueType = ChartValueType.Auto;
+                    newSeries.XValueType = ChartValueType.DateTime;
+                    newSeries.YValueType = ChartValueType.DateTime;
+                    newSeries.Color = Properties.Settings.Default.ReferenceColor;
                     for (int i = 1; i <= NumberOfRepeatation; i++)
                     {
                         Series sample = new Series("Sample" + i.ToString());
@@ -889,7 +900,7 @@ namespace Polarimeter2019
                         sample.XValueType = ChartValueType.Auto;
                         sample.YValueType = ChartValueType.Auto;
                         chart1.Series.Add(sample);
-                        //chart1.ForeColor = ColorTable[(i - 1) % ColorTable.Length];     //กำหนดเส้นตามสีไม่ได้
+                        sample.Color = ColorTable[(i - 1) % ColorTable.Length];     
                     }
                     chart1.Series.Add(newSeries);
                     chart1.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
@@ -1202,7 +1213,7 @@ namespace Polarimeter2019
                 ////chart1.ChartAreas[0].AxisY.Minimum = System.Convert.ToDouble("-50000");
 
                 //double x = tick * 0.1;
-                for (int i=0;i<= System.Convert.ToInt32(1 * Convert.ToInt32(txtStop.Text)); i++)
+                for (int i=0; i<1 ; i++)
                 {
                     //double N = ((System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text))) / System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))) + i;
                     //double Xf = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text) + N * (System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))));
@@ -1213,7 +1224,7 @@ namespace Polarimeter2019
 
                     ptseries.Points.AddXY(x, y);
                 }
-                chart1.ChartAreas[0].AxisX.Maximum = ptseries.Points[ptseries.Points.Count - 1].XValue;
+                //chart1.ChartAreas[0].AxisX.Maximum = ptseries.Points[ptseries.Points.Count - 1].XValue;
                 chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text));
                 //chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text));
                 chart1.Invalidate();
