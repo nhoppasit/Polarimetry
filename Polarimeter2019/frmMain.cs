@@ -196,7 +196,7 @@ namespace Polarimeter2019
             gbStartMea.Enabled = false;
             gbSample.Enabled = false;
             gbScanCondition.Enabled = false;
-            gbMeasurement.Enabled = false;
+            gbMeasurement.Enabled = true;
 
             // ----------------------------------------
             // 2. start Test loop of reading light intensity
@@ -245,7 +245,7 @@ namespace Polarimeter2019
             // ----------------------------------------
             // 2. Update buttons
             // ----------------------------------------
-            btnStart.Enabled = false;
+            btnStart.Enabled = true;
             btnStop.Enabled = true;
             btnPause.Enabled = true;
             if (btnPause.Text == "PAUSE")
@@ -259,7 +259,14 @@ namespace Polarimeter2019
 
         private void btnStart_Click(System.Object sender, System.EventArgs e)
         {
+            foreach (var series in chart1.Series)
+            {
+                series.Points.Clear();
+            }
+
             DoStart();
+            timer1.Start();
+
         }
 
         private void btnStop_Click(System.Object sender, System.EventArgs e)
@@ -498,7 +505,7 @@ namespace Polarimeter2019
                     btnStop.Enabled = true;
                     btnPause.Enabled = true;
                 }
-                timer1.Start();
+               // timer1.Start();
             }
             catch (Exception ex)
             {
@@ -513,8 +520,8 @@ namespace Polarimeter2019
                 // 2. Update buttons
                 // ----------------------------------------
                 btnStart.Enabled = true;
-                btnStop.Enabled = false;
-                btnPause.Enabled = false;
+                btnStop.Enabled = true;
+                btnPause.Enabled = true;
                 btnPause.Text = "PAUSE";
                 btnNew.Enabled = true;
                 btnOpen.Enabled = true;
@@ -532,6 +539,7 @@ namespace Polarimeter2019
 
         private void DoPasuseScanning()
         {
+            DoStop();
             IsScanning = false;
             IsContinuing = false;
         }
