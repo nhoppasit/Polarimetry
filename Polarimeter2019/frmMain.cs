@@ -29,10 +29,6 @@ namespace Polarimeter2019
 
             BDC = new BaseDataControl();
 
-            timer1.Stop();
-            timer1.Enabled = false;
-            timer1.Interval = 1000;
-
             DMM = new Ivi.Visa.Interop.FormattedIO488();
             MMC = new Ivi.Visa.Interop.FormattedIO488();
 
@@ -180,8 +176,9 @@ namespace Polarimeter2019
             double[] x = new double[1];
             double[] y = new double[1];
 
-            ResetDynaplot();
+            //ResetDynaplot();
 
+            // Plot curve from initial data
             PlotReferenceCurve();
 
             // ----------------------------------------
@@ -205,10 +202,9 @@ namespace Polarimeter2019
             CurrentPointIndex = 0;
             IsScanning = true;
             lblMainStatus.Text = "Measuring...";
-
-
             DoScanLightIntensity();
 
+            // end
             lblMainStatus.Text = "Ready";
         }
 
@@ -218,7 +214,6 @@ namespace Polarimeter2019
             //1. stop Test loop of reading light intensity
             //----------------------------------------
             StopScanning();
-            timer1.Stop();
 
             //----------------------------------------
             //2. Update buttons
@@ -261,7 +256,6 @@ namespace Polarimeter2019
         private void btnStart_Click(System.Object sender, System.EventArgs e)
         {
             DoStart();
-            timer1.Start();
         }
 
         private void btnStop_Click(System.Object sender, System.EventArgs e)
@@ -311,6 +305,28 @@ namespace Polarimeter2019
                 double ThetaA = System.Convert.ToDouble(txtStart.Text);
                 double ThetaB = System.Convert.ToDouble(txtStop.Text);
                 double Delta = System.Convert.ToDouble(txtResolution.Text);
+
+                // --------------------------------------------
+                // Evaluate size of array of X[], Y[]
+                // --------------------------------------------
+                double dNumberOfPoint = Math.Abs((ThetaA - ThetaB) / Delta);
+                int NumberOfPoint = (int)Math.Floor(dNumberOfPoint);
+                if (0 < (dNumberOfPoint % Math.Floor(dNumberOfPoint)))
+                {
+                    NumberOfPoint++;
+                }
+                NumberOfPoint++;
+                ThetaB = (double)(NumberOfPoint - 1) * Delta + ThetaA;
+                txtStop.Text = ThetaB.ToString();
+                BDC.Reference.X = new double[NumberOfPoint];
+                BDC.Reference.Y = new double[NumberOfPoint];
+                
+                for (int i = 0; i < BDC.Data.Length; i++)
+                {
+                    BDC.Data[i].X = new double[NumberOfPoint];
+                    BDC.Data[i].Y = new double[NumberOfPoint];
+                }
+
 
                 // --------------------------------------------
                 // initialize minimum finder
@@ -371,10 +387,13 @@ namespace Polarimeter2019
 
                 if (SelectedIndex == 0)
                 {
-                        BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                    BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                 }
-
-                BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                else
+                {
+                    BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                }
+                //
                 DefineAngleOfRotation();
                 PlotReferenceCurve();
                 PlotTreatmentsCurve();
@@ -442,7 +461,7 @@ namespace Polarimeter2019
                             BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         }
                     }
-                    catch(Exception)
+                    catch (Exception)
                     {
                         BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         DefineAngleOfRotation();
@@ -468,7 +487,7 @@ namespace Polarimeter2019
 
                     // next point
                     CurrentPointIndex += 1;
-                }
+                } // end of while
                 // --------------------------------------------(^0^)
 
                 // if stop update buttons to a new start
@@ -518,7 +537,6 @@ namespace Polarimeter2019
                 btnOpen.Enabled = true;
                 gbSample.Enabled = true;
                 gbScanCondition.Enabled = true;
-                timer1.Stop();
             }
         }
 
@@ -731,8 +749,12 @@ namespace Polarimeter2019
                 double[] x = new double[1];
                 double[] y = new double[1];
 
+                // Remove all curves
+
                 for (int i = 0; i <= NumberOfRepeatation - 1; i++)
                 {
+                    // add some data to series
+                    // nothing for now!
                 }
             }
             catch (Exception ex)
@@ -806,7 +828,7 @@ namespace Polarimeter2019
 
         #region Sub-Routine
 
-        private void NewMeasurement() 
+        private void NewMeasurement()
         {
             // verify user
             if (lsvData.Items.Count > 0)
@@ -841,6 +863,9 @@ namespace Polarimeter2019
                     BDC = new BaseDataControl();
                     BDC.SampleName = txtSampleName.Text;
 
+                    // Add blank data
+                    BDC.Data = new BaseDataControl.strucCurveData[NumberOfRepeatation];
+                    
                     // clear
                     lsvData.Items.Clear();
                     ListViewItem lvi;
@@ -869,7 +894,7 @@ namespace Polarimeter2019
                         lvi.UseItemStyleForSubItems = false;
                         lsvData.Items.Add(lvi);
                     }
-                     
+
                     // clear treatment curve
                     // ReDim TreatmentCurve(0 To NumberOfRepeatation - 1)
 
@@ -898,7 +923,7 @@ namespace Polarimeter2019
                         sample.XValueType = ChartValueType.Auto;
                         sample.YValueType = ChartValueType.Auto;
                         chart1.Series.Add(sample);
-                        sample.Color = ColorTable[(i - 1) % ColorTable.Length];     
+                        sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                     }
                     chart1.Series.Add(newSeries);
                     chart1.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
@@ -1083,7 +1108,7 @@ namespace Polarimeter2019
 
             }
         }
-        
+
         #endregion
 
         private void btnRun_Click(object sender, EventArgs e)
@@ -1191,7 +1216,7 @@ namespace Polarimeter2019
         {
             foreach (Series ptseries in chart1.Series)
             {
-                for (int i=0; i<1 ; i++)
+                for (int i = 0; i < 1; i++)
                 {
                     //double N = ((System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text))) / System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))) + i;
                     //double Xf = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text) + N * (System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))));
@@ -1251,6 +1276,5 @@ namespace Polarimeter2019
             //MSG = (System.Convert.ToInt32("G:")) * tick;
             MMC.WriteString(MSG);
         }
-    } 
+    }
 }
-  
