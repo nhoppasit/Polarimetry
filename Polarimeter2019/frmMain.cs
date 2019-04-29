@@ -260,6 +260,7 @@ namespace Polarimeter2019
         private void btnStart_Click(System.Object sender, System.EventArgs e)
         {
             DoStart();
+            timer1.Start();
         }
 
         private void btnStop_Click(System.Object sender, System.EventArgs e)
@@ -498,7 +499,6 @@ namespace Polarimeter2019
                     btnStop.Enabled = true;
                     btnPause.Enabled = true;
                 }
-                timer1.Start();
             }
             catch (Exception ex)
             {
@@ -808,7 +808,7 @@ namespace Polarimeter2019
 
         #region Sub-Routine
 
-        private void NewMeasurement()
+        private void NewMeasurement() 
         {
             // verify user
             if (lsvData.Items.Count > 0)
@@ -871,7 +871,7 @@ namespace Polarimeter2019
                         lvi.UseItemStyleForSubItems = false;
                         lsvData.Items.Add(lvi);
                     }
-
+                     
                     // clear treatment curve
                     // ReDim TreatmentCurve(0 To NumberOfRepeatation - 1)
 
@@ -887,7 +887,7 @@ namespace Polarimeter2019
 
                     chart1.Series.Clear();
                     Series newSeries = new Series("Reference");
-                    newSeries.ChartType = SeriesChartType.Line;
+                    newSeries.ChartType = SeriesChartType.Polar;
                     newSeries.BorderWidth = 3;
                     newSeries.XValueType = ChartValueType.DateTime;
                     newSeries.YValueType = ChartValueType.DateTime;
@@ -895,7 +895,7 @@ namespace Polarimeter2019
                     for (int i = 1; i <= NumberOfRepeatation; i++)
                     {
                         Series sample = new Series("Sample" + i.ToString());
-                        sample.ChartType = SeriesChartType.Line;
+                        sample.ChartType = SeriesChartType.Polar;
                         sample.BorderWidth = 3;
                         sample.XValueType = ChartValueType.Auto;
                         sample.YValueType = ChartValueType.Auto;
@@ -1225,7 +1225,7 @@ namespace Polarimeter2019
                     ptseries.Points.AddXY(x, y);
                 }
                 //chart1.ChartAreas[0].AxisX.Maximum = ptseries.Points[ptseries.Points.Count - 1].XValue;
-                chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text));
+                //chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text));
                 //chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text));
                 chart1.Invalidate();
             }
@@ -1238,3 +1238,4 @@ namespace Polarimeter2019
         }
     }
 }
+  
