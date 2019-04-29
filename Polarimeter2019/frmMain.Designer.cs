@@ -477,6 +477,7 @@
             this.lsvData.TabIndex = 4;
             this.lsvData.UseCompatibleStateImageBehavior = false;
             this.lsvData.View = System.Windows.Forms.View.Details;
+            this.lsvData.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lsvData_ItemCheck);
             // 
             // columnHeader1
             // 

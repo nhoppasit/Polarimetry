@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using Ivi.Visa.Interop;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms.VisualStyles;
 
 namespace Polarimeter2019
 {
@@ -360,27 +361,24 @@ namespace Polarimeter2019
                 }
                 else
                 {
+                    // CAUTION! DEMO MODE HERE
                     CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
                 }
                 // ----------------------------------------------------------------
                 // STORE DATA AND PLOT
                 // ----------------------------------------------------------------
                 // Save to memory
-                try
+
+                if (SelectedIndex == 0)
                 {
-                    if (SelectedIndex == 0)
-                    {
                         BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                    }
                 }
-                catch (Exception)
-                {
-                    BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                    DefineAngleOfRotation();
-                    PlotReferenceCurve();
-                    PlotTreatmentsCurve();
-                    PlotSelectedTRTMarker();
-                }
+
+                BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                DefineAngleOfRotation();
+                PlotReferenceCurve();
+                PlotTreatmentsCurve();
+                PlotSelectedTRTMarker();
 
                 // auto scale
                 // AxDynaPlot1.Axes.Autoscale()
@@ -1193,26 +1191,6 @@ namespace Polarimeter2019
         {
             foreach (Series ptseries in chart1.Series)
             {
-                //tick++;
-                //double Value = System.Convert.ToDouble(-1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToDouble(-1 * Convert.ToDouble(txtStart.Text));
-                //double x = tick * Value; 
-                //double y = rand.Next(10,20);
-                ////System.Diagnostics.Trace.WriteLine(string.Format(">>>(X,Y)=([0],[1])", x, y));
-                //System.Diagnostics.Trace.WriteLine(string.Format(System.Convert.ToString(x), System.Convert.ToString(y)));
-
-                //ptseries.Points.Add(x, y);
-                ////chart1.Series["Reference"].Points.Add(x, y);
-                ////for (int i = 1; i <= NumberOfRepeatation; i++)
-                ////{
-                ////    chart1.Series["Sample" + i.ToString()].Points.Add(x, y);
-                ////}
-                //chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text));
-                //chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text));
-
-                ////chart1.ChartAreas[0].AxisY.Minimum = System.Convert.ToDouble("0.00");
-                ////chart1.ChartAreas[0].AxisY.Minimum = System.Convert.ToDouble("-50000");
-
-                //double x = tick * 0.1;
                 for (int i=0; i<1 ; i++)
                 {
                     //double N = ((System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text))) / System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))) + i;
@@ -1234,8 +1212,45 @@ namespace Polarimeter2019
         private void timer1_Tick(object sender, EventArgs e)
         {
             PushXY();
+            Step();
             tick++;
         }
-    }
+
+        private void lsvData_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            //bool clicked = false;
+            //CheckBoxState state;
+            //if (!clicked)
+            //{
+            //    clicked = true;
+            //    state = CheckBoxState.CheckedPressed;
+
+            //    foreach (ListViewItem item in lsvData.Items)
+            //    {
+            //        item.Checked = true;
+            //    }
+
+            //    Invalidate();
+            //}
+            //else
+            //{
+            //    clicked = false;
+            //    state = CheckBoxState.UncheckedNormal;
+            //    Invalidate();
+
+            //    foreach (ListViewItem item in lsvData.Items)
+            //    {
+            //        item.Checked = false;
+            //    }
+            //}
+        }
+
+        public void Step()
+        {
+            string MSG = "M:WP" + System.Convert.ToInt32(-1 * Convert.ToDouble(txtResolution.Text) / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * Convert.ToDouble(txtResolution.Text) / StepFactor).ToString();
+            //MSG = (System.Convert.ToInt32("G:")) * tick;
+            MMC.WriteString(MSG);
+        }
+    } 
 }
   
