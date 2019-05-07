@@ -1302,6 +1302,7 @@ namespace Polarimeter2019
            }
                 catch (Exception ex)
            {
+
            }
         }
     }
