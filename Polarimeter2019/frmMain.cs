@@ -194,7 +194,7 @@ namespace Polarimeter2019
             gbStartMea.Enabled = false;
             gbSample.Enabled = false;
             gbScanCondition.Enabled = false;
-            gbMeasurement.Enabled = false;
+            gbMeasurement.Enabled = true;
 
             // ----------------------------------------
             // 2. start Test loop of reading light intensity
@@ -273,8 +273,9 @@ namespace Polarimeter2019
         #region Scanning Procedure    
 
         Random Rnd = new Random();
-        private void DoScanLightIntensity()
+        public void DoScanLightIntensity()
         {
+            PolarChart();
             // --------------------------------------------
             // validate selected index of repeats
             // --------------------------------------------
@@ -299,6 +300,7 @@ namespace Polarimeter2019
 
             try
             {
+                timer1.Start();
                 // --------------------------------------------
                 // get read conditions
                 // --------------------------------------------
@@ -320,7 +322,7 @@ namespace Polarimeter2019
                 txtStop.Text = ThetaB.ToString();
                 BDC.Reference.X = new double[NumberOfPoint];
                 BDC.Reference.Y = new double[NumberOfPoint];
-                
+
                 for (int i = 0; i < BDC.Data.Length; i++)
                 {
                     BDC.Data[i].X = new double[NumberOfPoint];
@@ -374,6 +376,15 @@ namespace Polarimeter2019
                         CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
                     }
                     CurrentLightIntensity = CurrentLightIntensity / nAvg;
+
+                    foreach (Series ptseries in chart1.Series)
+                    {
+                        double x = ((System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text)) + (tick * (System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))))));
+                        double y = CurrentLightIntensity;
+                        System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
+                        ptseries.Points.AddXY(x, y);
+                    }
+                    chart1.Invalidate();
                 }
                 else
                 {
@@ -438,6 +449,15 @@ namespace Polarimeter2019
                             CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
                         }
                         CurrentLightIntensity = CurrentLightIntensity / nAvg;
+
+                        foreach (Series ptseries in chart1.Series)
+                        {
+                            double x = ((System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text)) + (tick * (System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))))));
+                            double y = CurrentLightIntensity;
+                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
+                            ptseries.Points.AddXY(x, y);
+                        }
+                        chart1.Invalidate();
                     }
                     else
 
@@ -535,6 +555,8 @@ namespace Polarimeter2019
                 btnPause.Text = "PAUSE";
                 btnNew.Enabled = true;
                 btnOpen.Enabled = true;
+                gbMeasurement.Enabled = true;
+                gbStartMea.Enabled = true;
                 gbSample.Enabled = true;
                 gbScanCondition.Enabled = true;
             }
@@ -544,6 +566,8 @@ namespace Polarimeter2019
         {
             IsScanning = false;
             IsContinuing = false;
+            string MSG = "A:WP0P0";
+            MMC.WriteString(MSG);
         }
 
         private void DoPasuseScanning()
@@ -865,7 +889,7 @@ namespace Polarimeter2019
 
                     // Add blank data
                     BDC.Data = new BaseDataControl.strucCurveData[NumberOfRepeatation];
-                    
+
                     // clear
                     lsvData.Items.Clear();
                     ListViewItem lvi;
@@ -908,33 +932,11 @@ namespace Polarimeter2019
                     lsvData.CheckBoxes = true;
                     lsvData.Focus();
 
-                    chart1.Series.Clear();
-                    Series newSeries = new Series("Reference");
-                    newSeries.ChartType = SeriesChartType.Polar;
-                    newSeries.BorderWidth = 3;
-                    newSeries.XValueType = ChartValueType.DateTime;
-                    newSeries.YValueType = ChartValueType.DateTime;
-                    newSeries.Color = Properties.Settings.Default.ReferenceColor;
-                    for (int i = 1; i <= NumberOfRepeatation; i++)
-                    {
-                        Series sample = new Series("Sample" + i.ToString());
-                        sample.ChartType = SeriesChartType.Polar;
-                        sample.BorderWidth = 3;
-                        sample.XValueType = ChartValueType.Auto;
-                        sample.YValueType = ChartValueType.Auto;
-                        chart1.Series.Add(sample);
-                        sample.Color = ColorTable[(i - 1) % ColorTable.Length];
-                    }
-                    chart1.Series.Add(newSeries);
-                    chart1.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
-                    chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
-                    chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                    chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
-                    chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
-                    chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                    PolarChart();
                 }
-                catch (Exception ex)
+                catch
                 {
+
                 }
             }
         }
@@ -1236,15 +1238,14 @@ namespace Polarimeter2019
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            PushXY();
-            Step();
+            //PushXY();
             tick++;
         }
 
         private void lsvData_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             //bool clicked = false;
-            //CheckBoxState state;
+            //CheckBoxState state;  
             //if (!clicked)
             //{
             //    clicked = true;
@@ -1270,11 +1271,38 @@ namespace Polarimeter2019
             //}
         }
 
-        public void Step()
+        public void PolarChart()
         {
-            string MSG = "M:WP" + System.Convert.ToInt32(-1 * Convert.ToDouble(txtResolution.Text) / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * Convert.ToDouble(txtResolution.Text) / StepFactor).ToString();
-            //MSG = (System.Convert.ToInt32("G:")) * tick;
-            MMC.WriteString(MSG);
+           try
+           { 
+                chart1.Series.Clear();
+                Series newSeries = new Series("Reference");
+                newSeries.ChartType = SeriesChartType.Polar;
+                newSeries.BorderWidth = 3;
+                newSeries.XValueType = ChartValueType.DateTime;
+                newSeries.YValueType = ChartValueType.DateTime;
+                newSeries.Color = Properties.Settings.Default.ReferenceColor;
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Polar;
+                    sample.BorderWidth = 3;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart1.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+                chart1.Series.Add(newSeries);
+                chart1.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
+                chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
+                chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
+                chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
+                chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+           }
+                catch (Exception ex)
+           {
+           }
         }
     }
 }
