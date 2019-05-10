@@ -21,17 +21,19 @@ namespace Polarimeter2019
         Random rand = new Random();
         int tick = 0;
 
+        
+
         public frmMain()
         {
             InitializeComponent();
             comboAxis.Items.Add("X");
             comboAxis.Items.Add("Y");
 
+
             BDC = new BaseDataControl();
 
             DMM = new Ivi.Visa.Interop.FormattedIO488();
             MMC = new Ivi.Visa.Interop.FormattedIO488();
-
         }
 
         #region DECRALATION
@@ -173,6 +175,7 @@ namespace Polarimeter2019
         private void DoStart()
         {
             // Add curve
+
             double[] x = new double[1];
             double[] y = new double[1];
 
@@ -1128,7 +1131,41 @@ namespace Polarimeter2019
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            NewMeasurement();
+            // สามารถทำได้แต่ไม่คลอบคลุม
+
+            //MessageBox.Show("You want to save this last file?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            //DialogResult a;
+            //a = MessageBox.Show("You want to save this last file?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            //{
+            //    switch (a)
+            //    {
+            //        case object _ when a == System.Windows.Forms.DialogResult.Yes:
+            //            {
+            //                BDC.SaveFile();
+            //                break;
+            //            }
+            //        case object _ when a == System.Windows.Forms.DialogResult.Cancel:
+            //            {
+            //                break;
+            //            }
+
+            //    }
+            //}
+            //NewMeasurement();
+
+            // แก้ไขแล้วใช้ได้
+            {
+                DialogResult result = MessageBox.Show("Do you want to save file before new measurement?", "New file", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    BDC.SaveFile();
+                    NewMeasurement();
+                }
+                else if (result == DialogResult.No)
+                {
+                    NewMeasurement();
+                }
+            }
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
