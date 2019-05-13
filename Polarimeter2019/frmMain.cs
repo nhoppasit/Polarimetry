@@ -45,6 +45,9 @@ namespace Polarimeter2019
         double SpecificRotation;
         int NumberOfRepeatation;
         int SelectedIndex;
+        double CurrentLightIntensity;
+        double CurrentTheta = 0;
+
 
         //ColorTable
         public Color ReferenceColor = Color.Red;
@@ -202,6 +205,7 @@ namespace Polarimeter2019
             CurrentPointIndex = 0;
             IsScanning = true;
             lblMainStatus.Text = "Measuring...";
+            PolarChart();
             DoScanLightIntensity();
 
             // end
@@ -275,7 +279,6 @@ namespace Polarimeter2019
         Random Rnd = new Random();
         public void DoScanLightIntensity()
         {
-            PolarChart();
             // --------------------------------------------
             // validate selected index of repeats
             // --------------------------------------------
@@ -347,10 +350,8 @@ namespace Polarimeter2019
                 // ----------------------------------------------------------------
                 // REAL INTERFACE YES OR NOT (Theta,I)
                 // ----------------------------------------------------------------
-                double CurrentLightIntensity;
                 int StepNumber;
                 string MSG;
-                double CurrentTheta = 0;
                 if (ThetaA < ThetaB)
                 {
                     CurrentTheta = ThetaA + CurrentPointIndex * Delta;
@@ -379,7 +380,7 @@ namespace Polarimeter2019
 
                     foreach (Series ptseries in chart1.Series)
                     {
-                        double x = ((System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text)) + (tick * (System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))))));
+                        double x = CurrentTheta;
                         double y = CurrentLightIntensity;
                         System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
                         ptseries.Points.AddXY(x, y);
@@ -452,7 +453,7 @@ namespace Polarimeter2019
 
                         foreach (Series ptseries in chart1.Series)
                         {
-                            double x = ((System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text)) + (tick * (System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))))));
+                            double x = CurrentTheta;
                             double y = CurrentLightIntensity;
                             System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
                             ptseries.Points.AddXY(x, y);
@@ -474,23 +475,16 @@ namespace Polarimeter2019
                         CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
 
                     // Save to memory and update curve
-                    try
-                    {
                         if (SelectedIndex == 0)
                         {
                             BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         }
-                    }
-                    catch (Exception)
-                    {
-                        BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                        BDC.PatchData(SelectedIndex + 2, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         DefineAngleOfRotation();
                         PlotReferenceCurve();
                         PlotTreatmentsCurve();
                         PlotSelectedTRTMarker();
-                    }
                     // auto scale
-                    // AxDynaPlot1.Axes.Autoscale()
 
                     // check stop condition!!!
                     if (ThetaA < ThetaB)
@@ -539,7 +533,7 @@ namespace Polarimeter2019
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
 
                 // ----------------------------------------
                 // 1. stop Test loop of reading light intensity
@@ -854,6 +848,7 @@ namespace Polarimeter2019
 
         private void NewMeasurement()
         {
+            chart1.Series.Clear();
             // verify user
             if (lsvData.Items.Count > 0)
             {
@@ -1214,31 +1209,8 @@ namespace Polarimeter2019
             return bm2;
         }
 
-        private void PushXY()
-        {
-            foreach (Series ptseries in chart1.Series)
-            {
-                for (int i = 0; i < 1; i++)
-                {
-                    //double N = ((System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text)) - System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text))) / System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))) + i;
-                    //double Xf = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text) + N * (System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))));
-                    //double x = (System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text))+ System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text)))*i;
-                    double x = ((System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text)) + (tick * (System.Convert.ToDouble(1 * Convert.ToDouble(txtResolution.Text))))));
-                    double y = rand.Next(5, 20);
-                    System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-
-                    ptseries.Points.AddXY(x, y);
-                }
-                //chart1.ChartAreas[0].AxisX.Maximum = ptseries.Points[ptseries.Points.Count - 1].XValue;
-                //chart1.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStart.Text));
-                //chart1.ChartAreas[0].AxisX.Maximum = System.Convert.ToDouble(1 * Convert.ToDouble(txtStop.Text));
-                chart1.Invalidate();
-            }
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //PushXY();
             tick++;
         }
 
@@ -1275,7 +1247,7 @@ namespace Polarimeter2019
         {
            try
            { 
-                chart1.Series.Clear();
+                //chart1.Series.Clear();
                 Series newSeries = new Series("Reference");
                 newSeries.ChartType = SeriesChartType.Polar;
                 newSeries.BorderWidth = 3;
@@ -1285,7 +1257,7 @@ namespace Polarimeter2019
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
-                    sample.ChartType = SeriesChartType.Polar;
+                    sample.ChartType = SeriesChartType.Polar ;
                     sample.BorderWidth = 3;
                     sample.XValueType = ChartValueType.Auto;
                     sample.YValueType = ChartValueType.Auto;
@@ -1304,6 +1276,12 @@ namespace Polarimeter2019
            {
 
            }
+        }
+
+        private void lsvData_MouseClick(object sender, MouseEventArgs e)
+        {
+            double[] reference1 = {CurrentPointIndex, CurrentTheta, CurrentLightIntensity};
+            //DoScanLightIntensity();
         }
     }
 }

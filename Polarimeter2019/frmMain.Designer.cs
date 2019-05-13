@@ -478,6 +478,7 @@
             this.lsvData.UseCompatibleStateImageBehavior = false;
             this.lsvData.View = System.Windows.Forms.View.Details;
             this.lsvData.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lsvData_ItemCheck);
+            this.lsvData.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lsvData_MouseClick);
             // 
             // columnHeader1
             // 
@@ -568,11 +569,12 @@
             // btnRun
             // 
             this.btnRun.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRun.Location = new System.Drawing.Point(318, 34);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(121, 95);
             this.btnRun.TabIndex = 6;
-            this.btnRun.Text = "Run";
+            this.btnRun.Text = "Go to \r\nstart";
             this.btnRun.UseVisualStyleBackColor = false;
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
@@ -843,7 +845,7 @@
             this.chart1.Location = new System.Drawing.Point(430, 208);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Polar;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             series1.YValuesPerPoint = 6;
