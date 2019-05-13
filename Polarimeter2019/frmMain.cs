@@ -479,7 +479,7 @@ namespace Polarimeter2019
                         {
                             BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         }
-                        BDC.PatchData(SelectedIndex + 2, CurrentPointIndex, CurrentTheta, CurrentLightIntensity); //ค่าสุดสิ้นที่ตรงนี้
+                        BDC.PatchData(SelectedIndex + 2, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         DefineAngleOfRotation();
                         PlotReferenceCurve();
                         PlotTreatmentsCurve();
@@ -1123,7 +1123,25 @@ namespace Polarimeter2019
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            NewMeasurement();
+            if (lsvData.SelectedItems.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("Do you want to save file before new measurement?", "New file", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                {
+                    if (result == DialogResult.Yes)
+                    {
+                        BDC.SaveFile();
+                        NewMeasurement();
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        NewMeasurement();
+                    }
+                }
+            }
+            else
+            {
+                NewMeasurement();
+            }
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
