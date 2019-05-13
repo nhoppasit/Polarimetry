@@ -869,6 +869,10 @@ namespace Polarimeter2019
                 {
                     return;
                 }
+                //else if (result == )
+                //{
+                //    return;
+                //}
             }
 
             // load dialog
@@ -1154,18 +1158,26 @@ namespace Polarimeter2019
             //NewMeasurement();
 
             // แก้ไขแล้วใช้ได้
+            if (lsvData.Items.Count > 0)
             {
-                DialogResult result = MessageBox.Show("Do you want to save file before new measurement?", "New file", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
                 {
-                    BDC.SaveFile();
-                    NewMeasurement();
-                }
-                else if (result == DialogResult.No)
-                {
-                    NewMeasurement();
+                    DialogResult result = MessageBox.Show("Do you want to save file before new measurement?", "New file", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        BDC.SaveFile();
+                        NewMeasurement();
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        NewMeasurement();
+                    }
                 }
             }
+            else
+            {
+                NewMeasurement();
+            }
+
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
