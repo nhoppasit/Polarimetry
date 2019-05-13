@@ -479,7 +479,7 @@ namespace Polarimeter2019
                         {
                             BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         }
-                        BDC.PatchData(SelectedIndex + 2, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                        BDC.PatchData(SelectedIndex + 2, CurrentPointIndex, CurrentTheta, CurrentLightIntensity); //ค่าสุดสิ้นที่ตรงนี้
                         DefineAngleOfRotation();
                         PlotReferenceCurve();
                         PlotTreatmentsCurve();
