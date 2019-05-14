@@ -173,7 +173,7 @@ namespace Polarimeter2019
 
         #region Control Panel
 
-        private void DoStart()
+        private void DoStart ()
         {
             // Add curve
             double[] x = new double[1];
@@ -279,6 +279,7 @@ namespace Polarimeter2019
         Random Rnd = new Random();
         public void DoScanLightIntensity()
         {
+            PolarChart();
             // --------------------------------------------
             // validate selected index of repeats
             // --------------------------------------------
@@ -457,6 +458,8 @@ namespace Polarimeter2019
                             double y = CurrentLightIntensity;
                             System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
                             ptseries.Points.AddXY(x, y);
+
+                            int[] array = new int[10];
                         }
                         chart1.Invalidate();
                     }
@@ -475,15 +478,15 @@ namespace Polarimeter2019
                         CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
 
                     // Save to memory and update curve
-                        if (SelectedIndex == 0)
-                        {
-                            BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                        }
-                        BDC.PatchData(SelectedIndex + 2, CurrentPointIndex, CurrentTheta, CurrentLightIntensity); //ค่าสุดสิ้นที่ตรงนี้
-                        DefineAngleOfRotation();
-                        PlotReferenceCurve();
-                        PlotTreatmentsCurve();
-                        PlotSelectedTRTMarker();
+                    if (SelectedIndex == 0)
+                    {
+                        BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                    }
+                    BDC.PatchData(SelectedIndex + 2, CurrentPointIndex, CurrentTheta, CurrentLightIntensity); //ค่าสุดสิ้นที่ตรงนี้
+                    DefineAngleOfRotation();
+                    PlotReferenceCurve();
+                    PlotTreatmentsCurve();
+                    PlotSelectedTRTMarker();
                     // auto scale
 
                     // check stop condition!!!
@@ -572,7 +575,6 @@ namespace Polarimeter2019
 
         private void DoContinueScanning()
         {
-            DoStart();
             IsScanning = true;
             IsContinuing = true;
         }
@@ -1245,8 +1247,8 @@ namespace Polarimeter2019
 
         public void PolarChart()
         {
-           try
-           { 
+            try
+            {
                 //chart1.Series.Clear();
                 Series newSeries = new Series("Reference");
                 newSeries.ChartType = SeriesChartType.Polar;
@@ -1257,7 +1259,7 @@ namespace Polarimeter2019
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
-                    sample.ChartType = SeriesChartType.Polar ;
+                    sample.ChartType = SeriesChartType.Polar;
                     sample.BorderWidth = 3;
                     sample.XValueType = ChartValueType.Auto;
                     sample.YValueType = ChartValueType.Auto;
@@ -1271,16 +1273,16 @@ namespace Polarimeter2019
                 chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
                 chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
                 chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-           }
-                catch (Exception ex)
-           {
+            }
+            catch (Exception ex)
+            {
 
-           }
+            }
         }
 
         private void lsvData_MouseClick(object sender, MouseEventArgs e)
         {
-            double[] reference1 = {CurrentPointIndex, CurrentTheta, CurrentLightIntensity};
+            double[] reference1 = { CurrentPointIndex, CurrentTheta, CurrentLightIntensity };
             //DoScanLightIntensity();
         }
     }
