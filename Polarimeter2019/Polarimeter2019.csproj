@@ -110,5 +110,26 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11949838241715493605bb_fldr_.svg.med.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11949838241715493605bb_fldr_.svg.thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1206570547560908424akiross_Audio_Button_Set_4.svg.thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1206570536270669982akiross_Audio_Button_Set_1.svg.thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1206570558146836835akiross_Audio_Button_Set_2.svg.thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1206570574308349122akiross_Audio_Button_Set_5.svg.thumb.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

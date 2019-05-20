@@ -59,5 +59,75 @@ namespace Polarimeter2019.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _11949838241715493605bb_fldr__svg_med {
+            get {
+                object obj = ResourceManager.GetObject("11949838241715493605bb_fldr_.svg.med", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _11949838241715493605bb_fldr__svg_thumb {
+            get {
+                object obj = ResourceManager.GetObject("11949838241715493605bb_fldr_.svg.thumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1206570536270669982akiross_Audio_Button_Set_1_svg_thumb {
+            get {
+                object obj = ResourceManager.GetObject("1206570536270669982akiross_Audio_Button_Set_1.svg.thumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1206570547560908424akiross_Audio_Button_Set_4_svg_thumb {
+            get {
+                object obj = ResourceManager.GetObject("1206570547560908424akiross_Audio_Button_Set_4.svg.thumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1206570558146836835akiross_Audio_Button_Set_2_svg_thumb {
+            get {
+                object obj = ResourceManager.GetObject("1206570558146836835akiross_Audio_Button_Set_2.svg.thumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1206570574308349122akiross_Audio_Button_Set_5_svg_thumb {
+            get {
+                object obj = ResourceManager.GetObject("1206570574308349122akiross_Audio_Button_Set_5.svg.thumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Play {
+            get {
+                object obj = ResourceManager.GetObject("Play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -28,22 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnNew = new System.Windows.Forms.Button();
-            this.MainMenu = new System.Windows.Forms.MenuStrip();
+            this.bynPaues = new System.Windows.Forms.MenuStrip();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -102,12 +101,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnOpen = new System.Windows.Forms.Button();
             this.gbMeasurement = new System.Windows.Forms.GroupBox();
-            this.btnPause = new System.Windows.Forms.Button();
-            this.btnStop = new System.Windows.Forms.Button();
-            this.btnStart = new System.Windows.Forms.Button();
+            this.pbPause = new System.Windows.Forms.PictureBox();
+            this.pbCoutinue = new System.Windows.Forms.PictureBox();
+            this.btnStop = new System.Windows.Forms.PictureBox();
+            this.pbStart = new System.Windows.Forms.PictureBox();
             this.gbStartMea = new System.Windows.Forms.GroupBox();
+            this.btnOpen = new System.Windows.Forms.Button();
             this.MainStatus = new System.Windows.Forms.StatusStrip();
             this.lblMainStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -122,7 +122,6 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnDisconnect = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -130,11 +129,15 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.MainMenu.SuspendLayout();
+            this.bynPaues.SuspendLayout();
             this.gbSample.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).BeginInit();
             this.gbScanCondition.SuspendLayout();
             this.gbMeasurement.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPause)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCoutinue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnStop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStart)).BeginInit();
             this.gbStartMea.SuspendLayout();
             this.MainStatus.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -150,30 +153,30 @@
             // 
             // btnNew
             // 
-            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.Location = new System.Drawing.Point(52, 25);
+            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.Location = new System.Drawing.Point(6, 21);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(132, 57);
+            this.btnNew.Size = new System.Drawing.Size(227, 68);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "New";
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // MainMenu
+            // bynPaues
             // 
-            this.MainMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bynPaues.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.bynPaues.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
             this.driverToolStripMenuItem,
             this.mesurementToolStripMenuItem,
             this.optionsToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.MainMenu.Location = new System.Drawing.Point(0, 0);
-            this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(1672, 28);
-            this.MainMenu.TabIndex = 1;
-            this.MainMenu.Text = "menuStrip1";
+            this.bynPaues.Location = new System.Drawing.Point(0, 0);
+            this.bynPaues.Name = "bynPaues";
+            this.bynPaues.Size = new System.Drawing.Size(1672, 28);
+            this.bynPaues.TabIndex = 1;
+            this.bynPaues.Text = "menuStrip1";
             // 
             // newToolStripMenuItem
             // 
@@ -395,6 +398,7 @@
             this.mnuOptionsDemomode.Name = "mnuOptionsDemomode";
             this.mnuOptionsDemomode.Size = new System.Drawing.Size(229, 26);
             this.mnuOptionsDemomode.Text = "Demo mode";
+            this.mnuOptionsDemomode.Click += new System.EventHandler(this.mnuOptionsDemomode_Click);
             // 
             // mnuColorTableToolStripMenuItem
             // 
@@ -658,67 +662,63 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Start";
             // 
-            // btnOpen
-            // 
-            this.btnOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpen.Location = new System.Drawing.Point(52, 88);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(132, 60);
-            this.btnOpen.TabIndex = 5;
-            this.btnOpen.Text = "Open";
-            this.btnOpen.UseVisualStyleBackColor = false;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
-            // 
             // gbMeasurement
             // 
             this.gbMeasurement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbMeasurement.Controls.Add(this.btnPause);
+            this.gbMeasurement.Controls.Add(this.pbPause);
+            this.gbMeasurement.Controls.Add(this.pbCoutinue);
             this.gbMeasurement.Controls.Add(this.btnStop);
-            this.gbMeasurement.Controls.Add(this.btnStart);
+            this.gbMeasurement.Controls.Add(this.pbStart);
             this.gbMeasurement.Location = new System.Drawing.Point(976, 31);
             this.gbMeasurement.Name = "gbMeasurement";
-            this.gbMeasurement.Size = new System.Drawing.Size(534, 171);
+            this.gbMeasurement.Size = new System.Drawing.Size(590, 171);
             this.gbMeasurement.TabIndex = 6;
             this.gbMeasurement.TabStop = false;
             this.gbMeasurement.Text = "Measurement";
             // 
             // btnPause
             // 
-            this.btnPause.BackColor = System.Drawing.Color.Yellow;
-            this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPause.Location = new System.Drawing.Point(190, 40);
-            this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(159, 95);
-            this.btnPause.TabIndex = 2;
-            this.btnPause.Text = "PAUSE";
-            this.btnPause.UseVisualStyleBackColor = false;
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            this.pbPause.Image = global::Polarimeter2019.Properties.Resources._1206570536270669982akiross_Audio_Button_Set_1_svg_thumb;
+            this.pbPause.Location = new System.Drawing.Point(211, 34);
+            this.pbPause.Name = "btnPause";
+            this.pbPause.Size = new System.Drawing.Size(127, 114);
+            this.pbPause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPause.TabIndex = 10;
+            this.pbPause.TabStop = false;
+            this.pbPause.Click += new System.EventHandler(this.pbPause_Click);
+            // 
+            // btnCoutinue
+            // 
+            this.pbCoutinue.Image = global::Polarimeter2019.Properties.Resources._1206570574308349122akiross_Audio_Button_Set_5_svg_thumb;
+            this.pbCoutinue.Location = new System.Drawing.Point(211, 34);
+            this.pbCoutinue.Name = "btnCoutinue";
+            this.pbCoutinue.Size = new System.Drawing.Size(127, 114);
+            this.pbCoutinue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCoutinue.TabIndex = 1;
+            this.pbCoutinue.TabStop = false;
             // 
             // btnStop
             // 
-            this.btnStop.BackColor = System.Drawing.Color.Red;
-            this.btnStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStop.Location = new System.Drawing.Point(355, 40);
+            this.btnStop.Image = global::Polarimeter2019.Properties.Resources._1206570558146836835akiross_Audio_Button_Set_2_svg_thumb;
+            this.btnStop.Location = new System.Drawing.Point(388, 34);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(158, 95);
-            this.btnStop.TabIndex = 1;
-            this.btnStop.Text = "STOP";
-            this.btnStop.UseVisualStyleBackColor = false;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            this.btnStop.Size = new System.Drawing.Size(127, 114);
+            this.btnStop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnStop.TabIndex = 2;
+            this.btnStop.TabStop = false;
+            this.btnStop.Click += new System.EventHandler(this.pbStop_Click);
             // 
             // btnStart
             // 
-            this.btnStart.BackColor = System.Drawing.Color.Lime;
-            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(27, 40);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(157, 95);
-            this.btnStart.TabIndex = 0;
-            this.btnStart.Text = "START";
-            this.btnStart.UseVisualStyleBackColor = false;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.pbStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
+            this.pbStart.Location = new System.Drawing.Point(29, 34);
+            this.pbStart.Name = "btnStart";
+            this.pbStart.Size = new System.Drawing.Size(127, 114);
+            this.pbStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbStart.TabIndex = 0;
+            this.pbStart.TabStop = false;
+            this.pbStart.Click += new System.EventHandler(this.pbStart_Click);
             // 
             // gbStartMea
             // 
@@ -730,6 +730,18 @@
             this.gbStartMea.TabIndex = 7;
             this.gbStartMea.TabStop = false;
             this.gbStartMea.Text = "Start Measurement";
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpen.Location = new System.Drawing.Point(6, 95);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(227, 68);
+            this.btnOpen.TabIndex = 5;
+            this.btnOpen.Text = "Open";
+            this.btnOpen.UseVisualStyleBackColor = false;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // MainStatus
             // 
@@ -847,25 +859,21 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(0, 0);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Polar;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            series1.YValuesPerPoint = 6;
-            this.chart1.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Polar;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            series5.YValuesPerPoint = 6;
+            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(1069, 575);
             this.chart1.TabIndex = 6;
             this.chart1.Text = " ";
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // tabControl1
             // 
@@ -899,17 +907,17 @@
             this.chart4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.chart4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            chartArea2.Name = "ChartArea1";
-            this.chart4.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart4.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart4.Legends.Add(legend6);
             this.chart4.Location = new System.Drawing.Point(6, 6);
             this.chart4.Name = "chart4";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Polar;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart4.Series.Add(series2);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Polar;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chart4.Series.Add(series6);
             this.chart4.Size = new System.Drawing.Size(530, 569);
             this.chart4.TabIndex = 1;
             this.chart4.Text = "chart4";
@@ -919,18 +927,18 @@
             this.chart3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea3.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart3.Legends.Add(legend3);
-            this.chart3.Location = new System.Drawing.Point(533, 6);
+            chartArea7.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart3.Legends.Add(legend7);
+            this.chart3.Location = new System.Drawing.Point(542, 6);
             this.chart3.Name = "chart3";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart3.Series.Add(series3);
-            this.chart3.Size = new System.Drawing.Size(533, 569);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.chart3.Series.Add(series7);
+            this.chart3.Size = new System.Drawing.Size(524, 569);
             this.chart3.TabIndex = 0;
             this.chart3.Text = "chart3";
             // 
@@ -953,17 +961,17 @@
             this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart2.Legends.Add(legend4);
+            chartArea8.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.chart2.Legends.Add(legend8);
             this.chart2.Location = new System.Drawing.Point(0, 0);
             this.chart2.Name = "chart2";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart2.Series.Add(series4);
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.chart2.Series.Add(series8);
             this.chart2.Size = new System.Drawing.Size(1066, 575);
             this.chart2.TabIndex = 0;
             this.chart2.Text = "chart2";
@@ -992,23 +1000,27 @@
             this.Controls.Add(this.gbMeasurement);
             this.Controls.Add(this.gbScanCondition);
             this.Controls.Add(this.gbSample);
-            this.Controls.Add(this.MainMenu);
+            this.Controls.Add(this.bynPaues);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.MainMenu;
+            this.MainMenuStrip = this.bynPaues;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "  ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.MainMenu.ResumeLayout(false);
-            this.MainMenu.PerformLayout();
+            this.bynPaues.ResumeLayout(false);
+            this.bynPaues.PerformLayout();
             this.gbSample.ResumeLayout(false);
             this.gbSample.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatNumber)).EndInit();
             this.gbScanCondition.ResumeLayout(false);
             this.gbScanCondition.PerformLayout();
             this.gbMeasurement.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPause)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCoutinue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnStop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStart)).EndInit();
             this.gbStartMea.ResumeLayout(false);
             this.MainStatus.ResumeLayout(false);
             this.MainStatus.PerformLayout();
@@ -1029,7 +1041,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.MenuStrip MainMenu;
+        private System.Windows.Forms.MenuStrip bynPaues;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -1081,11 +1093,7 @@
         private System.Windows.Forms.ToolStripMenuItem voltageMeasureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resolutionToolStripMenuItem;
-        private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.GroupBox gbMeasurement;
-        private System.Windows.Forms.Button btnPause;
-        private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.GroupBox gbStartMea;
         private System.Windows.Forms.NumericUpDown numRepeatNumber;
         private System.Windows.Forms.StatusStrip MainStatus;
@@ -1108,7 +1116,6 @@
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Button btnDisconnect;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -1116,6 +1123,11 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.PictureBox btnStop;
+        private System.Windows.Forms.PictureBox pbCoutinue;
+        private System.Windows.Forms.PictureBox pbStart;
+        private System.Windows.Forms.PictureBox pbPause;
     }
 }
 

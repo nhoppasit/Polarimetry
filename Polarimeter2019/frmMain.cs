@@ -19,7 +19,7 @@ namespace Polarimeter2019
         private Ivi.Visa.Interop.FormattedIO488 ioDmm;
         public BaseDataControl BDC;
         Random rand = new Random();
-        int tick = 0;
+        Boolean Couti = false;
 
         public frmMain()
         {
@@ -185,9 +185,9 @@ namespace Polarimeter2019
             // ----------------------------------------
             // 1. Update buttons
             // ----------------------------------------
-            btnStart.Enabled = false;
-            btnStop.Enabled = true;
-            btnPause.Enabled = true;
+            pbStart.Enabled = false;
+            pbPause.Enabled = true;
+            pbCoutinue.Enabled = true;
 
             // ----------------------------------------
             // disable box
@@ -216,14 +216,15 @@ namespace Polarimeter2019
             //1. stop Test loop of reading light intensity
             //----------------------------------------
             StopScanning();
+            pbCoutinue.Image = pbPause.Image;
+            Couti = false;
 
             //----------------------------------------
             //2. Update buttons
             //----------------------------------------
-            btnStart.Enabled = true;
-            btnStop.Enabled = false;
-            btnPause.Enabled = false;
-            btnPause.Text = "PAUSE";
+            pbStart.Enabled = true;
+            pbPause.Enabled = false;
+            gbSample.Enabled = true;
         }
 
         private void DoPause()
@@ -231,41 +232,49 @@ namespace Polarimeter2019
             // ----------------------------------------
             // 1. pause/continue Test loop of reading light intensity
             // ----------------------------------------
-            if (btnPause.Text == "PAUSE")
+            if (Couti == false)
             {
+                pbPause.Image = pbCoutinue.Image;
+                Couti = true;
                 DoPasuseScanning();
             }
 
             else
             {
+                pbPause.Image = pbPause.Image;
+                Couti = false;
                 DoContinueScanning();
             }
             // ----------------------------------------
             // 2. Update buttons
             // ----------------------------------------
-            btnStart.Enabled = false;
-            btnStop.Enabled = true;
-            btnPause.Enabled = true;
-            if (btnPause.Text == "PAUSE")
-                btnPause.Text = "CONTINUE";
+            pbStart.Enabled = false;
+            pbPause.Enabled = true;
+            pbCoutinue.Enabled = true;
+            if (Couti == false )
+            {
+                pbPause.Image = pbCoutinue.Image;
+                Couti = false;
+            }
             else
             {
-                btnPause.Text = "PAUSE";
+                pbCoutinue.Image = pbPause.Image;
+                Couti = false;
                 DoScanLightIntensity();
             }
         }
 
-        private void btnStart_Click(System.Object sender, System.EventArgs e)
+        private void pbStart_Click(System.Object sender, System.EventArgs e)
         {
             DoStart();
         }
 
-        private void btnStop_Click(System.Object sender, System.EventArgs e)
+        private void pbStop_Click(System.Object sender, System.EventArgs e)
         {
             DoStop();
         }
 
-        private void btnPause_Click(System.Object sender, System.EventArgs e)
+        private void pbPause_Click(System.Object sender, System.EventArgs e)
         {
             DoPause();
         }
@@ -301,7 +310,6 @@ namespace Polarimeter2019
 
             try
             {
-                timer1.Start();
                 // --------------------------------------------
                 // get read conditions
                 // --------------------------------------------
@@ -401,7 +409,7 @@ namespace Polarimeter2019
                         System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
                         ptseries.Points.AddXY(x, y);
                     }
-                    chart2.Invalidate();
+                    chart3.Invalidate();
 
                     foreach (Series ptseries in chart4.Series)
                     {
@@ -410,7 +418,7 @@ namespace Polarimeter2019
                         System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
                         ptseries.Points.AddXY(x, y);
                     }
-                    chart2.Invalidate();
+                    chart4.Invalidate();
                 }
                 else
                 {
@@ -466,7 +474,7 @@ namespace Polarimeter2019
                         MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
                         MMC.WriteString(MSG);
 
-                        // 3. Read light intensity
+                        // 2. Read light intensity
                         int nAvg = (int)numRepeatNumber.Value;
                         CurrentLightIntensity = 0;
                         for (int tt = 0; tt <= nAvg - 1; tt++)
@@ -476,6 +484,7 @@ namespace Polarimeter2019
                         }
                         CurrentLightIntensity = CurrentLightIntensity / nAvg;
 
+                        // 3.Add point in Chart
                         foreach (Series ptseries in chart1.Series)
                         {
                             double x = CurrentTheta;
@@ -501,7 +510,7 @@ namespace Polarimeter2019
                             System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
                             ptseries.Points.AddXY(x, y);
                         }
-                        chart2.Invalidate();
+                        chart3.Invalidate();
 
                         foreach (Series ptseries in chart4.Series)
                         {
@@ -510,7 +519,7 @@ namespace Polarimeter2019
                             System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
                             ptseries.Points.AddXY(x, y);
                         }
-                        chart2.Invalidate();
+                        chart4.Invalidate();
                     }
                     else
 
@@ -531,7 +540,7 @@ namespace Polarimeter2019
                         {
                             BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         }
-                        BDC.PatchData(SelectedIndex +2, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                        BDC.PatchData(SelectedIndex +1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                         DefineAngleOfRotation();
                         PlotReferenceCurve();
                         PlotTreatmentsCurve();
@@ -557,7 +566,7 @@ namespace Polarimeter2019
                 // --------------------------------------------(^0^)
 
                 // if stop update buttons to a new start
-                if (btnPause.Text != "CONTINUE")
+                if (Couti == true)
                 {
                     if (!mnuOptionsDemomode.Checked)
                     {
@@ -565,10 +574,9 @@ namespace Polarimeter2019
                         MMC.WriteString(MSG);
                         DisconnectDevices();
                     }
-                    btnStart.Enabled = true;
-                    btnStop.Enabled = false;
-                    btnPause.Enabled = false;
-                    btnPause.Text = "PAUSE";
+                    pbStart.Enabled = true;
+                    pbPause.Enabled = false;
+                    pbCoutinue.Enabled = false;
                     btnNew.Enabled = true;
                     btnOpen.Enabled = true;
                     gbSample.Enabled = true;
@@ -578,9 +586,9 @@ namespace Polarimeter2019
                 {
                     if (!mnuOptionsDemomode.Checked)
                         DisconnectDevices();
-                    btnStart.Enabled = false;
-                    btnStop.Enabled = true;
-                    btnPause.Enabled = true;
+                    pbStart.Enabled = false;
+                    pbPause.Enabled = true;
+                    pbCoutinue.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -595,10 +603,9 @@ namespace Polarimeter2019
                 // ----------------------------------------
                 // 2. Update buttons
                 // ----------------------------------------
-                btnStart.Enabled = true;
+                pbStart.Enabled = true;
                 btnStop.Enabled = false;
-                btnPause.Enabled = false;
-                btnPause.Text = "PAUSE";
+                pbCoutinue.Enabled = false;
                 btnNew.Enabled = true;
                 btnOpen.Enabled = true;
                 gbMeasurement.Enabled = true;
@@ -913,7 +920,7 @@ namespace Polarimeter2019
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    return;
+                    
                 }
             }
 
@@ -1254,11 +1261,6 @@ namespace Polarimeter2019
             return bm2;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            tick++;
-        }
-
         private void lsvData_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             //bool clicked = false;
@@ -1404,6 +1406,12 @@ namespace Polarimeter2019
         {
             double[] reference1 = {CurrentPointIndex, CurrentTheta, CurrentLightIntensity};
             //DoScanLightIntensity();
+
+        }
+
+        private void mnuOptionsDemomode_Click(object sender, EventArgs e)
+        {
+            DoScanLightIntensity();
         }
     }
 }
