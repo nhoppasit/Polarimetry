@@ -19,8 +19,6 @@ namespace Polarimeter2019
         private Ivi.Visa.Interop.FormattedIO488 ioDmm;
         public BaseDataControl BDC;
         Random rand = new Random();
-        Boolean Couti = false;
-        Boolean CN = false;
 
         public frmMain()
         {
@@ -167,38 +165,7 @@ namespace Polarimeter2019
                 MessageBox.Show(ex.Message);
             }
         }
-
-        //Click for connect and disconnect
-        private void pbDisconnect_Click(object sender, EventArgs e)
-        {
-            ConDis();
-        }
-
-        void ConDis()
-        {
-            if (CN == false)
-            {
-                ConnectedDevices();
-            }
-            else
-            {
-                DisconnectDevices();
-            }
-
-            //Update button
-            if (CN == false)
-            {
-                pbDisconnect.Image = pbConnect.Image;
-                CN = true;
-            }
-            else
-            {
-                pbDisconnect.Image = pbDisconnect.Image;
-                CN = false;
-            }
-        }
-
-
+        
         #endregion
 
         #region Control Panel
@@ -217,9 +184,9 @@ namespace Polarimeter2019
             // ----------------------------------------
             // 1. Update buttons
             // ----------------------------------------
-            pbStart.Enabled = false;
-            pbPause.Enabled = true;
-            pbCoutinue.Enabled = true;
+            btnStart.Enabled = false;
+            btnPause.Enabled = true;
+            btnStop.Enabled = true;
 
             // ----------------------------------------
             // disable box
@@ -248,14 +215,12 @@ namespace Polarimeter2019
             //1. stop Test loop of reading light intensity
             //----------------------------------------
             StopScanning();
-            pbCoutinue.Image = pbPause.Image;
-            Couti = false;
 
             //----------------------------------------
             //2. Update buttons
             //----------------------------------------
-            pbStart.Enabled = true;
-            pbPause.Enabled = false;
+            btnStart.Enabled = true;
+            btnPause.Enabled = false;
             gbSample.Enabled = true;
         }
 
@@ -264,7 +229,7 @@ namespace Polarimeter2019
             // ----------------------------------------
             // 1. pause/continue Test loop of reading light intensity
             // ----------------------------------------
-            if (Couti == false)
+            if (btnPause.Text == "PAUSE")
             {
                 DoPasuseScanning();
             }
@@ -272,40 +237,37 @@ namespace Polarimeter2019
             else
             {
                 DoContinueScanning();
-                ConnectedDevices();
             }
             // ----------------------------------------
             // 2. Update buttons
             // ----------------------------------------
-            pbStart.Enabled = false;
-            pbPause.Enabled = true;
-            pbCoutinue.Enabled = true;
-            if (Couti == false)
+            btnStart.Enabled = false;
+            btnPause.Enabled = true;
+            btnStop.Enabled = true;
+            if (btnPause.Text == "PAUSE")
             {
-                pbPause.Image = pbCoutinue.Image;
-                Couti = true;
+                btnPause.Text = "CONTINUE";
             }
             else
             {
-                pbCoutinue.Image = pbPause.Image;
-                Couti = false;
+                btnPause.Text = "PAUSE";
                 DoScanLightIntensity();
             }
         }
 
-        private void pbStart_Click(System.Object sender, System.EventArgs e)
+        private void btnStart_Click(System.Object sender, System.EventArgs e)
         {
             DoStart();
         }
 
-        private void pbStop_Click(System.Object sender, System.EventArgs e)
-        {
-            DoStop();
-        }
-
-        private void pbPause_Click(System.Object sender, System.EventArgs e)
+        private void btnPause_Click(System.Object sender, System.EventArgs e)
         {
             DoPause();
+        }
+
+        private void btnStop_Click(System.Object sender, System.EventArgs e)
+        {
+            DoStop();
         }
 
         #endregion
@@ -595,7 +557,7 @@ namespace Polarimeter2019
                 // --------------------------------------------(^0^)
 
                 // if stop update buttons to a new start
-                if (Couti == false)
+                if (btnPause.Text != "CONTINUE" )
                 {
                     if (!mnuOptionsDemomode.Checked)
                     {
@@ -603,9 +565,9 @@ namespace Polarimeter2019
                         MMC.WriteString(MSG);
                         DisconnectDevices();
                     }
-                    pbStart.Enabled = true;
-                    pbPause.Enabled = false;
-                    pbCoutinue.Enabled = false;
+                    btnStart.Enabled = true;
+                    btnPause.Enabled = false;
+                    btnStop.Enabled = false;
                     btnNew.Enabled = true;
                     btnOpen.Enabled = true;
                     gbSample.Enabled = true;
@@ -617,9 +579,9 @@ namespace Polarimeter2019
                     {
                         DisconnectDevices();
                     }
-                    pbStart.Enabled = false;
-                    pbPause.Enabled = true;
-                    pbCoutinue.Enabled = true;
+                    btnStart.Enabled = false;
+                    btnPause.Enabled = true;
+                    btnStop.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -634,9 +596,9 @@ namespace Polarimeter2019
                 // ----------------------------------------
                 // 2. Update buttons
                 // ----------------------------------------
-                pbStart.Enabled = true;
+                btnStart.Enabled = true;
                 btnStop.Enabled = false;
-                pbCoutinue.Enabled = false;
+                btnStop.Enabled = false;
                 btnNew.Enabled = true;
                 btnOpen.Enabled = true;
                 gbMeasurement.Enabled = true;
@@ -1257,6 +1219,16 @@ namespace Polarimeter2019
         private void btnOpen_Click(object sender, EventArgs e)
         {
             BDC.OpenFile();
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            ConnectedDevices();
+        }
+
+        private void btnDisconnect_Click(object sender, EventArgs e)
+        {
+            DisconnectDevices();
         }
 
         private void txtAvageNumber_KeyPress(System.Object sender, System.Windows.Forms.KeyPressEventArgs e)

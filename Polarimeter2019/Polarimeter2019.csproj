@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDataControl.cs" />
+    <Compile Include="ButtonEllpise.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frmColorTable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,8 +92,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -118,10 +121,35 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-connected-48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-disconnected-48.png" />
+    <Content Include="Resources\11949838241715493605bb_fldr_.svg.med.png" />
+    <Content Include="Resources\11949838241715493605bb_fldr_.svg.thumb.png" />
+    <Content Include="Resources\11949892282132520602led_circle_green.svg.med.png" />
+    <Content Include="Resources\1194989231691813435led_circle_red.svg.med.png" />
+    <Content Include="Resources\1206570536270669982akiross_Audio_Button_Set_1.svg.thumb.png" />
+    <Content Include="Resources\1206570547560908424akiross_Audio_Button_Set_4.svg.thumb.png" />
+    <Content Include="Resources\1206570558146836835akiross_Audio_Button_Set_2.svg.thumb.png" />
+    <Content Include="Resources\1206570574308349122akiross_Audio_Button_Set_5.svg.thumb.png" />
+    <Content Include="Resources\Coutinue.png" />
+    <Content Include="Resources\icons8-connected-100.png" />
+    <Content Include="Resources\icons8-connected-48.png" />
+    <Content Include="Resources\icons8-connected-64.png" />
+    <Content Include="Resources\icons8-connected-96.png" />
+    <Content Include="Resources\icons8-disconnected-100.png" />
+    <Content Include="Resources\icons8-disconnected-48.png" />
+    <Content Include="Resources\icons8-disconnected-64.png" />
+    <Content Include="Resources\icons8-disconnected-96.png" />
+    <Content Include="Resources\icons8-full-stop-100.png" />
+    <Content Include="Resources\icons8-multiply-filled-100.png" />
+    <Content Include="Resources\icons8-pause-filled-100.png" />
+    <Content Include="Resources\icons8-play-100.png" />
+    <Content Include="Resources\icons8-skip-to-start-100.png" />
+    <Content Include="Resources\icons8-start-100.png" />
+    <Content Include="Resources\icons8-start-filled-96.png" />
+    <Content Include="Resources\led-green-tiny-md.png" />
+    <Content Include="Resources\Pasue.png" />
+    <Content Include="Resources\Play.png" />
+    <Content Include="Resources\red-ledon-md.png" />
+    <Content Include="Resources\Stop2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
