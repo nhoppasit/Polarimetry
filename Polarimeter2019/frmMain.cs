@@ -208,6 +208,7 @@ namespace Polarimeter2019
 
             // end
             lblMainStatus.Text = "Ready";
+             
         }
 
         private void DoStop()
@@ -234,16 +235,13 @@ namespace Polarimeter2019
             // ----------------------------------------
             if (Couti == false)
             {
-                pbPause.Image = pbCoutinue.Image;
-                Couti = true;
                 DoPasuseScanning();
             }
 
             else
             {
-                pbPause.Image = pbPause.Image;
-                Couti = false;
                 DoContinueScanning();
+                ConnectedDevices();
             }
             // ----------------------------------------
             // 2. Update buttons
@@ -251,10 +249,10 @@ namespace Polarimeter2019
             pbStart.Enabled = false;
             pbPause.Enabled = true;
             pbCoutinue.Enabled = true;
-            if (Couti == false )
+            if (Couti == false)
             {
                 pbPause.Image = pbCoutinue.Image;
-                Couti = false;
+                Couti = true;
             }
             else
             {
@@ -436,7 +434,7 @@ namespace Polarimeter2019
                 }
                 else
                 {
-                    BDC.PatchData(SelectedIndex -1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                    BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                 }
                 //
                 DefineAngleOfRotation();
@@ -536,15 +534,15 @@ namespace Polarimeter2019
                         CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
 
                     // Save to memory and update curve
-                        if (SelectedIndex == 0)
-                        {
-                            BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                        }
-                        BDC.PatchData(SelectedIndex +1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                        DefineAngleOfRotation();
-                        PlotReferenceCurve();
-                        PlotTreatmentsCurve();
-                        PlotSelectedTRTMarker();
+                    if (SelectedIndex == 0)
+                    {
+                        BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                    }
+                    BDC.PatchData(SelectedIndex + 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                    DefineAngleOfRotation();
+                    PlotReferenceCurve();
+                    PlotTreatmentsCurve();
+                    PlotSelectedTRTMarker();
                     // auto scale
 
                     // check stop condition!!!
@@ -566,7 +564,7 @@ namespace Polarimeter2019
                 // --------------------------------------------(^0^)
 
                 // if stop update buttons to a new start
-                if (Couti == true)
+                if (Couti == false)
                 {
                     if (!mnuOptionsDemomode.Checked)
                     {
@@ -585,7 +583,9 @@ namespace Polarimeter2019
                 else
                 {
                     if (!mnuOptionsDemomode.Checked)
+                    {
                         DisconnectDevices();
+                    }
                     pbStart.Enabled = false;
                     pbPause.Enabled = true;
                     pbCoutinue.Enabled = true;
@@ -655,8 +655,53 @@ namespace Polarimeter2019
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BDC.SaveFile();
+            //*****************************************************************************
+            // ***ต้องเช็คก่อนว่ามีไฟล์หรือไม่ ถ้ามีให้ลบ
+
+
+            //เขียนต่อเลยนะครับ
+            LogFile.Log theSave = new LogFile.Log(@"D:\Polarimeter\Study Unit", @"test save");
+
+            //Header
+            LogFile.PolarimeterHeader header = new LogFile.PolarimeterHeader()
+            {
+                DMMPort = txtDMMAddress.Text,
+                MMCPort = txtMMCAddress.Text,
+                SampleName = "Hello1",
+                SampleNumber = 3,
+            };
+
+            //Append to file
+            theSave.AppendText(header.ToString());
+
+            //Listview loop
+            foreach (ListViewItem lvi in lsvData.Items)
+            {
+                theSave.AppendText($"{lvi.Index + 1},{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
+            }
+
+            //Curve data loop
+            int NumberOfPoints = BDC.Reference.X.Length;
+            theSave.AppendText(NumberOfPoints.ToString());
+            //            
+            for(int idx = 0; idx < NumberOfPoints; idx++)//.. Points loop
+            {
+                //theSave.AppendText($"{lvi.Index + 1},{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
+                string left = $"{idx + 1},{BDC.Reference.X[idx]},{BDC.Reference.Y[idx]}";
+                string right = "";
+                for (int di = 0; di < BDC.Data.Length; di++) //..Data loop
+                {
+                    right += $",{BDC.Data[di].Y[idx]}";
+                }//end data loop
+                //
+                theSave.AppendText($"{left}{right}");
+            }// end points loop
+            //*****************************************************************************
+
+            //BDC.SaveFile();
         }
+
+
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)  //ยังไม่เสร็จ
         {
@@ -920,7 +965,7 @@ namespace Polarimeter2019
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    
+
                 }
             }
 
@@ -1292,8 +1337,8 @@ namespace Polarimeter2019
 
         public void PolarChart()
         {
-           try
-           { 
+            try
+            {
                 //chart1
                 Series newSeries = new Series("Reference");
                 newSeries.ChartType = SeriesChartType.Polar;
@@ -1304,7 +1349,7 @@ namespace Polarimeter2019
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
-                    sample.ChartType = SeriesChartType.Polar ;
+                    sample.ChartType = SeriesChartType.Polar;
                     sample.BorderWidth = 3;
                     sample.XValueType = ChartValueType.Auto;
                     sample.YValueType = ChartValueType.Auto;
@@ -1344,7 +1389,7 @@ namespace Polarimeter2019
                 chart2.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
                 chart2.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
                 chart2.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(txtStart.Text);
-                
+
                 //chart3
                 Series newSeries3 = new Series("Reference");
                 newSeries3.ChartType = SeriesChartType.Line;
@@ -1396,17 +1441,19 @@ namespace Polarimeter2019
                 chart4.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
                 chart4.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
             }
-                catch (Exception ex)
-           {
+            catch (Exception ex)
+            {
 
-           }
+            }
         }
 
         private void lsvData_MouseClick(object sender, MouseEventArgs e)
         {
-            double[] reference1 = {CurrentPointIndex, CurrentTheta, CurrentLightIntensity};
-            //DoScanLightIntensity();
-
+            //double Arreference1 
+            //for(int idata = 0; idata < BDC.Data.Length; idata++)
+            //{
+            //    Arreference1 = 
+            //}
         }
 
         private void mnuOptionsDemomode_Click(object sender, EventArgs e)

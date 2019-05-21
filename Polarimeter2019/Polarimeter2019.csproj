@@ -131,5 +131,11 @@
   <ItemGroup>
     <None Include="Resources\1206570574308349122akiross_Audio_Button_Set_5.svg.thumb.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Log File\Log File.csproj">
+      <Project>{e2537b7a-2bfd-47b2-b44c-da2f2c76d526}</Project>
+      <Name>Log File</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

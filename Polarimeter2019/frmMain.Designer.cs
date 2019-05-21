@@ -124,6 +124,7 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -144,6 +145,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -174,7 +179,7 @@
             this.helpToolStripMenuItem});
             this.bynPaues.Location = new System.Drawing.Point(0, 0);
             this.bynPaues.Name = "bynPaues";
-            this.bynPaues.Size = new System.Drawing.Size(1672, 28);
+            this.bynPaues.Size = new System.Drawing.Size(1559, 28);
             this.bynPaues.TabIndex = 1;
             this.bynPaues.Text = "menuStrip1";
             // 
@@ -470,7 +475,7 @@
             this.gbSample.Controls.Add(this.label1);
             this.gbSample.Location = new System.Drawing.Point(12, 208);
             this.gbSample.Name = "gbSample";
-            this.gbSample.Size = new System.Drawing.Size(412, 600);
+            this.gbSample.Size = new System.Drawing.Size(412, 565);
             this.gbSample.TabIndex = 3;
             this.gbSample.TabStop = false;
             this.gbSample.Text = "Samples";
@@ -500,7 +505,7 @@
             this.lsvData.GridLines = true;
             this.lsvData.Location = new System.Drawing.Point(22, 92);
             this.lsvData.Name = "lsvData";
-            this.lsvData.Size = new System.Drawing.Size(357, 481);
+            this.lsvData.Size = new System.Drawing.Size(357, 446);
             this.lsvData.TabIndex = 4;
             this.lsvData.UseCompatibleStateImageBehavior = false;
             this.lsvData.View = System.Windows.Forms.View.Details;
@@ -664,35 +669,33 @@
             // 
             // gbMeasurement
             // 
-            this.gbMeasurement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbMeasurement.Controls.Add(this.pbPause);
             this.gbMeasurement.Controls.Add(this.pbCoutinue);
             this.gbMeasurement.Controls.Add(this.btnStop);
             this.gbMeasurement.Controls.Add(this.pbStart);
             this.gbMeasurement.Location = new System.Drawing.Point(976, 31);
             this.gbMeasurement.Name = "gbMeasurement";
-            this.gbMeasurement.Size = new System.Drawing.Size(590, 171);
+            this.gbMeasurement.Size = new System.Drawing.Size(571, 171);
             this.gbMeasurement.TabIndex = 6;
             this.gbMeasurement.TabStop = false;
             this.gbMeasurement.Text = "Measurement";
             // 
-            // btnPause
+            // pbPause
             // 
-            this.pbPause.Image = global::Polarimeter2019.Properties.Resources._1206570536270669982akiross_Audio_Button_Set_1_svg_thumb;
+            this.pbPause.Image = ((System.Drawing.Image)(resources.GetObject("pbPause.Image")));
             this.pbPause.Location = new System.Drawing.Point(211, 34);
-            this.pbPause.Name = "btnPause";
+            this.pbPause.Name = "pbPause";
             this.pbPause.Size = new System.Drawing.Size(127, 114);
             this.pbPause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPause.TabIndex = 10;
             this.pbPause.TabStop = false;
             this.pbPause.Click += new System.EventHandler(this.pbPause_Click);
             // 
-            // btnCoutinue
+            // pbCoutinue
             // 
-            this.pbCoutinue.Image = global::Polarimeter2019.Properties.Resources._1206570574308349122akiross_Audio_Button_Set_5_svg_thumb;
+            this.pbCoutinue.Image = ((System.Drawing.Image)(resources.GetObject("pbCoutinue.Image")));
             this.pbCoutinue.Location = new System.Drawing.Point(211, 34);
-            this.pbCoutinue.Name = "btnCoutinue";
+            this.pbCoutinue.Name = "pbCoutinue";
             this.pbCoutinue.Size = new System.Drawing.Size(127, 114);
             this.pbCoutinue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCoutinue.TabIndex = 1;
@@ -700,7 +703,7 @@
             // 
             // btnStop
             // 
-            this.btnStop.Image = global::Polarimeter2019.Properties.Resources._1206570558146836835akiross_Audio_Button_Set_2_svg_thumb;
+            this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("btnStop.Image")));
             this.btnStop.Location = new System.Drawing.Point(388, 34);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(127, 114);
@@ -709,11 +712,11 @@
             this.btnStop.TabStop = false;
             this.btnStop.Click += new System.EventHandler(this.pbStop_Click);
             // 
-            // btnStart
+            // pbStart
             // 
-            this.pbStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
+            this.pbStart.Image = ((System.Drawing.Image)(resources.GetObject("pbStart.Image")));
             this.pbStart.Location = new System.Drawing.Point(29, 34);
-            this.pbStart.Name = "btnStart";
+            this.pbStart.Name = "pbStart";
             this.pbStart.Size = new System.Drawing.Size(127, 114);
             this.pbStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbStart.TabIndex = 0;
@@ -756,9 +759,9 @@
             this.lblDMM,
             this.toolStripStatusLabel5,
             this.lblMMC});
-            this.MainStatus.Location = new System.Drawing.Point(0, 823);
+            this.MainStatus.Location = new System.Drawing.Point(0, 788);
             this.MainStatus.Name = "MainStatus";
-            this.MainStatus.Size = new System.Drawing.Size(1672, 25);
+            this.MainStatus.Size = new System.Drawing.Size(1559, 25);
             this.MainStatus.TabIndex = 8;
             this.MainStatus.Text = "statusStrip1";
             // 
@@ -863,7 +866,7 @@
             this.chart1.ChartAreas.Add(chartArea5);
             legend5.Name = "Legend1";
             this.chart1.Legends.Add(legend5);
-            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Name = "chart1";
             series5.ChartArea = "ChartArea1";
             series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Polar;
@@ -871,7 +874,7 @@
             series5.Name = "Series1";
             series5.YValuesPerPoint = 6;
             this.chart1.Series.Add(series5);
-            this.chart1.Size = new System.Drawing.Size(1069, 575);
+            this.chart1.Size = new System.Drawing.Size(1103, 510);
             this.chart1.TabIndex = 6;
             this.chart1.Text = " ";
             // 
@@ -886,59 +889,74 @@
             this.tabControl1.Location = new System.Drawing.Point(430, 208);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1080, 612);
+            this.tabControl1.Size = new System.Drawing.Size(1117, 577);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.chart4);
-            this.tabPage1.Controls.Add(this.chart3);
+            this.tabPage1.Controls.Add(this.splitContainer1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1072, 583);
+            this.tabPage1.Size = new System.Drawing.Size(1109, 548);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Line & Polar";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.chart4);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.chart3);
+            this.splitContainer1.Size = new System.Drawing.Size(1103, 542);
+            this.splitContainer1.SplitterDistance = 547;
+            this.splitContainer1.TabIndex = 2;
+            // 
             // chart4
             // 
-            this.chart4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.chart4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             chartArea6.Name = "ChartArea1";
             this.chart4.ChartAreas.Add(chartArea6);
+            this.chart4.Dock = System.Windows.Forms.DockStyle.Fill;
             legend6.Name = "Legend1";
             this.chart4.Legends.Add(legend6);
-            this.chart4.Location = new System.Drawing.Point(6, 6);
+            this.chart4.Location = new System.Drawing.Point(0, 0);
             this.chart4.Name = "chart4";
             series6.ChartArea = "ChartArea1";
             series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Polar;
             series6.Legend = "Legend1";
             series6.Name = "Series1";
             this.chart4.Series.Add(series6);
-            this.chart4.Size = new System.Drawing.Size(530, 569);
+            this.chart4.Size = new System.Drawing.Size(543, 538);
             this.chart4.TabIndex = 1;
             this.chart4.Text = "chart4";
             // 
             // chart3
             // 
-            this.chart3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.chart3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             chartArea7.Name = "ChartArea1";
             this.chart3.ChartAreas.Add(chartArea7);
+            this.chart3.Dock = System.Windows.Forms.DockStyle.Fill;
             legend7.Name = "Legend1";
             this.chart3.Legends.Add(legend7);
-            this.chart3.Location = new System.Drawing.Point(542, 6);
+            this.chart3.Location = new System.Drawing.Point(0, 0);
             this.chart3.Name = "chart3";
             series7.ChartArea = "ChartArea1";
             series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series7.Legend = "Legend1";
             series7.Name = "Series1";
             this.chart3.Series.Add(series7);
-            this.chart3.Size = new System.Drawing.Size(524, 569);
+            this.chart3.Size = new System.Drawing.Size(548, 538);
             this.chart3.TabIndex = 0;
             this.chart3.Text = "chart3";
             // 
@@ -951,7 +969,7 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPage2.Size = new System.Drawing.Size(1072, 583);
+            this.tabPage2.Size = new System.Drawing.Size(1109, 548);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Line";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -965,14 +983,14 @@
             this.chart2.ChartAreas.Add(chartArea8);
             legend8.Name = "Legend1";
             this.chart2.Legends.Add(legend8);
-            this.chart2.Location = new System.Drawing.Point(0, 0);
+            this.chart2.Location = new System.Drawing.Point(3, 3);
             this.chart2.Name = "chart2";
             series8.ChartArea = "ChartArea1";
             series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series8.Legend = "Legend1";
             series8.Name = "Series1";
             this.chart2.Series.Add(series8);
-            this.chart2.Size = new System.Drawing.Size(1066, 575);
+            this.chart2.Size = new System.Drawing.Size(1100, 537);
             this.chart2.TabIndex = 0;
             this.chart2.Text = "chart2";
             // 
@@ -982,7 +1000,7 @@
             this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1072, 583);
+            this.tabPage3.Size = new System.Drawing.Size(1109, 548);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Polar";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -992,7 +1010,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1672, 848);
+            this.ClientSize = new System.Drawing.Size(1559, 813);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.MainStatus);
@@ -1006,7 +1024,7 @@
             this.MainMenuStrip = this.bynPaues;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "  ";
+            this.Text = "  Polarimeter R2019";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.bynPaues.ResumeLayout(false);
@@ -1028,6 +1046,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -1119,7 +1141,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private System.Windows.Forms.TabPage tabPage3;
@@ -1128,6 +1149,8 @@
         private System.Windows.Forms.PictureBox pbCoutinue;
         private System.Windows.Forms.PictureBox pbStart;
         private System.Windows.Forms.PictureBox pbPause;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
     }
 }
 
