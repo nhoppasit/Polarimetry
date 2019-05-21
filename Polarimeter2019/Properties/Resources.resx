@@ -118,17 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="11949838241715493605bb_fldr_.svg.thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\11949838241715493605bb_fldr_.svg.thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1206570574308349122akiross_Audio_Button_Set_5.svg.thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1206570574308349122akiross_Audio_Button_Set_5.svg.thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="led-green-tiny-md" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\led-green-tiny-md.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1206570536270669982akiross_Audio_Button_Set_1.svg.thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1206570536270669982akiross_Audio_Button_Set_1.svg.thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1206570558146836835akiross_Audio_Button_Set_2.svg.thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1206570558146836835akiross_Audio_Button_Set_2.svg.thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-connected-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-connected-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="11949838241715493605bb_fldr_.svg.med" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\11949838241715493605bb_fldr_.svg.med.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,7 +133,34 @@
   <data name="1206570547560908424akiross_Audio_Button_Set_4.svg.thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1206570547560908424akiross_Audio_Button_Set_4.svg.thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1206570574308349122akiross_Audio_Button_Set_5.svg.thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1206570574308349122akiross_Audio_Button_Set_5.svg.thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="red-ledon-md" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red-ledon-md.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1206570558146836835akiross_Audio_Button_Set_2.svg.thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1206570558146836835akiross_Audio_Button_Set_2.svg.thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1194989231691813435led_circle_red.svg.med" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1194989231691813435led_circle_red.svg.med.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-connected-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-connected-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="11949838241715493605bb_fldr_.svg.thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\11949838241715493605bb_fldr_.svg.thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-connected-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-connected-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="11949892282132520602led_circle_green.svg.med" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\11949892282132520602led_circle_green.svg.med.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1206570536270669982akiross_Audio_Button_Set_1.svg.thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1206570536270669982akiross_Audio_Button_Set_1.svg.thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-disconnected-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-disconnected-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

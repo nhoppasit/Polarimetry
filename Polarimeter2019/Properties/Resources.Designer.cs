@@ -83,6 +83,26 @@ namespace Polarimeter2019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _11949892282132520602led_circle_green_svg_med {
+            get {
+                object obj = ResourceManager.GetObject("11949892282132520602led_circle_green.svg.med", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1194989231691813435led_circle_red_svg_med {
+            get {
+                object obj = ResourceManager.GetObject("1194989231691813435led_circle_red.svg.med", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1206570536270669982akiross_Audio_Button_Set_1_svg_thumb {
             get {
                 object obj = ResourceManager.GetObject("1206570536270669982akiross_Audio_Button_Set_1.svg.thumb", resourceCulture);
@@ -123,9 +143,69 @@ namespace Polarimeter2019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_connected_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-connected-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_connected_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-connected-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_connected_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-connected-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_disconnected_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-disconnected-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap led_green_tiny_md {
+            get {
+                object obj = ResourceManager.GetObject("led-green-tiny-md", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Play {
             get {
                 object obj = ResourceManager.GetObject("Play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap red_ledon_md {
+            get {
+                object obj = ResourceManager.GetObject("red-ledon-md", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

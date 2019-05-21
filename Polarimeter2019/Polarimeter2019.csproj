@@ -90,6 +90,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -111,31 +112,16 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\11949838241715493605bb_fldr_.svg.med.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\11949838241715493605bb_fldr_.svg.thumb.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Play.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1206570547560908424akiross_Audio_Button_Set_4.svg.thumb.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1206570536270669982akiross_Audio_Button_Set_1.svg.thumb.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1206570558146836835akiross_Audio_Button_Set_2.svg.thumb.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1206570574308349122akiross_Audio_Button_Set_5.svg.thumb.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Log File\Log File.csproj">
       <Project>{e2537b7a-2bfd-47b2-b44c-da2f2c76d526}</Project>
       <Name>Log File</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-connected-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-disconnected-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

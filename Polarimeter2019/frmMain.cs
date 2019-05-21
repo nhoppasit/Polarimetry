@@ -20,6 +20,7 @@ namespace Polarimeter2019
         public BaseDataControl BDC;
         Random rand = new Random();
         Boolean Couti = false;
+        Boolean CN = false;
 
         public frmMain()
         {
@@ -167,6 +168,37 @@ namespace Polarimeter2019
             }
         }
 
+        //Click for connect and disconnect
+        private void pbDisconnect_Click(object sender, EventArgs e)
+        {
+            ConDis();
+        }
+
+        void ConDis()
+        {
+            if (CN == false)
+            {
+                ConnectedDevices();
+            }
+            else
+            {
+                DisconnectDevices();
+            }
+
+            //Update button
+            if (CN == false)
+            {
+                pbDisconnect.Image = pbConnect.Image;
+                CN = true;
+            }
+            else
+            {
+                pbDisconnect.Image = pbDisconnect.Image;
+                CN = false;
+            }
+        }
+
+
         #endregion
 
         #region Control Panel
@@ -208,7 +240,6 @@ namespace Polarimeter2019
 
             // end
             lblMainStatus.Text = "Ready";
-             
         }
 
         private void DoStop()
@@ -1226,16 +1257,6 @@ namespace Polarimeter2019
         private void btnOpen_Click(object sender, EventArgs e)
         {
             BDC.OpenFile();
-        }
-
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-            ConnectedDevices();
-        }
-
-        private void btnDisconnect_Click(object sender, EventArgs e)
-        {
-            DisconnectDevices();
         }
 
         private void txtAvageNumber_KeyPress(System.Object sender, System.Windows.Forms.KeyPressEventArgs e)
