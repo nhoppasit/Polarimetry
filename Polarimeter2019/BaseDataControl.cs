@@ -155,6 +155,7 @@ namespace Polarimeter2019
             dlg.Filter = "Text File (*.txt)|*.txt";
             DialogResult redlg = dlg.ShowDialog();
             if (redlg != System.Windows.Forms.DialogResult.OK)
+              
                 return;
         }
 

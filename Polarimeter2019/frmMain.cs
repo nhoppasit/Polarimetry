@@ -653,7 +653,11 @@ namespace Polarimeter2019
 
 
             //เขียนต่อเลยนะครับ
-            LogFile.Log theSave = new LogFile.Log(@"D:\Polarimeter\Study Unit", @"test save");
+            LogFile.Log theSave = new LogFile.Log(@"C:\Polarimeter\Study Unit", @"test save");
+            //if (File.Exists("c:\\xxx\\qqq\\a.doc"))
+            //{
+            //    MessageBox.Show("It exists!");
+            //}
 
             //Header
             LogFile.PolarimeterHeader header = new LogFile.PolarimeterHeader()
@@ -662,6 +666,7 @@ namespace Polarimeter2019
                 MMCPort = txtMMCAddress.Text,
                 SampleName = "Hello1",
                 SampleNumber = 3,
+               
             };
 
             //Append to file
