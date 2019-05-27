@@ -15,7 +15,7 @@ namespace Polarimeter2019
         private string mSampleName;
         int mAverageNumber;
         int mNumberOfRepeatation;
-    
+
         public string SampleName { get { return txtSampleNamee.Text; } }
         public decimal RepeatNumber { get { return numAverageNumber.Value; } }
         public decimal OfRepeatation { get { return numRepeatation.Value; } }
@@ -33,15 +33,19 @@ namespace Polarimeter2019
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
 
         public bool Verify()
         {
             if (txtSampleNamee.Text == "")
+            {
                 return false;
+            }
             else
+            {
                 return true;
+            }
         }
     }
 }

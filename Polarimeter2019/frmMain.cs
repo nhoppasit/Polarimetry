@@ -16,10 +16,6 @@ namespace Polarimeter2019
 {
     public partial class frmMain : Form
     {
-        private Ivi.Visa.Interop.FormattedIO488 ioDmm;
-        public BaseDataControl BDC;
-        Random rand = new Random();
-
         public frmMain()
         {
             InitializeComponent();
@@ -32,6 +28,10 @@ namespace Polarimeter2019
         }
 
         #region DECRALATION
+        private Ivi.Visa.Interop.FormattedIO488 ioDmm;
+        public BaseDataControl BDC;
+        Random rand = new Random();
+
         //Constants
         const double StepFactor = 0.013325; //Deg /Step 
 
@@ -44,7 +44,8 @@ namespace Polarimeter2019
         int SelectedIndex;
         double CurrentLightIntensity;
         double CurrentTheta = 0;
-
+        int StepNumber;
+        string MSG;
 
         //ColorTable
         public Color ReferenceColor = Color.Red;
@@ -222,6 +223,7 @@ namespace Polarimeter2019
             btnStart.Enabled = true;
             btnPause.Enabled = false;
             gbSample.Enabled = true;
+            gbMeasurement.Enabled = true;
         }
 
         private void DoPause()
@@ -283,12 +285,12 @@ namespace Polarimeter2019
             if (lsvData.SelectedItems.Count <= 0)
             {
                 MessageBox.Show("Please select item in samples list view that you want to measure!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //btnStart.Enabled = true;
-                //btnStop.Enabled = false;
-                //btnPause.Enabled = false;
-                //btnPause.Text = "PAUSE";
-                //btnNew.Enabled = true;
-                //btnOpen.Enabled = true;
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+                btnPause.Enabled = false;
+                btnPause.Text = "PAUSE";
+                btnNew.Enabled = true;
+                btnOpen.Enabled = true;
                 gbSample.Enabled = false;
                 gbScanCondition.Enabled = false;
                 return;
@@ -299,14 +301,15 @@ namespace Polarimeter2019
                 ConnectedDevices();
             }
 
+            // --------------------------------------------
+            // get read conditions
+            // --------------------------------------------
+            double ThetaA = System.Convert.ToDouble(txtStart.Text);
+            double ThetaB = System.Convert.ToDouble(txtStop.Text);
+            double Delta = System.Convert.ToDouble(txtResolution.Text);
+
             try
             {
-                // --------------------------------------------
-                // get read conditions
-                // --------------------------------------------
-                double ThetaA = System.Convert.ToDouble(txtStart.Text);
-                double ThetaB = System.Convert.ToDouble(txtStop.Text);
-                double Delta = System.Convert.ToDouble(txtResolution.Text);
 
                 // --------------------------------------------
                 // Evaluate size of array of X[], Y[]
@@ -347,97 +350,94 @@ namespace Polarimeter2019
                 // ----------------------------------------------------------------
                 // REAL INTERFACE YES OR NOT (Theta,I)
                 // ----------------------------------------------------------------
-                int StepNumber;
-                string MSG;
-                if (ThetaA < ThetaB)
+                if (IsScanning == false)
                 {
-                    CurrentTheta = ThetaA + CurrentPointIndex * Delta;
-                }
-                else if (ThetaA > ThetaB)
-                {
-                    CurrentTheta = ThetaA - CurrentPointIndex * Delta;
-                }
-                // check demo mode
-                if (mnuOptionsDemomode.Checked == false)
-                {
-                    // 0.4 GOTO Theta A
-                    StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
-                    MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
-                    MMC.WriteString(MSG);
-
-                    // 0.5 Read first
-                    int nAvg = (int)numRepeatNumber.Value;
-                    CurrentLightIntensity = 0;
-                    for (int tt = 0; tt <= nAvg - 1; tt++)
+                    if (ThetaA < ThetaB)
                     {
-                        DMM.WriteString("READ?");
-                        CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
+                        CurrentTheta = ThetaA + CurrentPointIndex * Delta;
                     }
-                    CurrentLightIntensity = CurrentLightIntensity / nAvg;
-
-                    foreach (Series ptseries in chart1.Series)
+                    else if (ThetaA > ThetaB)
                     {
-                        double x = CurrentTheta;
-                        double y = CurrentLightIntensity;
-                        System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                        ptseries.Points.AddXY(x, y);
+                        CurrentTheta = ThetaA - CurrentPointIndex * Delta;
                     }
-                    chart1.Invalidate();
-
-                    foreach (Series ptseries in chart2.Series)
+                    // check demo mode
+                    if (mnuOptionsDemomode.Checked == false)
                     {
-                        double x = CurrentTheta;
-                        double y = CurrentLightIntensity;
-                        System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                        ptseries.Points.AddXY(x, y);
-                    }
-                    chart2.Invalidate();
+                        // 0.4 GOTO Theta A
+                        StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
+                        MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
+                        MMC.WriteString(MSG);
 
-                    foreach (Series ptseries in chart3.Series)
+                        // 0.5 Read first
+                        int nAvg = (int)numRepeatNumber.Value;
+                        CurrentLightIntensity = 0;
+                        for (int tt = 0; tt <= nAvg - 1; tt++)
+                        {
+                            DMM.WriteString("READ?");
+                            CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
+                        }
+                        CurrentLightIntensity = CurrentLightIntensity / nAvg;
+
+                        foreach (Series ptseries in chart1.Series)
+                        {
+                            double x = CurrentTheta;
+                            double y = CurrentLightIntensity;
+                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
+                            ptseries.Points.AddXY(x, y);
+                        }
+                        chart1.Invalidate();
+
+                        foreach (Series ptseries in chart2.Series)
+                        {
+                            double x = CurrentTheta;
+                            double y = CurrentLightIntensity;
+                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
+                            ptseries.Points.AddXY(x, y);
+                        }
+                        chart2.Invalidate();
+
+                        foreach (Series ptseries in chart3.Series)
+                        {
+                            double x = CurrentTheta;
+                            double y = CurrentLightIntensity;
+                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
+                            ptseries.Points.AddXY(x, y);
+                        }
+                        chart3.Invalidate();
+
+                        foreach (Series ptseries in chart4.Series)
+                        {
+                            double x = CurrentTheta;
+                            double y = CurrentLightIntensity;
+                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
+                            ptseries.Points.AddXY(x, y);
+                        }
+                        chart4.Invalidate();
+                    }
+                    else
                     {
-                        double x = CurrentTheta;
-                        double y = CurrentLightIntensity;
-                        System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                        ptseries.Points.AddXY(x, y);
+                        // CAUTION! DEMO MODE HERE
+                        CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
                     }
-                    chart3.Invalidate();
+                    // ----------------------------------------------------------------
+                    // STORE DATA AND PLOT
+                    // ----------------------------------------------------------------
+                    // Save to memory
 
-                    foreach (Series ptseries in chart4.Series)
+                    if (SelectedIndex == 0)
                     {
-                        double x = CurrentTheta;
-                        double y = CurrentLightIntensity;
-                        System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                        ptseries.Points.AddXY(x, y);
+                        BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     }
-                    chart4.Invalidate();
+                    else
+                    {
+                        BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                    }
+                    //
+                    DefineAngleOfRotation();
+                    PlotReferenceCurve();
+                    PlotTreatmentsCurve();
+                    PlotSelectedTRTMarker();
                 }
-                else
-                {
-                    // CAUTION! DEMO MODE HERE
-                    CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
-                }
-                // ----------------------------------------------------------------
-                // STORE DATA AND PLOT
-                // ----------------------------------------------------------------
-                // Save to memory
-
-                if (SelectedIndex == 0)
-                {
-                    BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                }
-                else
-                {
-                    BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                }
-                //
-                DefineAngleOfRotation();
-                PlotReferenceCurve();
-                PlotTreatmentsCurve();
-                PlotSelectedTRTMarker();
-
-                // auto scale
-                // AxDynaPlot1.Axes.Autoscale()
-
                 // --------------------------------------------
                 // MAIN READING LOOP (^0^)
                 // --------------------------------------------
@@ -542,12 +542,16 @@ namespace Polarimeter2019
                     if (ThetaA < ThetaB)
                     {
                         if (ThetaB < CurrentTheta)
+                        {
                             IsScanning = false;
+                        }
                     }
                     else if (ThetaA > ThetaB)
                     {
                         if (CurrentTheta < ThetaB)
+                        {
                             IsScanning = false;
+                        }
                     }
                     // --------------------------------------------
 
@@ -572,6 +576,8 @@ namespace Polarimeter2019
                     btnOpen.Enabled = true;
                     gbSample.Enabled = true;
                     gbScanCondition.Enabled = true;
+                    gbStartMea.Enabled = true;
+                    gbMeasurement.Enabled = true;
                 }
                 else
                 {
@@ -586,7 +592,7 @@ namespace Polarimeter2019
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
 
                 // ----------------------------------------
                 // 1. stop Test loop of reading light intensity
@@ -605,6 +611,12 @@ namespace Polarimeter2019
                 gbStartMea.Enabled = true;
                 gbSample.Enabled = true;
                 gbScanCondition.Enabled = true;
+
+                // ----------------------------------------
+                // 3. Return Motor
+                // ----------------------------------------
+                MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
+                MMC.WriteString(MSG);
             }
         }
 
@@ -612,8 +624,6 @@ namespace Polarimeter2019
         {
             IsScanning = false;
             IsContinuing = false;
-            string MSG = "A:WP0P0";
-            MMC.WriteString(MSG);
         }
 
         private void DoPasuseScanning()
@@ -630,10 +640,8 @@ namespace Polarimeter2019
 
         #endregion
 
-        //ยังไม่เสร็จ
         #region Menu
 
-        //ยังไม่เสร็จ
         #region File
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -650,10 +658,21 @@ namespace Polarimeter2019
         {
             //*****************************************************************************
             // ***ต้องเช็คก่อนว่ามีไฟล์หรือไม่ ถ้ามีให้ลบ
+            if (lsvData.Items.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("Data will be deleted. Do you want to save file?", "Save file", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
 
+                }
+                else if (result == DialogResult.Cancel)
+                {
+
+                }
+            }
 
             //เขียนต่อเลยนะครับ
-            LogFile.Log theSave = new LogFile.Log(@"D:\Polarimeter\Study Unit", @"test save");
+            LogFile.Log theSave = new LogFile.Log(@"C:\Users\Pee\Desktop\test save", @"test save");  
 
             //Header
             LogFile.PolarimeterHeader header = new LogFile.PolarimeterHeader()
@@ -694,9 +713,7 @@ namespace Polarimeter2019
             //BDC.SaveFile();
         }
 
-
-
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)  //ยังไม่เสร็จ
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)  
         {
             //try
             //{
@@ -824,6 +841,11 @@ namespace Polarimeter2019
             PlotSelectedTRTMarker();
         }
 
+        private void mnuOptionsDemomode_Click(object sender, EventArgs e)
+        {
+            DoScanLightIntensity();
+        }
+
         #endregion
 
         #region Form Event
@@ -944,10 +966,6 @@ namespace Polarimeter2019
 
         private void NewMeasurement()
         {
-            chart1.Series.Clear();
-            chart2.Series.Clear();
-            chart3.Series.Clear();
-            chart4.Series.Clear();
             // verify user
             if (lsvData.Items.Count > 0)
             {
@@ -966,6 +984,11 @@ namespace Polarimeter2019
             frmNewMeasurement f = new frmNewMeasurement();
             f.StartPosition = FormStartPosition.CenterScreen;
             f.ShowDialog();
+
+            chart1.Series.Clear();
+            chart2.Series.Clear();
+            chart3.Series.Clear();
+            chart4.Series.Clear();
 
             // do update the job
             if (f.Verify() == true)
@@ -1447,11 +1470,6 @@ namespace Polarimeter2019
             //{
             //    Arreference1 = 
             //}
-        }
-
-        private void mnuOptionsDemomode_Click(object sender, EventArgs e)
-        {
-            DoScanLightIntensity();
         }
     }
 }
