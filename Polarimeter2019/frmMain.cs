@@ -497,8 +497,8 @@ namespace Polarimeter2019
                 // ----------------------------------------
                 // 3. Return Motor
                 // ----------------------------------------
-                MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
-                MMC.WriteString(MSG);
+                //MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
+                //MMC.WriteString(MSG);
             }
         }
 
@@ -794,10 +794,11 @@ namespace Polarimeter2019
                         // ReferenceCurve.Penstyle.Color = RGB(ReferenceColor.R, ReferenceColor.G, ReferenceColor.B)
                         // ReferenceMinMarker.PositionX = TheData.Reference.Xm
                         // ReferenceMinMarker.PositionY = TheData.Reference.Ym
-                        chart3.Series[0].Points.AddXY(
+                        chart3.Series[3].Points.AddXY(
                             BDC.Reference.X[BDC.Reference.X.Length - 1],
                             BDC.Reference.Y[BDC.Reference.Y.Length - 1]);
-                        chart3.Series[0].XAxisType,<<< Maximum
+                        chart3.ChartAreas[3].AxisX.Maximum = 360;
+                        chart3.ChartAreas[3].AxisY.Maximum = 3;
                         chart3.Invalidate();
                         lblNullPoint.Text = BDC.Reference.Xm.ToString("0.0000") + " deg";
                         e = true;
