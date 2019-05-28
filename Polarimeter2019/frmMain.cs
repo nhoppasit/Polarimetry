@@ -346,99 +346,7 @@ namespace Polarimeter2019
                             BDC.Data[SelectedIndex - 1].Ym = 99999999;
                     }
                 }
-
-                // ----------------------------------------------------------------
-                // REAL INTERFACE YES OR NOT (Theta,I)
-                // ----------------------------------------------------------------
-                if (IsScanning == false)
-                {
-                    if (ThetaA < ThetaB)
-                    {
-                        CurrentTheta = ThetaA + CurrentPointIndex * Delta;
-                    }
-                    else if (ThetaA > ThetaB)
-                    {
-                        CurrentTheta = ThetaA - CurrentPointIndex * Delta;
-                    }
-                    // check demo mode
-                    if (mnuOptionsDemomode.Checked == false)
-                    {
-                        // 0.4 GOTO Theta A
-                        StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
-                        MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
-                        MMC.WriteString(MSG);
-
-                        // 0.5 Read first
-                        int nAvg = (int)numRepeatNumber.Value;
-                        CurrentLightIntensity = 0;
-                        for (int tt = 0; tt <= nAvg - 1; tt++)
-                        {
-                            DMM.WriteString("READ?");
-                            CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
-                        }
-                        CurrentLightIntensity = CurrentLightIntensity / nAvg;
-
-                        //  Chart
-                        foreach (Series ptseries in chart1.Series)
-                        {
-                            double x = CurrentTheta;
-                            double y = CurrentLightIntensity;
-                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                            ptseries.Points.AddXY(x, y);
-                        }
-                        chart1.Invalidate();
-
-                        foreach (Series ptseries in chart2.Series)
-                        {
-                            double x = CurrentTheta;
-                            double y = CurrentLightIntensity;
-                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                            ptseries.Points.AddXY(x, y);
-                        }
-                        chart2.Invalidate();
-
-                        foreach (Series ptseries in chart3.Series)
-                        {
-                            double x = CurrentTheta;
-                            double y = CurrentLightIntensity;
-                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                            ptseries.Points.AddXY(x, y);
-                        }
-                        chart3.Invalidate();
-
-                        foreach (Series ptseries in chart4.Series)
-                        {
-                            double x = CurrentTheta;
-                            double y = CurrentLightIntensity;
-                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                            ptseries.Points.AddXY(x, y);
-                        }
-                        chart4.Invalidate();
-                    }
-                    else
-                    {
-                        // CAUTION! DEMO MODE HERE
-                        CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
-                    }
-                    // ----------------------------------------------------------------
-                    // STORE DATA AND PLOT
-                    // ----------------------------------------------------------------
-                    // Save to memory
-
-                    if (SelectedIndex == 0)
-                    {
-                        BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                    }
-                    else
-                    {
-                        BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                    }
-                    //
-                    DefineAngleOfRotation();
-                    PlotReferenceCurve();
-                    PlotTreatmentsCurve();
-                    PlotSelectedTRTMarker();
-                }
+                
                 // --------------------------------------------
                 // MAIN READING LOOP (^0^)
                 // --------------------------------------------
@@ -525,7 +433,47 @@ namespace Polarimeter2019
                         // 'do nothing
                         // Loop Until sw.ElapsedMilliseconds > 50 'ms
                         // 'Simulation
+
                         CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
+
+                        // 3.Add point in Chart
+                        foreach (Series ptseries in chart1.Series)
+                        {
+                            double x = CurrentTheta;
+                            double y = CurrentLightIntensity;
+                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
+                            ptseries.Points.AddXY(x, y);
+                        }
+                        chart1.Invalidate();
+
+                        foreach (Series ptseries in chart2.Series)
+                        {
+                            double x = CurrentTheta;
+                            double y = CurrentLightIntensity;
+                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
+                            ptseries.Points.AddXY(x, y);
+                        }
+                        chart2.Invalidate();
+
+                        foreach (Series ptseries in chart3.Series)
+                        {
+                            double x = CurrentTheta;
+                            double y = CurrentLightIntensity;
+                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
+                            ptseries.Points.AddXY(x, y);
+                        }
+                        chart3.Invalidate();
+
+                        foreach (Series ptseries in chart4.Series)
+                        {
+                            double x = CurrentTheta;
+                            double y = CurrentLightIntensity;
+                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
+                            ptseries.Points.AddXY(x, y);
+                        }
+                        chart4.Invalidate();
+
+
                     }
 
                     // Save to memory and update curve
@@ -845,7 +793,7 @@ namespace Polarimeter2019
 
         private void mnuOptionsDemomode_Click(object sender, EventArgs e)
         {
-            DoScanLightIntensity();
+            //DoScanLightIntensity();
         }
 
         #endregion
@@ -1467,9 +1415,11 @@ namespace Polarimeter2019
 
         private void lsvData_Click(object sender, EventArgs e)
         {
-            int i = lsvData.SelectedIndices[0];
-            string s = lsvData.Items[i].Text;
-            MessageBox.Show(s);
+            //int i = lsvData.SelectedIndices[0];
+            //string s = lsvData.Items[i].Text;
+            //MessageBox.Show(s);
+            //double[,] DataArray = { { CurrentTheta }, { CurrentLightIntensity } };
+            //Array.Clear(DataArray, 1, 2);
         }
     }
 }
