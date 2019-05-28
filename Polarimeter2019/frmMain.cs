@@ -383,43 +383,7 @@ namespace Polarimeter2019
                             CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
                         }
                         CurrentLightIntensity = CurrentLightIntensity / nAvg;
-
-                        // 3.Add point in Chart
-                        foreach (Series ptseries in chart1.Series)
-                        {
-                            double x = CurrentTheta;
-                            double y = CurrentLightIntensity;
-                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                            ptseries.Points.AddXY(x, y);
-                        }
-                        chart1.Invalidate();
-
-                        foreach (Series ptseries in chart2.Series)
-                        {
-                            double x = CurrentTheta;
-                            double y = CurrentLightIntensity;
-                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                            ptseries.Points.AddXY(x, y);
-                        }
-                        chart2.Invalidate();
-
-                        foreach (Series ptseries in chart3.Series)
-                        {
-                            double x = CurrentTheta;
-                            double y = CurrentLightIntensity;
-                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                            ptseries.Points.AddXY(x, y);
-                        }
-                        chart3.Invalidate();
-
-                        foreach (Series ptseries in chart4.Series)
-                        {
-                            double x = CurrentTheta;
-                            double y = CurrentLightIntensity;
-                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                            ptseries.Points.AddXY(x, y);
-                        }
-                        chart4.Invalidate();
+                        
                     }
                     else
                     {
@@ -435,44 +399,7 @@ namespace Polarimeter2019
                         // 'Simulation
 
                         CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
-
-                        // 3.Add point in Chart
-                        foreach (Series ptseries in chart1.Series)
-                        {
-                            double x = CurrentTheta;
-                            double y = CurrentLightIntensity;
-                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                            ptseries.Points.AddXY(x, y);
-                        }
-                        chart1.Invalidate();
-
-                        foreach (Series ptseries in chart2.Series)
-                        {
-                            double x = CurrentTheta;
-                            double y = CurrentLightIntensity;
-                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                            ptseries.Points.AddXY(x, y);
-                        }
-                        chart2.Invalidate();
-
-                        foreach (Series ptseries in chart3.Series)
-                        {
-                            double x = CurrentTheta;
-                            double y = CurrentLightIntensity;
-                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                            ptseries.Points.AddXY(x, y);
-                        }
-                        chart3.Invalidate();
-
-                        foreach (Series ptseries in chart4.Series)
-                        {
-                            double x = CurrentTheta;
-                            double y = CurrentLightIntensity;
-                            System.Diagnostics.Trace.WriteLine(string.Format(">>> (X, Y) = ({0}, {1})", x, y));
-                            ptseries.Points.AddXY(x, y);
-                        }
-                        chart4.Invalidate();
-
+                        
 
                     }
 
@@ -483,6 +410,11 @@ namespace Polarimeter2019
                     }
                     BDC.PatchData(SelectedIndex + 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     DefineAngleOfRotation();
+                    //
+                    //<-------------PLOT HERE!  ptseries.Points.AddXY(x, y);
+                    // OK GO GO GO chart1.Series[SelectedIndex].Points.AddXY(xValue, yValue); <--OK
+                    // เหนียวเส้น ไม่สวยเลย chart1.Series[0].Points[CurrentPointIndex]
+                    //
                     PlotReferenceCurve();
                     PlotTreatmentsCurve();
                     PlotSelectedTRTMarker();
@@ -862,6 +794,11 @@ namespace Polarimeter2019
                         // ReferenceCurve.Penstyle.Color = RGB(ReferenceColor.R, ReferenceColor.G, ReferenceColor.B)
                         // ReferenceMinMarker.PositionX = TheData.Reference.Xm
                         // ReferenceMinMarker.PositionY = TheData.Reference.Ym
+                        chart3.Series[0].Points.AddXY(
+                            BDC.Reference.X[BDC.Reference.X.Length - 1],
+                            BDC.Reference.Y[BDC.Reference.Y.Length - 1]);
+                        chart3.Series[0].XAxisType,<<< Maximum
+                        chart3.Invalidate();
                         lblNullPoint.Text = BDC.Reference.Xm.ToString("0.0000") + " deg";
                         e = true;
                     }
@@ -885,6 +822,7 @@ namespace Polarimeter2019
                 {
                     if (lsvData.Items[i + 1].Checked)
                     {
+
                     }
                 }
                 catch (Exception ex)
@@ -1092,10 +1030,10 @@ namespace Polarimeter2019
                 {
                     lblSample.Text = "Sample " + SelectedIndex.ToString();
                 }
-                ResetDynaplot();
-                PlotReferenceCurve();
-                PlotTreatmentsCurve();
-                PlotSelectedTRTMarker();
+                //ResetDynaplot();
+                //PlotReferenceCurve();
+                //PlotTreatmentsCurve();
+                //PlotSelectedTRTMarker();
             }
             catch (Exception ex)
             {
