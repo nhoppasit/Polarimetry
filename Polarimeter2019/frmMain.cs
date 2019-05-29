@@ -339,14 +339,20 @@ namespace Polarimeter2019
                 if (!IsContinuing)
                 {
                     if (SelectedIndex == 0)
+                    {
                         BDC.Reference.Ym = 99999999;
+                    }
                     else if (BDC.Data != null)
                     {
                         if (SelectedIndex <= BDC.Data.Length)
-                            BDC.Data[SelectedIndex - 1].Ym = 99999999;
+                        {
+                            BDC.Data[SelectedIndex].Ym = 99999999;
+                        }
                     }
                 }
-                
+
+
+
                 // --------------------------------------------
                 // MAIN READING LOOP (^0^)
                 // --------------------------------------------
@@ -399,8 +405,6 @@ namespace Polarimeter2019
                         // 'Simulation
 
                         CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
-                        
-
                     }
 
                     // Save to memory and update curve
@@ -408,16 +412,24 @@ namespace Polarimeter2019
                     {
                         BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     }
-                    BDC.PatchData(SelectedIndex + 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                    BDC.PatchData(SelectedIndex , CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     DefineAngleOfRotation();
                     //
                     //<-------------PLOT HERE!  ptseries.Points.AddXY(x, y);
-                    // OK GO GO GO chart1.Series[SelectedIndex].Points.AddXY(xValue, yValue); <--OK
+                    // OK GO GO GO 
+                    chart1.Series[SelectedIndex].Points.AddXY(CurrentTheta,CurrentLightIntensity);
+                    chart1.Invalidate();
+                    chart2.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
+                    chart2.Invalidate();
+                    chart3.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
+                    chart3.Invalidate();
+                    chart4.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
+                    chart4.Invalidate();
                     // เหนียวเส้น ไม่สวยเลย chart1.Series[0].Points[CurrentPointIndex]
                     //
                     PlotReferenceCurve();
                     PlotTreatmentsCurve();
-                    PlotSelectedTRTMarker();
+                    //PlotSelectedTRTMarker();
                     // auto scale
 
                     // check stop condition!!!
@@ -497,8 +509,8 @@ namespace Polarimeter2019
                 // ----------------------------------------
                 // 3. Return Motor
                 // ----------------------------------------
-                //MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
-                //MMC.WriteString(MSG);
+                MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
+                MMC.WriteString(MSG);
             }
         }
 
@@ -794,12 +806,20 @@ namespace Polarimeter2019
                         // ReferenceCurve.Penstyle.Color = RGB(ReferenceColor.R, ReferenceColor.G, ReferenceColor.B)
                         // ReferenceMinMarker.PositionX = TheData.Reference.Xm
                         // ReferenceMinMarker.PositionY = TheData.Reference.Ym
-                        chart3.Series[3].Points.AddXY(
-                            BDC.Reference.X[BDC.Reference.X.Length - 1],
-                            BDC.Reference.Y[BDC.Reference.Y.Length - 1]);
-                        chart3.ChartAreas[3].AxisX.Maximum = 360;
-                        chart3.ChartAreas[3].AxisY.Maximum = 3;
-                        chart3.Invalidate();
+
+                        //chart3.Series[0].Points.AddXY(
+                        //    BDC.Reference.X[BDC.Reference.X.Length - 1],
+                        //    BDC.Reference.Y[BDC.Reference.Y.Length - 1]);
+                        //chart3.ChartAreas[3].AxisX.Maximum = 360;
+                        //chart3.ChartAreas[3].AxisY.Maximum = 3;
+                        //chart3.Invalidate();
+
+                        //chart4.Series[0].Points.AddXY(
+                        //    BDC.Reference.X[BDC.Reference.X.Length - 1],
+                        //    BDC.Reference.Y[BDC.Reference.Y.Length - 1]);
+                        //chart4.ChartAreas[3].AxisX.Maximum = 360;
+                        //chart4.ChartAreas[3].AxisY.Maximum = 3;
+                        //chart4.Invalidate();
                         lblNullPoint.Text = BDC.Reference.Xm.ToString("0.0000") + " deg";
                         e = true;
                     }
@@ -823,7 +843,32 @@ namespace Polarimeter2019
                 {
                     if (lsvData.Items[i + 1].Checked)
                     {
+                        //chart3.Series[3].Points.AddXY(
+                        //    BDC.Reference.X[BDC.Reference.X.Length - 1],
+                        //    BDC.Reference.Y[BDC.Reference.Y.Length - 1]);
+                        //chart3.ChartAreas[3].AxisX.Maximum = 360;
+                        //chart3.ChartAreas[3].AxisY.Maximum = 3;
+                        //chart3.Invalidate();
+                        //chart4.Series[3].Points.AddXY(
+                        //    BDC.Reference.X[BDC.Reference.X.Length - 1],
+                        //    BDC.Reference.Y[BDC.Reference.Y.Length - 1]);
+                        //chart4.ChartAreas[3].AxisX.Maximum = 360;
+                        //chart4.ChartAreas[3].AxisY.Maximum = 3;
+                        //chart4.Invalidate();
 
+                        //lblNullPoint.Text = BDC.Reference.Xm.ToString("0.0000") + " deg";
+
+                    //    if (SelectedIndex == 0)
+                    //    {
+                    //        BDC.Reference.Xm = 0.00000;
+                    //    }
+                    //    else if (BDC.Data != null)
+                    //    {
+                    //        if (SelectedIndex <= BDC.Data.Length)
+                    //        {
+                    //            BDC.Data[SelectedIndex - 1].Xm = CurrentTheta;
+                    //        }
+                    //    }
                     }
                 }
                 catch (Exception ex)
@@ -958,8 +1003,8 @@ namespace Polarimeter2019
             else
             {
                 lvi = lsvData.Items[SelectedIndex];
-                lvi.SubItems[1].Text = "(" + BDC.Data[SelectedIndex - 1].Xm.ToString("0.00") + ", " + BDC.Data[SelectedIndex - 1].Ym.ToString("0.0000") + ")";
-                lvi.SubItems[2].Text = BDC.Data[SelectedIndex - 1].AngleOfRotation.ToString("0.00");
+                lvi.SubItems[1].Text = "(" + BDC.Data[SelectedIndex].Xm.ToString("0.00") + ", " + BDC.Data[SelectedIndex].Ym.ToString("0.0000") + ")";
+                lvi.SubItems[2].Text = BDC.Data[SelectedIndex].AngleOfRotation.ToString("0.00");
             }
         }
 
@@ -1003,7 +1048,9 @@ namespace Polarimeter2019
             {
                 lsvData.Items[0].BackColor = ReferenceColor;
                 for (int i = 1; i <= lsvData.Items.Count - 1; i++)
+                {
                     lsvData.Items[i].BackColor = ColorTable[(i - 1) % ColorTable.Length];
+                }
             }
             catch (Exception ex)
             {
@@ -1014,12 +1061,16 @@ namespace Polarimeter2019
 
         #region Summary
 
-        private void lvSummary_ItemSelectionChanged(object sender, System.Windows.Forms.ListViewItemSelectionChangedEventArgs e)
+        private void lsvData_ItemSelectionChanged(object sender, System.Windows.Forms.ListViewItemSelectionChangedEventArgs e)
         {
             if (lsvData.SelectedIndices == null)
+            {
                 return;
+            }
             if (lsvData.SelectedIndices.Count <= 0)
+            {
                 return;
+            }
             SelectedIndex = lsvData.SelectedIndices[0];
             try
             {
@@ -1031,10 +1082,6 @@ namespace Polarimeter2019
                 {
                     lblSample.Text = "Sample " + SelectedIndex.ToString();
                 }
-                //ResetDynaplot();
-                //PlotReferenceCurve();
-                //PlotTreatmentsCurve();
-                //PlotSelectedTRTMarker();
             }
             catch (Exception ex)
             {
@@ -1263,7 +1310,9 @@ namespace Polarimeter2019
         private void lsvData_KeyPress(System.Object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
                 SendKeys.Send("{TAB}");
+            }
         }
 
         private void lvSummary_ItemChecked(System.Object sender, System.Windows.Forms.ItemCheckedEventArgs e)
@@ -1325,40 +1374,10 @@ namespace Polarimeter2019
 
         private void lsvData_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            //bool clicked = false;
-            //CheckBoxState state;  
-            //if (!clicked)
-            //{
-            //    clicked = true;
-            //    state = CheckBoxState.CheckedPressed;
-
-            //    foreach (ListViewItem item in lsvData.Items)
-            //    {
-            //        item.Checked = true;
-            //    }
-
-            //    Invalidate();
-            //}
-            //else
-            //{
-            //    clicked = false;
-            //    state = CheckBoxState.UncheckedNormal;
-            //    Invalidate();
-
-            //    foreach (ListViewItem item in lsvData.Items)
-            //    {
-            //        item.Checked = false;
-            //    }
-            //}
-        }
-
-        private void lsvData_Click(object sender, EventArgs e)
-        {
-            //int i = lsvData.SelectedIndices[0];
-            //string s = lsvData.Items[i].Text;
-            //MessageBox.Show(s);
-            //double[,] DataArray = { { CurrentTheta }, { CurrentLightIntensity } };
-            //Array.Clear(DataArray, 1, 2);
+            ResetDynaplot();
+            PlotReferenceCurve();
+            PlotTreatmentsCurve();
+            PlotSelectedTRTMarker();
         }
     }
 }

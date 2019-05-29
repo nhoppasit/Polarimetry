@@ -500,7 +500,7 @@
             this.lsvData.UseCompatibleStateImageBehavior = false;
             this.lsvData.View = System.Windows.Forms.View.Details;
             this.lsvData.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lsvData_ItemCheck);
-            this.lsvData.Click += new System.EventHandler(this.lsvData_Click);
+            this.lsvData.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lsvData_ItemSelectionChanged);
             // 
             // columnHeader1
             // 

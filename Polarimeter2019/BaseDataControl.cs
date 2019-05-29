@@ -70,7 +70,7 @@ namespace Polarimeter2019
             }
             else
             {
-                if (Data.Length - 1 <= RepeatID)
+                if (Data.Length - 1 >= RepeatID)
                 {
                     strucCurveData Q = Data[RepeatID];
                     Data[RepeatID].Ym = 999999;
