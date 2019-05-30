@@ -117,14 +117,14 @@
             this.lblDMM = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMMC = new System.Windows.Forms.ToolStripStatusLabel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -137,17 +137,17 @@
             this.gbMeasurement.SuspendLayout();
             this.gbStartMea.SuspendLayout();
             this.MainStatus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -510,7 +510,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Null Point";
-            this.columnHeader2.Width = 87;
+            this.columnHeader2.Width = 97;
             // 
             // columnHeader3
             // 
@@ -859,27 +859,27 @@
             this.lblMMC.Size = new System.Drawing.Size(79, 17);
             this.lblMMC.Text = "Disconnected";
             // 
-            // chart1
+            // chart4
             // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.chart4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart4.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(2, 2);
-            this.chart1.Margin = new System.Windows.Forms.Padding(2);
-            this.chart1.Name = "chart1";
+            this.chart4.Legends.Add(legend1);
+            this.chart4.Location = new System.Drawing.Point(2, 2);
+            this.chart4.Margin = new System.Windows.Forms.Padding(2);
+            this.chart4.Name = "chart4";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Polar;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             series1.YValuesPerPoint = 6;
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1029, 527);
-            this.chart1.TabIndex = 6;
-            this.chart1.Text = " ";
+            this.chart4.Series.Add(series1);
+            this.chart4.Size = new System.Drawing.Size(1029, 527);
+            this.chart4.TabIndex = 6;
+            this.chart4.Text = " ";
             // 
             // tabControl1
             // 
@@ -919,57 +919,56 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.chart4);
+            this.splitContainer1.Panel1.Controls.Add(this.chart1);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.chart3);
+            this.splitContainer1.Panel2.Controls.Add(this.chart2);
             this.splitContainer1.Size = new System.Drawing.Size(1029, 527);
             this.splitContainer1.SplitterDistance = 508;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 2;
             // 
-            // chart4
+            // chart1
             // 
-            this.chart4.BorderlineColor = System.Drawing.Color.Wheat;
+            this.chart1.BorderlineColor = System.Drawing.Color.Wheat;
             chartArea2.Name = "ChartArea1";
-            this.chart4.ChartAreas.Add(chartArea2);
-            this.chart4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart1.ChartAreas.Add(chartArea2);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend2.Name = "Legend1";
-            this.chart4.Legends.Add(legend2);
-            this.chart4.Location = new System.Drawing.Point(0, 0);
-            this.chart4.Margin = new System.Windows.Forms.Padding(2);
-            this.chart4.Name = "chart4";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Margin = new System.Windows.Forms.Padding(2);
+            this.chart1.Name = "chart1";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Polar;
             series2.Legend = "Legend1";
             series2.Name = "Series1";
-            this.chart4.Series.Add(series2);
-            this.chart4.Size = new System.Drawing.Size(504, 523);
-            this.chart4.TabIndex = 1;
-            this.chart4.Text = "chart4";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(504, 523);
+            this.chart1.TabIndex = 1;
             // 
-            // chart3
+            // chart2
             // 
             chartArea3.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea3);
-            this.chart3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart2.ChartAreas.Add(chartArea3);
+            this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
             legend3.Name = "Legend1";
-            this.chart3.Legends.Add(legend3);
-            this.chart3.Location = new System.Drawing.Point(0, 0);
-            this.chart3.Margin = new System.Windows.Forms.Padding(2);
-            this.chart3.Name = "chart3";
+            this.chart2.Legends.Add(legend3);
+            this.chart2.Location = new System.Drawing.Point(0, 0);
+            this.chart2.Margin = new System.Windows.Forms.Padding(2);
+            this.chart2.Name = "chart2";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series3.Legend = "Legend1";
             series3.Name = "Series1";
-            this.chart3.Series.Add(series3);
-            this.chart3.Size = new System.Drawing.Size(514, 523);
-            this.chart3.TabIndex = 0;
+            this.chart2.Series.Add(series3);
+            this.chart2.Size = new System.Drawing.Size(514, 523);
+            this.chart2.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.chart2);
+            this.tabPage2.Controls.Add(this.chart3);
             this.tabPage2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -982,30 +981,29 @@
             this.tabPage2.Text = "Line";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // chart2
+            // chart3
             // 
-            this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.chart3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             chartArea4.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea4);
+            this.chart3.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
-            this.chart2.Legends.Add(legend4);
-            this.chart2.Location = new System.Drawing.Point(2, 2);
-            this.chart2.Margin = new System.Windows.Forms.Padding(2);
-            this.chart2.Name = "chart2";
+            this.chart3.Legends.Add(legend4);
+            this.chart3.Location = new System.Drawing.Point(2, 2);
+            this.chart3.Margin = new System.Windows.Forms.Padding(2);
+            this.chart3.Name = "chart3";
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series4.Legend = "Legend1";
             series4.Name = "Series1";
-            this.chart2.Series.Add(series4);
-            this.chart2.Size = new System.Drawing.Size(1027, 527);
-            this.chart2.TabIndex = 0;
-            this.chart2.Text = "chart2";
+            this.chart3.Series.Add(series4);
+            this.chart3.Size = new System.Drawing.Size(1027, 527);
+            this.chart3.TabIndex = 0;
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.chart1);
+            this.tabPage3.Controls.Add(this.chart4);
             this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
@@ -1094,17 +1092,17 @@
             this.gbStartMea.ResumeLayout(false);
             this.MainStatus.ResumeLayout(false);
             this.MainStatus.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
-            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1183,15 +1181,15 @@
         private System.Windows.Forms.ToolStripMenuItem txtVoltageResolution;
         private System.Windows.Forms.ToolStripMenuItem mnuExportToImageFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnDisconnect;
