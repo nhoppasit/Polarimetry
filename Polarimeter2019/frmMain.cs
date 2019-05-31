@@ -509,8 +509,8 @@ namespace Polarimeter2019
                 // ----------------------------------------
                 // 3. Return Motor
                 // ----------------------------------------
-                //MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
-                //MMC.WriteString(MSG);
+                MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
+                MMC.WriteString(MSG);
             }
         }
 
@@ -1150,7 +1150,7 @@ namespace Polarimeter2019
                 newSeries.XValueType = ChartValueType.DateTime;
                 newSeries.YValueType = ChartValueType.DateTime;
                 newSeries.Color = Properties.Settings.Default.ReferenceColor;
-                //newSeries.
+                chart4.Series.Add(newSeries);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
@@ -1161,7 +1161,6 @@ namespace Polarimeter2019
                     chart4.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
-                chart4.Series.Add(newSeries);
                 chart4.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
                 chart4.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
                 chart4.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
@@ -1176,6 +1175,7 @@ namespace Polarimeter2019
                 newSeries2.XValueType = ChartValueType.DateTime;
                 newSeries2.YValueType = ChartValueType.DateTime;
                 newSeries2.Color = Properties.Settings.Default.ReferenceColor;
+                chart3.Series.Add(newSeries2);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
@@ -1186,7 +1186,6 @@ namespace Polarimeter2019
                     chart3.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
-                chart3.Series.Add(newSeries2);
                 chart3.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
                 chart3.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
                 chart3.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
@@ -1202,6 +1201,7 @@ namespace Polarimeter2019
                 newSeries3.XValueType = ChartValueType.DateTime;
                 newSeries3.YValueType = ChartValueType.DateTime;
                 newSeries3.Color = Properties.Settings.Default.ReferenceColor;
+                chart2.Series.Add(newSeries3);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
@@ -1212,7 +1212,6 @@ namespace Polarimeter2019
                     chart2.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
-                chart2.Series.Add(newSeries3);
                 chart2.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
                 chart2.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
                 chart2.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
@@ -1228,6 +1227,7 @@ namespace Polarimeter2019
                 newSeries4.XValueType = ChartValueType.DateTime;
                 newSeries4.YValueType = ChartValueType.DateTime;
                 newSeries4.Color = Properties.Settings.Default.ReferenceColor;
+                chart1.Series.Add(newSeries4);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
@@ -1238,7 +1238,6 @@ namespace Polarimeter2019
                     chart1.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
-                chart1.Series.Add(newSeries4);
                 chart1.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
                 chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
                 chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
