@@ -404,7 +404,7 @@ namespace Polarimeter2019
                         // Loop Until sw.ElapsedMilliseconds > 50 'ms
                         // 'Simulation
 
-                        CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
+                        CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 1;
                     }
 
                     // Save to memory and update curve
@@ -1227,6 +1227,8 @@ namespace Polarimeter2019
                 newSeries4.XValueType = ChartValueType.DateTime;
                 newSeries4.YValueType = ChartValueType.DateTime;
                 newSeries4.Color = Properties.Settings.Default.ReferenceColor;
+                chart4.Series.Add(newSeries4);
+
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
@@ -1237,8 +1239,6 @@ namespace Polarimeter2019
                     chart4.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
-                chart4.Series.Add(newSeries4);
-                chart4.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
                 chart4.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
                 chart4.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
                 chart4.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
