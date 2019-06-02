@@ -212,14 +212,17 @@ namespace Polarimeter2019
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void lvColorValue_DoubleClick(object sender, EventArgs e)
         {
-            colorDialog1.ShowDialog();
-            lvColorTable.SelectedItems[0].SubItems[1].BackColor = colorDialog1.Color;
-            f1.ColorTable[lvColorTable.SelectedIndices[0] - 1] = colorDialog1.Color;
+            DialogResult result = colorDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                lvColorTable.SelectedItems[0].SubItems[1].BackColor = colorDialog1.Color;
+                f1.ColorTable[lvColorTable.SelectedIndices[0] - 1] = colorDialog1.Color;
+            }
         }
     }
 }
