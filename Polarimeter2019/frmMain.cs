@@ -344,7 +344,7 @@ namespace Polarimeter2019
                     }
                     else if (BDC.Data != null)
                     {
-                        if (SelectedIndex <= BDC.Data.Length)
+                        if (SelectedIndex  < BDC.Data.Length)
                         {
                             BDC.Data[SelectedIndex].Ym = 99999999;
                         }
@@ -371,15 +371,6 @@ namespace Polarimeter2019
                     // --------------------------------------------
                     if (mnuOptionsDemomode.Checked == false)
                     {
-
-                        // --------------------------------------------
-                        // REAL INTERFACING
-                        // --------------------------------------------
-                        // 1. Move polarizer 
-                        StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
-                        MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
-                        MMC.WriteString(MSG);
-
                         // 2. Read light intensity
                         int nAvg = (int)numRepeatNumber.Value;
                         CurrentLightIntensity = 0;
@@ -389,21 +380,20 @@ namespace Polarimeter2019
                             CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
                         }
                         CurrentLightIntensity = CurrentLightIntensity / nAvg;
-                        
+
+                        // --------------------------------------------
+                        // REAL INTERFACING
+                        // --------------------------------------------
+                        // 1. Move polarizer 
+                        StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
+                        MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
+                        MMC.WriteString(MSG);
                     }
                     else
                     {
                         // --------------------------------------------
                         // DEMO MODE
                         // --------------------------------------------
-                        // Delay.
-                        // Dim sw As New Stopwatch
-                        // sw.Start()
-                        // Do
-                        // 'do nothing
-                        // Loop Until sw.ElapsedMilliseconds > 50 'ms
-                        // 'Simulation
-
                         CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
                     }
 
@@ -412,24 +402,27 @@ namespace Polarimeter2019
                     {
                         BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     }
-                    BDC.PatchData(SelectedIndex , CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                    else
+                    {
+                        BDC.PatchData(SelectedIndex, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                    }
                     DefineAngleOfRotation();
                     //
                     //<-------------PLOT HERE!  ptseries.Points.AddXY(x, y);
                     // OK GO GO GO 
-                    chart1.Series[SelectedIndex].Points.AddXY(CurrentTheta,CurrentLightIntensity);
-                    chart1.Invalidate();
-                    chart2.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
-                    chart2.Invalidate();
+                    chart4.Series[SelectedIndex].Points.AddXY(CurrentTheta,CurrentLightIntensity);
+                    chart4.Invalidate();
                     chart3.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
                     chart3.Invalidate();
-                    chart4.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
-                    chart4.Invalidate();
+                    chart2.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
+                    chart2.Invalidate();
+                    chart1.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
+                    chart1.Invalidate();
                     // เหนียวเส้น ไม่สวยเลย chart1.Series[0].Points[CurrentPointIndex]
                     //
                     PlotReferenceCurve();
                     PlotTreatmentsCurve();
-                    //PlotSelectedTRTMarker();
+                    PlotSelectedTRTMarker();
                     // auto scale
 
                     // check stop condition!!!
@@ -497,7 +490,7 @@ namespace Polarimeter2019
                 // 2. Update buttons
                 // ----------------------------------------
                 btnStart.Enabled = true;
-                btnStop.Enabled = false;
+                btnPause.Enabled = false;
                 btnStop.Enabled = false;
                 btnNew.Enabled = true;
                 btnOpen.Enabled = true;
@@ -509,8 +502,8 @@ namespace Polarimeter2019
                 // ----------------------------------------
                 // 3. Return Motor
                 // ----------------------------------------
-                MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
-                MMC.WriteString(MSG);
+                //MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
+                //MMC.WriteString(MSG);
             }
         }
 
@@ -729,15 +722,13 @@ namespace Polarimeter2019
         {
             frmColorTable f = new frmColorTable(this);
             DialogResult result = f.ShowDialog();
-            ResetDynaplot();
-            PlotReferenceCurve();
-            PlotTreatmentsCurve();
-            PlotSelectedTRTMarker();
-        }
-
-        private void mnuOptionsDemomode_Click(object sender, EventArgs e)
-        {
-            //DoScanLightIntensity();
+            if (result == DialogResult.OK)
+            {
+                ResetDynaplot();
+                PlotReferenceCurve();
+                PlotTreatmentsCurve();
+                PlotSelectedTRTMarker();
+            }
         }
 
         #endregion
@@ -789,7 +780,7 @@ namespace Polarimeter2019
             }
             catch (Exception ex)
             {
-                //Information.Err.Clear();  //// กล่องข้อความ Error ?
+                
             }
         }
 
@@ -802,24 +793,6 @@ namespace Polarimeter2019
                 {
                     if (BDC.Reference.X != null)
                     {
-                        //ReferenceCurve.UpdateData(TheData.Reference.X, TheData.Reference.Y, TheData.Reference.X.Length)
-                        // ReferenceCurve.Penstyle.Color = RGB(ReferenceColor.R, ReferenceColor.G, ReferenceColor.B)
-                        // ReferenceMinMarker.PositionX = TheData.Reference.Xm
-                        // ReferenceMinMarker.PositionY = TheData.Reference.Ym
-
-                        //chart3.Series[0].Points.AddXY(
-                        //    BDC.Reference.X[BDC.Reference.X.Length - 1],
-                        //    BDC.Reference.Y[BDC.Reference.Y.Length - 1]);
-                        //chart3.ChartAreas[3].AxisX.Maximum = 360;
-                        //chart3.ChartAreas[3].AxisY.Maximum = 3;
-                        //chart3.Invalidate();
-
-                        //chart4.Series[0].Points.AddXY(
-                        //    BDC.Reference.X[BDC.Reference.X.Length - 1],
-                        //    BDC.Reference.Y[BDC.Reference.Y.Length - 1]);
-                        //chart4.ChartAreas[3].AxisX.Maximum = 360;
-                        //chart4.ChartAreas[3].AxisY.Maximum = 3;
-                        //chart4.Invalidate();
                         lblNullPoint.Text = BDC.Reference.Xm.ToString("0.0000") + " deg";
                         e = true;
                     }
@@ -827,6 +800,7 @@ namespace Polarimeter2019
             }
             catch (Exception ex)
             {
+
             }
             return e;
         }
@@ -843,37 +817,12 @@ namespace Polarimeter2019
                 {
                     if (lsvData.Items[i + 1].Checked)
                     {
-                        //chart3.Series[3].Points.AddXY(
-                        //    BDC.Reference.X[BDC.Reference.X.Length - 1],
-                        //    BDC.Reference.Y[BDC.Reference.Y.Length - 1]);
-                        //chart3.ChartAreas[3].AxisX.Maximum = 360;
-                        //chart3.ChartAreas[3].AxisY.Maximum = 3;
-                        //chart3.Invalidate();
-                        //chart4.Series[3].Points.AddXY(
-                        //    BDC.Reference.X[BDC.Reference.X.Length - 1],
-                        //    BDC.Reference.Y[BDC.Reference.Y.Length - 1]);
-                        //chart4.ChartAreas[3].AxisX.Maximum = 360;
-                        //chart4.ChartAreas[3].AxisY.Maximum = 3;
-                        //chart4.Invalidate();
-
-                        //lblNullPoint.Text = BDC.Reference.Xm.ToString("0.0000") + " deg";
-
-                    //    if (SelectedIndex == 0)
-                    //    {
-                    //        BDC.Reference.Xm = 0.00000;
-                    //    }
-                    //    else if (BDC.Data != null)
-                    //    {
-                    //        if (SelectedIndex <= BDC.Data.Length)
-                    //        {
-                    //            BDC.Data[SelectedIndex - 1].Xm = CurrentTheta;
-                    //        }
-                    //    }
+                        
                     }
                 }
                 catch (Exception ex)
                 {
-                    //Information.Err.Clear();  ////กล่องข้อความ Error ??
+                    
                 }
             }
             return true;
@@ -890,7 +839,7 @@ namespace Polarimeter2019
             }
             catch (Exception ex)
             {
-                //Information.Err.Clear(); //// กล่องข้อความ Error ??
+                
             }
         }
 
@@ -906,89 +855,16 @@ namespace Polarimeter2019
                 DialogResult result = MessageBox.Show("Data will be deleted. Do you want to new measurement?", "New measurement", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
-
+                    MEA();
                 }
                 else if (result == DialogResult.Cancel)
                 {
 
                 }
             }
-
-            // load dialog
-            frmNewMeasurement f = new frmNewMeasurement();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.ShowDialog();
-
-            chart1.Series.Clear();
-            chart2.Series.Clear();
-            chart3.Series.Clear();
-            chart4.Series.Clear();
-
-            // do update the job
-            if (f.Verify() == true)
+            else
             {
-                try
-                {
-                    // get information
-                    txtSampleName.Text = f.SampleName;
-                    numRepeatNumber.Value = f.RepeatNumber;
-                    NumberOfRepeatation = (int)f.OfRepeatation;
-
-                    // initialize the data object
-                    BDC = new BaseDataControl();
-                    BDC.SampleName = txtSampleName.Text;
-
-                    // Add blank data
-                    BDC.Data = new BaseDataControl.strucCurveData[NumberOfRepeatation];
-
-                    // clear
-                    lsvData.Items.Clear();
-                    ListViewItem lvi;
-
-                    // add ref.
-                    lvi = new ListViewItem();
-                    lvi.Text = "Reference";
-                    lvi.SubItems.Add("-");
-                    lvi.SubItems.Add("-");
-                    lvi.SubItems.Add("-");
-                    lvi.Checked = true;
-                    lvi.BackColor = ReferenceColor;
-                    lvi.UseItemStyleForSubItems = false;
-                    lsvData.Items.Add(lvi);
-
-                    // add repeats
-                    for (int i = 1; i <= NumberOfRepeatation; i++)
-                    {
-                        lvi = new ListViewItem();
-                        lvi.Text = "Sample " + i.ToString();
-                        lvi.SubItems.Add("-");
-                        lvi.SubItems.Add("-");
-                        lvi.SubItems.Add("-");
-                        lvi.Checked = true;
-                        lvi.BackColor = ColorTable[(i - 1) % ColorTable.Length];
-                        lvi.UseItemStyleForSubItems = false;
-                        lsvData.Items.Add(lvi);
-                    }
-
-                    // clear treatment curve
-                    // ReDim TreatmentCurve(0 To NumberOfRepeatation - 1)
-
-                    gbMeasurement.Enabled = true;
-                    btnNew.Enabled = true;
-                    btnOpen.Enabled = true;
-                    gbSample.Enabled = true;
-                    gbScanCondition.Enabled = true;
-
-                    lsvData.Items[0].Selected = true;
-                    lsvData.CheckBoxes = true;
-                    lsvData.Focus();
-
-                    PolarChart();
-                }
-                catch
-                {
-
-                }
+                MEA();
             }
         }
 
@@ -1147,86 +1023,8 @@ namespace Polarimeter2019
                 Series newSeries = new Series("Reference");
                 newSeries.ChartType = SeriesChartType.Polar;
                 newSeries.BorderWidth = 3;
-                newSeries.XValueType = ChartValueType.DateTime;
-                newSeries.YValueType = ChartValueType.DateTime;
                 newSeries.Color = Properties.Settings.Default.ReferenceColor;
-                for (int i = 1; i <= NumberOfRepeatation; i++)
-                {
-                    Series sample = new Series("Sample" + i.ToString());
-                    sample.ChartType = SeriesChartType.Polar;
-                    sample.BorderWidth = 3;
-                    sample.XValueType = ChartValueType.Auto;
-                    sample.YValueType = ChartValueType.Auto;
-                    chart1.Series.Add(sample);
-                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
-                }
-                chart1.Series.Add(newSeries);
-                chart1.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
-                chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
-                chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
-                chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
-                chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-
-                //chart2
-                Series newSeries2 = new Series("Reference");
-                newSeries2.ChartType = SeriesChartType.Line;
-                newSeries2.BorderWidth = 3;
-                newSeries2.XValueType = ChartValueType.DateTime;
-                newSeries2.YValueType = ChartValueType.DateTime;
-                newSeries2.Color = Properties.Settings.Default.ReferenceColor;
-                for (int i = 1; i <= NumberOfRepeatation; i++)
-                {
-                    Series sample = new Series("Sample" + i.ToString());
-                    sample.ChartType = SeriesChartType.Line;
-                    sample.BorderWidth = 3;
-                    sample.XValueType = ChartValueType.Auto;
-                    sample.YValueType = ChartValueType.Auto;
-                    chart2.Series.Add(sample);
-                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
-                }
-                chart2.Series.Add(newSeries2);
-                chart2.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
-                chart2.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
-                chart2.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                chart2.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
-                chart2.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
-                chart2.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                chart2.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(txtStart.Text);
-
-                //chart3
-                Series newSeries3 = new Series("Reference");
-                newSeries3.ChartType = SeriesChartType.Line;
-                newSeries3.BorderWidth = 3;
-                newSeries3.XValueType = ChartValueType.DateTime;
-                newSeries3.YValueType = ChartValueType.DateTime;
-                newSeries3.Color = Properties.Settings.Default.ReferenceColor;
-                for (int i = 1; i <= NumberOfRepeatation; i++)
-                {
-                    Series sample = new Series("Sample" + i.ToString());
-                    sample.ChartType = SeriesChartType.Line;
-                    sample.BorderWidth = 3;
-                    sample.XValueType = ChartValueType.Auto;
-                    sample.YValueType = ChartValueType.Auto;
-                    chart3.Series.Add(sample);
-                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
-                }
-                chart3.Series.Add(newSeries3);
-                chart3.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
-                chart3.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
-                chart3.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                chart3.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
-                chart3.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
-                chart3.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                chart3.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(txtStart.Text);
-
-                //chart4
-                Series newSeries4 = new Series("Reference");
-                newSeries4.ChartType = SeriesChartType.Polar;
-                newSeries4.BorderWidth = 3;
-                newSeries4.XValueType = ChartValueType.DateTime;
-                newSeries4.YValueType = ChartValueType.DateTime;
-                newSeries4.Color = Properties.Settings.Default.ReferenceColor;
+                chart4.Series.Add(newSeries);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
@@ -1237,17 +1035,166 @@ namespace Polarimeter2019
                     chart4.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
-                chart4.Series.Add(newSeries4);
                 chart4.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
                 chart4.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
                 chart4.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
                 chart4.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
                 chart4.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
                 chart4.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+
+                //chart2
+                Series newSeries2 = new Series("Reference");
+                newSeries2.ChartType = SeriesChartType.Line;
+                newSeries2.BorderWidth = 3;
+                newSeries2.Color = Properties.Settings.Default.ReferenceColor;
+                chart3.Series.Add(newSeries2);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Line;
+                    sample.BorderWidth = 3;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart3.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+                chart3.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
+                chart3.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
+                chart3.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart3.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
+                chart3.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
+                chart3.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart3.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(txtStart.Text);
+
+                //chart3
+                Series newSeries3 = new Series("Reference");
+                newSeries3.ChartType = SeriesChartType.Line;
+                newSeries3.BorderWidth = 3;
+                newSeries3.Color = Properties.Settings.Default.ReferenceColor;
+                chart2.Series.Add(newSeries3);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Line;
+                    sample.BorderWidth = 3;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart2.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+                chart2.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
+                chart2.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
+                chart2.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart2.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
+                chart2.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
+                chart2.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart2.ChartAreas[0].AxisX.Minimum = System.Convert.ToDouble(txtStart.Text);
+
+                //chart4
+                Series newSeries4 = new Series("Reference");
+                newSeries4.ChartType = SeriesChartType.Polar;
+                newSeries4.BorderWidth = 3;
+                newSeries4.Color = Properties.Settings.Default.ReferenceColor;
+                chart1.Series.Add(newSeries4);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Polar;
+                    sample.BorderWidth = 3;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart1.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+                chart1.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
+                chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
+                chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
+                chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
+                chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
             }
             catch (Exception ex)
             {
 
+            }
+        }
+
+        private void MEA()
+        {
+            // load dialog
+            frmNewMeasurement f = new frmNewMeasurement();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            DialogResult result = f.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                // clear chart
+                chart4.Series.Clear();
+                chart3.Series.Clear();
+                chart2.Series.Clear();
+                chart1.Series.Clear();
+                if (f.Verify() == true)
+                {
+                    try
+                    {
+                        // get information
+                        txtSampleName.Text = f.SampleName;
+                        numRepeatNumber.Value = f.RepeatNumber;
+                        NumberOfRepeatation = (int)f.OfRepeatation;
+
+                        // initialize the data object
+                        BDC = new BaseDataControl();
+                        BDC.SampleName = txtSampleName.Text;
+
+                        // Add blank data
+                        BDC.Data = new BaseDataControl.strucCurveData[NumberOfRepeatation];
+
+                        // clear
+                        lsvData.Items.Clear();
+                        ListViewItem lvi;
+
+                        // add ref.
+                        lvi = new ListViewItem();
+                        lvi.Text = "Reference";
+                        lvi.SubItems.Add("-");
+                        lvi.SubItems.Add("-");
+                        lvi.SubItems.Add("-");
+                        lvi.Checked = true;
+                        lvi.BackColor = ReferenceColor;
+                        lvi.UseItemStyleForSubItems = false;
+                        lsvData.Items.Add(lvi);
+
+                        // add repeats
+                        for (int i = 1; i <= NumberOfRepeatation; i++)
+                        {
+                            lvi = new ListViewItem();
+                            lvi.Text = "Sample " + i.ToString();
+                            lvi.SubItems.Add("-");
+                            lvi.SubItems.Add("-");
+                            lvi.SubItems.Add("-");
+                            lvi.Checked = true;
+                            lvi.BackColor = ColorTable[(i - 1) % ColorTable.Length];
+                            lvi.UseItemStyleForSubItems = false;
+                            lsvData.Items.Add(lvi);
+                        }
+
+                        gbMeasurement.Enabled = true;
+                        btnNew.Enabled = true;
+                        btnOpen.Enabled = true;
+                        gbSample.Enabled = true;
+                        gbScanCondition.Enabled = true;
+
+                        lsvData.Items[0].Selected = true;
+                        lsvData.CheckBoxes = true;
+                        lsvData.Focus();
+
+                        // chart
+                        PolarChart();
+                    }
+                    catch
+                    {
+
+                    }
+                }
             }
         }
 
