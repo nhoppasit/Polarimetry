@@ -73,7 +73,6 @@ namespace Polarimeter2019
                 if (Data.Length < RepeatID)
                 {
                     strucCurveData Q = Data[RepeatID];
-                    //strucCurveData[] Data = Data[RepeatID];
                     Data[RepeatID].Ym = 999999;
                 }
             }
@@ -164,13 +163,18 @@ namespace Polarimeter2019
             try
             {
                 if (Reference.X == null)
+                {
                     return;
+                }
                 if (Data[RepeatID].X == null)
+                {
                     return;
+                }
                 Data[RepeatID].AngleOfRotation = Math.Abs(Data[RepeatID].Xm - Reference.Xm);
             }
             catch (Exception ex)
             {
+
             }
         }
         

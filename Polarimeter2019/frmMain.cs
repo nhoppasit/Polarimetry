@@ -310,7 +310,6 @@ namespace Polarimeter2019
 
             try
             {
-
                 // --------------------------------------------
                 // Evaluate size of array of X[], Y[]
                 // --------------------------------------------
@@ -325,7 +324,6 @@ namespace Polarimeter2019
                 txtStop.Text = ThetaB.ToString();
                 BDC.Reference.X = new double[NumberOfPoint];
                 BDC.Reference.Y = new double[NumberOfPoint];
-
                 for (int i = 0; i < BDC.Data.Length; i++)
                 {
                     BDC.Data[i].X = new double[NumberOfPoint];
@@ -351,6 +349,52 @@ namespace Polarimeter2019
                     }
                 }
 
+                ////----------------------------------------------------------------
+                ////  REAL INTERFACE YES OR NOT (Theta,I)
+                ////----------------------------------------------------------------
+                //if (ThetaA < ThetaB)
+                //    CurrentTheta = ThetaA + CurrentPointIndex * Delta;
+                //else if (ThetaA > ThetaB)
+                //    CurrentTheta = ThetaA - CurrentPointIndex * Delta;
+                //if (mnuOptionsDemomode.Checked == false)
+                //{
+                //    // --------------------------------------------
+                //    // REAL INTERFACING
+                //    // --------------------------------------------
+                //    // 1. Move polarizer 
+                //    StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
+                //    MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
+                //    MMC.WriteString(MSG);
+
+                //    // 2. Read light intensity
+                //    int nAvg = (int)numRepeatNumber.Value;
+                //    CurrentLightIntensity = 0;
+                //    for (int tt = 0; tt <= nAvg - 1; tt++)
+                //    {
+                //        DMM.WriteString("READ?");
+                //        CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
+                //    }
+                //    CurrentLightIntensity = CurrentLightIntensity / nAvg;
+                //}
+                //else
+                //{
+                //    // --------------------------------------------
+                //    // DEMO MODE
+                //    // --------------------------------------------
+                //    CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
+                //}
+                //if (SelectedIndex == 0)
+                //{
+                //    BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                //}
+                //else
+                //{
+                //    BDC.PatchData(SelectedIndex, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                //}
+                //DefineAngleOfRotation();
+                //PlotReferenceCurve();
+                //PlotTreatmentsCurve();
+                //PlotSelectedTRTMarker();
 
 
                 // --------------------------------------------
@@ -371,6 +415,15 @@ namespace Polarimeter2019
                     // --------------------------------------------
                     if (mnuOptionsDemomode.Checked == false)
                     {
+
+                        // --------------------------------------------
+                        // REAL INTERFACING
+                        // --------------------------------------------
+                        // 1. Move polarizer 
+                        StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
+                        MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
+                        MMC.WriteString(MSG);
+
                         // 2. Read light intensity
                         int nAvg = (int)numRepeatNumber.Value;
                         CurrentLightIntensity = 0;
@@ -380,14 +433,6 @@ namespace Polarimeter2019
                             CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
                         }
                         CurrentLightIntensity = CurrentLightIntensity / nAvg;
-
-                        // --------------------------------------------
-                        // REAL INTERFACING
-                        // --------------------------------------------
-                        // 1. Move polarizer 
-                        StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
-                        MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
-                        MMC.WriteString(MSG);
                     }
                     else
                     {
@@ -502,8 +547,8 @@ namespace Polarimeter2019
                 // ----------------------------------------
                 // 3. Return Motor
                 // ----------------------------------------
-                //MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
-                //MMC.WriteString(MSG);
+                MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
+                MMC.WriteString(MSG);
             }
         }
 
@@ -1195,6 +1240,10 @@ namespace Polarimeter2019
 
                     }
                 }
+            }
+            else
+            {
+
             }
         }
 
