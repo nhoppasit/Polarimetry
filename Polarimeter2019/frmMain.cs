@@ -291,8 +291,9 @@ namespace Polarimeter2019
                 btnPause.Text = "PAUSE";
                 btnNew.Enabled = true;
                 btnOpen.Enabled = true;
-                gbSample.Enabled = false;
-                gbScanCondition.Enabled = false;
+                gbStartMea.Enabled = true;
+                gbSample.Enabled = true;
+                gbScanCondition.Enabled = true;
                 return;
             }
 
@@ -349,54 +350,6 @@ namespace Polarimeter2019
                     }
                 }
 
-                ////----------------------------------------------------------------
-                ////  REAL INTERFACE YES OR NOT (Theta,I)
-                ////----------------------------------------------------------------
-                //if (ThetaA < ThetaB)
-                //    CurrentTheta = ThetaA + CurrentPointIndex * Delta;
-                //else if (ThetaA > ThetaB)
-                //    CurrentTheta = ThetaA - CurrentPointIndex * Delta;
-                //if (mnuOptionsDemomode.Checked == false)
-                //{
-                //    // --------------------------------------------
-                //    // REAL INTERFACING
-                //    // --------------------------------------------
-                //    // 1. Move polarizer 
-                //    StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
-                //    MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();
-                //    MMC.WriteString(MSG);
-
-                //    // 2. Read light intensity
-                //    int nAvg = (int)numRepeatNumber.Value;
-                //    CurrentLightIntensity = 0;
-                //    for (int tt = 0; tt <= nAvg - 1; tt++)
-                //    {
-                //        DMM.WriteString("READ?");
-                //        CurrentLightIntensity = CurrentLightIntensity + DMM.ReadNumber();
-                //    }
-                //    CurrentLightIntensity = CurrentLightIntensity / nAvg;
-                //}
-                //else
-                //{
-                //    // --------------------------------------------
-                //    // DEMO MODE
-                //    // --------------------------------------------
-                //    CurrentLightIntensity = Rnd.NextDouble() * 0.1 + Math.Cos((CurrentTheta - Rnd.NextDouble() * 50) * Math.PI / 180) + 2;
-                //}
-                //if (SelectedIndex == 0)
-                //{
-                //    BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                //}
-                //else
-                //{
-                //    BDC.PatchData(SelectedIndex, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
-                //}
-                //DefineAngleOfRotation();
-                //PlotReferenceCurve();
-                //PlotTreatmentsCurve();
-                //PlotSelectedTRTMarker();
-
-
                 // --------------------------------------------
                 // MAIN READING LOOP (^0^)
                 // --------------------------------------------
@@ -406,10 +359,13 @@ namespace Polarimeter2019
 
                     // Update current THETA
                     if (ThetaA < ThetaB)
+                    {
                         CurrentTheta = ThetaA + CurrentPointIndex * Delta;
+                    }
                     else if (ThetaA > ThetaB)
+                    {
                         CurrentTheta = ThetaA - CurrentPointIndex * Delta;
-
+                    }
                     // --------------------------------------------
                     // CHECK DEMO MODE
                     // --------------------------------------------
@@ -451,7 +407,6 @@ namespace Polarimeter2019
                     {
                         BDC.PatchData(SelectedIndex, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     }
-                    DefineAngleOfRotation();
                     //
                     //<-------------PLOT HERE!  ptseries.Points.AddXY(x, y);
                     // OK GO GO GO 
@@ -465,6 +420,7 @@ namespace Polarimeter2019
                     chart1.Invalidate();
                     // เหนียวเส้น ไม่สวยเลย chart1.Series[0].Points[CurrentPointIndex]
                     //
+                    DefineAngleOfRotation();
                     PlotReferenceCurve();
                     PlotTreatmentsCurve();
                     PlotSelectedTRTMarker();
@@ -1003,6 +959,10 @@ namespace Polarimeter2019
                 {
                     lblSample.Text = "Sample " + SelectedIndex.ToString();
                 }
+                ResetDynaplot();
+                PlotReferenceCurve();
+                PlotTreatmentsCurve();
+                PlotSelectedTRTMarker();
             }
             catch (Exception ex)
             {
