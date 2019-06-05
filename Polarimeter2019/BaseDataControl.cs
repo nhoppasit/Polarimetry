@@ -48,6 +48,8 @@ namespace Polarimeter2019
         {
             double Xvalue = Reference.X[PointID];
             double Yvalue = Reference.Y[PointID];
+            //Array.Resize(ref Reference.X,PointID);
+            //Array.Resize(ref Reference.Y,PointID);
 
             Reference.X[PointID] = X;
             Reference.Y[PointID] = Y;
@@ -65,20 +67,23 @@ namespace Polarimeter2019
 
             if (Data==null)
             {
-                strucCurveData Z = Data[RepeatID];
+                //trucCurveData Z = Data[RepeatID];
+                Array.Resize(ref Data, RepeatID);
                 Data[RepeatID].Ym = 999999;
             }
             else
             {
-                if (Data.Length < RepeatID)
+                if (Data.Length -1 < RepeatID)
                 {
-                    strucCurveData Q = Data[RepeatID];
+                    //strucCurveData Q = Data[RepeatID];
+                    Array.Resize(ref Data, RepeatID);
                     Data[RepeatID].Ym = 999999;
                 }
             }
 
             double Xdata = Data[RepeatID].X[PointID];
             double Ydata = Data[RepeatID].Y[PointID];
+            //Array.Resize(ref Data[RepeatID],);
 
             Data[RepeatID].X[PointID] = X;
             Data[RepeatID].Y[PointID] = Y;

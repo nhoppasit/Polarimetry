@@ -503,8 +503,8 @@ namespace Polarimeter2019
                 // ----------------------------------------
                 // 3. Return Motor
                 // ----------------------------------------
-                MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
-                MMC.WriteString(MSG);
+                //MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
+                //MMC.WriteString(MSG);
             }
         }
 
@@ -1270,15 +1270,7 @@ namespace Polarimeter2019
                 SendKeys.Send("{TAB}");
             }
         }
-
-        private void lvSummary_ItemChecked(System.Object sender, System.Windows.Forms.ItemCheckedEventArgs e)
-        {
-            ResetDynaplot();
-            PlotReferenceCurve();
-            PlotTreatmentsCurve();
-            PlotSelectedTRTMarker();
-        }
-
+        
         private void txtVoltageRange_TextChanged(object sender, System.EventArgs e)
         {
             try
