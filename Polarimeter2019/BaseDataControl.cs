@@ -67,16 +67,16 @@ namespace Polarimeter2019
 
             if (Data==null)
             {
-                //trucCurveData Z = Data[RepeatID];
-                Array.Resize(ref Data, RepeatID);
+                strucCurveData Z = Data[RepeatID];
+                //Array.Resize(ref Data, RepeatID);
                 Data[RepeatID].Ym = 999999;
             }
             else
             {
                 if (Data.Length -1 < RepeatID)
                 {
-                    //strucCurveData Q = Data[RepeatID];
-                    Array.Resize(ref Data, RepeatID);
+                    strucCurveData Q = Data[RepeatID];
+                    //Array.Resize(ref Data, RepeatID);
                     Data[RepeatID].Ym = 999999;
                 }
             }

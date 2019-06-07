@@ -327,7 +327,7 @@ namespace Polarimeter2019
                 txtStop.Text = ThetaB.ToString();
                 BDC.Reference.X = new double[NumberOfPoint];
                 BDC.Reference.Y = new double[NumberOfPoint];
-                for (int i = 0; i < BDC.Data.Length ; i++)
+                for (int i = 0; i < BDC.Data.Length; i++)
                 {
                     BDC.Data[i].X = new double[NumberOfPoint];
                     BDC.Data[i].Y = new double[NumberOfPoint];
@@ -431,14 +431,14 @@ namespace Polarimeter2019
                     // check stop condition!!!
                     if (ThetaA < ThetaB)
                     {
-                        if (ThetaB < CurrentTheta)
+                        if (ThetaB <= CurrentTheta)
                         {
                             IsScanning = false;
                         }
                     }
                     else if (ThetaA > ThetaB)
                     {
-                        if (CurrentTheta < ThetaB)
+                        if (CurrentTheta <= ThetaB)
                         {
                             IsScanning = false;
                         }
@@ -1050,8 +1050,8 @@ namespace Polarimeter2019
                 chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
                 chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
                 chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                
-
+                chart1.ChartAreas[0].AxisX.Minimum = Convert.ToDouble(txtStart.Text);
+                chart1.ChartAreas[0].AxisX.Crossing = 90;
 
                 //chart2
                 Series newSeries2 = new Series("Reference");
@@ -1075,6 +1075,7 @@ namespace Polarimeter2019
                 chart2.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
                 chart2.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
                 chart2.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart2.ChartAreas[0].AxisX.Minimum = Convert.ToDouble(txtStart.Text);
 
                 //chart3
                 Series newSeries3 = new Series("Reference");
@@ -1098,6 +1099,7 @@ namespace Polarimeter2019
                 chart3.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
                 chart3.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
                 chart3.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart3.ChartAreas[0].AxisX.Minimum = Convert.ToDouble(txtStart.Text);
 
                 //chart4
                 Series newSeries4 = new Series("Reference");
@@ -1121,6 +1123,8 @@ namespace Polarimeter2019
                 chart4.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
                 chart4.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
                 chart4.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart4.ChartAreas[0].AxisX.Minimum = Convert.ToDouble(txtStart.Text);
+                chart4.ChartAreas[0].AxisX.Crossing = 90;
             }
             catch (Exception ex)
             {
