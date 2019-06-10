@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -1046,12 +1047,13 @@ namespace Polarimeter2019
                 }
                 chart1.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
                 chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
-                chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Solid;
                 chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
                 chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
-                chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Solid;
                 chart1.ChartAreas[0].AxisX.Minimum = Convert.ToDouble(txtStart.Text);
-                chart1.ChartAreas[0].AxisX.Crossing = 90;
+                //chart1.ChartAreas[0].AxisX.Crossing = 90;
+                //chart1.Series[0].MarkerStyle = MarkerStyle.Circle;
 
                 //chart2
                 Series newSeries2 = new Series("Reference");
@@ -1124,7 +1126,8 @@ namespace Polarimeter2019
                 chart4.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
                 chart4.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
                 chart4.ChartAreas[0].AxisX.Minimum = Convert.ToDouble(txtStart.Text);
-                chart4.ChartAreas[0].AxisX.Crossing = 90;
+                //chart4.ChartAreas[0].AxisX.Crossing = 90;
+                //chart4.Series[0].MarkerStyle = MarkerStyle.Circle;
             }
             catch (Exception ex)
             {
