@@ -500,6 +500,7 @@
             this.lsvData.View = System.Windows.Forms.View.Details;
             this.lsvData.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lsvData_ItemCheck);
             this.lsvData.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lsvData_ItemSelectionChanged);
+            this.lsvData.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lsvData_KeyPress);
             // 
             // columnHeader1
             // 
@@ -928,6 +929,8 @@
             // 
             // chart2
             // 
+            chartArea2.AxisX.MajorGrid.Interval = 0D;
+            chartArea2.AxisX.MajorTickMark.Interval = 0D;
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;

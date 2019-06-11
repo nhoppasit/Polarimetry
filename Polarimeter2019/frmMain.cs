@@ -1030,108 +1030,261 @@ namespace Polarimeter2019
 
         private void PolarChart()
         {
+            int LS = (int)0.5;
             try
             {
                 //chart1
                 Series newSeries = new Series("Reference");
                 newSeries.ChartType = SeriesChartType.Polar;
-                newSeries.BorderWidth = 3;
+                newSeries.BorderWidth = 4;
                 newSeries.Color = Properties.Settings.Default.ReferenceColor;
                 chart1.Series.Add(newSeries);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
                     sample.ChartType = SeriesChartType.Polar;
-                    sample.BorderWidth = 3;
+                    sample.BorderWidth = 4;
                     sample.XValueType = ChartValueType.Auto;
                     sample.YValueType = ChartValueType.Auto;
                     chart1.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
-                chart1.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
-                chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
-                chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Solid;
-                chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
-                chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
-                chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Solid;
-                //chart1.ChartAreas[0].AxisX.Minimum = Convert.ToDouble(txtStart.Text);
-                //chart1.ChartAreas[0].AxisX.Crossing = 90;
-                //chart1.Series[0].MarkerStyle = MarkerStyle.Circle;
-               
+                //chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
+
+                //X major 
+                chart1.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
+                chart1.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
+                chart1.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
+                chart1.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.Size = 2;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //X minor
+                chart1.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
+                chart1.ChartAreas[0].Axes[0].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart1.ChartAreas[0].Axes[0].MinorGrid.Enabled = true;
+                chart1.ChartAreas[0].Axes[0].MinorGrid.Interval = 2;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
+                //chart1.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = LS;
+                //chart1.ChartAreas[0].Axes[0].MinorTickMark.Size = LS;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //Y major
+                chart1.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 Volt";
+                chart1.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
+                chart1.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
+                chart1.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.Size = 2;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //Y minor
+                chart1.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
+                chart1.ChartAreas[0].Axes[1].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart1.ChartAreas[0].Axes[1].MinorGrid.Enabled = true;
+                chart1.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.25;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.25;
+                //chart1.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = LS;
+                //chart1.ChartAreas[0].Axes[1].MinorTickMark.Size = LS;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
 
                 //chart2
                 Series newSeries2 = new Series("Reference");
                 newSeries2.ChartType = SeriesChartType.Line;
-                newSeries2.BorderWidth = 3;
+                newSeries2.BorderWidth = 4;
                 newSeries2.Color = Properties.Settings.Default.ReferenceColor;
                 chart2.Series.Add(newSeries2);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
                     sample.ChartType = SeriesChartType.Line;
-                    sample.BorderWidth = 3;
+                    sample.BorderWidth = 4;
                     sample.XValueType = ChartValueType.Auto;
                     sample.YValueType = ChartValueType.Auto;
                     chart2.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
-                chart2.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
-                chart2.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
-                chart2.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                chart2.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
-                chart2.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
-                chart2.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                //chart2.ChartAreas[0].AxisX.Minimum = Convert.ToDouble(txtStart.Text);
+                chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
+
+                //X major 
+                chart2.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
+                chart2.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
+                chart2.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
+                chart2.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.Size = 2;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //X minor
+                chart2.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
+                chart2.ChartAreas[0].Axes[0].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart2.ChartAreas[0].Axes[0].MinorGrid.Enabled = true;
+                chart2.ChartAreas[0].Axes[0].MinorGrid.Interval = 2;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
+                //chart2.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = LS;
+                //chart2.ChartAreas[0].Axes[0].MinorTickMark.Size = LS;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //Y major
+                chart2.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 Volt";
+                chart2.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
+                chart2.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
+                chart2.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.Size = 2;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //Y minor
+                chart2.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
+                chart2.ChartAreas[0].Axes[1].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart2.ChartAreas[0].Axes[1].MinorGrid.Enabled = true;
+                chart2.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.25;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.25;
+                //chart2.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = LS;
+                //chart2.ChartAreas[0].Axes[1].MinorTickMark.Size = LS;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
 
                 //chart3
                 Series newSeries3 = new Series("Reference");
                 newSeries3.ChartType = SeriesChartType.Line;
-                newSeries3.BorderWidth = 3;
+                newSeries3.BorderWidth = 4;
                 newSeries3.Color = Properties.Settings.Default.ReferenceColor;
                 chart3.Series.Add(newSeries3);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
                     sample.ChartType = SeriesChartType.Line;
-                    sample.BorderWidth = 3;
+                    sample.BorderWidth = 4;
                     sample.XValueType = ChartValueType.Auto;
                     sample.YValueType = ChartValueType.Auto;
                     chart3.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
-                chart3.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
-                chart3.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
-                chart3.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                chart3.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
-                chart3.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
-                chart3.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                //chart3.ChartAreas[0].AxisX.Minimum = Convert.ToDouble(txtStart.Text);
+                chart3.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
+
+                //X major 
+                chart3.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
+                chart3.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
+                chart3.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
+                chart3.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
+                //chart3.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.Size = 1;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //minor
+                chart3.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
+                chart3.ChartAreas[0].Axes[0].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart3.ChartAreas[0].Axes[0].MinorGrid.Enabled = true;
+                chart3.ChartAreas[0].Axes[0].MinorGrid.Interval = 2;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = 1;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //Y major
+                chart3.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
+                chart3.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 Volt";
+                chart3.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
+                chart3.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
+                //chart3.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.Size = 1;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //Y minor
+                chart3.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
+                chart3.ChartAreas[0].Axes[1].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart3.ChartAreas[0].Axes[1].MinorGrid.Enabled = true;
+                chart3.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.1;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.1;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
 
                 //chart4
                 Series newSeries4 = new Series("Reference");
                 newSeries4.ChartType = SeriesChartType.Polar;
-                newSeries4.BorderWidth = 3;
+                newSeries4.BorderWidth = 4;
                 newSeries4.Color = Properties.Settings.Default.ReferenceColor;
                 chart4.Series.Add(newSeries4);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
                     sample.ChartType = SeriesChartType.Polar;
-                    sample.BorderWidth = 3;
+                    sample.BorderWidth = 4;
                     sample.XValueType = ChartValueType.Auto;
                     sample.YValueType = ChartValueType.Auto;
                     chart4.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
-                chart4.ChartAreas[0].AxisX.LabelStyle.Format = "{0:0.00} deg";
-                chart4.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
-                chart4.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                chart4.ChartAreas[0].AxisY.LabelStyle.Format = "0.00 Volt";
-                chart4.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
-                chart4.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
-                //chart4.ChartAreas[0].AxisX.Minimum = Convert.ToDouble(txtStart.Text);
-                //chart4.ChartAreas[0].AxisX.Crossing = 90;
-                //chart4.Series[0].MarkerStyle = MarkerStyle.Circle;
+                //chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
+
+                //X major 
+                chart4.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
+                chart4.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
+                chart4.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
+                chart4.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
+                //chart4.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.Size = 1;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //X minor
+                chart4.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
+                chart4.ChartAreas[0].Axes[0].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart4.ChartAreas[0].Axes[0].MinorGrid.Enabled = true;
+                chart4.ChartAreas[0].Axes[0].MinorGrid.Interval = 2;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = 1;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //Y major
+                chart4.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 Volt";
+                chart4.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
+                chart4.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
+                chart4.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
+                //chart4.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.Size = 1;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //Y minor
+                chart4.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
+                chart4.ChartAreas[0].Axes[1].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart4.ChartAreas[0].Axes[1].MinorGrid.Enabled = true;
+                chart4.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.1;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.1;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+
             }
             catch (Exception ex)
             {
@@ -1345,5 +1498,23 @@ namespace Polarimeter2019
             PlotTreatmentsCurve();
             PlotSelectedTRTMarker();
         }
+
+        //bool LVCS = false;
+        //    if (LVCS==false)
+        //    {
+        //        chart1.Series[SelectedIndex].Enabled = false;
+        //        chart2.Series[SelectedIndex].Enabled = false;
+        //        chart3.Series[SelectedIndex].Enabled = false;
+        //        chart4.Series[SelectedIndex].Enabled = false;
+        //        LVCS = true;
+        //    }
+        //    else
+        //    {
+        //        chart1.Series[SelectedIndex].Enabled = true;
+        //        chart2.Series[SelectedIndex].Enabled = true;
+        //        chart3.Series[SelectedIndex].Enabled = true;
+        //        chart4.Series[SelectedIndex].Enabled = true;
+        //        LVCS = false;
+        //    }
     }
 }
