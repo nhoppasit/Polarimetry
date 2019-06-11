@@ -11,8 +11,6 @@ using System.IO;
 using Ivi.Visa.Interop;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Forms.VisualStyles;
-using AxDYNAPLOT3Lib;
-using DYNAPLOT3Lib;
 
 namespace Polarimeter2019
 {
@@ -27,18 +25,12 @@ namespace Polarimeter2019
             DMM = new Ivi.Visa.Interop.FormattedIO488();
             MMC = new Ivi.Visa.Interop.FormattedIO488();
 
-            
         }
 
         #region DECRALATION
         private Ivi.Visa.Interop.FormattedIO488 ioDmm;
         public BaseDataControl BDC;
         Random rand = new Random();
-        
-        public DYNAPLOT3Lib.Curve ReferenceCurve;
-        public DYNAPLOT3Lib.Curve[] TreatmentCurve;
-        public DYNAPLOT3Lib.Marker TreatmentMinMarker;
-        public DYNAPLOT3Lib.Marker ReferenceMinMarker;
 
         //Constants
         const double StepFactor = 0.013325; //Deg /Step 
@@ -784,22 +776,11 @@ namespace Polarimeter2019
                 double[] y = new double[1];
 
                 // Remove all curves
-                //AxDynaPlot1.DataCurves.RemoveAll();
-                //AxDynaPlot1.Markers.RemoveAll();
-                
-
-                //ReferenceCurve = AxDynaPlot1.DataCurves.Add("REF", x, y, 0, false).Curve;
-                //ReferenceCurve.Penstyle.MaxWidth = 2;
-                //ReferenceCurve.Penstyle.Color = RGB(255, 0, 0);
-                //ReferenceMinMarker = AxDynaPlot1.Markers.Add(0.0, 0.0, 0, DYNAPLOT3Lib.dpsMARKERTYPE.dpsMARKER_CIRCLE);
 
                 for (int i = 0; i <= NumberOfRepeatation - 1; i++)
                 {
                     // add some data to series
                     // nothing for now!
-                    //TreatmentCurve[i] = AxDynaPlot1.DataCurves.Add("TRT" ,i.ToString, x, y, 0, false).Curve;
-                    //TreatmentCurve[i].Penstyle.MaxWidth = 2;
-                    //TreatmentCurve[i].Penstyle.Color = RGB(0, 0, 255);
                 }
             }
             catch (Exception ex)
@@ -817,10 +798,6 @@ namespace Polarimeter2019
                 {
                     if (BDC.Reference.X != null)
                     {
-                        ReferenceCurve.UpdateData(BDC.Reference.X, BDC.Reference.Y, BDC.Reference.X.Length);
-                        //ReferenceCurve.Penstyle.Color = RGB(ReferenceColor.R, ReferenceColor.G, ReferenceColor.B);
-                        ReferenceMinMarker.PositionX = BDC.Reference.Xm;
-                        ReferenceMinMarker.PositionY = BDC.Reference.Ym;
                         lblNullPoint.Text = BDC.Reference.Xm.ToString("0.0000") + " deg";
                         e = true;
                     }
@@ -849,11 +826,7 @@ namespace Polarimeter2019
                 {
                     if (lsvData.Items[i + 1].Checked)
                     {
-                        TreatmentCurve[i].UpdateData(BDC.Data[i].X,BDC.Data[i].Y,BDC.Data[i].X.Length);
-                        //TreatmentCurve[i].Penstyle.Color = RGB(
-                        //ColorTable[i % ColorTable.Length].R,
-                        //ColorTable[i % ColorTable.Length].G,
-                        //ColorTable[i % ColorTable.Length].B);
+
                     }
                 }
                 catch (Exception ex)
@@ -870,8 +843,6 @@ namespace Polarimeter2019
             {
                 if (lsvData.Items[SelectedIndex].Checked)
                 {
-                    TreatmentMinMarker.PositionX = BDC.Data[SelectedIndex - 1].Xm;
-                    TreatmentMinMarker.PositionY = BDC.Data[SelectedIndex - 1].Ym;
                     lblNullPoint.Text = BDC.Data[SelectedIndex].Xm.ToString("0.0000") + " deg";
                 }
             }

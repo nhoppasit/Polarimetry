@@ -33,13 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AxInterop.DYNAPLOT3Lib">
-      <HintPath>bin\Release\AxInterop.DYNAPLOT3Lib.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.DYNAPLOT3Lib">
-      <HintPath>bin\Release\Interop.DYNAPLOT3Lib.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
