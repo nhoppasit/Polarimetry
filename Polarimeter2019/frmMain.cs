@@ -1057,6 +1057,12 @@ namespace Polarimeter2019
         {
             try
             {
+                //ย้ายเคลียร์มานะ
+                chart4.Series.Clear();
+                chart3.Series.Clear();
+                chart2.Series.Clear();
+                chart1.Series.Clear();
+
                 #region CHART 1
 
                 //chart1
@@ -1380,10 +1386,6 @@ namespace Polarimeter2019
             if (result == DialogResult.OK)
             {
                 // clear chart
-                chart4.Series.Clear();
-                chart3.Series.Clear();
-                chart2.Series.Clear();
-                chart1.Series.Clear();
                 if (f.Verify() == true)
                 {
                     try
