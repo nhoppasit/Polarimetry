@@ -323,7 +323,7 @@ namespace Polarimeter2019
                     NumberOfPoint++;
                 }
                 NumberOfPoint++;
-                ThetaB = (double)(NumberOfPoint - 1) * Delta + ThetaA;
+                ThetaB = (double)(NumberOfPoint-1) * Delta + ThetaA;
                 txtStop.Text = ThetaB.ToString();
                 BDC.Reference.X = new double[1+NumberOfPoint];
                 BDC.Reference.Y = new double[1+NumberOfPoint];
@@ -401,27 +401,126 @@ namespace Polarimeter2019
                     }
 
                     // Save to memory and update curve
-                    if (SelectedIndex == 0)
+                    if (SelectedIndex == 0) // Curve / เส้นกราฟ ของ Reference ที่แต่ละกราฟ
                     {
                         BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     }
-                    else
+                    else // ที่ไม่ใช่ Ref ตั้งแต่ SelectedIndex = 1 เป็นต้นไป
                     {
                         BDC.PatchData(SelectedIndex, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     }
-                    //
                     //<-------------PLOT HERE!  ptseries.Points.AddXY(x, y);
                     // OK GO GO GO 
-                    chart4.Series[SelectedIndex].Points.AddXY(CurrentTheta,CurrentLightIntensity);
+                    // ---------
+                    chart4.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
+                    if (chart4.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
+                    {
+                        if (SelectedIndex == 0)
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xm, BDC.Reference.Ym);
+                        else
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xm, BDC.Data[CurrentPointIndex].Ym);
+                    }
+                    else
+                    {
+                        if (SelectedIndex == 0)
+                        {
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xm;
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ym;
+                        }
+                        else
+                        {
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[CurrentPointIndex].X[SelectedIndex];
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[CurrentPointIndex].Y[SelectedIndex];
+                        }
+                    }
+                    chart4.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Circle;
+                    chart4.Series[SelectedIndex + lsvData.Items.Count].MarkerSize = 10;
+                    chart4.Series[SelectedIndex + lsvData.Items.Count].MarkerBorderWidth = 2;
+                    //chart4.Series[SelectedIndex + lsvData.Items.Count].IsValueShownAsLabel = true;
                     chart4.Invalidate();
+                    // ---------
                     chart3.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
+                    if (chart3.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
+                    {
+                        if (SelectedIndex == 0)
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xm, BDC.Reference.Ym);
+                        else
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xm, BDC.Data[CurrentPointIndex].Ym);
+                    }
+                    else
+                    {
+                        if (SelectedIndex == 0)
+                        {
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xm;
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ym;
+                        }
+                        else
+                        {
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[CurrentPointIndex].X[SelectedIndex];
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[CurrentPointIndex].Y[SelectedIndex];
+                        }
+                    }
+                    chart3.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Circle;
+                    chart3.Series[SelectedIndex + lsvData.Items.Count].MarkerSize = 10;
+                    chart3.Series[SelectedIndex + lsvData.Items.Count].MarkerBorderWidth = 2;
+                    //chart3.Series[SelectedIndex + lsvData.Items.Count].IsValueShownAsLabel = true;
                     chart3.Invalidate();
+                    // ---------
                     chart2.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
+                    if (chart2.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
+                    {
+                        if (SelectedIndex == 0)
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xm, BDC.Reference.Ym);
+                        else
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xm, BDC.Data[CurrentPointIndex].Ym);
+                    }
+                    else
+                    {
+                        if (SelectedIndex == 0)
+                        {
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xm;
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ym;
+                        }
+                        else
+                        {
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[CurrentPointIndex].X[SelectedIndex];
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[CurrentPointIndex].Y[SelectedIndex];
+                        }
+                    }
+                    chart2.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Circle;
+                    chart2.Series[SelectedIndex + lsvData.Items.Count].MarkerSize = 10;
+                    chart2.Series[SelectedIndex + lsvData.Items.Count].MarkerBorderWidth = 2;
+                    //chart2.Series[SelectedIndex + lsvData.Items.Count].IsValueShownAsLabel = true;
                     chart2.Invalidate();
+                    // ---------
                     chart1.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
+                    if (chart1.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
+                    {
+                        if (SelectedIndex == 0)
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xm, BDC.Reference.Ym);
+                        else
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xm, BDC.Data[CurrentPointIndex].Ym);
+                    }
+                    else
+                    {
+                        if (SelectedIndex == 0)
+                        {
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xm;
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ym;
+                        }
+                        else
+                        {
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[CurrentPointIndex].X[SelectedIndex];
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[CurrentPointIndex].Y[SelectedIndex];
+                        }
+                    }
+                    chart1.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Circle;
+                    chart1.Series[SelectedIndex + lsvData.Items.Count].MarkerSize = 10;
+                    chart1.Series[SelectedIndex + lsvData.Items.Count].MarkerBorderWidth = 2;
+                    //chart1.Series[SelectedIndex + lsvData.Items.Count].IsValueShownAsLabel = true;
                     chart1.Invalidate();
-                    // เหนียวเส้น ไม่สวยเลย chart1.Series[0].Points[CurrentPointIndex]
-                    //
+                    //====....
+
                     DefineAngleOfRotation();
                     PlotReferenceCurve();
                     PlotTreatmentsCurve();
@@ -1032,22 +1131,40 @@ namespace Polarimeter2019
         {
             try
             {
+                #region Chart1
+
                 //chart1
                 Series newSeries = new Series("Reference");
                 newSeries.ChartType = SeriesChartType.Polar;
-                newSeries.BorderWidth = 4;
+                newSeries.BorderWidth = 3;
                 newSeries.Color = Properties.Settings.Default.ReferenceColor;
                 chart1.Series.Add(newSeries);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
                     sample.ChartType = SeriesChartType.Polar;
-                    sample.BorderWidth = 4;
+                    sample.BorderWidth = 3;
                     sample.XValueType = ChartValueType.Auto;
                     sample.YValueType = ChartValueType.Auto;
                     chart1.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
+
+                Series newSeriesRefMarker = new Series("Reference_Marker");
+                newSeriesRefMarker.ChartType = SeriesChartType.Polar;
+                newSeriesRefMarker.Color = Properties.Settings.Default.ReferenceColor;
+                chart1.Series.Add(newSeriesRefMarker);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Polar;
+                    sampleMarker.BorderWidth = 3;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart1.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
                 //chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
 
                 //------X major 
@@ -1095,22 +1212,42 @@ namespace Polarimeter2019
                 chart1.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
                 chart1.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
 
+                #endregion
+
+                #region Chart2
+
                 //chart2
                 Series newSeries2 = new Series("Reference");
                 newSeries2.ChartType = SeriesChartType.Line;
-                newSeries2.BorderWidth = 4;
+                newSeries2.BorderWidth = 3;
                 newSeries2.Color = Properties.Settings.Default.ReferenceColor;
                 chart2.Series.Add(newSeries2);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
                     sample.ChartType = SeriesChartType.Line;
-                    sample.BorderWidth = 4;
+                    sample.BorderWidth = 3;
                     sample.XValueType = ChartValueType.Auto;
                     sample.YValueType = ChartValueType.Auto;
                     chart2.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
+
+                Series newSeriesRefMarker1 = new Series("Reference_Marker");
+                newSeriesRefMarker1.ChartType = SeriesChartType.Line;
+                newSeriesRefMarker1.Color = Properties.Settings.Default.ReferenceColor;
+                chart2.Series.Add(newSeriesRefMarker1);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Line;
+                    sampleMarker.BorderWidth = 3;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart2.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
                 chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
 
                 //------X major 
@@ -1158,22 +1295,42 @@ namespace Polarimeter2019
                 chart2.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
                 chart2.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
 
+                #endregion
+
+                #region Chart3
+
                 //chart3
                 Series newSeries3 = new Series("Reference");
                 newSeries3.ChartType = SeriesChartType.Line;
-                newSeries3.BorderWidth = 4;
+                newSeries3.BorderWidth = 3;
                 newSeries3.Color = Properties.Settings.Default.ReferenceColor;
                 chart3.Series.Add(newSeries3);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
                     sample.ChartType = SeriesChartType.Line;
-                    sample.BorderWidth = 4;
+                    sample.BorderWidth = 3;
                     sample.XValueType = ChartValueType.Auto;
                     sample.YValueType = ChartValueType.Auto;
                     chart3.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
+
+                Series newSeriesRefMarker2 = new Series("Reference_Marker");
+                newSeriesRefMarker2.ChartType = SeriesChartType.Line;
+                newSeriesRefMarker2.Color = Properties.Settings.Default.ReferenceColor;
+                chart3.Series.Add(newSeriesRefMarker2);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Line;
+                    sampleMarker.BorderWidth = 3;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart3.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
                 chart3.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
 
                 //------X major 
@@ -1221,22 +1378,42 @@ namespace Polarimeter2019
                 chart3.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
                 chart3.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
 
+                #endregion
+
+                #region Chart4
+
                 //chart4
                 Series newSeries4 = new Series("Reference");
                 newSeries4.ChartType = SeriesChartType.Polar;
-                newSeries4.BorderWidth = 4;
+                newSeries4.BorderWidth = 3;
                 newSeries4.Color = Properties.Settings.Default.ReferenceColor;
                 chart4.Series.Add(newSeries4);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
                     sample.ChartType = SeriesChartType.Polar;
-                    sample.BorderWidth = 4;
+                    sample.BorderWidth = 3;
                     sample.XValueType = ChartValueType.Auto;
                     sample.YValueType = ChartValueType.Auto;
                     chart4.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
+
+                Series newSeriesRefMarker3 = new Series("Reference_Marker");
+                newSeriesRefMarker3.ChartType = SeriesChartType.Polar;
+                newSeriesRefMarker3.Color = Properties.Settings.Default.ReferenceColor;
+                chart4.Series.Add(newSeriesRefMarker3);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Polar;
+                    sampleMarker.BorderWidth = 3;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart4.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
                 //chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
 
                 //------X major 
@@ -1284,18 +1461,7 @@ namespace Polarimeter2019
                 chart4.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
                 chart4.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
 
-
-                //-------------- Marker ----------------//
-                Series Markerseries = new Series("ReferenceMarker");
-                Markerseries.ChartType = SeriesChartType.Polar;
-                Markerseries.BorderWidth = 4;
-                Markerseries.Color = Properties.Settings.Default.ReferenceColor;
-                chart1.Series.Add(Markerseries);
-                double[] X = { 0 };
-                //if (X < BDC.Reference.Xm)
-                //{
-
-                //}
+                #endregion
             }
             catch (Exception ex)
             {
