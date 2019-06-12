@@ -1056,10 +1056,10 @@ namespace Polarimeter2019
                 chart1.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
                 chart1.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
                 chart1.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
-                chart1.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                //chart1.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
                 chart1.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
                 chart1.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
-                chart1.ChartAreas[0].Axes[0].MajorTickMark.Size = 2;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.Size = 1;
                 chart1.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
                 //------X minor
                 chart1.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
@@ -1069,8 +1069,8 @@ namespace Polarimeter2019
                 chart1.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
                 chart1.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
                 chart1.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
-                //chart1.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = LS;
-                //chart1.ChartAreas[0].Axes[0].MinorTickMark.Size = LS;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = 1;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
                 chart1.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
                 //------Y major
                 chart1.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 Volt";
@@ -1078,10 +1078,10 @@ namespace Polarimeter2019
                 chart1.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
                 chart1.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
                 chart1.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
-                chart1.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                //chart1.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
                 chart1.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
                 chart1.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
-                chart1.ChartAreas[0].Axes[1].MajorTickMark.Size = 2;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.Size = 1;
                 chart1.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
                 //-------Y minor
                 chart1.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
@@ -1090,9 +1090,9 @@ namespace Polarimeter2019
                 chart1.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.25;
                 chart1.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
                 chart1.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
-                chart1.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.25;
-                //chart1.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = LS;
-                //chart1.ChartAreas[0].Axes[1].MinorTickMark.Size = LS;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.1;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
                 chart1.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
 
                 //chart2
@@ -1119,10 +1119,10 @@ namespace Polarimeter2019
                 chart2.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
                 chart2.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
                 chart2.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
-                chart2.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                //chart2.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
                 chart2.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
                 chart2.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
-                chart2.ChartAreas[0].Axes[0].MajorTickMark.Size = 2;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.Size = 1;
                 chart2.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
                 //------X minor
                 chart2.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
@@ -1132,8 +1132,8 @@ namespace Polarimeter2019
                 chart2.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
                 chart2.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
                 chart2.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
-                //chart2.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = LS;
-                //chart2.ChartAreas[0].Axes[0].MinorTickMark.Size = LS;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = 1;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
                 chart2.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
                 //------Y major
                 chart2.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 Volt";
@@ -1141,10 +1141,10 @@ namespace Polarimeter2019
                 chart2.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
                 chart2.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
                 chart2.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
-                chart2.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                //chart2.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
                 chart2.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
                 chart2.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
-                chart2.ChartAreas[0].Axes[1].MajorTickMark.Size = 2;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.Size = 1;
                 chart2.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
                 //------Y minor
                 chart2.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
@@ -1153,9 +1153,9 @@ namespace Polarimeter2019
                 chart2.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.25;
                 chart2.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
                 chart2.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
-                chart2.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.25;
-                //chart2.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = LS;
-                //chart2.ChartAreas[0].Axes[1].MinorTickMark.Size = LS;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.1;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
                 chart2.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
 
                 //chart3
