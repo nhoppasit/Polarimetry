@@ -400,25 +400,51 @@ namespace Polarimeter2019
                     }
 
                     // Save to memory and update curve
-                    if (SelectedIndex == 0)
+                    if (SelectedIndex == 0) // Curve / เส้นกราฟ ของ Reference ที่แต่ละกราฟ
                     {
                         BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     }
-                    else
+                    else // ที่ไม่ใช่ Ref ตั้งแต่ SelectedIndex = 1 เป็นต้นไป
                     {
-                        BDC.PatchData(SelectedIndex, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                        BDC.PatchData(SelectedIndex - 1, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     }
-                    //
                     //<-------------PLOT HERE!  ptseries.Points.AddXY(x, y);
                     // OK GO GO GO 
-                    chart4.Series[SelectedIndex].Points.AddXY(CurrentTheta,CurrentLightIntensity);
+                    chart4.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
                     chart4.Invalidate();
                     chart3.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
                     chart3.Invalidate();
                     chart2.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
+                    // ---------
+                    if (chart2.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
+                    {
+                        if(SelectedIndex==0)
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xm, BDC.Reference.Ym);
+                        else
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xm, BDC.Data[CurrentPointIndex].Ym);
+                    }
+                    else
+                    {
+                        if (SelectedIndex == 0)
+                        {
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xm;
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ym;
+                        }
+                        else
+                        {
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[CurrentPointIndex].Xm;
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[CurrentPointIndex].Ym;
+                        }
+                    }
+                    chart2.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Square;
+                    chart2.Series[SelectedIndex + lsvData.Items.Count].MarkerSize = 20;
+                    chart2.Series[SelectedIndex + lsvData.Items.Count].IsValueShownAsLabel = true;
+                    // ---------
                     chart2.Invalidate();
                     chart1.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
+                    //====....
                     chart1.Invalidate();
+                    //
                     // เหนียวเส้น ไม่สวยเลย chart1.Series[0].Points[CurrentPointIndex]
                     //
                     DefineAngleOfRotation();
@@ -1052,19 +1078,11 @@ namespace Polarimeter2019
                 }
 
                 Series newSeriesRefMarker = new Series("Reference_Marker");
-                newSeriesRefMarker.ChartType = SeriesChartType.Line;
+                newSeriesRefMarker.ChartType = SeriesChartType.Polar;
                 newSeriesRefMarker.Color = Properties.Settings.Default.ReferenceColor;
                 chart1.Series.Add(newSeriesRefMarker);
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
-                    Series sample = new Series("Sample" + i.ToString());
-                    sample.ChartType = SeriesChartType.Polar;
-                    sample.BorderWidth = 4;
-                    sample.XValueType = ChartValueType.Auto;
-                    sample.YValueType = ChartValueType.Auto;
-                    chart1.Series.Add(sample);
-                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
-
                     Series sampleMarker = new Series("sample_Marker" + i.ToString());
                     sampleMarker.ChartType = SeriesChartType.Polar;
                     sampleMarker.BorderWidth = 4;
@@ -1143,7 +1161,7 @@ namespace Polarimeter2019
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
 
-                Series newSeries2Marker = new Series("Reference");
+                Series newSeries2Marker = new Series("Reference_Marker");
                 newSeries2Marker.ChartType = SeriesChartType.Line;
                 newSeries2Marker.Color = Properties.Settings.Default.ReferenceColor;
                 chart2.Series.Add(newSeries2Marker);
@@ -1336,20 +1354,20 @@ namespace Polarimeter2019
 
 
                 //-------------- Marker ----------------//
-                Series Markerseries = new Series("ReferenceMarker");
-                Markerseries.ChartType = SeriesChartType.Polar;
-                Markerseries.BorderWidth = 4;
-                Markerseries.Color = Properties.Settings.Default.ReferenceColor;
-                chart1.Series.Add(Markerseries);
-                double[] X = { 0 };
-                //if (X < BDC.Reference.Xm)
+                //Series Markerseries = new Series("ReferenceMarker");
+                //Markerseries.ChartType = SeriesChartType.Polar;
+                //Markerseries.BorderWidth = 4;
+                //Markerseries.Color = Properties.Settings.Default.ReferenceColor;
+                //chart1.Series.Add(Markerseries);
+                //double[] X = { 0 };
+                ////if (X < BDC.Reference.Xm)
                 //{
 
                 //}
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show($"{ex.Message} {ex.StackTrace}");
             }
         }
 
