@@ -177,8 +177,6 @@ namespace Polarimeter2019
             double[] x = new double[1];
             double[] y = new double[1];
 
-            ResetDynaplot();
-
             // Plot curve from initial data
             PlotReferenceCurve();
 
@@ -327,6 +325,7 @@ namespace Polarimeter2019
                 txtStop.Text = ThetaB.ToString();
                 BDC.Reference.X = new double[1+NumberOfPoint];
                 BDC.Reference.Y = new double[1+NumberOfPoint];
+
                 for (int i = 0; i < BDC.Data.Length; i++)
                 {
                     BDC.Data[i].X = new double[1+NumberOfPoint];
@@ -1032,12 +1031,15 @@ namespace Polarimeter2019
         {
             try
             {
+                #region CHART 1
+
                 //chart1
                 Series newSeries = new Series("Reference");
                 newSeries.ChartType = SeriesChartType.Polar;
                 newSeries.BorderWidth = 4;
                 newSeries.Color = Properties.Settings.Default.ReferenceColor;
                 chart1.Series.Add(newSeries);
+
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
@@ -1048,6 +1050,31 @@ namespace Polarimeter2019
                     chart1.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
+
+                Series newSeriesRefMarker = new Series("Reference_Marker");
+                newSeriesRefMarker.ChartType = SeriesChartType.Line;
+                newSeriesRefMarker.Color = Properties.Settings.Default.ReferenceColor;
+                chart1.Series.Add(newSeriesRefMarker);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Polar;
+                    sample.BorderWidth = 4;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart1.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Polar;
+                    sampleMarker.BorderWidth = 4;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart1.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+
                 //chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
 
                 //------X major 
@@ -1095,12 +1122,22 @@ namespace Polarimeter2019
                 chart1.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
                 chart1.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
 
+                #endregion
+
+                #region CHART 2
+
                 //chart2
                 Series newSeries2 = new Series("Reference");
                 newSeries2.ChartType = SeriesChartType.Line;
                 newSeries2.BorderWidth = 4;
                 newSeries2.Color = Properties.Settings.Default.ReferenceColor;
                 chart2.Series.Add(newSeries2);
+
+                Series newSeries2Marker = new Series("Reference");
+                newSeries2Marker.ChartType = SeriesChartType.Line;
+                newSeries2Marker.Color = Properties.Settings.Default.ReferenceColor;
+                chart2.Series.Add(newSeries2Marker);
+
                 for (int i = 1; i <= NumberOfRepeatation; i++)
                 {
                     Series sample = new Series("Sample" + i.ToString());
@@ -1110,6 +1147,13 @@ namespace Polarimeter2019
                     sample.YValueType = ChartValueType.Auto;
                     chart2.Series.Add(sample);
                     sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Line;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart2.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
                 }
                 chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
 
@@ -1157,6 +1201,8 @@ namespace Polarimeter2019
                 chart2.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
                 chart2.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
                 chart2.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+
+                #endregion
 
                 //chart3
                 Series newSeries3 = new Series("Reference");
