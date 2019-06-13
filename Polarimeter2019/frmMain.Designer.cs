@@ -914,6 +914,7 @@
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(0, 0);
@@ -939,6 +940,7 @@
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Enabled = false;
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
             this.chart2.Location = new System.Drawing.Point(0, 0);
@@ -978,6 +980,7 @@
             chartArea3.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             chartArea3.Name = "ChartArea1";
             this.chart3.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
             legend3.Name = "Legend1";
             this.chart3.Legends.Add(legend3);
             this.chart3.Location = new System.Drawing.Point(2, 2);
@@ -1010,6 +1013,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             chartArea4.Name = "ChartArea1";
             this.chart4.ChartAreas.Add(chartArea4);
+            legend4.Enabled = false;
             legend4.Name = "Legend1";
             this.chart4.Legends.Add(legend4);
             this.chart4.Location = new System.Drawing.Point(2, 2);
