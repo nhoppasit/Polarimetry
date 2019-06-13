@@ -1190,6 +1190,9 @@ namespace Polarimeter2019
                 //chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
                 //chart1.ChartAreas[0].Axes[0].Title = "Angular, deg";
                 //chart1.ChartAreas[0].Axes[1].Title = "Relative Intensity";
+                //chart1.ChartAreas[0].Axes[0].Interval = 30;
+                //chart1.ChartAreas[0].Axes[1].Interval = 0.5;
+                //chart1.ChartAreas[0].Axes[0].Crossing = 270;
 
                 //------X major 
                 chart1.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
@@ -1275,6 +1278,8 @@ namespace Polarimeter2019
                 chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
                 //chart2.ChartAreas[0].Axes[0].Title = "Angular, deg";
                 //chart2.ChartAreas[0].Axes[1].Title = "Relative Intensity";
+                //chart2.ChartAreas[0].Axes[0].Interval = 20;
+                //chart2.ChartAreas[0].Axes[1].Interval = 0.5;
 
                 //------X major 
                 chart2.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
@@ -1360,6 +1365,8 @@ namespace Polarimeter2019
                 chart3.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
                 //chart3.ChartAreas[0].Axes[0].Title = "Angular, deg";
                 //chart3.ChartAreas[0].Axes[1].Title = "Relative Intensity";
+                chart3.ChartAreas[0].Axes[0].Interval = 30;
+                chart3.ChartAreas[0].Axes[1].Interval = 0.5;
 
                 //------X major 
                 chart3.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
@@ -1445,6 +1452,8 @@ namespace Polarimeter2019
                 //chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
                 //chart4.ChartAreas[0].Axes[0].Title = "Angular, deg";
                 //chart4.ChartAreas[0].Axes[1].Title = "Relative Intensity";
+                chart4.ChartAreas[0].Axes[0].Interval = 10;
+                chart4.ChartAreas[0].Axes[1].Interval = 0.5;
 
                 //------X major 
                 chart4.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";

@@ -164,7 +164,7 @@
             this.bynPaues.Location = new System.Drawing.Point(0, 0);
             this.bynPaues.Name = "bynPaues";
             this.bynPaues.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.bynPaues.Size = new System.Drawing.Size(1372, 24);
+            this.bynPaues.Size = new System.Drawing.Size(1494, 24);
             this.bynPaues.TabIndex = 1;
             this.bynPaues.Text = "menuStrip1";
             // 
@@ -798,7 +798,7 @@
             this.MainStatus.Location = new System.Drawing.Point(0, 736);
             this.MainStatus.Name = "MainStatus";
             this.MainStatus.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.MainStatus.Size = new System.Drawing.Size(1372, 22);
+            this.MainStatus.Size = new System.Drawing.Size(1494, 22);
             this.MainStatus.TabIndex = 8;
             this.MainStatus.Text = "statusStrip1";
             // 
@@ -871,7 +871,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1041, 557);
+            this.tabControl1.Size = new System.Drawing.Size(1163, 557);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -882,7 +882,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(1033, 531);
+            this.tabPage1.Size = new System.Drawing.Size(1155, 531);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Line & Polar";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -902,8 +902,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.chart2);
-            this.splitContainer1.Size = new System.Drawing.Size(1029, 527);
-            this.splitContainer1.SplitterDistance = 508;
+            this.splitContainer1.Size = new System.Drawing.Size(1151, 527);
+            this.splitContainer1.SplitterDistance = 568;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -924,13 +924,18 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(504, 523);
+            this.chart1.Size = new System.Drawing.Size(564, 523);
             this.chart1.TabIndex = 1;
+            this.chart1.Text = "    ";
             // 
             // chart2
             // 
             chartArea2.AxisX.MajorGrid.Interval = 0D;
             chartArea2.AxisX.MajorTickMark.Interval = 0D;
+            chartArea2.AxisX.Title = "Angular (deg)";
+            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.Title = "Relative Intensity (Volt)";
+            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -944,7 +949,7 @@
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(514, 523);
+            this.chart2.Size = new System.Drawing.Size(576, 523);
             this.chart2.TabIndex = 0;
             // 
             // tabPage2
@@ -957,7 +962,7 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPage2.Size = new System.Drawing.Size(1033, 531);
+            this.tabPage2.Size = new System.Drawing.Size(1155, 531);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Line";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -967,6 +972,10 @@
             this.chart3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea3.AxisX.Title = "Angular (deg)";
+            chartArea3.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea3.AxisY.Title = "Relative Intensity (Volt)";
+            chartArea3.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             chartArea3.Name = "ChartArea1";
             this.chart3.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
@@ -979,7 +988,7 @@
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.chart3.Series.Add(series3);
-            this.chart3.Size = new System.Drawing.Size(1027, 527);
+            this.chart3.Size = new System.Drawing.Size(1149, 527);
             this.chart3.TabIndex = 0;
             // 
             // tabPage3
@@ -989,7 +998,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1033, 531);
+            this.tabPage3.Size = new System.Drawing.Size(1155, 531);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Polar";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1012,7 +1021,7 @@
             series4.Name = "Series1";
             series4.YValuesPerPoint = 6;
             this.chart4.Series.Add(series4);
-            this.chart4.Size = new System.Drawing.Size(1029, 527);
+            this.chart4.Size = new System.Drawing.Size(1151, 527);
             this.chart4.TabIndex = 6;
             this.chart4.Text = " ";
             // 
@@ -1066,7 +1075,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1372, 758);
+            this.ClientSize = new System.Drawing.Size(1494, 758);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.gbDevices);
             this.Controls.Add(this.MainStatus);
@@ -1079,7 +1088,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Polarimeter R2019";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
