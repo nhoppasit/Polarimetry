@@ -334,9 +334,9 @@ namespace Polarimeter2019
                 {
                     NumberOfPoint++;
                 }
-                NumberOfPoint++;
+                //NumberOfPoint++;
                 ThetaB = (double)(NumberOfPoint-1) * Delta + ThetaA;
-                txtStop.Text = ThetaB.ToString();
+                //txtStop.Text = ThetaB.ToString();
                 BDC.Reference.X = new double[1+NumberOfPoint];
                 BDC.Reference.Y = new double[1+NumberOfPoint];
                 for (int i = 0; i < BDC.Data.Length; i++)
@@ -672,54 +672,13 @@ namespace Polarimeter2019
                 DialogResult result = MessageBox.Show("Data will be deleted. Do you want to save file?", "Save file", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
-
+                    SaveData();
                 }
                 else if (result == DialogResult.Cancel)
                 {
 
                 }
             }
-
-            //เขียนต่อเลยนะครับ
-            LogFile.Log theSave = new LogFile.Log(@"C:\Users\Pee\Desktop\test save", @"test save");  
-
-            //Header
-            LogFile.PolarimeterHeader header = new LogFile.PolarimeterHeader()
-            {
-                DMMPort = txtDMMAddress.Text,
-                MMCPort = txtMMCAddress.Text,
-                SampleName = "Hello1",
-                SampleNumber = 3,
-            };
-
-            //Append to file
-            theSave.AppendText(header.ToString());
-
-            //Listview loop
-            foreach (ListViewItem lvi in lsvData.Items)
-            {
-                theSave.AppendText($"{lvi.Index + 1},{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
-            }
-
-            //Curve data loop
-            int NumberOfPoints = BDC.Reference.X.Length;
-            theSave.AppendText(NumberOfPoints.ToString());
-            //            
-            for(int idx = 0; idx < NumberOfPoints; idx++)//.. Points loop
-            {
-                //theSave.AppendText($"{lvi.Index + 1},{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
-                string left = $"{idx + 1},{BDC.Reference.X[idx]},{BDC.Reference.Y[idx]}";
-                string right = "";
-                for (int di = 0; di < BDC.Data.Length; di++) //..Data loop
-                {
-                    right += $",{BDC.Data[di].Y[idx]}";
-                }//end data loop
-                //
-                theSave.AppendText($"{left}{right}");
-            }// end points loop
-            //*****************************************************************************
-
-            //BDC.SaveFile();
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)  
@@ -1144,6 +1103,51 @@ namespace Polarimeter2019
         }
 
         #endregion
+
+        private void SaveData()
+        {
+
+            //เขียนต่อเลยนะครับ
+            LogFile.Log theSave = new LogFile.Log(@"C:\Users\Pee\Desktop\test save", @"test save");
+
+            //Header
+            LogFile.PolarimeterHeader header = new LogFile.PolarimeterHeader()
+            {
+                DMMPort = txtDMMAddress.Text,
+                MMCPort = txtMMCAddress.Text,
+                SampleName = "Hello1",
+                SampleNumber = 3,
+            };
+
+            //Append to file
+            theSave.AppendText(header.ToString());
+
+            //Listview loop
+            foreach (ListViewItem lvi in lsvData.Items)
+            {
+                theSave.AppendText($"{lvi.Index + 1},{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
+            }
+
+            //Curve data loop
+            int NumberOfPoints = BDC.Reference.X.Length;
+            theSave.AppendText(NumberOfPoints.ToString());
+            //            
+            for (int idx = 0; idx < NumberOfPoints; idx++)//.. Points loop
+            {
+                //theSave.AppendText($"{lvi.Index + 1},{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
+                string left = $"{idx + 1},{BDC.Reference.X[idx]},{BDC.Reference.Y[idx]}";
+                string right = "";
+                for (int di = 0; di < BDC.Data.Length; di++) //..Data loop
+                {
+                    right += $",{BDC.Data[di].Y[idx]}";
+                }//end data loop
+                //
+                theSave.AppendText($"{left}{right}");
+            }// end points loop
+            //*****************************************************************************
+
+            //BDC.SaveFile();
+        }
 
         private void PolarChart()
         {
@@ -1610,7 +1614,7 @@ namespace Polarimeter2019
                 {
                     if (result == DialogResult.Yes)
                     {
-                        BDC.SaveFile();
+                        SaveData();
                         NewMeasurement();
                     }
                     else if (result == DialogResult.No)
@@ -1709,7 +1713,7 @@ namespace Polarimeter2019
             PlotTreatmentsCurve();
             PlotSelectedTRTMarker();
         }
-
+        
         //bool LVCS = false;
         //    if (LVCS==false)
         //    {
