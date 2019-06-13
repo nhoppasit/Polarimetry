@@ -85,7 +85,7 @@ namespace Polarimeter2019.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Yellow")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192, 64, 0")]
         public global::System.Drawing.Color color2 {
             get {
                 return ((global::System.Drawing.Color)(this["color2"]));
@@ -97,7 +97,7 @@ namespace Polarimeter2019.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Lime")]
+        [global::System.Configuration.DefaultSettingValueAttribute("LimeGreen")]
         public global::System.Drawing.Color color3 {
             get {
                 return ((global::System.Drawing.Color)(this["color3"]));

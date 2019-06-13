@@ -18,10 +18,10 @@
       <Value Profile="(Default)">Blue</Value>
     </Setting>
     <Setting Name="color2" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Yellow</Value>
+      <Value Profile="(Default)">192, 64, 0</Value>
     </Setting>
     <Setting Name="color3" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Lime</Value>
+      <Value Profile="(Default)">LimeGreen</Value>
     </Setting>
     <Setting Name="color4" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">255, 128, 0</Value>

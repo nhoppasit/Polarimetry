@@ -38,6 +38,7 @@ namespace Polarimeter2019
         //Scaning & Data
         bool IsScanning = false;
         bool IsContinuing = false;
+        bool SeriesData = false;
         int CurrentPointIndex = 0;
         double SpecificRotation;
         int NumberOfRepeatation;
@@ -204,7 +205,19 @@ namespace Polarimeter2019
             CurrentPointIndex = 0;
             IsScanning = true;
             lblMainStatus.Text = "Measuring...";
-            DoScanLightIntensity();
+
+            if (SeriesData == false)
+            {
+                DoScanLightIntensity();
+            }
+            else
+            {
+                chart1.Series.Clear();
+                chart2.Series.Clear();
+                chart3.Series.Clear();
+                chart4.Series.Clear();
+                DoScanLightIntensity();
+            }
 
             // end
             lblMainStatus.Text = "Ready";
@@ -1134,13 +1147,12 @@ namespace Polarimeter2019
 
         private void PolarChart()
         {
+            chart1.Series.Clear();
+            chart2.Series.Clear();
+            chart3.Series.Clear();
+            chart4.Series.Clear();
             try
             {
-                chart1.Series.Clear();
-                chart2.Series.Clear();
-                chart3.Series.Clear();
-                chart4.Series.Clear();
-
                 #region Chart1
 
                 //chart1
@@ -1176,6 +1188,8 @@ namespace Polarimeter2019
                 }
 
                 //chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
+                //chart1.ChartAreas[0].Axes[0].Title = "Angular, deg";
+                //chart1.ChartAreas[0].Axes[1].Title = "Relative Intensity";
 
                 //------X major 
                 chart1.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
@@ -1259,6 +1273,8 @@ namespace Polarimeter2019
                 }
 
                 chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
+                //chart2.ChartAreas[0].Axes[0].Title = "Angular, deg";
+                //chart2.ChartAreas[0].Axes[1].Title = "Relative Intensity";
 
                 //------X major 
                 chart2.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
@@ -1342,6 +1358,8 @@ namespace Polarimeter2019
                 }
 
                 chart3.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
+                //chart3.ChartAreas[0].Axes[0].Title = "Angular, deg";
+                //chart3.ChartAreas[0].Axes[1].Title = "Relative Intensity";
 
                 //------X major 
                 chart3.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
@@ -1425,6 +1443,8 @@ namespace Polarimeter2019
                 }
 
                 //chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
+                //chart4.ChartAreas[0].Axes[0].Title = "Angular, deg";
+                //chart4.ChartAreas[0].Axes[1].Title = "Relative Intensity";
 
                 //------X major 
                 chart4.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
