@@ -42,8 +42,10 @@ namespace Polarimeter2019
         double SpecificRotation;
         int NumberOfRepeatation;
         int SelectedIndex;
-        double CurrentLightIntensity;
+        double CurrentLightIntensity =0;
+        double CurrentLightIntensity2 = 0;
         double CurrentTheta = 0;
+        double CurrentTheta2 = 0;
         int StepNumber;
         string MSG;
 
@@ -177,8 +179,6 @@ namespace Polarimeter2019
             double[] x = new double[1];
             double[] y = new double[1];
 
-            ResetDynaplot();
-
             // Plot curve from initial data
             PlotReferenceCurve();
 
@@ -204,7 +204,6 @@ namespace Polarimeter2019
             CurrentPointIndex = 0;
             IsScanning = true;
             lblMainStatus.Text = "Measuring...";
-            PolarChart();
             DoScanLightIntensity();
 
             // end
@@ -403,11 +402,11 @@ namespace Polarimeter2019
                     // Save to memory and update curve
                     if (SelectedIndex == 0) // Curve / เส้นกราฟ ของ Reference ที่แต่ละกราฟ
                     {
-                        BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                        BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentTheta2, CurrentLightIntensity,CurrentLightIntensity2);
                     }
                     else // ที่ไม่ใช่ Ref ตั้งแต่ SelectedIndex = 1 เป็นต้นไป
                     {
-                        BDC.PatchData(SelectedIndex, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
+                        BDC.PatchData(SelectedIndex, CurrentPointIndex, CurrentTheta, CurrentTheta2, CurrentLightIntensity,CurrentLightIntensity2);
                     }
 
                     //<-------------PLOT HERE!  ptseries.Points.AddXY(x, y);
@@ -416,21 +415,21 @@ namespace Polarimeter2019
                     if (chart4.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
                     {
                         if (SelectedIndex == 0)
-                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xm, BDC.Reference.Ym);
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xmax, BDC.Reference.Ymax);
                         else
-                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xm, BDC.Data[CurrentPointIndex].Ym);
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xmax, BDC.Data[CurrentPointIndex].Ymax);
                     }
                     else
                     {
                         if (SelectedIndex == 0)
                         {
-                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xm;
-                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ym;
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xmax;
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ymax;
                         }
                         else
                         {
-                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[CurrentPointIndex].X[SelectedIndex];
-                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[CurrentPointIndex].Y[SelectedIndex];
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[SelectedIndex].Xmax;
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[SelectedIndex].Ymax;
                         }
                     }
                     chart4.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Circle;
@@ -458,8 +457,8 @@ namespace Polarimeter2019
                         }
                         else
                         {
-                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[CurrentPointIndex].X[SelectedIndex];
-                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[CurrentPointIndex].Y[SelectedIndex];
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[SelectedIndex].Xm;
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[SelectedIndex].Ym;
                         }
                     }
                     chart3.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Circle;
@@ -487,8 +486,8 @@ namespace Polarimeter2019
                         }
                         else
                         {
-                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[CurrentPointIndex].X[SelectedIndex];
-                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[CurrentPointIndex].Y[SelectedIndex];
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[SelectedIndex].Xm;
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[SelectedIndex].Ym;
                         }
                     }
                     chart2.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Circle;
@@ -503,21 +502,21 @@ namespace Polarimeter2019
                     if (chart1.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
                     {
                         if (SelectedIndex == 0)
-                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xm, BDC.Reference.Ym);
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xmax, BDC.Reference.Ymax);
                         else
-                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xm, BDC.Data[CurrentPointIndex].Ym);
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xmax, BDC.Data[CurrentPointIndex].Ymax);
                     }
                     else
                     {
                         if (SelectedIndex == 0)
                         {
-                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xm;
-                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ym;
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xmax;
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ymax;
                         }
                         else
                         {
-                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[CurrentPointIndex].X[SelectedIndex];
-                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[CurrentPointIndex].Y[SelectedIndex];
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[SelectedIndex].Xmax;
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[SelectedIndex].Ymax;
                         }
                     }
                     chart1.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Circle;
@@ -1137,6 +1136,11 @@ namespace Polarimeter2019
         {
             try
             {
+                chart1.Series.Clear();
+                chart2.Series.Clear();
+                chart3.Series.Clear();
+                chart4.Series.Clear();
+
                 #region Chart1
 
                 //chart1
@@ -1471,7 +1475,7 @@ namespace Polarimeter2019
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show($"{ex.Message} {ex.StackTrace}");
             }
         }
 
@@ -1483,11 +1487,6 @@ namespace Polarimeter2019
             DialogResult result = f.ShowDialog();
             if (result == DialogResult.OK)
             {
-                // clear chart
-                chart4.Series.Clear();
-                chart3.Series.Clear();
-                chart2.Series.Clear();
-                chart1.Series.Clear();
                 if (f.Verify() == true)
                 {
                     try

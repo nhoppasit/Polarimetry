@@ -15,7 +15,9 @@ namespace Polarimeter2019
             public double[] X;
             public double[] Y;
             public double Xm;
-            public double Ym;                                                           
+            public double Ym;                                                    
+            public double Xmax;                                                    
+            public double Ymax;                                                           
             public double AngleOfRotation;
         }
 
@@ -44,7 +46,7 @@ namespace Polarimeter2019
 
         #region Functions/Method
     
-        public void PatchReference(int PointID, double X, double Y)
+        public void PatchReference(int PointID, double X, double Xmax, double Y, double Ymax)
         {
             double Xvalue = Reference.X[PointID];
             double Yvalue = Reference.Y[PointID];
@@ -56,9 +58,24 @@ namespace Polarimeter2019
                 Reference.Ym = Y;
                 Reference.Xm = X;
             }
+            else
+            {
+                if (Y > Reference.Ym)
+                {
+                    if (Y > Reference.Ymax)
+                    {
+                        Reference.Ymax = Y;
+                        Reference.Xmax = X;
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
         }
 
-        public void PatchData(int RepeatID, int PointID, double X, double Y)
+        public void PatchData(int RepeatID, int PointID, double X, double Xmax, double Y,double Ymax)
         {
             //    !!!!!!!!
             //    'zero base, careful!!!
@@ -87,6 +104,22 @@ namespace Polarimeter2019
                 Data[RepeatID].Ym = Y;
                 Data[RepeatID].Xm = X;
                 AnalyzeData(RepeatID);
+            }
+            else
+            {
+                if (Y > Data[RepeatID].Ym)
+                {
+                    if (Y > Data[RepeatID].Ymax)
+                    {
+                        Data[RepeatID].Ymax = Y;
+                        Data[RepeatID].Xmax = X;
+                        AnalyzeData(RepeatID);
+                    }
+                    else
+                    {
+
+                    }
+                }
             }
         }
         
