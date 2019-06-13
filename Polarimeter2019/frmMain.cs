@@ -409,9 +409,9 @@ namespace Polarimeter2019
                     {
                         BDC.PatchData(SelectedIndex, CurrentPointIndex, CurrentTheta, CurrentLightIntensity);
                     }
+
                     //<-------------PLOT HERE!  ptseries.Points.AddXY(x, y);
-                    // OK GO GO GO 
-                    // ---------
+                    #region Add Chart4
                     chart4.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
                     if (chart4.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
                     {
@@ -438,7 +438,9 @@ namespace Polarimeter2019
                     chart4.Series[SelectedIndex + lsvData.Items.Count].MarkerBorderWidth = 2;
                     //chart4.Series[SelectedIndex + lsvData.Items.Count].IsValueShownAsLabel = true;
                     chart4.Invalidate();
-                    // ---------
+                    #endregion
+                    
+                    #region Add Chart3
                     chart3.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
                     if (chart3.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
                     {
@@ -465,7 +467,9 @@ namespace Polarimeter2019
                     chart3.Series[SelectedIndex + lsvData.Items.Count].MarkerBorderWidth = 2;
                     //chart3.Series[SelectedIndex + lsvData.Items.Count].IsValueShownAsLabel = true;
                     chart3.Invalidate();
-                    // ---------
+                    #endregion
+                    
+                    #region Add Chart2
                     chart2.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
                     if (chart2.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
                     {
@@ -492,7 +496,9 @@ namespace Polarimeter2019
                     chart2.Series[SelectedIndex + lsvData.Items.Count].MarkerBorderWidth = 2;
                     //chart2.Series[SelectedIndex + lsvData.Items.Count].IsValueShownAsLabel = true;
                     chart2.Invalidate();
-                    // ---------
+                    #endregion
+                    
+                    #region Add Chart1
                     chart1.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
                     if (chart1.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
                     {
@@ -519,13 +525,13 @@ namespace Polarimeter2019
                     chart1.Series[SelectedIndex + lsvData.Items.Count].MarkerBorderWidth = 2;
                     //chart1.Series[SelectedIndex + lsvData.Items.Count].IsValueShownAsLabel = true;
                     chart1.Invalidate();
-                    //====....
+                    #endregion
 
+                    // auto scale
                     DefineAngleOfRotation();
                     PlotReferenceCurve();
                     PlotTreatmentsCurve();
                     PlotSelectedTRTMarker();
-                    // auto scale
 
                     // check stop condition!!!
                     if (ThetaA < ThetaB)
