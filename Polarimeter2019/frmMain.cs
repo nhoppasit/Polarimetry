@@ -316,6 +316,11 @@ namespace Polarimeter2019
                 ConnectedDevices();
             }
 
+            label10.Show();
+            label11.Show();
+            label12.Show();
+            label13.Show();
+
             // --------------------------------------------
             // get read conditions
             // --------------------------------------------
@@ -334,8 +339,8 @@ namespace Polarimeter2019
                 {
                     NumberOfPoint++;
                 }
-                //NumberOfPoint++;
-                ThetaB = (double)(NumberOfPoint-1) * Delta + ThetaA;
+                NumberOfPoint++;
+                //ThetaB = (double)(NumberOfPoint) * Delta + ThetaA;
                 //txtStop.Text = ThetaB.ToString();
                 BDC.Reference.X = new double[1+NumberOfPoint];
                 BDC.Reference.Y = new double[1+NumberOfPoint];
@@ -370,6 +375,7 @@ namespace Polarimeter2019
                 while (IsScanning)
                 {
                     Application.DoEvents();
+
 
                     // Update current THETA
                     if (ThetaA < ThetaB)
@@ -548,14 +554,14 @@ namespace Polarimeter2019
                     // check stop condition!!!
                     if (ThetaA < ThetaB)
                     {
-                        if (ThetaB < CurrentTheta)
+                        if (ThetaB <= CurrentTheta)
                         {
                             IsScanning = false;
                         }
                     }
                     else if (ThetaA > ThetaB)
                     {
-                        if (CurrentTheta < ThetaB)
+                        if (CurrentTheta <= ThetaB)
                         {
                             IsScanning = false;
                         }
@@ -624,8 +630,8 @@ namespace Polarimeter2019
                 // ----------------------------------------
                 // 3. Return Motor
                 // ----------------------------------------
-                //MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
-                //MMC.WriteString(MSG);
+                MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
+                MMC.WriteString(MSG);
             }
         }
 
@@ -823,6 +829,11 @@ namespace Polarimeter2019
             gbSample.Enabled = false;
             gbMeasurement.Enabled = false;
             gbScanCondition.Enabled = false;
+
+            label10.Hide();
+            label11.Hide();
+            label12.Hide();
+            label13.Hide();
         }
 
         private void Form1_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
@@ -1108,7 +1119,7 @@ namespace Polarimeter2019
         {
 
             //เขียนต่อเลยนะครับ
-            LogFile.Log theSave = new LogFile.Log(@"C:\Users\Pee\Desktop\test save", @"test save");
+            LogFile.Log theSave = new LogFile.Log(@"C:\Users\Pee\Desktop\test save", @"test save อันใหม่กว่า");
 
             //Header
             LogFile.PolarimeterHeader header = new LogFile.PolarimeterHeader()
@@ -1129,15 +1140,15 @@ namespace Polarimeter2019
             }
 
             //Curve data loop
-            int NumberOfPoints = BDC.Reference.X.Length;
+            int NumberOfPoints = BDC.Reference.X.Length-1;    //จำนวนครั้งการหมุน 
             theSave.AppendText(NumberOfPoints.ToString());
             //            
             for (int idx = 0; idx < NumberOfPoints; idx++)//.. Points loop
             {
                 //theSave.AppendText($"{lvi.Index + 1},{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
-                string left = $"{idx + 1},{BDC.Reference.X[idx]},{BDC.Reference.Y[idx]}";
+                string left = $"{idx + 1} == {BDC.Reference.X[idx]},{BDC.Reference.Y[idx]}";
                 string right = "";
-                for (int di = 0; di < BDC.Data.Length; di++) //..Data loop
+                for (int di = 0; di < BDC.Data.Length -1; di++) //..Data loop
                 {
                     right += $",{BDC.Data[di].Y[idx]}";
                 }//end data loop
@@ -1713,7 +1724,7 @@ namespace Polarimeter2019
             PlotTreatmentsCurve();
             PlotSelectedTRTMarker();
         }
-        
+
         //bool LVCS = false;
         //    if (LVCS==false)
         //    {
