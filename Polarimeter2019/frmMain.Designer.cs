@@ -1022,7 +1022,7 @@
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.chart3.Series.Add(series3);
-            this.chart3.Size = new System.Drawing.Size(1149, 527);
+            this.chart3.Size = new System.Drawing.Size(1434, 712);
             this.chart3.TabIndex = 0;
             // 
             // tabPage3

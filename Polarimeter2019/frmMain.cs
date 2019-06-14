@@ -1119,15 +1119,15 @@ namespace Polarimeter2019
         {
 
             //เขียนต่อเลยนะครับ
-            LogFile.Log theSave = new LogFile.Log(@"C:\Users\Pee\Desktop\test save", @"test save อันใหม่กว่า");
+            LogFile.Log theSave = new LogFile.Log(@"C:\Users\Pee\Desktop\test save", @"test save อันใหม่กว่าๆๆๆๆๆๆๆๆๆๆ");
 
             //Header
             LogFile.PolarimeterHeader header = new LogFile.PolarimeterHeader()
             {
                 DMMPort = txtDMMAddress.Text,
                 MMCPort = txtMMCAddress.Text,
-                SampleName = "Hello1",
-                SampleNumber = 3,
+                SampleName = txtSampleName.Text,
+                SampleNumber = Convert.ToInt32(numRepeatNumber.Value),
             };
 
             //Append to file
@@ -1139,23 +1139,43 @@ namespace Polarimeter2019
                 theSave.AppendText($"{lvi.Index + 1},{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
             }
 
-            //Curve data loop
-            int NumberOfPoints = BDC.Reference.X.Length-1;    //จำนวนครั้งการหมุน 
-            theSave.AppendText(NumberOfPoints.ToString());
-            //            
-            for (int idx = 0; idx < NumberOfPoints; idx++)//.. Points loop
+            ////Curve data loop
+            //int NumberOfPoints = BDC.Reference.X.Length-1;    //จำนวนครั้งการหมุน 
+            //theSave.AppendText(NumberOfPoints.ToString());
+            ////            
+            //for (int idx = 0; idx < NumberOfPoints; idx++)//.. Points loop
+            //{
+            //    //theSave.AppendText($"{lvi.Index + 1},{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
+            //    string left = $"{idx + 1} == {BDC.Reference.X[idx]},{BDC.Reference.Y[idx]}";    //reference
+            //    string right = "";
+            //    for (int di = 0; di < BDC.Data.Length -1; di++) //..Data loop
+            //    {
+            //        for (int idy = 0; idy < BDC.Data[di].X.Length - 1; idy++)
+            //        {
+            //            //AddText(fs, Data[k].X[i].ToString() + "," + Data[k].Y[i].ToString() + Environment.NewLine);
+            //            right += $",{BDC.Data[di].Y[idy]}";
+            //        }
+            //    }//end data loop
+            //    //
+            //    theSave.AppendText($"{left}{right}");
+            //}// end points loop
+            ////*****************************************************************************
+            
+            // Reference
+            theSave.AppendText("[Reference]");
+            for (int i = 0; i < BDC.Reference.X.Length - 1; i++)
             {
-                //theSave.AppendText($"{lvi.Index + 1},{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
-                string left = $"{idx + 1} == {BDC.Reference.X[idx]},{BDC.Reference.Y[idx]}";
-                string right = "";
-                for (int di = 0; di < BDC.Data.Length -1; di++) //..Data loop
+                theSave.AppendText(BDC.Reference.X[i].ToString() + "," + BDC.Reference.Y[i].ToString() + Environment.NewLine);
+            }
+            // Data
+            for (int k = 1; k <= BDC.Data.Length - 1; k++)
+            {
+                theSave.AppendText("[Sample " + (k - 1).ToString() + "]");
+                for (int i = 0; i < BDC.Data[k].X.Length - 1; i++)
                 {
-                    right += $",{BDC.Data[di].Y[idx]}";
-                }//end data loop
-                //
-                theSave.AppendText($"{left}{right}");
-            }// end points loop
-            //*****************************************************************************
+                    theSave.AppendText(BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString() + Environment.NewLine);
+                }
+            }
 
             //BDC.SaveFile();
         }
@@ -1591,6 +1611,10 @@ namespace Polarimeter2019
 
                         // chart
                         PolarChart();
+                        label10.Hide();
+                        label11.Hide();
+                        label12.Hide();
+                        label13.Hide();
                     }
                     catch
                     {
