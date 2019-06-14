@@ -858,8 +858,8 @@
             // toolStripStatusLabel5
             // 
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(65, 17);
-            this.toolStripStatusLabel5.Text = "MMMC-2 :";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(54, 17);
+            this.toolStripStatusLabel5.Text = "MMC-2 :";
             // 
             // lblMMC
             // 
