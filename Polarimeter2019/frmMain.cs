@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Media;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -1119,7 +1120,7 @@ namespace Polarimeter2019
         {
 
             //เขียนต่อเลยนะครับ
-            LogFile.Log theSave = new LogFile.Log(@"C:\Users\Pee\Desktop\test save", @"test save อันใหม่กว่าๆๆๆๆๆๆๆๆๆๆ");
+            LogFile.Log theSave = new LogFile.Log(@"C:\Users\Pee\Desktop\test save", @"test save อันใหม่กว๊ากว่า");
 
             //Header
             frmNewMeasurement f = new frmNewMeasurement();
@@ -1229,6 +1230,14 @@ namespace Polarimeter2019
                 //chart1.ChartAreas[0].Axes[0].Interval = 30;
                 //chart1.ChartAreas[0].Axes[1].Interval = 0.5;
                 //chart1.ChartAreas[0].Axes[0].Crossing = 270;
+                //var area = radChartView1.Area as PolarArea;
+                //area.StartAngle = 90;
+                //PolarAxis axis = radChartView1.Axes.Get<PolarAxis>(0);
+                //area.StartAngle = 90;
+                //axis.IsInverse = true;
+
+                //PolarAreaSeries series = new PolarAreaSeries();
+                //System.Windows.Media.Transform.Equals
 
                 //------X major 
                 chart1.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";

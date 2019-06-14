@@ -51,8 +51,14 @@ namespace Polarimeter2019
             double Xvalue = Reference.X[PointID];
             double Yvalue = Reference.Y[PointID];
 
-            Reference.X[PointID] = X;
-            Reference.Y[PointID] = Y;
+            Xvalue = X;
+            Yvalue = Y;
+            if (Yvalue > Reference.Ymax )
+            {
+                Reference.Xmax = Xvalue;
+                Reference.Ymax = Yvalue;
+            }
+
             if (Y < Reference.Ym)
             {
                 Reference.Ym = Y;
@@ -97,8 +103,15 @@ namespace Polarimeter2019
             double Xdata = Data[RepeatID].X[PointID];
             double Ydata = Data[RepeatID].Y[PointID];
 
-            Data[RepeatID].X[PointID] = X;
-            Data[RepeatID].Y[PointID] = Y;
+            Xdata = X;
+            Ydata = Y;
+
+            if(Ydata > Data[RepeatID].Ymax)
+            {
+                Data[RepeatID].Xmax = Xdata;
+                Data[RepeatID].Ymax = Ydata;
+            }
+
             if (Y < Data[RepeatID].Ym)
             {
                 Data[RepeatID].Ym = Y;
