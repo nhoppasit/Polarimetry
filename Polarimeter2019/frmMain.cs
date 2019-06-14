@@ -1122,12 +1122,13 @@ namespace Polarimeter2019
             LogFile.Log theSave = new LogFile.Log(@"C:\Users\Pee\Desktop\test save", @"test save อันใหม่กว่าๆๆๆๆๆๆๆๆๆๆ");
 
             //Header
+            frmNewMeasurement f = new frmNewMeasurement();
             LogFile.PolarimeterHeader header = new LogFile.PolarimeterHeader()
             {
                 DMMPort = txtDMMAddress.Text,
                 MMCPort = txtMMCAddress.Text,
                 SampleName = txtSampleName.Text,
-                SampleNumber = Convert.ToInt32(numRepeatNumber.Value),
+                SampleNumber = (int)f.OfRepeatation,
             };
 
             //Append to file
@@ -1170,7 +1171,7 @@ namespace Polarimeter2019
             // Data
             for (int k = 1; k <= BDC.Data.Length - 1; k++)
             {
-                theSave.AppendText("[Sample " + (k - 1).ToString() + "]");
+                theSave.AppendText("[Sample " + k.ToString() + "]");
                 for (int i = 0; i < BDC.Data[k].X.Length - 1; i++)
                 {
                     theSave.AppendText(BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString() + Environment.NewLine);
