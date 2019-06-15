@@ -39,7 +39,6 @@ namespace Polarimeter2019
         //Scaning & Data
         bool IsScanning = false;
         bool IsContinuing = false;
-        bool SeriesData = false;
         int CurrentPointIndex = 0;
         double SpecificRotation;
         int NumberOfRepeatation;
@@ -206,19 +205,8 @@ namespace Polarimeter2019
             CurrentPointIndex = 0;
             IsScanning = true;
             lblMainStatus.Text = "Measuring...";
-
-            if (SeriesData == false)
-            {
-                DoScanLightIntensity();
-            }
-            else
-            {
-                chart1.Series.Clear();
-                chart2.Series.Clear();
-                chart3.Series.Clear();
-                chart4.Series.Clear();
-                DoScanLightIntensity();
-            }
+            
+            DoScanLightIntensity();
 
             // end
             lblMainStatus.Text = "Ready";
@@ -274,7 +262,25 @@ namespace Polarimeter2019
 
         private void btnStart_Click(System.Object sender, System.EventArgs e)
         {
-            DoStart();
+            ListViewItem lvi;
+            lvi = lsvData.Items[SelectedIndex];
+            if (lvi.SubItems[1].Text == "-" )
+            {
+                DoStart();
+            }
+            else
+            {
+                //chart1.Series.Clear();
+                //chart2.Series.Clear();
+                //chart3.Series.Clear();
+                //chart4.Series.Clear();
+                //Array.Clear(BDC.Reference.X, 0, BDC.Reference.X.Length);
+                //Array.Clear(BDC.Reference.Y, 0, BDC.Reference.Y.Length);
+                //Array.Clear(BDC.Data[SelectedIndex].X, 0, BDC.Data[SelectedIndex].X.Length);
+                //Array.Clear(BDC.Data[SelectedIndex].Y, 0, BDC.Data[SelectedIndex].Y.Length);
+
+                DoStart();
+            }
         }
 
         private void btnPause_Click(System.Object sender, System.EventArgs e)
@@ -341,8 +347,8 @@ namespace Polarimeter2019
                     NumberOfPoint++;
                 }
                 NumberOfPoint++;
-                //ThetaB = (double)(NumberOfPoint) * Delta + ThetaA;
-                //txtStop.Text = ThetaB.ToString();
+                ThetaB = (double)(NumberOfPoint-1) * Delta + ThetaA;
+                txtStop.Text = ThetaB.ToString();
                 BDC.Reference.X = new double[1+NumberOfPoint];
                 BDC.Reference.Y = new double[1+NumberOfPoint];
                 for (int i = 0; i < BDC.Data.Length; i++)
@@ -387,6 +393,22 @@ namespace Polarimeter2019
                     {
                         CurrentTheta = ThetaA - CurrentPointIndex * Delta;
                     }
+
+                    if (ThetaA < ThetaB)
+                    {
+                        if (ThetaB <= CurrentTheta)
+                        {
+                            IsScanning = false;
+                        }
+                    }
+                    else if (ThetaA > ThetaB)
+                    {
+                        if (CurrentTheta <= ThetaB)
+                        {
+                            IsScanning = false;
+                        }
+                    }
+
                     // --------------------------------------------
                     // CHECK DEMO MODE
                     // --------------------------------------------
@@ -555,14 +577,14 @@ namespace Polarimeter2019
                     // check stop condition!!!
                     if (ThetaA < ThetaB)
                     {
-                        if (ThetaB <= CurrentTheta)
+                        if (ThetaB < CurrentTheta)
                         {
                             IsScanning = false;
                         }
                     }
                     else if (ThetaA > ThetaB)
                     {
-                        if (CurrentTheta <= ThetaB)
+                        if (CurrentTheta < ThetaB)
                         {
                             IsScanning = false;
                         }
@@ -679,6 +701,7 @@ namespace Polarimeter2019
                 DialogResult result = MessageBox.Show("Data will be deleted. Do you want to save file?", "Save file", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
+                    //BDC.SaveFile();
                     SaveData();
                 }
                 else if (result == DialogResult.Cancel)

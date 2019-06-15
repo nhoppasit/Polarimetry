@@ -158,6 +158,7 @@ namespace Polarimeter2019
             // Create the file.
             FileStream fs = File.Create(path);
 
+            //LogFile.Log theSave = new LogFile.Log(dlg.Filter, path);
             // Start header
             AddText(fs, "Polarimeter Data File"); // Intro
             AddText(fs, "(Copy Right)2011, CIID, KMITL" + Environment.NewLine);
