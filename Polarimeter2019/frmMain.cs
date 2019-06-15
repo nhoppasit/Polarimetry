@@ -34,7 +34,7 @@ namespace Polarimeter2019
         Random rand = new Random();
 
         //Constants
-        const double StepFactor = 0.013325; //Deg /Step 
+        const double StepFactor = 0.013333; //Deg /Step 
 
         //Scaning & Data
         bool IsScanning = false;
@@ -347,8 +347,8 @@ namespace Polarimeter2019
                     NumberOfPoint++;
                 }
                 NumberOfPoint++;
-                ThetaB = (double)(NumberOfPoint-1) * Delta + ThetaA;
-                txtStop.Text = ThetaB.ToString();
+                //ThetaB = (double)(NumberOfPoint-1) * Delta + ThetaA;
+                //txtStop.Text = ThetaB.ToString();
                 BDC.Reference.X = new double[1+NumberOfPoint];
                 BDC.Reference.Y = new double[1+NumberOfPoint];
                 for (int i = 0; i < BDC.Data.Length; i++)
@@ -382,8 +382,7 @@ namespace Polarimeter2019
                 while (IsScanning)
                 {
                     Application.DoEvents();
-
-
+                    
                     // Update current THETA
                     if (ThetaA < ThetaB)
                     {
@@ -414,10 +413,10 @@ namespace Polarimeter2019
                     // --------------------------------------------
                     if (mnuOptionsDemomode.Checked == false)
                     {
-
                         // --------------------------------------------
                         // REAL INTERFACING
                         // --------------------------------------------
+
                         // 1. Move polarizer 
                         StepNumber = -1 * System.Convert.ToInt32(CurrentTheta / StepFactor); // step
                         MSG = "A:WP" + StepNumber.ToString() + "P" + StepNumber.ToString();

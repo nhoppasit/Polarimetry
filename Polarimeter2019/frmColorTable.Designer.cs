@@ -93,10 +93,9 @@
             listViewItem38,
             listViewItem39,
             listViewItem40});
-            this.lvColorTable.Location = new System.Drawing.Point(13, 13);
-            this.lvColorTable.Margin = new System.Windows.Forms.Padding(4);
+            this.lvColorTable.Location = new System.Drawing.Point(10, 11);
             this.lvColorTable.Name = "lvColorTable";
-            this.lvColorTable.Size = new System.Drawing.Size(339, 279);
+            this.lvColorTable.Size = new System.Drawing.Size(255, 227);
             this.lvColorTable.TabIndex = 0;
             this.lvColorTable.UseCompatibleStateImageBehavior = false;
             this.lvColorTable.View = System.Windows.Forms.View.Details;
@@ -118,10 +117,10 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(13, 300);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnOK.Location = new System.Drawing.Point(10, 244);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(115, 37);
+            this.btnOK.Size = new System.Drawing.Size(86, 30);
             this.btnOK.TabIndex = 4;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -129,10 +128,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(241, 300);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Location = new System.Drawing.Point(179, 244);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(115, 37);
+            this.btnCancel.Size = new System.Drawing.Size(86, 30);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -140,12 +139,13 @@
             // 
             // frmColorTable
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 348);
+            this.ClientSize = new System.Drawing.Size(277, 283);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lvColorTable);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmColorTable";
             this.Text = "frmColorTable";
             this.Load += new System.EventHandler(this.frmColorTable_Load);
