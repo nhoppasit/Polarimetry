@@ -566,7 +566,7 @@
             this.gbScanCondition.Controls.Add(this.label5);
             this.gbScanCondition.Controls.Add(this.label4);
             this.gbScanCondition.Controls.Add(this.label3);
-            this.gbScanCondition.Location = new System.Drawing.Point(491, 26);
+            this.gbScanCondition.Location = new System.Drawing.Point(505, 27);
             this.gbScanCondition.Margin = new System.Windows.Forms.Padding(2);
             this.gbScanCondition.Name = "gbScanCondition";
             this.gbScanCondition.Padding = new System.Windows.Forms.Padding(2);
@@ -578,7 +578,7 @@
             // btnRun
             // 
             this.btnRun.BackColor = System.Drawing.Color.PeachPuff;
-            this.btnRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRun.Image = ((System.Drawing.Image)(resources.GetObject("btnRun.Image")));
             this.btnRun.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRun.Location = new System.Drawing.Point(224, 17);
@@ -586,7 +586,7 @@
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(108, 115);
             this.btnRun.TabIndex = 8;
-            this.btnRun.Text = "Go to start";
+            this.btnRun.Text = "Go to \r\nstart point\r\n";
             this.btnRun.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnRun.UseVisualStyleBackColor = false;
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
@@ -689,7 +689,7 @@
             this.gbMeasurement.Controls.Add(this.btnStop);
             this.gbMeasurement.Controls.Add(this.btnPause);
             this.gbMeasurement.Controls.Add(this.btnStart);
-            this.gbMeasurement.Location = new System.Drawing.Point(846, 26);
+            this.gbMeasurement.Location = new System.Drawing.Point(860, 27);
             this.gbMeasurement.Margin = new System.Windows.Forms.Padding(2);
             this.gbMeasurement.Name = "gbMeasurement";
             this.gbMeasurement.Padding = new System.Windows.Forms.Padding(2);
@@ -701,7 +701,7 @@
             // btnStop
             // 
             this.btnStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("btnStop.Image")));
             this.btnStop.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnStop.Location = new System.Drawing.Point(230, 17);
@@ -717,7 +717,7 @@
             // btnPause
             // 
             this.btnPause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPause.Image = ((System.Drawing.Image)(resources.GetObject("btnPause.Image")));
             this.btnPause.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnPause.Location = new System.Drawing.Point(117, 17);
@@ -733,7 +733,7 @@
             // btnStart
             // 
             this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
             this.btnStart.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnStart.Location = new System.Drawing.Point(5, 17);
@@ -762,7 +762,7 @@
             // btnOpen
             // 
             this.btnOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
             this.btnOpen.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnOpen.Location = new System.Drawing.Point(122, 17);
@@ -778,7 +778,7 @@
             // btnNew
             // 
             this.btnNew.BackColor = System.Drawing.Color.LightBlue;
-            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnNew.Location = new System.Drawing.Point(4, 17);
@@ -1090,7 +1090,7 @@
             this.gbDevices.Margin = new System.Windows.Forms.Padding(2);
             this.gbDevices.Name = "gbDevices";
             this.gbDevices.Padding = new System.Windows.Forms.Padding(2);
-            this.gbDevices.Size = new System.Drawing.Size(233, 139);
+            this.gbDevices.Size = new System.Drawing.Size(247, 139);
             this.gbDevices.TabIndex = 8;
             this.gbDevices.TabStop = false;
             this.gbDevices.Text = "Devices";
@@ -1098,13 +1098,13 @@
             // btnDisconnect
             // 
             this.btnDisconnect.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnDisconnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDisconnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDisconnect.Image = ((System.Drawing.Image)(resources.GetObject("btnDisconnect.Image")));
             this.btnDisconnect.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDisconnect.Location = new System.Drawing.Point(117, 17);
+            this.btnDisconnect.Location = new System.Drawing.Point(127, 17);
             this.btnDisconnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnDisconnect.Name = "btnDisconnect";
-            this.btnDisconnect.Size = new System.Drawing.Size(108, 115);
+            this.btnDisconnect.Size = new System.Drawing.Size(116, 115);
             this.btnDisconnect.TabIndex = 4;
             this.btnDisconnect.Text = "DISCONNECT";
             this.btnDisconnect.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1114,13 +1114,13 @@
             // btnConnect
             // 
             this.btnConnect.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConnect.Image = ((System.Drawing.Image)(resources.GetObject("btnConnect.Image")));
             this.btnConnect.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnConnect.Location = new System.Drawing.Point(4, 17);
+            this.btnConnect.Location = new System.Drawing.Point(15, 17);
             this.btnConnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(108, 115);
+            this.btnConnect.Size = new System.Drawing.Size(116, 115);
             this.btnConnect.TabIndex = 3;
             this.btnConnect.Text = "CONNECT";
             this.btnConnect.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
