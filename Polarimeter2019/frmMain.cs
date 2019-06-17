@@ -909,7 +909,11 @@ namespace Polarimeter2019
                     if (BDC.Reference.X != null)
                     {
                         lblNullPoint.Text = BDC.Reference.Xm.ToString("0.0000") + " deg";
-                        e = true;
+                        //e = true;
+                    }
+                    else
+                    {
+                        //lblNullPoint.Text = BDC.Reference.Xm.ToString();
                     }
                 }
             }
@@ -954,6 +958,10 @@ namespace Polarimeter2019
                 if (lsvData.Items[SelectedIndex].Checked)
                 {
                     lblNullPoint.Text = BDC.Data[SelectedIndex].Xm.ToString("0.0000") + " deg";
+                }
+                else
+                {
+                    lblNullPoint.Text = BDC.Data[SelectedIndex].Xm.ToString() + "deg";
                 }
             }
             catch (Exception ex)
@@ -1262,7 +1270,7 @@ namespace Polarimeter2019
                 //System.Windows.Media.Transform.Equals
 
                 //------X major 
-                chart1.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
+                chart1.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00}";
                 chart1.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
                 chart1.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
                 chart1.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
@@ -1284,7 +1292,7 @@ namespace Polarimeter2019
                 chart1.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
                 chart1.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
                 //------Y major
-                chart1.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 Volt";
+                chart1.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00";
                 chart1.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
                 chart1.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
                 chart1.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
@@ -1349,7 +1357,7 @@ namespace Polarimeter2019
                 //chart2.ChartAreas[0].Axes[1].Interval = 0.5;
 
                 //------X major 
-                chart2.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
+                chart2.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00}";
                 chart2.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
                 chart2.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
                 chart2.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
@@ -1371,7 +1379,7 @@ namespace Polarimeter2019
                 chart2.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
                 chart2.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
                 //------Y major
-                chart2.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 Volt";
+                chart2.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00";
                 chart2.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
                 chart2.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
                 chart2.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
@@ -1436,7 +1444,7 @@ namespace Polarimeter2019
                 chart3.ChartAreas[0].Axes[1].Interval = 0.5;
 
                 //------X major 
-                chart3.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
+                chart3.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00}";
                 chart3.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
                 chart3.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
                 chart3.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
@@ -1459,7 +1467,7 @@ namespace Polarimeter2019
                 chart3.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
                 //------Y major
                 chart3.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
-                chart3.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 Volt";
+                chart3.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00";
                 chart3.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
                 chart3.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
                 chart3.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
@@ -1523,7 +1531,7 @@ namespace Polarimeter2019
                 chart4.ChartAreas[0].Axes[1].Interval = 0.5;
 
                 //------X major 
-                chart4.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} deg";
+                chart4.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} ";
                 chart4.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
                 chart4.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
                 chart4.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
@@ -1545,7 +1553,7 @@ namespace Polarimeter2019
                 chart4.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
                 chart4.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
                 //------Y major
-                chart4.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 Volt";
+                chart4.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 ";
                 chart4.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
                 chart4.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
                 chart4.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
