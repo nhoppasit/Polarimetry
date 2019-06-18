@@ -205,7 +205,34 @@ namespace Polarimeter2019
             CurrentPointIndex = 0;
             IsScanning = true;
             lblMainStatus.Text = "Measuring...";
-            
+
+            //string trt;
+            //if (SelectedIndex==0)
+            //{
+            //    trt = "Reference data";
+            //    DialogResult result = MessageBox.Show("Are you sure to measure " + trt, "Measure", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //    if(result == DialogResult.Yes)
+            //    {
+            //        DoScanLightIntensity();
+            //    }
+            //    else
+            //    {
+
+            //    }
+            //}
+            //else
+            //{
+            //    trt = "Sample" + SelectedIndex;
+            //    DialogResult result = MessageBox.Show("Are you sure to measure " + trt, "Measure", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //    if (result == DialogResult.Yes)
+            //    {
+            //        DoScanLightIntensity();
+            //    }
+            //    else
+            //    {
+
+            //    }
+            //}
             DoScanLightIntensity();
 
             // end
