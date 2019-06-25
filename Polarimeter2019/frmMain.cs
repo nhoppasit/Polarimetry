@@ -1175,9 +1175,20 @@ namespace Polarimeter2019
 
         private void SaveData()
         {
+            SaveFileDialog dlg = new SaveFileDialog();
+            //dlg.Filter = "*.txt";
+            DialogResult redlg = dlg.ShowDialog();
+            if (redlg != DialogResult.Yes)
+            {
+                MessageBox.Show("Bye","Save",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                return;
+            }
 
+            // GOGOGO
+            string path = dlg.FileName;
             //เขียนต่อเลยนะครับ
-            LogFile.Log theSave = new LogFile.Log(@"C:\Users\Pee\Desktop\test save", @"test save อันใหม่กว๊ากว่า");
+            //LogFile.Log theSave = new LogFile.Log(@"C:\Users\Pee\Desktop\test save", @"test save อันใหม่กว๊ากว่า25");
+            LogFile.Log theSave = new LogFile.Log(path, "");
 
             //Header
             frmNewMeasurement f = new frmNewMeasurement();

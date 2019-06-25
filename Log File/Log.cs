@@ -44,7 +44,7 @@ namespace LogFile
 
         private string FullFileName()
         {
-            return _filePath + @"\" + _fileName + " " + DateTime.Now.ToString("yyyyMMdd") + ".txt";
+            return _filePath; //+ @"\" + _fileName + " " + DateTime.Now.ToString("yyyyMMdd") + ".txt";
         }
         private void CheckPath()
         {
