@@ -1235,7 +1235,7 @@ namespace Polarimeter2019
             theSave.AppendText("[Reference]");
             for (int i = 0; i < BDC.Reference.X.Length - 1; i++)
             {
-                theSave.AppendText(BDC.Reference.X[i] + "," + BDC.Reference.Y[i] + Environment.NewLine);
+                theSave.AppendText(BDC.Reference.X[i].ToString() + "," + BDC.Reference.Y[i].ToString() + Environment.NewLine);
             }
             // Data
             for (int k = 1; k <= BDC.Data.Length - 1; k++)
@@ -1243,7 +1243,7 @@ namespace Polarimeter2019
                 theSave.AppendText("[Sample " + k.ToString() + "]");
                 for (int i = 0; i < BDC.Data[k].X.Length - 1; i++)
                 {
-                    theSave.AppendText(BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString() + Environment.NewLine);
+                    theSave.AppendText(BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString().ToString() + Environment.NewLine);
                 }
             }
 
