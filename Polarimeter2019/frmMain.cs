@@ -206,33 +206,6 @@ namespace Polarimeter2019
             IsScanning = true;
             lblMainStatus.Text = "Measuring...";
 
-            //string trt;
-            //if (SelectedIndex==0)
-            //{
-            //    trt = "Reference data";
-            //    DialogResult result = MessageBox.Show("Are you sure to measure " + trt, "Measure", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //    if(result == DialogResult.Yes)
-            //    {
-            //        DoScanLightIntensity();
-            //    }
-            //    else
-            //    {
-
-            //    }
-            //}
-            //else
-            //{
-            //    trt = "Sample" + SelectedIndex;
-            //    DialogResult result = MessageBox.Show("Are you sure to measure " + trt, "Measure", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //    if (result == DialogResult.Yes)
-            //    {
-            //        DoScanLightIntensity();
-            //    }
-            //    else
-            //    {
-
-            //    }
-            //}
             DoScanLightIntensity();
 
             // end
@@ -289,24 +262,76 @@ namespace Polarimeter2019
 
         private void btnStart_Click(System.Object sender, System.EventArgs e)
         {
-            ListViewItem lvi;
-            lvi = lsvData.Items[SelectedIndex];
-            if (lvi.SubItems[1].Text == "-" )
+            string trt;
+            if (SelectedIndex == 0)
             {
-                DoStart();
+                trt = "Reference data";
+                DialogResult result = MessageBox.Show("Are you sure to measure " + trt, "Measure", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    ListViewItem lvi;
+                    lvi = lsvData.Items[SelectedIndex];
+                    if (lvi.SubItems[1].Text == "-")
+                    {
+                        DoStart();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Again!!!", "Delete!?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if(result == DialogResult.Yes)
+                        {
+                            chart1.Series.Clear();
+                            chart2.Series.Clear();
+                            chart3.Series.Clear();
+                            chart4.Series.Clear();
+                            PolarChart();
+                            DoStart();
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                }
+                else
+                {
+
+                }
             }
             else
             {
-                //chart1.Series.Clear();
-                //chart2.Series.Clear();
-                //chart3.Series.Clear();
-                //chart4.Series.Clear();
-                //Array.Clear(BDC.Reference.X, 0, BDC.Reference.X.Length);
-                //Array.Clear(BDC.Reference.Y, 0, BDC.Reference.Y.Length);
-                //Array.Clear(BDC.Data[SelectedIndex].X, 0, BDC.Data[SelectedIndex].X.Length);
-                //Array.Clear(BDC.Data[SelectedIndex].Y, 0, BDC.Data[SelectedIndex].Y.Length);
+                trt = "Sample" + SelectedIndex;
+                DialogResult result = MessageBox.Show("Are you sure to measure " + trt, "Measure", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    ListViewItem lvi;
+                    lvi = lsvData.Items[SelectedIndex];
+                    if (lvi.SubItems[1].Text == "-")
+                    {
+                        DoStart();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Again!!!", "Delete!?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            chart1.Series.Clear();
+                            chart2.Series.Clear();
+                            chart3.Series.Clear();
+                            chart4.Series.Clear();
+                            PolarChart();
+                            DoStart();
+                        }
+                        else
+                        {
 
-                DoStart();
+                        }
+                    }
+                }
+                else
+                {
+
+                }
             }
         }
 
@@ -679,8 +704,8 @@ namespace Polarimeter2019
                 // ----------------------------------------
                 // 3. Return Motor
                 // ----------------------------------------
-                MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
-                MMC.WriteString(MSG);
+                //MSG = "A:WP" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString() + "P" + System.Convert.ToInt32(-1 * ThetaA / StepFactor).ToString();
+                //MMC.WriteString(MSG);
             }
         }
 
