@@ -280,14 +280,17 @@ namespace Polarimeter2019
                         MessageBox.Show("Again!!!", "Delete!?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if(result == DialogResult.Yes)
                         {
-                            Series ser1 = chart1.Series[SelectedIndex];
-                            Series ser2 = chart2.Series[SelectedIndex];
-                            Series ser3 = chart3.Series[SelectedIndex];
-                            Series ser4 = chart4.Series[SelectedIndex];
-                            chart1.Series.Remove(ser1);
-                            chart2.Series.Remove(ser2);
-                            chart3.Series.Remove(ser3);
-                            chart4.Series.Remove(ser4);
+                            if (SelectedIndex==0)
+                            {
+                                Series ser1 = chart1.Series[SelectedIndex];
+                                Series ser2 = chart2.Series[SelectedIndex];
+                                Series ser3 = chart3.Series[SelectedIndex];
+                                Series ser4 = chart4.Series[SelectedIndex];
+                                chart1.Series.Remove(ser1);
+                                chart2.Series.Remove(ser2);
+                                chart3.Series.Remove(ser3);
+                                chart4.Series.Remove(ser4);
+                            }
                             PolarChart();
                             DoStart();
                         }
@@ -319,14 +322,31 @@ namespace Polarimeter2019
                         MessageBox.Show("Again!!!", "Delete!?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            Series ser1 = chart1.Series[SelectedIndex];
-                            Series ser2 = chart2.Series[SelectedIndex];
-                            Series ser3 = chart3.Series[SelectedIndex];
-                            Series ser4 = chart4.Series[SelectedIndex];
-                            chart1.Series.Remove(ser1);
-                            chart2.Series.Remove(ser2);
-                            chart3.Series.Remove(ser3);
-                            chart4.Series.Remove(ser4);
+                            if (SelectedIndex == 0)
+                            {
+                                Series ser1 = chart1.Series[SelectedIndex];
+                                Series ser2 = chart2.Series[SelectedIndex];
+                                Series ser3 = chart3.Series[SelectedIndex];
+                                Series ser4 = chart4.Series[SelectedIndex];
+                                chart1.Series.Remove(ser1);
+                                chart2.Series.Remove(ser2);
+                                chart3.Series.Remove(ser3);
+                                chart4.Series.Remove(ser4);
+                            }
+                            else
+                            {
+                                if (SelectedIndex < BDC.Data.Length)
+                                {
+                                    Series ser1 = chart1.Series[SelectedIndex];
+                                    Series ser2 = chart2.Series[SelectedIndex];
+                                    Series ser3 = chart3.Series[SelectedIndex];
+                                    Series ser4 = chart4.Series[SelectedIndex];
+                                    chart1.Series.Remove(ser1);
+                                    chart2.Series.Remove(ser2);
+                                    chart3.Series.Remove(ser3);
+                                    chart4.Series.Remove(ser4);
+                                }
+                            }
                             PolarChart();
                             DoStart();
                         }
@@ -1875,7 +1895,7 @@ namespace Polarimeter2019
 
         private void lsvData_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            fghjkljk
+            //fghjkljk
         }
 
         //bool LVCS = false;
