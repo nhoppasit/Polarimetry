@@ -508,6 +508,7 @@
             this.lsvData.UseCompatibleStateImageBehavior = false;
             this.lsvData.View = System.Windows.Forms.View.Details;
             this.lsvData.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lsvData_ItemCheck);
+            this.lsvData.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lsvData_ItemChecked);
             this.lsvData.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lsvData_ItemSelectionChanged);
             this.lsvData.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lsvData_KeyPress);
             // 
@@ -997,7 +998,7 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPage2.Size = new System.Drawing.Size(1278, 443);
+            this.tabPage2.Size = new System.Drawing.Size(1432, 765);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Line";
             this.tabPage2.UseVisualStyleBackColor = true;

@@ -280,10 +280,14 @@ namespace Polarimeter2019
                         MessageBox.Show("Again!!!", "Delete!?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if(result == DialogResult.Yes)
                         {
-                            chart1.Series.Clear();
-                            chart2.Series.Clear();
-                            chart3.Series.Clear();
-                            chart4.Series.Clear();
+                            Series ser1 = chart1.Series[SelectedIndex];
+                            Series ser2 = chart2.Series[SelectedIndex];
+                            Series ser3 = chart3.Series[SelectedIndex];
+                            Series ser4 = chart4.Series[SelectedIndex];
+                            chart1.Series.Remove(ser1);
+                            chart2.Series.Remove(ser2);
+                            chart3.Series.Remove(ser3);
+                            chart4.Series.Remove(ser4);
                             PolarChart();
                             DoStart();
                         }
@@ -315,10 +319,14 @@ namespace Polarimeter2019
                         MessageBox.Show("Again!!!", "Delete!?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            chart1.Series.Clear();
-                            chart2.Series.Clear();
-                            chart3.Series.Clear();
-                            chart4.Series.Clear();
+                            Series ser1 = chart1.Series[SelectedIndex];
+                            Series ser2 = chart2.Series[SelectedIndex];
+                            Series ser3 = chart3.Series[SelectedIndex];
+                            Series ser4 = chart4.Series[SelectedIndex];
+                            chart1.Series.Remove(ser1);
+                            chart2.Series.Remove(ser2);
+                            chart3.Series.Remove(ser3);
+                            chart4.Series.Remove(ser4);
                             PolarChart();
                             DoStart();
                         }
@@ -401,14 +409,27 @@ namespace Polarimeter2019
                 NumberOfPoint++;
                 //ThetaB = (double)(NumberOfPoint-1) * Delta + ThetaA;
                 //txtStop.Text = ThetaB.ToString();
-                BDC.Reference.X = new double[1+NumberOfPoint];
-                BDC.Reference.Y = new double[1+NumberOfPoint];
-                for (int i = 0; i < BDC.Data.Length; i++)
-                {
-                    BDC.Data[i].X = new double[1+NumberOfPoint];
-                    BDC.Data[i].Y = new double[1+NumberOfPoint];
-                }
+                //BDC.Reference.X = new double[1+NumberOfPoint]; //!!!!!!!!!!!!!!!!!!!!
+                //BDC.Reference.Y = new double[1+NumberOfPoint];
+                //for (int i = 0; i < BDC.Data.Length; i++)
+                //{
+                //    BDC.Data[i].X = new double[1+NumberOfPoint];
+                //    BDC.Data[i].Y = new double[1+NumberOfPoint];
+                //}
 
+                if (SelectedIndex == 0)
+                {
+                    BDC.Reference.X = new double[1 + NumberOfPoint];
+                    BDC.Reference.Y = new double[1 + NumberOfPoint];
+                }
+                else
+                {
+                    if (SelectedIndex < BDC.Data.Length)
+                    {
+                        BDC.Data[SelectedIndex].X = new double[1 + NumberOfPoint];
+                        BDC.Data[SelectedIndex].Y = new double[1 + NumberOfPoint];
+                    }
+                }
 
                 // --------------------------------------------
                 // initialize minimum finder
@@ -1201,12 +1222,12 @@ namespace Polarimeter2019
         private void SaveData()
         {
             SaveFileDialog dlg = new SaveFileDialog();
-            //dlg.Filter = "*.txt";
+            dlg.Filter = "(csv)|*.csv";
             DialogResult redlg = dlg.ShowDialog();
-            if (redlg != DialogResult.Yes)
+            if (redlg != DialogResult.OK)
             {
                 MessageBox.Show("Bye","Save",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                //return;
+                return;
             }
 
             // GOGOGO
@@ -1260,7 +1281,7 @@ namespace Polarimeter2019
             theSave.AppendText("[Reference]");
             for (int i = 0; i < BDC.Reference.X.Length - 1; i++)
             {
-                theSave.AppendText(BDC.Reference.X[i].ToString() + "," + BDC.Reference.Y[i].ToString() + Environment.NewLine);
+                theSave.AppendText(BDC.Reference.X[i].ToString() + "," + BDC.Reference.Y[i].ToString());
             }
             // Data
             for (int k = 1; k <= BDC.Data.Length - 1; k++)
@@ -1268,7 +1289,7 @@ namespace Polarimeter2019
                 theSave.AppendText("[Sample " + k.ToString() + "]");
                 for (int i = 0; i < BDC.Data[k].X.Length - 1; i++)
                 {
-                    theSave.AppendText(BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString().ToString() + Environment.NewLine);
+                    theSave.AppendText(BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString().ToString());
                 }
             }
 
@@ -1850,6 +1871,11 @@ namespace Polarimeter2019
             PlotReferenceCurve();
             PlotTreatmentsCurve();
             PlotSelectedTRTMarker();
+        }
+
+        private void lsvData_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            fghjkljk
         }
 
         //bool LVCS = false;
