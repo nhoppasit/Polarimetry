@@ -743,7 +743,7 @@ namespace Polarimeter2019
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BDC.OpenFile();
+            OpenData();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1161,10 +1161,47 @@ namespace Polarimeter2019
 
         #endregion
 
+        private void OpenData()
+        {
+            //OpenFileDialog dlg = new OpenFileDialog();
+            //dlg.Filter = "Text File (*.txt)|*.txt";
+            //DialogResult redlg = dlg.ShowDialog();
+            //if (redlg != System.Windows.Forms.DialogResult.OK)
+            //{
+            //    return;
+            //}
+
+            //foreach (string line in File.ReadLines("Text File (*.txt)|*.txt"))
+            //{
+            //    lsvData.Items.Add(new ListViewItem(line));
+            //}
+
+            var fileLines = File.ReadAllLines(@"C:\Users\Pee\Desktop\Polarimetry20190705.txt");
+
+            for (int i = 0; i < fileLines.Length; i ++)
+            {
+                lsvData.Items.Add(
+                    new ListViewItem(new[]
+                    {
+                fileLines[i],
+                fileLines[i + 1],
+                fileLines[i + 2],
+                fileLines[i + 3],
+                fileLines[i + 4]
+                    }));
+            }
+
+            // Resize the columns
+            for (int i = 0; i < lsvData.Columns.Count; i++)
+            {
+                lsvData.Columns[i].Width = -2;
+            }
+        }
+
         private void SaveData()
         {
             SaveFileDialog dlg = new SaveFileDialog();
-            dlg.Filter = "(csv)|*.csv";
+            dlg.Filter = "Text File (*.txt)|*.txt";
             DialogResult redlg = dlg.ShowDialog();
             if (redlg != DialogResult.OK)
             {
@@ -1190,7 +1227,7 @@ namespace Polarimeter2019
             //Listview loop
             foreach (ListViewItem lvi in lsvData.Items)
             {
-                theSave.AppendText($"{lvi.Index + 1}. {lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
+                theSave.AppendText($"({lvi.Index + 1}). {lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
             }
             //Curve data loop
             int NumberOfPoints = BDC.Reference.X.Length - 1;    //จำนวนครั้งการหมุน 
@@ -1217,7 +1254,7 @@ namespace Polarimeter2019
             theSave.AppendText("[Reference]");
             for (int i = 0; i < BDC.Reference.X.Length - 1; i++)
             {
-                theSave.AppendText($"{i + 1} = {BDC.Reference.X[i].ToString() + "," + BDC.Reference.Y[i].ToString()}");
+                theSave.AppendText($"({i + 1}). {BDC.Reference.X[i].ToString() + "," + BDC.Reference.Y[i].ToString()}");
             }
             // Data
             for (int k = 1; k <= BDC.Data.Length - 1; k++)
@@ -1225,7 +1262,7 @@ namespace Polarimeter2019
                 theSave.AppendText("[Sample " + k.ToString() + "]");
                 for (int i = 0; i < BDC.Data[k].X.Length - 1; i++)
                 {
-                    theSave.AppendText($"{i + 1} = {BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString().ToString()}");
+                    theSave.AppendText($"({i + 1}). {BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString().ToString()}");
                 }
             }
         }
@@ -1779,7 +1816,48 @@ namespace Polarimeter2019
 
         private void lsvData_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            
+            //ProcessChecBoxes(true);
+            //bool lscb = false;
+            //if (lscb==false)
+            //{
+            //    chart1.Series[SelectedIndex].Enabled = false;
+            //    chart1.Series[SelectedIndex + lsvData.Items.Count].Enabled = false;
+            //    chart2.Series[SelectedIndex].Enabled = false;
+            //    chart2.Series[SelectedIndex + lsvData.Items.Count].Enabled = false;
+            //    chart3.Series[SelectedIndex].Enabled = false;
+            //    chart3.Series[SelectedIndex + lsvData.Items.Count].Enabled = false;
+            //    chart4.Series[SelectedIndex].Enabled = false;
+            //    chart4.Series[SelectedIndex + lsvData.Items.Count].Enabled = false;
+            //    lscb = true;
+            //}
+            //else if(lscb == true)
+            //{
+            //    chart1.Series[SelectedIndex].Enabled = true;
+            //    chart1.Series[SelectedIndex + lsvData.Items.Count].Enabled = true;
+            //    chart2.Series[SelectedIndex].Enabled = true;
+            //    chart2.Series[SelectedIndex + lsvData.Items.Count].Enabled = true;
+            //    chart3.Series[SelectedIndex].Enabled = true;
+            //    chart3.Series[SelectedIndex + lsvData.Items.Count].Enabled = true;
+            //    chart4.Series[SelectedIndex].Enabled = true;
+            //    chart4.Series[SelectedIndex + lsvData.Items.Count].Enabled = true;
+            //    lscb = false;
+            //}
+        }
+
+        public void ProcessChecBoxes(bool check)
+        {
+            foreach (ListViewItem listItem in lsvData.Items)
+            {
+                switch (check)
+                {
+                    case true:
+                        listItem.Checked = true;
+                        break;
+                    case false:
+                        listItem.Checked = false;
+                        break;
+                }
+            }
         }
     }
 }
