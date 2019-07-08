@@ -37,6 +37,8 @@ namespace Polarimeter2019
         const double StepFactor = 0.013333; //Deg /Step 
 
         //Scaning & Data
+        bool lscb = false;
+        bool clist = false;
         bool IsScanning = false;
         bool IsContinuing = false;
         int CurrentPointIndex = 0;
@@ -323,6 +325,7 @@ namespace Polarimeter2019
 
                 }
             }
+            clist = true;
         }
 
         private void btnPause_Click(System.Object sender, System.EventArgs e)
@@ -421,12 +424,14 @@ namespace Polarimeter2019
                     if (SelectedIndex == 0)
                     {
                         BDC.Reference.Ym = 99999999;
+                        BDC.Reference.Ymax = 0;
                     }
                     else if (BDC.Data != null)
                     {
                         if (SelectedIndex < BDC.Data.Length)
                         {
                             BDC.Data[SelectedIndex].Ym = 99999999;
+                            BDC.Data[SelectedIndex].Ymax = 0;
                         }
                     }
                 }
@@ -1816,46 +1821,31 @@ namespace Polarimeter2019
 
         private void lsvData_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            //ProcessChecBoxes(true);
-            //bool lscb = false;
-            //if (lscb==false)
-            //{
-            //    chart1.Series[SelectedIndex].Enabled = false;
-            //    chart1.Series[SelectedIndex + lsvData.Items.Count].Enabled = false;
-            //    chart2.Series[SelectedIndex].Enabled = false;
-            //    chart2.Series[SelectedIndex + lsvData.Items.Count].Enabled = false;
-            //    chart3.Series[SelectedIndex].Enabled = false;
-            //    chart3.Series[SelectedIndex + lsvData.Items.Count].Enabled = false;
-            //    chart4.Series[SelectedIndex].Enabled = false;
-            //    chart4.Series[SelectedIndex + lsvData.Items.Count].Enabled = false;
-            //    lscb = true;
-            //}
-            //else if(lscb == true)
-            //{
-            //    chart1.Series[SelectedIndex].Enabled = true;
-            //    chart1.Series[SelectedIndex + lsvData.Items.Count].Enabled = true;
-            //    chart2.Series[SelectedIndex].Enabled = true;
-            //    chart2.Series[SelectedIndex + lsvData.Items.Count].Enabled = true;
-            //    chart3.Series[SelectedIndex].Enabled = true;
-            //    chart3.Series[SelectedIndex + lsvData.Items.Count].Enabled = true;
-            //    chart4.Series[SelectedIndex].Enabled = true;
-            //    chart4.Series[SelectedIndex + lsvData.Items.Count].Enabled = true;
-            //    lscb = false;
-            //}
-        }
-
-        public void ProcessChecBoxes(bool check)
-        {
-            foreach (ListViewItem listItem in lsvData.Items)
+            if (clist == true)
             {
-                switch (check)
+                if (lscb == false)
                 {
-                    case true:
-                        listItem.Checked = true;
-                        break;
-                    case false:
-                        listItem.Checked = false;
-                        break;
+                    chart1.Series[SelectedIndex].Enabled = false;
+                    chart1.Series[SelectedIndex + lsvData.Items.Count].Enabled = false;
+                    chart2.Series[SelectedIndex].Enabled = false;
+                    chart2.Series[SelectedIndex + lsvData.Items.Count].Enabled = false;
+                    chart3.Series[SelectedIndex].Enabled = false;
+                    chart3.Series[SelectedIndex + lsvData.Items.Count].Enabled = false;
+                    chart4.Series[SelectedIndex].Enabled = false;
+                    chart4.Series[SelectedIndex + lsvData.Items.Count].Enabled = false;
+                    lscb = true;
+                }
+                else if (lscb == true)
+                {
+                    chart1.Series[SelectedIndex].Enabled = true;
+                    chart1.Series[SelectedIndex + lsvData.Items.Count].Enabled = true;
+                    chart2.Series[SelectedIndex].Enabled = true;
+                    chart2.Series[SelectedIndex + lsvData.Items.Count].Enabled = true;
+                    chart3.Series[SelectedIndex].Enabled = true;
+                    chart3.Series[SelectedIndex + lsvData.Items.Count].Enabled = true;
+                    chart4.Series[SelectedIndex].Enabled = true;
+                    chart4.Series[SelectedIndex + lsvData.Items.Count].Enabled = true;
+                    lscb = false;
                 }
             }
         }
