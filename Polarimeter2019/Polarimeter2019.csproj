@@ -32,6 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Bokehlicia-Captiva-Bulb.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -122,6 +128,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bokehlicia-Captiva-Bulb.ico" />
     <Content Include="Resources\11949838241715493605bb_fldr_.svg.med.png" />
     <Content Include="Resources\11949838241715493605bb_fldr_.svg.thumb.png" />
     <Content Include="Resources\11949892282132520602led_circle_green.svg.med.png" />
