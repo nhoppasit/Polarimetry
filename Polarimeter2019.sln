@@ -5,11 +5,9 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polarimeter2019", "Polarimeter2019\Polarimeter2019.csproj", "{B581F382-0D34-494A-BDC1-A2CF640D9875}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{1759B238-EB46-4022-9376-40BA7B2C8CBF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log File", "Log File\Log File.csproj", "{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup Project", "Setup Project\Setup Project.vdproj", "{A1AE1C16-FD3A-48E6-9C1B-93599EC0F202}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup Projects", "Setup Projects\Setup Projects.vdproj", "{50B58FC6-0961-457A-B0D3-79EDEBADACE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +25,6 @@ Global
 		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|x86.ActiveCfg = Release|Any CPU
 		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|x86.Build.0 = Release|Any CPU
-		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Debug|x86.Build.0 = Debug|Any CPU
-		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Release|x86.ActiveCfg = Release|Any CPU
-		{1759B238-EB46-4022-9376-40BA7B2C8CBF}.Release|x86.Build.0 = Release|Any CPU
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Debug|x86.ActiveCfg = Debug|x86
@@ -43,10 +33,10 @@ Global
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Release|x86.ActiveCfg = Release|x86
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Release|x86.Build.0 = Release|x86
-		{A1AE1C16-FD3A-48E6-9C1B-93599EC0F202}.Debug|Any CPU.ActiveCfg = Debug
-		{A1AE1C16-FD3A-48E6-9C1B-93599EC0F202}.Debug|x86.ActiveCfg = Debug
-		{A1AE1C16-FD3A-48E6-9C1B-93599EC0F202}.Release|Any CPU.ActiveCfg = Release
-		{A1AE1C16-FD3A-48E6-9C1B-93599EC0F202}.Release|x86.ActiveCfg = Release
+		{50B58FC6-0961-457A-B0D3-79EDEBADACE6}.Debug|Any CPU.ActiveCfg = Debug
+		{50B58FC6-0961-457A-B0D3-79EDEBADACE6}.Debug|x86.ActiveCfg = Debug
+		{50B58FC6-0961-457A-B0D3-79EDEBADACE6}.Release|Any CPU.ActiveCfg = Release
+		{50B58FC6-0961-457A-B0D3-79EDEBADACE6}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
