@@ -22,10 +22,10 @@ namespace LogFile
             return $"{ProjectName}\r\n" +
                    $"{DMMPort}\r\n" +
                    $"{MMCPort}\r\n" +
-                   $"{StartAngle}\r\n" +
-                   $"{EndAngle}\r\n" +
+                   //$"{StartAngle}\r\n" +
+                   //$"{EndAngle}\r\n" +
                    $"{SampleName}\r\n" +
-                   $"{SampleNumber}\r\n" +
+                   $"{SampleNumber}" +
                    $"";
         }
     }

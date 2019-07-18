@@ -460,18 +460,19 @@
             // 
             // lsvData
             // 
-            this.lsvData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lsvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lsvData.CheckBoxes = true;
             this.lsvData.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
             this.lsvData.GridLines = true;
-            this.lsvData.Location = new System.Drawing.Point(16, 75);
+            this.lsvData.Location = new System.Drawing.Point(4, 76);
             this.lsvData.Margin = new System.Windows.Forms.Padding(2);
             this.lsvData.Name = "lsvData";
-            this.lsvData.Size = new System.Drawing.Size(269, 997);
+            this.lsvData.Size = new System.Drawing.Size(301, 707);
             this.lsvData.TabIndex = 4;
             this.lsvData.UseCompatibleStateImageBehavior = false;
             this.lsvData.View = System.Windows.Forms.View.Details;

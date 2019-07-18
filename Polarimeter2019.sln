@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polarimeter2019", "Polarime
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log File", "Log File\Log File.csproj", "{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup Projects", "Setup Projects\Setup Projects.vdproj", "{50B58FC6-0961-457A-B0D3-79EDEBADACE6}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "..\Setup PJ2019\Setup1\Setup1.vdproj", "{14C351AE-EF0D-4AFC-A4BC-81A2229194CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +33,10 @@ Global
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Release|x86.ActiveCfg = Release|x86
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Release|x86.Build.0 = Release|x86
-		{50B58FC6-0961-457A-B0D3-79EDEBADACE6}.Debug|Any CPU.ActiveCfg = Debug
-		{50B58FC6-0961-457A-B0D3-79EDEBADACE6}.Debug|x86.ActiveCfg = Debug
-		{50B58FC6-0961-457A-B0D3-79EDEBADACE6}.Release|Any CPU.ActiveCfg = Release
-		{50B58FC6-0961-457A-B0D3-79EDEBADACE6}.Release|x86.ActiveCfg = Release
+		{14C351AE-EF0D-4AFC-A4BC-81A2229194CD}.Debug|Any CPU.ActiveCfg = Debug
+		{14C351AE-EF0D-4AFC-A4BC-81A2229194CD}.Debug|x86.ActiveCfg = Debug
+		{14C351AE-EF0D-4AFC-A4BC-81A2229194CD}.Release|Any CPU.ActiveCfg = Release
+		{14C351AE-EF0D-4AFC-A4BC-81A2229194CD}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

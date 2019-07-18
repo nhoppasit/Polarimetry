@@ -1168,39 +1168,50 @@ namespace Polarimeter2019
 
         private void OpenData()
         {
-            //OpenFileDialog dlg = new OpenFileDialog();
-            //dlg.Filter = "Text File (*.txt)|*.txt";
-            //DialogResult redlg = dlg.ShowDialog();
-            //if (redlg != System.Windows.Forms.DialogResult.OK)
-            //{
-            //    return;
-            //}
+            //Gb
+            gbStartMea.Enabled = true;
+            gbSample.Enabled = true;
+            gbScanCondition.Enabled = true;
+            gbDevices.Enabled = true;
+            gbMeasurement.Enabled = true;
+            lsvData.Items.Clear();
+
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Text File (*.txt)|*.txt";
+            DialogResult redlg = dlg.ShowDialog();
+            if (redlg != System.Windows.Forms.DialogResult.OK)
+            {
+                return;
+            }
 
             //foreach (string line in File.ReadLines("Text File (*.txt)|*.txt"))
             //{
             //    lsvData.Items.Add(new ListViewItem(line));
             //}
 
-            var fileLines = File.ReadAllLines(@"C:\Users\Pee\Desktop\Polarimetry20190705.txt");
+            string namesss = dlg.FileName;
+            //var fileLines = File.ReadAllLines(namesss);
 
-            for (int i = 0; i < fileLines.Length; i ++)
-            {
-                lsvData.Items.Add(
-                    new ListViewItem(new[]
-                    {
-                fileLines[i],
-                fileLines[i + 1],
-                fileLines[i + 2],
-                fileLines[i + 3],
-                fileLines[i + 4]
-                    }));
-            }
+            //StreamReader file = new StreamReader(namesss);
+            //string[] items = File.ReadAllLines(namesss);
+            //foreach (string item in items)
+            //{
+            //    lsvData.Items.Add(item);
+            //}
 
-            // Resize the columns
-            for (int i = 0; i < lsvData.Columns.Count; i++)
-            {
-                lsvData.Columns[i].Width = -2;
-            }
+            //string[] line = "";
+            //StreamReader file = new StreamReader(namesss);
+            //while(line != null)
+            //{
+            //    for(int i = 6; i < 10; i++)
+            //    {
+            //        line[i] = file.ReadLine();
+            //        if (line != null)
+            //        {
+            //            lsvData.Items.Add(line[i]);
+            //        }
+            //    }
+            //}
         }
 
         private void SaveData()
@@ -1766,7 +1777,7 @@ namespace Polarimeter2019
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            BDC.OpenFile();
+            OpenData();
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
