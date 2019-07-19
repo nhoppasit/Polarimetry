@@ -1175,6 +1175,8 @@ namespace Polarimeter2019
             gbDevices.Enabled = true;
             gbMeasurement.Enabled = true;
             lsvData.Items.Clear();
+            ListViewItem lvi;
+            lvi = new ListViewItem();
 
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Filter = "Text File (*.txt)|*.txt";
@@ -1222,30 +1224,23 @@ namespace Polarimeter2019
             //    //Console.WriteLine("Navigate to " + url);
             //}
 
-            //string line = "";
             StreamReader file = new StreamReader(namesss);
-            //while (line != null)
-            //{
-            //    for (int i = 6; i < 10; i++)
-            //    {
-            string url = file.ReadLine();
-            string url1 = file.ReadLine();
-            string url2 = file.ReadLine();
-            string url3 = file.ReadLine();
-            string url4 = file.ReadLine();
-            string url7 = file.ReadLine();
-            string url8 = file.ReadLine();
-            string url9 = file.ReadLine();
+            string ur1 = file.ReadLine();
+            string ur11 = file.ReadLine();
+            string ur12 = file.ReadLine();
+            string ur13 = file.ReadLine();
+            string ur14 = file.ReadLine();
+            string ur17 = file.ReadLine();
+            string ur18 = file.ReadLine();
+            string ur19 = file.ReadLine();
             string ur20 = file.ReadLine();
-            //        if (line != null)
-            //        {
-            lsvData.Items.Add(url7);
-            lsvData.Items.Add(url8);
-            lsvData.Items.Add(url9);
-            lsvData.Items.Add(ur20);
-            //        }
-            //    }
-            //}
+            string ur21 = file.ReadLine();
+
+            lvi.SubItems.Add(ur17);
+            lvi.SubItems.Add(ur18);
+            lvi.SubItems.Add(ur19);
+            lvi.SubItems.Add(ur20);
+            lsvData.Items.Add(lvi);
         }
 
         private void SaveData()
@@ -1278,7 +1273,9 @@ namespace Polarimeter2019
             foreach (ListViewItem lvi in lsvData.Items)
             {
                 //theSave.AppendText($"({lvi.Index + 1}). {lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
-                theSave.AppendText($"{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
+                theSave.AppendText($"{lvi.Text}");
+                theSave.AppendText($"{lvi.SubItems[1].Text}");
+                theSave.AppendText($"{lvi.SubItems[2].Text}");
             }
             //Curve data loop
             int NumberOfPoints = BDC.Reference.X.Length - 1;    //จำนวนครั้งการหมุน 
