@@ -630,7 +630,7 @@ namespace Polarimeter2019
                     // auto scale
                     DefineAngleOfRotation();
                     PlotReferenceCurve();
-                    PlotTreatmentsCurve();
+                    //PlotTreatmentsCurve();
                     PlotSelectedTRTMarker();
 
                     // check stop condition!!!
@@ -856,7 +856,7 @@ namespace Polarimeter2019
             {
                 ResetDynaplot();
                 PlotReferenceCurve();
-                PlotTreatmentsCurve();
+                //PlotTreatmentsCurve();
                 PlotSelectedTRTMarker();
             }
         }
@@ -1107,7 +1107,7 @@ namespace Polarimeter2019
                 }
                 ResetDynaplot();
                 PlotReferenceCurve();
-                PlotTreatmentsCurve();
+                //PlotTreatmentsCurve();
                 PlotSelectedTRTMarker();
             }
             catch (Exception ex)
@@ -1168,16 +1168,7 @@ namespace Polarimeter2019
 
         private void OpenData()
         {
-            //Gb
-            gbStartMea.Enabled = true;
-            gbSample.Enabled = true;
-            gbScanCondition.Enabled = true;
-            gbDevices.Enabled = true;
-            gbMeasurement.Enabled = true;
             lsvData.Items.Clear();
-            ListViewItem lvi;
-            lvi = new ListViewItem();
-
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Filter = "Text File (*.txt)|*.txt";
             DialogResult redlg = dlg.ShowDialog();
@@ -1225,22 +1216,72 @@ namespace Polarimeter2019
             //}
 
             StreamReader file = new StreamReader(namesss);
-            string ur1 = file.ReadLine();
+            string ur1 = file.ReadLine();   //บรรทัด1
+            string ur2 = file.ReadLine();   //บรรทัด2
+            string ur3 = file.ReadLine();   //บรรทัด3
+            string ur4 = file.ReadLine();   //บรรทัด4
+            string ur5 = file.ReadLine();   //บรรทัด5
+            string ur6 = file.ReadLine();   //บรรทัด6
+            string ur7 = file.ReadLine();   //บรรทัด7
+            string ur8 = file.ReadLine();   
+            string ur9 = file.ReadLine();
+            string ur10 = file.ReadLine();
             string ur11 = file.ReadLine();
             string ur12 = file.ReadLine();
             string ur13 = file.ReadLine();
             string ur14 = file.ReadLine();
+            string ur15 = file.ReadLine();
+            string ur16 = file.ReadLine();
             string ur17 = file.ReadLine();
             string ur18 = file.ReadLine();
-            string ur19 = file.ReadLine();
-            string ur20 = file.ReadLine();
-            string ur21 = file.ReadLine();
 
-            lvi.SubItems.Add(ur17);
-            lvi.SubItems.Add(ur18);
-            lvi.SubItems.Add(ur19);
-            lvi.SubItems.Add(ur20);
+            txtSampleName.Text = ur4;
+
+            ListViewItem lvi;
+            lvi = new ListViewItem();
+            lvi.Text = ur6;
+            lvi.SubItems.Add(ur7);
+            lvi.SubItems.Add(ur8);
+            lvi.BackColor = ReferenceColor;
+            lvi.UseItemStyleForSubItems = false;
+            lvi.Checked = true;
             lsvData.Items.Add(lvi);
+
+            ListViewItem lvi2;
+            lvi2 = new ListViewItem();
+            lvi2.Text = ur9;
+            lvi2.SubItems.Add(ur10);
+            lvi2.SubItems.Add(ur11);
+            lvi2.BackColor = ColorTable[(0) % ColorTable.Length];
+            lvi2.UseItemStyleForSubItems = false;
+            lvi2.Checked = true;
+            lsvData.Items.Add(lvi2);
+
+            ListViewItem lvi3;
+            lvi3 = new ListViewItem();
+            lvi3.Text = ur12;
+            lvi3.SubItems.Add(ur13);
+            lvi3.SubItems.Add(ur14);
+            lvi3.BackColor = ColorTable[(1) % ColorTable.Length];
+            lvi3.UseItemStyleForSubItems = false;
+            lvi3.Checked = true;
+            lsvData.Items.Add(lvi3);
+
+            ListViewItem lvi4;
+            lvi4 = new ListViewItem();
+            lvi4.Text = ur15;
+            lvi4.SubItems.Add(ur16);
+            lvi4.SubItems.Add(ur17);
+            lvi4.BackColor = ColorTable[(2) % ColorTable.Length];
+            lvi4.UseItemStyleForSubItems = false;
+            lvi4.Checked = true;
+            lsvData.Items.Add(lvi4);
+
+            lsvData.Items[0].Selected = true;
+            lsvData.CheckBoxes = true;
+            //Gb
+            gbStartMea.Enabled = true;
+            gbSample.Enabled = true;
         }
 
         private void SaveData()
@@ -1861,7 +1902,7 @@ namespace Polarimeter2019
         {
             ResetDynaplot();
             PlotReferenceCurve();
-            PlotTreatmentsCurve();
+            //PlotTreatmentsCurve();
             PlotSelectedTRTMarker();
         }
 
