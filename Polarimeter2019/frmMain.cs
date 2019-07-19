@@ -1199,16 +1199,50 @@ namespace Polarimeter2019
             //    lsvData.Items.Add(item);
             //}
 
-            //string[] line = "";
-            //StreamReader file = new StreamReader(namesss);
-            //while(line != null)
+            //using (System.IO.StreamReader reader1 = new System.IO.StreamReader(namesss))
             //{
-            //    for(int i = 6; i < 10; i++)
+            //    // get the first line
+            //    string result = reader1.ReadLine();
+            //    // get the second line
+            //    string url = reader1.ReadLine();
+            //    string url1 = reader1.ReadLine();
+            //    string url2 = reader1.ReadLine();
+            //    string url3 = reader1.ReadLine();
+            //    string url4 = reader1.ReadLine();
+            //    string url7 = reader1.ReadLine();
+            //    // check result to determine if it is not false (true)
+            //    if (result.ToLower() != "false")
             //    {
-            //        line[i] = file.ReadLine();
+            //        //Console.WriteLine("Not enabled");
+            //        lsvData.Items.Add(url4);
+            //        //return;
+            //    }
+            //    lsvData.Items.Add(url7);
+            //    // if it is not not enabled then it is enabled
+            //    //Console.WriteLine("Navigate to " + url);
+            //}
+
+            //string line = "";
+            StreamReader file = new StreamReader(namesss);
+            //while (line != null)
+            //{
+            //    for (int i = 6; i < 10; i++)
+            //    {
+            string url = file.ReadLine();
+            string url1 = file.ReadLine();
+            string url2 = file.ReadLine();
+            string url3 = file.ReadLine();
+            string url4 = file.ReadLine();
+            string url7 = file.ReadLine();
+            string url8 = file.ReadLine();
+            string url9 = file.ReadLine();
+            string ur20 = file.ReadLine();
             //        if (line != null)
             //        {
-            //            lsvData.Items.Add(line[i]);
+            lsvData.Items.Add(url7);
+            lsvData.Items.Add(url8);
+            lsvData.Items.Add(url9);
+            lsvData.Items.Add(ur20);
             //        }
             //    }
             //}
@@ -1243,11 +1277,13 @@ namespace Polarimeter2019
             //Listview loop
             foreach (ListViewItem lvi in lsvData.Items)
             {
-                theSave.AppendText($"({lvi.Index + 1}). {lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
+                //theSave.AppendText($"({lvi.Index + 1}). {lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
+                theSave.AppendText($"{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
             }
             //Curve data loop
             int NumberOfPoints = BDC.Reference.X.Length - 1;    //จำนวนครั้งการหมุน 
-            theSave.AppendText($"Number of Rotation = {NumberOfPoints.ToString()}");
+            //theSave.AppendText($"Number of Rotation = {NumberOfPoints.ToString()}");
+            theSave.AppendText($"{NumberOfPoints.ToString()}");
             //for (int idx = 0; idx < NumberOfPoints; idx++)//.. Points loop
             //{
             //    //theSave.AppendText($"{lvi.Index + 1},{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
@@ -1270,7 +1306,8 @@ namespace Polarimeter2019
             theSave.AppendText("[Reference]");
             for (int i = 0; i < BDC.Reference.X.Length - 1; i++)
             {
-                theSave.AppendText($"({i + 1}). {BDC.Reference.X[i].ToString() + "," + BDC.Reference.Y[i].ToString()}");
+                //theSave.AppendText($"({i + 1}). {BDC.Reference.X[i].ToString() + "," + BDC.Reference.Y[i].ToString()}");
+                theSave.AppendText($"{BDC.Reference.X[i].ToString() + "," + BDC.Reference.Y[i].ToString()}");
             }
             // Data
             for (int k = 1; k <= BDC.Data.Length - 1; k++)
@@ -1278,7 +1315,8 @@ namespace Polarimeter2019
                 theSave.AppendText("[Sample " + k.ToString() + "]");
                 for (int i = 0; i < BDC.Data[k].X.Length - 1; i++)
                 {
-                    theSave.AppendText($"({i + 1}). {BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString().ToString()}");
+                    //theSave.AppendText($"({i + 1}). {BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString().ToString()}");
+                    theSave.AppendText($"{BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString().ToString()}");
                 }
             }
         }
