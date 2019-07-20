@@ -45,7 +45,7 @@ namespace Polarimeter2019
         double SpecificRotation;
         int NumberOfRepeatation;
         int SelectedIndex;
-        double CurrentLightIntensity =0;
+        double CurrentLightIntensity = 0;
         double CurrentLightIntensity2 = 0;
         double CurrentTheta = 0;
         double CurrentTheta2 = 0;
@@ -171,7 +171,7 @@ namespace Polarimeter2019
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
         #endregion
 
         #region Control Panel
@@ -352,7 +352,7 @@ namespace Polarimeter2019
             {
                 MessageBox.Show("Please select item in samples list view that you want to measure!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 btnStart.Enabled = true;
-                btnStop.Enabled = false;  
+                btnStop.Enabled = false;
                 btnPause.Enabled = false;
                 btnPause.Text = "PAUSE";
                 btnNew.Enabled = true;
@@ -442,7 +442,7 @@ namespace Polarimeter2019
                 while (IsScanning)
                 {
                     Application.DoEvents();
-                    
+
                     // Update current THETA
                     if (ThetaA < ThetaB)
                     {
@@ -503,11 +503,11 @@ namespace Polarimeter2019
                     // Save to memory and update curve
                     if (SelectedIndex == 0) // Curve / เส้นกราฟ ของ Reference ที่แต่ละกราฟ
                     {
-                        BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentTheta2, CurrentLightIntensity,CurrentLightIntensity2);
+                        BDC.PatchReference(CurrentPointIndex, CurrentTheta, CurrentTheta2, CurrentLightIntensity, CurrentLightIntensity2);
                     }
                     else // ที่ไม่ใช่ Ref ตั้งแต่ SelectedIndex = 1 เป็นต้นไป
                     {
-                        BDC.PatchData(SelectedIndex, CurrentPointIndex, CurrentTheta, CurrentTheta2, CurrentLightIntensity,CurrentLightIntensity2);
+                        BDC.PatchData(SelectedIndex, CurrentPointIndex, CurrentTheta, CurrentTheta2, CurrentLightIntensity, CurrentLightIntensity2);
                     }
 
                     //<-------------PLOT HERE!  ptseries.Points.AddXY(x, y);
@@ -539,7 +539,7 @@ namespace Polarimeter2019
                     //chart4.Series[SelectedIndex + lsvData.Items.Count].IsValueShownAsLabel = true;
                     chart4.Invalidate();
                     #endregion
-                    
+
                     #region Add Chart3
                     chart3.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
                     if (chart3.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
@@ -568,7 +568,7 @@ namespace Polarimeter2019
                     //chart3.Series[SelectedIndex + lsvData.Items.Count].IsValueShownAsLabel = true;
                     chart3.Invalidate();
                     #endregion
-                    
+
                     #region Add Chart2
                     chart2.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
                     if (chart2.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
@@ -597,7 +597,7 @@ namespace Polarimeter2019
                     //chart2.Series[SelectedIndex + lsvData.Items.Count].IsValueShownAsLabel = true;
                     chart2.Invalidate();
                     #endregion
-                    
+
                     #region Add Chart1
                     chart1.Series[SelectedIndex].Points.AddXY(CurrentTheta, CurrentLightIntensity);
                     if (chart1.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
@@ -656,7 +656,7 @@ namespace Polarimeter2019
                 // --------------------------------------------(^0^)
 
                 // if stop update buttons to a new start
-                if (btnPause.Text != "CONTINUE" )
+                if (btnPause.Text != "CONTINUE")
                 {
                     if (!mnuOptionsDemomode.Checked)
                     {
@@ -769,7 +769,7 @@ namespace Polarimeter2019
                 }
             }
         }
-        
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -915,7 +915,7 @@ namespace Polarimeter2019
             }
             catch (Exception ex)
             {
-                
+
             }
         }
 
@@ -965,7 +965,7 @@ namespace Polarimeter2019
                 }
                 catch (Exception ex)
                 {
-                    
+
                 }
             }
             return true;
@@ -986,7 +986,7 @@ namespace Polarimeter2019
             }
             catch (Exception ex)
             {
-                
+
             }
         }
 
@@ -1166,6 +1166,36 @@ namespace Polarimeter2019
 
         #endregion
 
+        void openData()
+        {
+            gbSample.Enabled = true;
+            lsvData.Items.Clear();
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Text File (*.txt)|*.txt";
+            DialogResult redlg = dlg.ShowDialog();
+            if (redlg != System.Windows.Forms.DialogResult.OK)
+            {
+                return;
+            }
+
+            string[] AllInFile = System.IO.File.ReadAllLines(dlg.FileName);
+
+            System.Diagnostics.Trace.WriteLine(AllInFile[1]);
+            txtDMMAddress.Text = AllInFile[1];
+            txtMMCAddress.Text = AllInFile[2];
+            txtSampleName.Text = AllInFile[3];
+
+            int SampleCount = 0;
+            try { SampleCount = int.Parse(AllInFile[4]); } catch { MessageBox.Show("Error. Bye."); return; }
+            ListViewItem lvi = new ListViewItem(new string[] { AllInFile[5], "", "" });
+            lsvData.Items.Add(lvi);
+            for (int sam = 1; sam <= SampleCount; sam++)
+            {
+                lvi = new ListViewItem(new string[] { AllInFile[5 + sam], "", ""});
+                lsvData.Items.Add(lvi);
+            }
+        }
+
         private void OpenData()
         {
             lsvData.Items.Clear();
@@ -1215,67 +1245,67 @@ namespace Polarimeter2019
             //    //Console.WriteLine("Navigate to " + url);
             //}
 
-            StreamReader file = new StreamReader(namesss);
-            string ur1 = file.ReadLine();   //บรรทัด1
-            string ur2 = file.ReadLine();   //บรรทัด2
-            string ur3 = file.ReadLine();   //บรรทัด3
-            string ur4 = file.ReadLine();   //บรรทัด4
-            string ur5 = file.ReadLine();   //บรรทัด5
-            string ur6 = file.ReadLine();   //บรรทัด6
-            string ur7 = file.ReadLine();   //บรรทัด7
-            string ur8 = file.ReadLine();   
-            string ur9 = file.ReadLine();
-            string ur10 = file.ReadLine();
-            string ur11 = file.ReadLine();
-            string ur12 = file.ReadLine();
-            string ur13 = file.ReadLine();
-            string ur14 = file.ReadLine();
-            string ur15 = file.ReadLine();
-            string ur16 = file.ReadLine();
-            string ur17 = file.ReadLine();
-            string ur18 = file.ReadLine();
+            //StreamReader file = new StreamReader(namesss);
+            //string ur1 = file.ReadLine();   //บรรทัด1
+            //string ur2 = file.ReadLine();   //บรรทัด2
+            //string ur3 = file.ReadLine();   //บรรทัด3
+            //string ur4 = file.ReadLine();   //บรรทัด4
+            //string ur5 = file.ReadLine();   //บรรทัด5
+            //string ur6 = file.ReadLine();   //บรรทัด6
+            //string ur7 = file.ReadLine();   //บรรทัด7
+            //string ur8 = file.ReadLine();
+            //string ur9 = file.ReadLine();
+            //string ur10 = file.ReadLine();
+            //string ur11 = file.ReadLine();
+            //string ur12 = file.ReadLine();
+            //string ur13 = file.ReadLine();
+            //string ur14 = file.ReadLine();
+            //string ur15 = file.ReadLine();
+            //string ur16 = file.ReadLine();
+            //string ur17 = file.ReadLine();
+            //string ur18 = file.ReadLine();
 
-            txtSampleName.Text = ur4;
+            //txtSampleName.Text = ur4;
 
-            ListViewItem lvi;
-            lvi = new ListViewItem();
-            lvi.Text = ur6;
-            lvi.SubItems.Add(ur7);
-            lvi.SubItems.Add(ur8);
-            lvi.BackColor = ReferenceColor;
-            lvi.UseItemStyleForSubItems = false;
-            lvi.Checked = true;
-            lsvData.Items.Add(lvi);
+            //ListViewItem lvi;
+            //lvi = new ListViewItem();
+            //lvi.Text = ur6;
+            //lvi.SubItems.Add(ur7);
+            //lvi.SubItems.Add(ur8);
+            //lvi.BackColor = ReferenceColor;
+            //lvi.UseItemStyleForSubItems = false;
+            //lvi.Checked = true;
+            //lsvData.Items.Add(lvi);
 
-            ListViewItem lvi2;
-            lvi2 = new ListViewItem();
-            lvi2.Text = ur9;
-            lvi2.SubItems.Add(ur10);
-            lvi2.SubItems.Add(ur11);
-            lvi2.BackColor = ColorTable[(0) % ColorTable.Length];
-            lvi2.UseItemStyleForSubItems = false;
-            lvi2.Checked = true;
-            lsvData.Items.Add(lvi2);
+            //ListViewItem lvi2;
+            //lvi2 = new ListViewItem();
+            //lvi2.Text = ur9;
+            //lvi2.SubItems.Add(ur10);
+            //lvi2.SubItems.Add(ur11);
+            //lvi2.BackColor = ColorTable[(0) % ColorTable.Length];
+            //lvi2.UseItemStyleForSubItems = false;
+            //lvi2.Checked = true;
+            //lsvData.Items.Add(lvi2);
 
-            ListViewItem lvi3;
-            lvi3 = new ListViewItem();
-            lvi3.Text = ur12;
-            lvi3.SubItems.Add(ur13);
-            lvi3.SubItems.Add(ur14);
-            lvi3.BackColor = ColorTable[(1) % ColorTable.Length];
-            lvi3.UseItemStyleForSubItems = false;
-            lvi3.Checked = true;
-            lsvData.Items.Add(lvi3);
+            //ListViewItem lvi3;
+            //lvi3 = new ListViewItem();
+            //lvi3.Text = ur12;
+            //lvi3.SubItems.Add(ur13);
+            //lvi3.SubItems.Add(ur14);
+            //lvi3.BackColor = ColorTable[(1) % ColorTable.Length];
+            //lvi3.UseItemStyleForSubItems = false;
+            //lvi3.Checked = true;
+            //lsvData.Items.Add(lvi3);
 
-            ListViewItem lvi4;
-            lvi4 = new ListViewItem();
-            lvi4.Text = ur15;
-            lvi4.SubItems.Add(ur16);
-            lvi4.SubItems.Add(ur17);
-            lvi4.BackColor = ColorTable[(2) % ColorTable.Length];
-            lvi4.UseItemStyleForSubItems = false;
-            lvi4.Checked = true;
-            lsvData.Items.Add(lvi4);
+            //ListViewItem lvi4;
+            //lvi4 = new ListViewItem();
+            //lvi4.Text = ur15;
+            //lvi4.SubItems.Add(ur16);
+            //lvi4.SubItems.Add(ur17);
+            //lvi4.BackColor = ColorTable[(2) % ColorTable.Length];
+            //lvi4.UseItemStyleForSubItems = false;
+            //lvi4.Checked = true;
+            //lsvData.Items.Add(lvi4);
 
             lsvData.Items[0].Selected = true;
             lsvData.CheckBoxes = true;
@@ -1291,7 +1321,7 @@ namespace Polarimeter2019
             DialogResult redlg = dlg.ShowDialog();
             if (redlg != DialogResult.OK)
             {
-                MessageBox.Show("Bye","Save",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Bye", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             // GOGOGO
@@ -1752,7 +1782,7 @@ namespace Polarimeter2019
                         BDC.SampleName = txtSampleName.Text;
 
                         // Add blank data
-                        BDC.Data = new BaseDataControl.strucCurveData[NumberOfRepeatation+1];
+                        BDC.Data = new BaseDataControl.strucCurveData[NumberOfRepeatation + 1];
 
                         // clear
                         lsvData.Items.Clear();
@@ -1853,7 +1883,7 @@ namespace Polarimeter2019
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            OpenData();
+            openData();
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -1865,7 +1895,7 @@ namespace Polarimeter2019
         {
             DisconnectDevices();
         }
-        
+
         private void lsvData_KeyPress(System.Object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -1873,7 +1903,7 @@ namespace Polarimeter2019
                 SendKeys.Send("{TAB}");
             }
         }
-        
+
         private void txtVoltageRange_TextChanged(object sender, System.EventArgs e)
         {
             try
@@ -1897,7 +1927,7 @@ namespace Polarimeter2019
             {
             }
         }
-        
+
         private void lsvData_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             ResetDynaplot();
