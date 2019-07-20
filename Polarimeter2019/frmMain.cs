@@ -1185,15 +1185,20 @@ namespace Polarimeter2019
             txtMMCAddress.Text = AllInFile[2];
             txtSampleName.Text = AllInFile[3];
 
-            int SampleCount = 0;
-            try { SampleCount = int.Parse(AllInFile[4]); } catch { MessageBox.Show("Error. Bye."); return; }
-            ListViewItem lvi = new ListViewItem(new string[] { AllInFile[5], "", "" });
-            lsvData.Items.Add(lvi);
-            for (int sam = 1; sam <= SampleCount; sam++)
+            try
             {
-                lvi = new ListViewItem(new string[] { AllInFile[5 + sam], "", ""});
+                int SampleCount = 0;
+                SampleCount = int.Parse(AllInFile[4]);
+                ListViewItem lvi = new ListViewItem(new string[] { AllInFile[5], "", "" });
                 lsvData.Items.Add(lvi);
+                for (int sam = 1; sam <= SampleCount; sam++)
+                {
+                    string[] fields = AllInFile[5 + sam].Split(',');
+                    lvi = new ListViewItem(new string[] { fields[0], fields[1], fields[2] });
+                    lsvData.Items.Add(lvi);
+                }
             }
+            catch (Exception ex) { MessageBox.Show($"{ex.Message}\r\n{ex.StackTrace}"); return; }
         }
 
         private void OpenData()
