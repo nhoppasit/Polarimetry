@@ -392,16 +392,6 @@ namespace Polarimeter2019
                     NumberOfPoint++;
                 }
                 NumberOfPoint++;
-                //ThetaB = (double)(NumberOfPoint-1) * Delta + ThetaA;
-                //txtStop.Text = ThetaB.ToString();
-                //BDC.Reference.X = new double[1+NumberOfPoint]; //!!!!!!!!!!!!!!!!!!!!
-                //BDC.Reference.Y = new double[1+NumberOfPoint];
-                //for (int i = 0; i < BDC.Data.Length; i++)
-                //{
-                //    BDC.Data[i].X = new double[1+NumberOfPoint];
-                //    BDC.Data[i].Y = new double[1+NumberOfPoint];
-                //}
-
                 if (SelectedIndex == 0)
                 {
                     BDC.Reference.X = new double[1 + NumberOfPoint];
@@ -748,7 +738,7 @@ namespace Polarimeter2019
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenData();
+            openData();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1166,12 +1156,11 @@ namespace Polarimeter2019
 
         #endregion
 
-        void openData()
+        private void openData()
         {
-            gbSample.Enabled = true;
             lsvData.Items.Clear();
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Text File (*.txt)|*.txt";
+            //dlg.Filter = "Text File (*.txt)|*.txt";
             DialogResult redlg = dlg.ShowDialog();
             if (redlg != System.Windows.Forms.DialogResult.OK)
             {
@@ -1184,140 +1173,445 @@ namespace Polarimeter2019
             txtDMMAddress.Text = AllInFile[1];
             txtMMCAddress.Text = AllInFile[2];
             txtSampleName.Text = AllInFile[3];
-
-            int SampleCount = 0;
-            try { SampleCount = int.Parse(AllInFile[4]); } catch { MessageBox.Show("Error. Bye."); return; }
-            ListViewItem lvi = new ListViewItem(new string[] { AllInFile[5], "", "" });
-            lsvData.Items.Add(lvi);
-            for (int sam = 1; sam <= SampleCount; sam++)
+            try
             {
-                lvi = new ListViewItem(new string[] { AllInFile[5 + sam], "", ""});
+                int SampleCount = 0;
+                SampleCount = int.Parse(AllInFile[4]);
+                string[] fields = AllInFile[6].Split(',');
+                ListViewItem lvi = new ListViewItem(new string[] { fields[0], fields[1] + "," + fields[2], fields[3] });
+                lvi.BackColor = ReferenceColor;
+                lvi.UseItemStyleForSubItems = false;
+                lvi.Checked = true;
                 lsvData.Items.Add(lvi);
-            }
-        }
+                for (int sam = 1; sam <= SampleCount; sam++)
+                {
+                    string[] fieldss = AllInFile[6 + sam].Split(',');
+                    lvi = new ListViewItem(new string[] { fieldss[0], fieldss[1] + "," + fieldss[2], fieldss[3] });
+                    lvi.BackColor = ColorTable[(sam - 1) % ColorTable.Length];
+                    lvi.UseItemStyleForSubItems = false;
+                    lvi.Checked = true;
+                    lsvData.Items.Add(lvi);
+                }
 
-        private void OpenData()
-        {
-            lsvData.Items.Clear();
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Text File (*.txt)|*.txt";
-            DialogResult redlg = dlg.ShowDialog();
-            if (redlg != System.Windows.Forms.DialogResult.OK)
+                lsvData.Items[0].Selected = true;
+                lsvData.CheckBoxes = true;
+                lsvData.GridLines = true;
+                lsvData.FullRowSelect = true;
+                lsvData.AllowColumnReorder = true;
+                lsvData.Focus();
+                gbSample.Enabled = true;
+            }
+            catch (Exception ex)
             {
+                MessageBox.Show($"{ex.Message}\r\n{ex.StackTrace}");
                 return;
             }
+            // chart
+            int pointchart = 0;
+            int SampleCountt = 0;
+            SampleCountt = int.Parse(AllInFile[4]); //3
+            pointchart = int.Parse(AllInFile[5]);   //181
 
-            //foreach (string line in File.ReadLines("Text File (*.txt)|*.txt"))
-            //{
-            //    lsvData.Items.Add(new ListViewItem(line));
-            //}
+            chart1.Series.Clear();
+            chart2.Series.Clear();
+            chart3.Series.Clear();
+            chart4.Series.Clear();
+            try
+            {
+                string[] point = AllInFile[6 + SampleCountt + 2].Split(',');
 
-            string namesss = dlg.FileName;
-            //var fileLines = File.ReadAllLines(namesss);
+                #region Chart1
 
-            //StreamReader file = new StreamReader(namesss);
-            //string[] items = File.ReadAllLines(namesss);
-            //foreach (string item in items)
-            //{
-            //    lsvData.Items.Add(item);
-            //}
+                //chart1
+                Series newSeries = new Series("Reference");
+                newSeries.ChartType = SeriesChartType.Polar;
+                newSeries.BorderWidth = 3;
+                newSeries.Color = Properties.Settings.Default.ReferenceColor;
+                chart1.Series.Add(newSeries);
+                for (int i = 1; i <= SampleCountt; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Polar;
+                    sample.BorderWidth = 3;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart1.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
 
-            //using (System.IO.StreamReader reader1 = new System.IO.StreamReader(namesss))
-            //{
-            //    // get the first line
-            //    string result = reader1.ReadLine();
-            //    // get the second line
-            //    string url = reader1.ReadLine();
-            //    string url1 = reader1.ReadLine();
-            //    string url2 = reader1.ReadLine();
-            //    string url3 = reader1.ReadLine();
-            //    string url4 = reader1.ReadLine();
-            //    string url7 = reader1.ReadLine();
-            //    // check result to determine if it is not false (true)
-            //    if (result.ToLower() != "false")
-            //    {
-            //        //Console.WriteLine("Not enabled");
-            //        lsvData.Items.Add(url4);
-            //        //return;
-            //    }
-            //    lsvData.Items.Add(url7);
-            //    // if it is not not enabled then it is enabled
-            //    //Console.WriteLine("Navigate to " + url);
-            //}
+                Series newSeriesRefMarker = new Series("Reference_Marker");
+                newSeriesRefMarker.ChartType = SeriesChartType.Polar;
+                newSeriesRefMarker.Color = Properties.Settings.Default.ReferenceColor;
+                chart1.Series.Add(newSeriesRefMarker);
+                for (int i = 1; i <= SampleCountt; i++)
+                {
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Polar;
+                    sampleMarker.BorderWidth = 3;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart1.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
 
-            //StreamReader file = new StreamReader(namesss);
-            //string ur1 = file.ReadLine();   //บรรทัด1
-            //string ur2 = file.ReadLine();   //บรรทัด2
-            //string ur3 = file.ReadLine();   //บรรทัด3
-            //string ur4 = file.ReadLine();   //บรรทัด4
-            //string ur5 = file.ReadLine();   //บรรทัด5
-            //string ur6 = file.ReadLine();   //บรรทัด6
-            //string ur7 = file.ReadLine();   //บรรทัด7
-            //string ur8 = file.ReadLine();
-            //string ur9 = file.ReadLine();
-            //string ur10 = file.ReadLine();
-            //string ur11 = file.ReadLine();
-            //string ur12 = file.ReadLine();
-            //string ur13 = file.ReadLine();
-            //string ur14 = file.ReadLine();
-            //string ur15 = file.ReadLine();
-            //string ur16 = file.ReadLine();
-            //string ur17 = file.ReadLine();
-            //string ur18 = file.ReadLine();
+                chart1.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(point[0]);
+                //chart1.ChartAreas[0].Axes[0].Title = "Angular, deg";
+                //chart1.ChartAreas[0].Axes[1].Title = "Relative Intensity";
+                //chart1.ChartAreas[0].Axes[0].Interval = 30;
+                //chart1.ChartAreas[0].Axes[1].Interval = 0.5;
+                //chart1.ChartAreas[0].Axes[0].Crossing = 270;
+                //var area = radChartView1.Area as PolarArea;
+                //area.StartAngle = 90;
+                //PolarAxis axis = radChartView1.Axes.Get<PolarAxis>(0);
+                //area.StartAngle = 90;
+                //axis.IsInverse = true;
 
-            //txtSampleName.Text = ur4;
+                //PolarAreaSeries series = new PolarAreaSeries();
+                //System.Windows.Media.Transform.Equals
 
-            //ListViewItem lvi;
-            //lvi = new ListViewItem();
-            //lvi.Text = ur6;
-            //lvi.SubItems.Add(ur7);
-            //lvi.SubItems.Add(ur8);
-            //lvi.BackColor = ReferenceColor;
-            //lvi.UseItemStyleForSubItems = false;
-            //lvi.Checked = true;
-            //lsvData.Items.Add(lvi);
+                //------X major 
+                chart1.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00}";
+                chart1.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
+                chart1.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
+                chart1.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
+                //chart1.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.Size = 1;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------X minor
+                chart1.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
+                chart1.ChartAreas[0].Axes[0].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart1.ChartAreas[0].Axes[0].MinorGrid.Enabled = true;
+                chart1.ChartAreas[0].Axes[0].MinorGrid.Interval = 2;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = 1;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------Y major
+                chart1.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00";
+                chart1.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
+                chart1.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
+                chart1.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
+                //chart1.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.Size = 1;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //-------Y minor
+                chart1.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
+                chart1.ChartAreas[0].Axes[1].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart1.ChartAreas[0].Axes[1].MinorGrid.Enabled = true;
+                chart1.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.25;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.1;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
 
-            //ListViewItem lvi2;
-            //lvi2 = new ListViewItem();
-            //lvi2.Text = ur9;
-            //lvi2.SubItems.Add(ur10);
-            //lvi2.SubItems.Add(ur11);
-            //lvi2.BackColor = ColorTable[(0) % ColorTable.Length];
-            //lvi2.UseItemStyleForSubItems = false;
-            //lvi2.Checked = true;
-            //lsvData.Items.Add(lvi2);
+                #endregion
 
-            //ListViewItem lvi3;
-            //lvi3 = new ListViewItem();
-            //lvi3.Text = ur12;
-            //lvi3.SubItems.Add(ur13);
-            //lvi3.SubItems.Add(ur14);
-            //lvi3.BackColor = ColorTable[(1) % ColorTable.Length];
-            //lvi3.UseItemStyleForSubItems = false;
-            //lvi3.Checked = true;
-            //lsvData.Items.Add(lvi3);
+                #region Chart2
 
-            //ListViewItem lvi4;
-            //lvi4 = new ListViewItem();
-            //lvi4.Text = ur15;
-            //lvi4.SubItems.Add(ur16);
-            //lvi4.SubItems.Add(ur17);
-            //lvi4.BackColor = ColorTable[(2) % ColorTable.Length];
-            //lvi4.UseItemStyleForSubItems = false;
-            //lvi4.Checked = true;
-            //lsvData.Items.Add(lvi4);
+                //chart2
+                Series newSeries2 = new Series("Reference");
+                newSeries2.ChartType = SeriesChartType.Line;
+                newSeries2.BorderWidth = 3;
+                newSeries2.Color = Properties.Settings.Default.ReferenceColor;
+                chart2.Series.Add(newSeries2);
+                for (int i = 1; i <= SampleCountt; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Line;
+                    sample.BorderWidth = 3;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart2.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
 
-            lsvData.Items[0].Selected = true;
-            lsvData.CheckBoxes = true;
-            //Gb
-            gbStartMea.Enabled = true;
-            gbSample.Enabled = true;
+                Series newSeriesRefMarker1 = new Series("Reference_Marker");
+                newSeriesRefMarker1.ChartType = SeriesChartType.Line;
+                newSeriesRefMarker1.Color = Properties.Settings.Default.ReferenceColor;
+                chart2.Series.Add(newSeriesRefMarker1);
+                for (int i = 1; i <= SampleCountt; i++)
+                {
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Line;
+                    sampleMarker.BorderWidth = 3;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart2.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(point[0]);
+                //chart2.ChartAreas[0].Axes[0].Title = "Angular, deg";
+                //chart2.ChartAreas[0].Axes[1].Title = "Relative Intensity";
+                //chart2.ChartAreas[0].Axes[0].Interval = 20;
+                //chart2.ChartAreas[0].Axes[1].Interval = 0.5;
+
+                //------X major 
+                chart2.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00}";
+                chart2.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
+                chart2.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
+                chart2.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
+                //chart2.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.Size = 1;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------X minor
+                chart2.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
+                chart2.ChartAreas[0].Axes[0].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart2.ChartAreas[0].Axes[0].MinorGrid.Enabled = true;
+                chart2.ChartAreas[0].Axes[0].MinorGrid.Interval = 2;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = 1;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------Y major
+                chart2.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00";
+                chart2.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
+                chart2.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
+                chart2.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
+                //chart2.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.Size = 1;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------Y minor
+                chart2.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
+                chart2.ChartAreas[0].Axes[1].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart2.ChartAreas[0].Axes[1].MinorGrid.Enabled = true;
+                chart2.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.25;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.1;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+
+                #endregion
+
+                #region Chart3
+
+                //chart3
+                Series newSeries3 = new Series("Reference");
+                newSeries3.ChartType = SeriesChartType.Line;
+                newSeries3.BorderWidth = 3;
+                newSeries3.Color = Properties.Settings.Default.ReferenceColor;
+                chart3.Series.Add(newSeries3);
+                for (int i = 1; i <= SampleCountt; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Line;
+                    sample.BorderWidth = 3;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart3.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                Series newSeriesRefMarker2 = new Series("Reference_Marker");
+                newSeriesRefMarker2.ChartType = SeriesChartType.Line;
+                newSeriesRefMarker2.Color = Properties.Settings.Default.ReferenceColor;
+                chart3.Series.Add(newSeriesRefMarker2);
+                for (int i = 1; i <= SampleCountt; i++)
+                {
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Line;
+                    sampleMarker.BorderWidth = 3;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart3.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                chart3.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(point[0]);
+                //chart3.ChartAreas[0].Axes[0].Title = "Angular, deg";
+                //chart3.ChartAreas[0].Axes[1].Title = "Relative Intensity";
+                chart3.ChartAreas[0].Axes[0].Interval = 30;
+                chart3.ChartAreas[0].Axes[1].Interval = 0.5;
+
+                //------X major 
+                chart3.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00}";
+                chart3.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
+                chart3.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
+                chart3.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
+                //chart3.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.Size = 1;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------X minor
+                chart3.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
+                chart3.ChartAreas[0].Axes[0].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart3.ChartAreas[0].Axes[0].MinorGrid.Enabled = true;
+                chart3.ChartAreas[0].Axes[0].MinorGrid.Interval = 2;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = 1;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------Y major
+                chart3.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
+                chart3.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00";
+                chart3.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
+                chart3.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
+                //chart3.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.Size = 1;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------Y minor
+                chart3.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
+                chart3.ChartAreas[0].Axes[1].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart3.ChartAreas[0].Axes[1].MinorGrid.Enabled = true;
+                chart3.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.1;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.1;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+
+                #endregion
+
+                #region Chart4
+
+                //chart4
+                Series newSeries4 = new Series("Reference");
+                newSeries4.ChartType = SeriesChartType.Polar;
+                newSeries4.BorderWidth = 3;
+                newSeries4.Color = Properties.Settings.Default.ReferenceColor;
+                chart4.Series.Add(newSeries4);
+                for (int i = 1; i <= SampleCountt; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Polar;
+                    sample.BorderWidth = 3;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart4.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                Series newSeriesRefMarker3 = new Series("Reference_Marker");
+                newSeriesRefMarker3.ChartType = SeriesChartType.Polar;
+                newSeriesRefMarker3.Color = Properties.Settings.Default.ReferenceColor;
+                chart4.Series.Add(newSeriesRefMarker3);
+                for (int i = 1; i <= SampleCountt; i++)
+                {
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Polar;
+                    sampleMarker.BorderWidth = 3;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart4.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                chart4.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(point[0]);
+                //chart4.ChartAreas[0].Axes[0].Title = "Angular, deg";
+                //chart4.ChartAreas[0].Axes[1].Title = "Relative Intensity";
+                chart4.ChartAreas[0].Axes[0].Interval = 10;
+                chart4.ChartAreas[0].Axes[1].Interval = 0.5;
+
+                //------X major 
+                chart4.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} ";
+                chart4.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
+                chart4.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
+                chart4.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
+                //chart4.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.Size = 1;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------X minor
+                chart4.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
+                chart4.ChartAreas[0].Axes[0].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart4.ChartAreas[0].Axes[0].MinorGrid.Enabled = true;
+                chart4.ChartAreas[0].Axes[0].MinorGrid.Interval = 2;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = 1;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------Y major
+                chart4.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 ";
+                chart4.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
+                chart4.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
+                chart4.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
+                //chart4.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.Size = 1;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //-------Y minor
+                chart4.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
+                chart4.ChartAreas[0].Axes[1].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart4.ChartAreas[0].Axes[1].MinorGrid.Enabled = true;
+                chart4.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.1;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.1;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} {ex.StackTrace}");
+            }
+
+            label10.Show();
+            label11.Show();
+            label12.Show();
+            label13.Show();
+            
+            for (int pchi = 0; pchi <= pointchart - 1; pchi++)  //reference
+            {
+                string[] fieldss = AllInFile[6 + SampleCountt + 2 + pchi].Split(',');
+                chart1.Series[0].Points.AddXY(fieldss[0], fieldss[1]);
+                chart2.Series[0].Points.AddXY(fieldss[0], fieldss[1]);
+                chart3.Series[0].Points.AddXY(fieldss[0], fieldss[1]);
+                chart4.Series[0].Points.AddXY(fieldss[0], fieldss[1]);
+            }
+            for (int k = 1; k <= SampleCountt; k++)    //sample
+            {
+                for (int pch = 0; pch <= pointchart - 1; pch++)
+                {
+                    string[] fieldssss = AllInFile[6 + SampleCountt + (2 + k) + (pointchart * k) + pch].Split(',');
+                    chart1.Series[k].Points.AddXY(fieldssss[0], fieldssss[1]);
+                    chart2.Series[k].Points.AddXY(fieldssss[0], fieldssss[1]);
+                    chart3.Series[k].Points.AddXY(fieldssss[0], fieldssss[1]);
+                    chart4.Series[k].Points.AddXY(fieldssss[0], fieldssss[1]);
+                }
+            }
         }
 
         private void SaveData()
         {
             SaveFileDialog dlg = new SaveFileDialog();
-            dlg.Filter = "Text File (*.txt)|*.txt";
+            //dlg.Filter = "Text File (*.txt)|*.txt";
             DialogResult redlg = dlg.ShowDialog();
             if (redlg != DialogResult.OK)
             {
@@ -1336,39 +1630,20 @@ namespace Polarimeter2019
                 DMMPort = txtDMMAddress.Text,
                 MMCPort = txtMMCAddress.Text,
                 SampleName = txtSampleName.Text,
-                SampleNumber = (int)f.OfRepeatation,
+                SampleNumber = NumberOfRepeatation,
             };
             //Append to file
             theSave.AppendText(header.ToString());
+
+            //Curve data loop
+            int NumberOfPoints = BDC.Reference.X.Length - 1;    //จำนวนครั้งการหมุน 
+            theSave.AppendText($"{NumberOfPoints.ToString()}");
+
             //Listview loop
             foreach (ListViewItem lvi in lsvData.Items)
             {
-                //theSave.AppendText($"({lvi.Index + 1}). {lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
-                theSave.AppendText($"{lvi.Text}");
-                theSave.AppendText($"{lvi.SubItems[1].Text}");
-                theSave.AppendText($"{lvi.SubItems[2].Text}");
+                theSave.AppendText($"{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
             }
-            //Curve data loop
-            int NumberOfPoints = BDC.Reference.X.Length - 1;    //จำนวนครั้งการหมุน 
-            //theSave.AppendText($"Number of Rotation = {NumberOfPoints.ToString()}");
-            theSave.AppendText($"{NumberOfPoints.ToString()}");
-            //for (int idx = 0; idx < NumberOfPoints; idx++)//.. Points loop
-            //{
-            //    //theSave.AppendText($"{lvi.Index + 1},{lvi.Text},{lvi.SubItems[1].Text},{lvi.SubItems[2].Text}");
-            //    string left = $"{idx + 1} == {BDC.Reference.X[idx]},{BDC.Reference.Y[idx]}";    //reference
-            //    string right = "";
-            //    for (int di = 0; di < BDC.Data.Length -1; di++) //..Data loop
-            //    {
-            //        for (int idy = 0; idy < BDC.Data[di].X.Length - 1; idy++)
-            //        {
-            //            //AddText(fs, Data[k].X[i].ToString() + "," + Data[k].Y[i].ToString() + Environment.NewLine);
-            //            right += $",{BDC.Data[di].Y[idy]}";
-            //        }
-            //    }//end data loop
-            //    //
-            //    theSave.AppendText($"{left}{right}");
-            //}// end points loop
-            ////*****************************************************************************
 
             // Reference
             theSave.AppendText("[Reference]");
@@ -1386,6 +1661,377 @@ namespace Polarimeter2019
                     //theSave.AppendText($"({i + 1}). {BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString().ToString()}");
                     theSave.AppendText($"{BDC.Data[k].X[i].ToString() + "," + BDC.Data[k].Y[i].ToString().ToString()}");
                 }
+            }
+        }
+
+        private void PolarChartsave()
+        {
+            chart1.Series.Clear();
+            chart2.Series.Clear();
+            chart3.Series.Clear();
+            chart4.Series.Clear();
+            try
+            {
+                #region Chart1
+
+                //chart1
+                Series newSeries = new Series("Reference");
+                newSeries.ChartType = SeriesChartType.Polar;
+                newSeries.BorderWidth = 3;
+                newSeries.Color = Properties.Settings.Default.ReferenceColor;
+                chart1.Series.Add(newSeries);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Polar;
+                    sample.BorderWidth = 3;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart1.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                Series newSeriesRefMarker = new Series("Reference_Marker");
+                newSeriesRefMarker.ChartType = SeriesChartType.Polar;
+                newSeriesRefMarker.Color = Properties.Settings.Default.ReferenceColor;
+                chart1.Series.Add(newSeriesRefMarker);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Polar;
+                    sampleMarker.BorderWidth = 3;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart1.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                //chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
+                //chart1.ChartAreas[0].Axes[0].Title = "Angular, deg";
+                //chart1.ChartAreas[0].Axes[1].Title = "Relative Intensity";
+                //chart1.ChartAreas[0].Axes[0].Interval = 30;
+                //chart1.ChartAreas[0].Axes[1].Interval = 0.5;
+                //chart1.ChartAreas[0].Axes[0].Crossing = 270;
+                //var area = radChartView1.Area as PolarArea;
+                //area.StartAngle = 90;
+                //PolarAxis axis = radChartView1.Axes.Get<PolarAxis>(0);
+                //area.StartAngle = 90;
+                //axis.IsInverse = true;
+
+                //PolarAreaSeries series = new PolarAreaSeries();
+                //System.Windows.Media.Transform.Equals
+
+                //------X major 
+                chart1.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00}";
+                chart1.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
+                chart1.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
+                chart1.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
+                //chart1.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.Size = 1;
+                chart1.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------X minor
+                chart1.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
+                chart1.ChartAreas[0].Axes[0].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart1.ChartAreas[0].Axes[0].MinorGrid.Enabled = true;
+                chart1.ChartAreas[0].Axes[0].MinorGrid.Interval = 2;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = 1;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
+                chart1.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------Y major
+                chart1.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00";
+                chart1.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
+                chart1.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
+                chart1.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
+                //chart1.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.Size = 1;
+                chart1.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //-------Y minor
+                chart1.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
+                chart1.ChartAreas[0].Axes[1].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart1.ChartAreas[0].Axes[1].MinorGrid.Enabled = true;
+                chart1.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.25;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.1;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
+                chart1.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+
+                #endregion
+
+                #region Chart2
+
+                //chart2
+                Series newSeries2 = new Series("Reference");
+                newSeries2.ChartType = SeriesChartType.Line;
+                newSeries2.BorderWidth = 3;
+                newSeries2.Color = Properties.Settings.Default.ReferenceColor;
+                chart2.Series.Add(newSeries2);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Line;
+                    sample.BorderWidth = 3;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart2.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                Series newSeriesRefMarker1 = new Series("Reference_Marker");
+                newSeriesRefMarker1.ChartType = SeriesChartType.Line;
+                newSeriesRefMarker1.Color = Properties.Settings.Default.ReferenceColor;
+                chart2.Series.Add(newSeriesRefMarker1);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Line;
+                    sampleMarker.BorderWidth = 3;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart2.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
+                //chart2.ChartAreas[0].Axes[0].Title = "Angular, deg";
+                //chart2.ChartAreas[0].Axes[1].Title = "Relative Intensity";
+                //chart2.ChartAreas[0].Axes[0].Interval = 20;
+                //chart2.ChartAreas[0].Axes[1].Interval = 0.5;
+
+                //------X major 
+                chart2.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00}";
+                chart2.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
+                chart2.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
+                chart2.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
+                //chart2.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.Size = 1;
+                chart2.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------X minor
+                chart2.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
+                chart2.ChartAreas[0].Axes[0].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart2.ChartAreas[0].Axes[0].MinorGrid.Enabled = true;
+                chart2.ChartAreas[0].Axes[0].MinorGrid.Interval = 2;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = 1;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
+                chart2.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------Y major
+                chart2.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00";
+                chart2.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
+                chart2.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
+                chart2.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
+                //chart2.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.Size = 1;
+                chart2.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------Y minor
+                chart2.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
+                chart2.ChartAreas[0].Axes[1].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart2.ChartAreas[0].Axes[1].MinorGrid.Enabled = true;
+                chart2.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.25;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.1;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
+                chart2.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+
+                #endregion
+
+                #region Chart3
+
+                //chart3
+                Series newSeries3 = new Series("Reference");
+                newSeries3.ChartType = SeriesChartType.Line;
+                newSeries3.BorderWidth = 3;
+                newSeries3.Color = Properties.Settings.Default.ReferenceColor;
+                chart3.Series.Add(newSeries3);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Line;
+                    sample.BorderWidth = 3;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart3.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                Series newSeriesRefMarker2 = new Series("Reference_Marker");
+                newSeriesRefMarker2.ChartType = SeriesChartType.Line;
+                newSeriesRefMarker2.Color = Properties.Settings.Default.ReferenceColor;
+                chart3.Series.Add(newSeriesRefMarker2);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Line;
+                    sampleMarker.BorderWidth = 3;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart3.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                chart3.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
+                //chart3.ChartAreas[0].Axes[0].Title = "Angular, deg";
+                //chart3.ChartAreas[0].Axes[1].Title = "Relative Intensity";
+                chart3.ChartAreas[0].Axes[0].Interval = 30;
+                chart3.ChartAreas[0].Axes[1].Interval = 0.5;
+
+                //------X major 
+                chart3.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00}";
+                chart3.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
+                chart3.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
+                chart3.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
+                //chart3.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.Size = 1;
+                chart3.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------X minor
+                chart3.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
+                chart3.ChartAreas[0].Axes[0].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart3.ChartAreas[0].Axes[0].MinorGrid.Enabled = true;
+                chart3.ChartAreas[0].Axes[0].MinorGrid.Interval = 2;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = 1;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
+                chart3.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------Y major
+                chart3.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
+                chart3.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00";
+                chart3.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
+                chart3.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
+                //chart3.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.Size = 1;
+                chart3.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------Y minor
+                chart3.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
+                chart3.ChartAreas[0].Axes[1].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart3.ChartAreas[0].Axes[1].MinorGrid.Enabled = true;
+                chart3.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.1;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.1;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
+                chart3.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+
+                #endregion
+
+                #region Chart4
+
+                //chart4
+                Series newSeries4 = new Series("Reference");
+                newSeries4.ChartType = SeriesChartType.Polar;
+                newSeries4.BorderWidth = 3;
+                newSeries4.Color = Properties.Settings.Default.ReferenceColor;
+                chart4.Series.Add(newSeries4);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sample = new Series("Sample" + i.ToString());
+                    sample.ChartType = SeriesChartType.Polar;
+                    sample.BorderWidth = 3;
+                    sample.XValueType = ChartValueType.Auto;
+                    sample.YValueType = ChartValueType.Auto;
+                    chart4.Series.Add(sample);
+                    sample.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                Series newSeriesRefMarker3 = new Series("Reference_Marker");
+                newSeriesRefMarker3.ChartType = SeriesChartType.Polar;
+                newSeriesRefMarker3.Color = Properties.Settings.Default.ReferenceColor;
+                chart4.Series.Add(newSeriesRefMarker3);
+                for (int i = 1; i <= NumberOfRepeatation; i++)
+                {
+                    Series sampleMarker = new Series("sample_Marker" + i.ToString());
+                    sampleMarker.ChartType = SeriesChartType.Polar;
+                    sampleMarker.BorderWidth = 3;
+                    sampleMarker.XValueType = ChartValueType.Auto;
+                    sampleMarker.YValueType = ChartValueType.Auto;
+                    chart4.Series.Add(sampleMarker);
+                    sampleMarker.Color = ColorTable[(i - 1) % ColorTable.Length];
+                }
+
+                //chart2.ChartAreas[0].Axes[0].Minimum = Convert.ToDouble(txtStart.Text);
+                //chart4.ChartAreas[0].Axes[0].Title = "Angular, deg";
+                //chart4.ChartAreas[0].Axes[1].Title = "Relative Intensity";
+                chart4.ChartAreas[0].Axes[0].Interval = 10;
+                chart4.ChartAreas[0].Axes[1].Interval = 0.5;
+
+                //------X major 
+                chart4.ChartAreas[0].Axes[0].LabelStyle.Format = "{0:0.00} ";
+                chart4.ChartAreas[0].Axes[0].MajorGrid.LineColor = Color.DarkGray;
+                chart4.ChartAreas[0].Axes[0].MajorGrid.Enabled = true;
+                chart4.ChartAreas[0].Axes[0].MajorGrid.Interval = 10;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.Enabled = true;
+                //chart4.ChartAreas[0].Axes[0].MajorTickMark.LineColor = Color.Black;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.Interval = 10;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.LineWidth = 2;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.Size = 1;
+                chart4.ChartAreas[0].Axes[0].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------X minor
+                chart4.ChartAreas[0].Axes[0].MinorGrid.LineColor = Color.LightGray;
+                chart4.ChartAreas[0].Axes[0].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart4.ChartAreas[0].Axes[0].MinorGrid.Enabled = true;
+                chart4.ChartAreas[0].Axes[0].MinorGrid.Interval = 2;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.Enabled = true;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.LineColor = Color.Gray;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.Interval = 2;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.LineWidth = 1;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.Size = 1;
+                chart4.ChartAreas[0].Axes[0].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //------Y major
+                chart4.ChartAreas[0].Axes[1].LabelStyle.Format = "0.00 ";
+                chart4.ChartAreas[0].Axes[1].MajorGrid.LineColor = Color.DarkGray;
+                chart4.ChartAreas[0].Axes[1].MajorGrid.Enabled = true;
+                chart4.ChartAreas[0].Axes[1].MajorGrid.Interval = 0.5;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.Enabled = true;
+                //chart4.ChartAreas[0].Axes[1].MajorTickMark.LineColor = Color.Black;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.Interval = 0.5;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.LineWidth = 2;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.Size = 1;
+                chart4.ChartAreas[0].Axes[1].MajorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+                //-------Y minor
+                chart4.ChartAreas[0].Axes[1].MinorGrid.LineColor = Color.LightGray;
+                chart4.ChartAreas[0].Axes[1].MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+                chart4.ChartAreas[0].Axes[1].MinorGrid.Enabled = true;
+                chart4.ChartAreas[0].Axes[1].MinorGrid.Interval = 0.1;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.Enabled = true;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.LineColor = Color.Gray;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.Interval = 0.1;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.LineWidth = 1;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.Size = 1;
+                chart4.ChartAreas[0].Axes[1].MinorTickMark.TickMarkStyle = TickMarkStyle.InsideArea;
+
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} {ex.StackTrace}");
             }
         }
 
@@ -1940,6 +2586,10 @@ namespace Polarimeter2019
         {
             if (clist == true)
             {
+                //for (int i = 1; i <= NumberOfRepeatation; i++)
+                //{
+                //    int itemlist = Convert.ToInt32(lsvData.SelectedItems[i]);
+                //}
                 if (lscb == false)
                 {
                     chart1.Series[SelectedIndex].Enabled = false;
