@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ivi.Visa.Interop;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -105,7 +106,7 @@ namespace Polarimeter2019 {
                 string DMMAddress;
                 DMMAddress = txtDMMAddress.Text;
                 mgr1 = new Ivi.Visa.Interop.ResourceManager();
-                DMM.IO = (IMessage)mgr1.Open(DMMAddress);
+                DMM.IO = (Ivi.Visa.Interop.IMessage)mgr1.Open(DMMAddress);
                 DMM.IO.Timeout = 7000;
                 DMM.WriteString("*CLS");
                 System.Threading.Thread.Sleep(100);
