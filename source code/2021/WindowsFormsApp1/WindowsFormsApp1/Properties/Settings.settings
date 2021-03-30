@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WindowsFormsApp1.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DMMAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">GPIB0:26:INSTR</Value>
+    </Setting>
+    <Setting Name="MMC2Address" Type="System.String" Scope="User">
+      <Value Profile="(Default)">GPIB0:7:INSTR</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
