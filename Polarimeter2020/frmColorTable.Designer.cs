@@ -1,4 +1,4 @@
-﻿namespace Polarimeter2019
+﻿namespace Polarimeter2020
 {
     partial class frmColorTable
     {
@@ -63,8 +63,8 @@
             // 
             // lvColorTable
             // 
-            this.lvColorTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.lvColorTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvColorTable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ColumnHeader1,

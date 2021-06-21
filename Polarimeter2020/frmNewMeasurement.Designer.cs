@@ -1,4 +1,4 @@
-﻿namespace Polarimeter2019
+﻿namespace Polarimeter2020
 {
     partial class frmNewMeasurement
     {
@@ -79,7 +79,7 @@
             // numAverageNumber
             // 
             this.numAverageNumber.Location = new System.Drawing.Point(116, 56);
-            this.numAverageNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numAverageNumber.Margin = new System.Windows.Forms.Padding(2);
             this.numAverageNumber.Name = "numAverageNumber";
             this.numAverageNumber.Size = new System.Drawing.Size(57, 20);
             this.numAverageNumber.TabIndex = 26;
@@ -93,7 +93,7 @@
             // numRepeatation
             // 
             this.numRepeatation.Location = new System.Drawing.Point(116, 82);
-            this.numRepeatation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numRepeatation.Margin = new System.Windows.Forms.Padding(2);
             this.numRepeatation.Name = "numRepeatation";
             this.numRepeatation.Size = new System.Drawing.Size(57, 20);
             this.numRepeatation.TabIndex = 27;
@@ -107,7 +107,7 @@
             // btnOK
             // 
             this.btnOK.Location = new System.Drawing.Point(207, 101);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(2);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(73, 37);
             this.btnOK.TabIndex = 28;
@@ -119,7 +119,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(284, 101);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(73, 37);
             this.btnCancel.TabIndex = 29;
@@ -143,10 +143,10 @@
             this.Controls.Add(this.txtSampleNamee);
             this.Controls.Add(this.Label7);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmNewMeasurement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmNewMeasurement";
+            this.Text = "New Measurement";
             ((System.ComponentModel.ISupportInitialize)(this.numAverageNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRepeatation)).EndInit();
             this.ResumeLayout(false);

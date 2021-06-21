@@ -4464,8 +4464,8 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1661E1015D384178A23D8939DF8279D6"
             {
-            "SourcePath" = "8:..\\Tester\\bin\\Debug\\Polarimeter2019.exe.config"
-            "TargetName" = "8:Polarimeter2019.exe.config"
+            "SourcePath" = "8:..\\Tester\\bin\\Debug\\Polarimeter2020.exe.config"
+            "TargetName" = "8:Polarimeter2020.exe.config"
             "Tag" = "8:"
             "Folder" = "8:_DCE285B5610F4335AB48B37E58D4D31C"
             "Condition" = "8:"

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Polarimeter2019
+namespace Polarimeter2020
 {
     static class Program
     {

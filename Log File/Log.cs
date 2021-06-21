@@ -8,7 +8,7 @@ namespace LogFile
     public class PolarimeterHeader
     {
         public string ProjectName = "Polarimeter";
-        public string Version = "R2019";
+        public string Version = "R2020";
         public string DMMPort;
         public string MMCPort;
         public string StartAngle;

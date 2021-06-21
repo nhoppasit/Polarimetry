@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polarimeter2019", "Polarimeter2019\Polarimeter2019.csproj", "{B581F382-0D34-494A-BDC1-A2CF640D9875}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log File", "Log File\Log File.csproj", "{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polarimeter2020", "Polarimeter2020\Polarimeter2020.csproj", "{B581F382-0D34-494A-BDC1-A2CF640D9875}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,14 +15,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Debug|x86.Build.0 = Debug|Any CPU
-		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|x86.ActiveCfg = Release|Any CPU
-		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|x86.Build.0 = Release|Any CPU
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Debug|x86.ActiveCfg = Debug|x86
@@ -31,6 +23,14 @@ Global
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Release|x86.ActiveCfg = Release|x86
 		{E2537B7A-2BFD-47B2-B44C-DA2F2C76D526}.Release|x86.Build.0 = Release|x86
+		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Debug|x86.Build.0 = Debug|Any CPU
+		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|x86.ActiveCfg = Release|Any CPU
+		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

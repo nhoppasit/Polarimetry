@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Polarimeter2019
+namespace Polarimeter2020
 {
     public partial class frmNewMeasurement : Form
     {
