@@ -9,6 +9,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
+// test commit
+
 namespace Polarimeter2020 {
     public partial class frmMain : Form
     {
