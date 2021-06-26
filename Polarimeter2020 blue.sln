@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log File", "Log File\Log Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polarimeter2020", "Polarimeter2020\Polarimeter2020.csproj", "{B581F382-0D34-494A-BDC1-A2CF640D9875}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polarimeter 2020 Unit Test", "Polarimeter 2020 Unit Test\Polarimeter 2020 Unit Test.csproj", "{84B1DDFF-2F41-430D-B2EB-F5DFCB0CF326}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|x86.ActiveCfg = Release|Any CPU
 		{B581F382-0D34-494A-BDC1-A2CF640D9875}.Release|x86.Build.0 = Release|Any CPU
+		{84B1DDFF-2F41-430D-B2EB-F5DFCB0CF326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84B1DDFF-2F41-430D-B2EB-F5DFCB0CF326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84B1DDFF-2F41-430D-B2EB-F5DFCB0CF326}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{84B1DDFF-2F41-430D-B2EB-F5DFCB0CF326}.Debug|x86.Build.0 = Debug|Any CPU
+		{84B1DDFF-2F41-430D-B2EB-F5DFCB0CF326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84B1DDFF-2F41-430D-B2EB-F5DFCB0CF326}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84B1DDFF-2F41-430D-B2EB-F5DFCB0CF326}.Release|x86.ActiveCfg = Release|Any CPU
+		{84B1DDFF-2F41-430D-B2EB-F5DFCB0CF326}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
