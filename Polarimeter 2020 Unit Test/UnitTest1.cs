@@ -19,24 +19,6 @@ namespace Polarimeter_2020_Unit_Test
             SaveData();
         }
 
-        void AssignTestSummarySheetForSave(ref HSSFWorkbook workbook, ref ISheet sheet, BaseDataControl testData)
-        {
-            //ListViewItem lvi;
-            //lvi = lsvData.Items[SelectedIndex];
-            //if (SelectedIndex == 0)
-            //{
-            //    lvi.SubItems[1].Text = "(" + BDC.Reference.Xm.ToString("0.00") + ", " + BDC.Reference.Ym.ToString("0.0000") + ")";
-            //}
-            //else
-            //{
-            //    lvi = lsvData.Items[SelectedIndex];
-            //    lvi.SubItems[1].Text = "(" + BDC.Data[SelectedIndex].Xm.ToString("0.00") + ", " + BDC.Data[SelectedIndex].Ym.ToString("0.0000") + ")";
-            //    lvi.SubItems[2].Text = BDC.Data[SelectedIndex].AngleOfRotation.ToString("0.00");
-            //}
-        
-            
-        }
-
         void AssignTestHeaderSheetForSave(ref HSSFWorkbook workbook, ref ISheet sheet, TestHeaderModel testHeader)
         {
             // ------------------------------------------------------------------------------------------
@@ -45,7 +27,7 @@ namespace Polarimeter_2020_Unit_Test
             var row = sheet.CreateRow(0);
             var cell = row.CreateCell(0);
             cell.SetCellValue("Date of test");
-            cell.CellStyle = HeaderCellStyles.BrightGreen(workbook);
+            cell.CellStyle = HeaderCellStyles.BlueWhiteBoldCenter(workbook);
 
             cell = row.CreateCell(1);
             cell.SetCellValue(DateTime.Now.ToString("dd/MM/yyyy"));  //วันที่

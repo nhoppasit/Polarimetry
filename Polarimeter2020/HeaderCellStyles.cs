@@ -8,6 +8,42 @@ using NPOI.SS.UserModel;
 
 public static class HeaderCellStyles
 {
+    public static ICellStyle ValueToCenter(HSSFWorkbook workbook)
+    {
+        ICellStyle cellStyle = workbook.CreateCellStyle();
+        cellStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
+        cellStyle.VerticalAlignment = VerticalAlignment.Top;
+        return cellStyle;
+    }
+    public static ICellStyle ValueToRight(HSSFWorkbook workbook)
+    {
+        ICellStyle cellStyle = workbook.CreateCellStyle();
+        cellStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Right;
+        cellStyle.VerticalAlignment = VerticalAlignment.Top;
+        return cellStyle;
+    }
+
+    public static IFont WhiteBoldFont(HSSFWorkbook workbook)
+    {
+        IFont font = workbook.CreateFont();
+        font.Color = IndexedColors.White.Index;
+        font.IsBold = true;
+        return font;
+    }
+    public static ICellStyle BlueWhiteBoldCenter(HSSFWorkbook workbook)
+    {
+        ICellStyle cellStyle = workbook.CreateCellStyle();
+        cellStyle.FillPattern = FillPattern.SolidForeground;
+        cellStyle.FillForegroundColor = IndexedColors.Blue.Index;
+        cellStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Medium;
+        cellStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
+        cellStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
+        cellStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
+        cellStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
+        cellStyle.VerticalAlignment = VerticalAlignment.Top;
+        cellStyle.SetFont(WhiteBoldFont(workbook));
+        return cellStyle;
+    }
     public static ICellStyle BrightGreen(HSSFWorkbook workbook)
     {
         ICellStyle cellStyle = workbook.CreateCellStyle();
