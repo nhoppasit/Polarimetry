@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 
 namespace Polarimeter_2020_Unit_Test
 {
@@ -15,6 +17,60 @@ namespace Polarimeter_2020_Unit_Test
         public void TestMethod1()
         {
             SaveData();
+        }
+
+        void AssignTestDetailsSheetForSave(ref HSSFWorkbook workbook, ref ISheet sheet, string gpibAddrDMM34401A, string gpibAddrMMC2)
+        {
+            ICellStyle headerCellStyle1 = workbook.CreateCellStyle();
+            headerCellStyle1.FillPattern = FillPattern.SolidForeground;
+            headerCellStyle1.FillForegroundColor = IndexedColors.BrightGreen.Index;
+            headerCellStyle1.BorderRight = NPOI.SS.UserModel.BorderStyle.Medium;
+            headerCellStyle1.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
+            headerCellStyle1.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
+            headerCellStyle1.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
+
+            ICellStyle headerCellStyle2 = workbook.CreateCellStyle();
+            headerCellStyle2.FillPattern = FillPattern.SolidForeground;
+            headerCellStyle2.FillForegroundColor = IndexedColors.LightGreen.Index;
+            headerCellStyle2.BorderRight = NPOI.SS.UserModel.BorderStyle.Medium;
+            headerCellStyle2.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
+            headerCellStyle2.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
+            headerCellStyle2.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
+
+            var row = sheet.CreateRow(0);
+            var cell = row.CreateCell(0);
+            cell.SetCellValue("Date of creation");
+            cell.CellStyle = headerCellStyle1;
+
+            cell = row.CreateCell(1);
+            cell.SetCellValue(DateTime.Now.ToString("dd/MM/yyyy"));  //วันที่
+
+            row = sheet.CreateRow(1);
+            cell = row.CreateCell(0);
+            cell.SetCellValue("Time of creation");
+            cell.CellStyle = headerCellStyle1;
+
+            cell = row.CreateCell(1);
+            cell.SetCellValue(DateTime.Now.ToString("HH:mm"));
+
+            row = sheet.CreateRow(2);
+            cell = row.CreateCell(0);
+            cell.SetCellValue("DMM-34401A GPIB Address");
+            cell.CellStyle = headerCellStyle2;
+
+            cell = row.CreateCell(1);
+            cell.SetCellValue(gpibAddrDMM34401A);
+
+            row = sheet.CreateRow(3);
+            cell = row.CreateCell(0);
+            cell.SetCellValue("MMC-2 GPIB Address");
+            cell.CellStyle = headerCellStyle2;
+
+            cell = row.CreateCell(1);
+            cell.SetCellValue(gpibAddrMMC2);
+
+            //sheet.SetColumnWidth(0, 30 * 256);
+            sheet.AutoSizeColumn(0);
         }
 
         private void SaveData()
@@ -36,45 +92,26 @@ namespace Polarimeter_2020_Unit_Test
             var sheet1 = workbook.CreateSheet("Test Details");
             var sheet2 = workbook.CreateSheet("Sheet2");
 
-            AssignHeaderForSave(ref sheet1, "Addr1", "Addr2");
-
+            AssignTestDetailsSheetForSave(ref workbook, ref sheet1, "Addr1", "Addr2");
 
             ////จากนั้นสั่ง save ที่ @"d:\...............xls";
             //string filename = @"d:\BookPolarimeter10.xls";
-            using (var fileData = new FileStream(fullFilePath, FileMode.Create))
+            try
             {
-                workbook.Write(fileData);
-
-                if (redlg == DialogResult.OK)
+                using (var fileData = new FileStream(fullFilePath, FileMode.Create))
                 {
-                    MessageBox.Show("Save success!");
+                    workbook.Write(fileData);
+
+                    if (redlg == DialogResult.OK)
+                    {
+                        MessageBox.Show("Save success!", "Polarimeter 2020", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-
             }
-        }
-
-        void AssignHeaderForSave(ref ISheet sheet, string gpibAddrDMM34401A, string gpibAddrMMC2)
-        {
-            //sheet 1
-            var row = sheet.CreateRow(0);
-            var cell = row.CreateCell(0);
-            cell.CellStyle.ShrinkToFit = true;
-            cell.SetCellValue("Date of creation");
-
-            row.CreateCell(1).SetCellValue(DateTime.Now.ToString("dd/MM/yyyy"));  //วันที่
-
-            row = sheet.CreateRow(1);
-            row.CreateCell(0).SetCellValue("Time of creation" + DateTime.Now.ToString("HH:mm"));
-            row.CreateCell(1).SetCellValue(DateTime.Now.ToString("HH:mm"));
-
-            row = sheet.CreateRow(2);
-            row.CreateCell(0).SetCellValue("DMM-34401A GPIB Address");
-            row.CreateCell(1).SetCellValue(gpibAddrDMM34401A);
-
-            row = sheet.CreateRow(3);
-            row.CreateCell(0).SetCellValue("MMC-2 GPIB Address");
-            row.CreateCell(1).SetCellValue(gpibAddrMMC2);
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}\r\n{ex.StackTrace}", "Save", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }
