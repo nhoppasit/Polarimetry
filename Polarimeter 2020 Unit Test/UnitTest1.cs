@@ -19,35 +19,33 @@ namespace Polarimeter_2020_Unit_Test
             SaveData();
         }
 
-        void AssignTestDetailsSheetForSave(ref HSSFWorkbook workbook, ref ISheet sheet, string gpibAddrDMM34401A, string gpibAddrMMC2)
+        void AssignTestSummarySheetForSave(ref HSSFWorkbook workbook, ref ISheet sheet, BaseDataControl testData)
         {
-            ICellStyle headerCellStyle1 = workbook.CreateCellStyle();
-            headerCellStyle1.FillPattern = FillPattern.SolidForeground;
-            headerCellStyle1.FillForegroundColor = IndexedColors.BrightGreen.Index;
-            headerCellStyle1.BorderRight = NPOI.SS.UserModel.BorderStyle.Medium;
-            headerCellStyle1.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
-            headerCellStyle1.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
-            headerCellStyle1.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
-            headerCellStyle1.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Right;
-            headerCellStyle1.VerticalAlignment = VerticalAlignment.Top;
+            //ListViewItem lvi;
+            //lvi = lsvData.Items[SelectedIndex];
+            //if (SelectedIndex == 0)
+            //{
+            //    lvi.SubItems[1].Text = "(" + BDC.Reference.Xm.ToString("0.00") + ", " + BDC.Reference.Ym.ToString("0.0000") + ")";
+            //}
+            //else
+            //{
+            //    lvi = lsvData.Items[SelectedIndex];
+            //    lvi.SubItems[1].Text = "(" + BDC.Data[SelectedIndex].Xm.ToString("0.00") + ", " + BDC.Data[SelectedIndex].Ym.ToString("0.0000") + ")";
+            //    lvi.SubItems[2].Text = BDC.Data[SelectedIndex].AngleOfRotation.ToString("0.00");
+            //}
+        
+            
+        }
 
-            ICellStyle headerCellStyle2 = workbook.CreateCellStyle();
-            headerCellStyle2.FillPattern = FillPattern.SolidForeground;
-            headerCellStyle2.FillForegroundColor = IndexedColors.LightGreen.Index;
-            headerCellStyle2.BorderRight = NPOI.SS.UserModel.BorderStyle.Medium;
-            headerCellStyle2.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
-            headerCellStyle2.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
-            headerCellStyle2.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
-            headerCellStyle2.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Right;
-            headerCellStyle2.VerticalAlignment = VerticalAlignment.Top;
-
+        void AssignTestHeaderSheetForSave(ref HSSFWorkbook workbook, ref ISheet sheet, TestHeaderModel testHeader)
+        {
             // ------------------------------------------------------------------------------------------
             // Date of test
             // ------------------------------------------------------------------------------------------
             var row = sheet.CreateRow(0);
             var cell = row.CreateCell(0);
             cell.SetCellValue("Date of test");
-            cell.CellStyle = headerCellStyle1;
+            cell.CellStyle = HeaderCellStyles.BrightGreen(workbook);
 
             cell = row.CreateCell(1);
             cell.SetCellValue(DateTime.Now.ToString("dd/MM/yyyy"));  //วันที่
@@ -58,7 +56,7 @@ namespace Polarimeter_2020_Unit_Test
             row = sheet.CreateRow(1);
             cell = row.CreateCell(0);
             cell.SetCellValue("Time of test");
-            cell.CellStyle = headerCellStyle1;
+            cell.CellStyle = HeaderCellStyles.BrightGreen(workbook);
 
             cell = row.CreateCell(1);
             cell.SetCellValue(DateTime.Now.ToString("HH:mm"));
@@ -68,11 +66,11 @@ namespace Polarimeter_2020_Unit_Test
             // ------------------------------------------------------------------------------------------
             row = sheet.CreateRow(2);
             cell = row.CreateCell(0);
-            cell.SetCellValue("DMM-34401A GPIB Address");
-            cell.CellStyle = headerCellStyle2;
+            cell.SetCellValue(testHeader.GpibAddressOfDmm34401AHeader);
+            cell.CellStyle = HeaderCellStyles.LightGreen(workbook);
 
             cell = row.CreateCell(1);
-            cell.SetCellValue(gpibAddrDMM34401A);
+            cell.SetCellValue(testHeader.GpibAddressOfDmm34401A);
 
 
             // ------------------------------------------------------------------------------------------
@@ -80,16 +78,66 @@ namespace Polarimeter_2020_Unit_Test
             // ------------------------------------------------------------------------------------------
             row = sheet.CreateRow(3);
             cell = row.CreateCell(0);
-            cell.SetCellValue("MMC-2 GPIB Address");
-            cell.CellStyle = headerCellStyle2;
+            cell.SetCellValue(testHeader.GpibAddressOfMmc2Header);
+            cell.CellStyle = HeaderCellStyles.LightGreen(workbook);
 
             cell = row.CreateCell(1);
-            cell.SetCellValue(gpibAddrMMC2);
+            cell.SetCellValue(testHeader.GpibAddressOfMmc2);
 
             // ------------------------------------------------------------------------------------------
             // Sample Name
             // ------------------------------------------------------------------------------------------
+            row = sheet.CreateRow(5);
+            cell = row.CreateCell(0);
+            cell.SetCellValue(testHeader.SampleNameHeader);
+            cell.CellStyle = HeaderCellStyles.Custom(workbook, IndexedColors.Coral.Index);
 
+            cell = row.CreateCell(1);
+            cell.SetCellValue(testHeader.SampleName);
+
+            // ------------------------------------------------------------------------------------------
+            // Number of samples
+            // ------------------------------------------------------------------------------------------
+            row = sheet.CreateRow(6);
+            cell = row.CreateCell(0);
+            cell.SetCellValue(testHeader.NumberOfSamplesHeader);
+            cell.CellStyle = HeaderCellStyles.Yellow(workbook);
+
+            cell = row.CreateCell(1);
+            cell.SetCellValue(testHeader.NumberOfSamples);
+
+            // ------------------------------------------------------------------------------------------
+            // Number of rotations
+            // ------------------------------------------------------------------------------------------
+            row = sheet.CreateRow(7);
+            cell = row.CreateCell(0);
+            cell.SetCellValue(testHeader.NumberOfRotationsHeader);
+            cell.CellStyle = HeaderCellStyles.Yellow(workbook);
+
+            cell = row.CreateCell(1);
+            cell.SetCellValue(testHeader.NumberOfRotations);
+
+            // ------------------------------------------------------------------------------------------
+            // Average number
+            // ------------------------------------------------------------------------------------------
+            row = sheet.CreateRow(8);
+            cell = row.CreateCell(0);
+            cell.SetCellValue(testHeader.AverageNumberHeader);
+            cell.CellStyle = HeaderCellStyles.Yellow(workbook);
+
+            cell = row.CreateCell(1);
+            cell.SetCellValue(testHeader.AverageNumber);
+
+            // ------------------------------------------------------------------------------------------
+            // Resolution
+            // ------------------------------------------------------------------------------------------
+            row = sheet.CreateRow(9);
+            cell = row.CreateCell(0);
+            cell.SetCellValue(testHeader.ResolutionHeader);
+            cell.CellStyle = HeaderCellStyles.Yellow(workbook);
+
+            cell = row.CreateCell(1);
+            cell.SetCellValue(testHeader.Resolution);
 
 
             // ------------------------------------------------------------------------------------------
@@ -118,7 +166,16 @@ namespace Polarimeter_2020_Unit_Test
             var sheet1 = workbook.CreateSheet("Test Details");
             var sheet2 = workbook.CreateSheet("Sheet2");
 
-            AssignTestDetailsSheetForSave(ref workbook, ref sheet1, "Addr1", "Addr2");
+            AssignTestHeaderSheetForSave(ref workbook, ref sheet1,
+                new TestHeaderModel() {
+                    GpibAddressOfDmm34401A = "Addr1",
+                    GpibAddressOfMmc2 = "Addr2",
+                    SampleName = "SM1",
+                    NumberOfSamples = 2,
+                    NumberOfRotations = 3,
+                    AverageNumber = 23,
+                    Resolution = 0.2,
+                });
 
             ////จากนั้นสั่ง save ที่ @"d:\...............xls";
             //string filename = @"d:\BookPolarimeter10.xls";
@@ -139,6 +196,5 @@ namespace Polarimeter_2020_Unit_Test
                 MessageBox.Show($"{ex.Message}\r\n{ex.StackTrace}", "Save", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }
