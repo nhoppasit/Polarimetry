@@ -1184,9 +1184,7 @@ namespace Polarimeter2020 {
              HSSFWorkbook workbook = new HSSFWorkbook();
              var sheet1 = workbook.CreateSheet("Sheet1");
              var sheet2 = workbook.CreateSheet("Sheet2");
-
-
-
+                   
              var rowIndex = 0; //สร้าง row แล้วกำหนดข้อมูลให้แต่ละคอลัมน์
              var rowA = sheet1.CreateRow(rowIndex);
              var rowB = sheet2.CreateRow(rowIndex);
