@@ -30,6 +30,21 @@ public static class HeaderCellStyles
         font.IsBold = true;
         return font;
     }
+    public static ICellStyle BrownWhiteBoldCenter(HSSFWorkbook workbook)
+    {
+        ICellStyle cellStyle = workbook.CreateCellStyle();
+        cellStyle.FillPattern = FillPattern.SolidForeground;
+        cellStyle.FillForegroundColor = IndexedColors.Brown.Index;
+        cellStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Medium;
+        cellStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
+        cellStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
+        cellStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
+        cellStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
+        cellStyle.VerticalAlignment = VerticalAlignment.Top;
+        cellStyle.SetFont(WhiteBoldFont(workbook));
+        return cellStyle;
+    }
+
     public static ICellStyle BlueWhiteBoldCenter(HSSFWorkbook workbook)
     {
         ICellStyle cellStyle = workbook.CreateCellStyle();

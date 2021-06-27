@@ -1163,24 +1163,64 @@ namespace Polarimeter2020
             {
                 return;
             }
-
-
         }
+
+        void AssignTestDataSheetForSave(ref HSSFWorkbook workbook, ref ISheet sheet, BaseDataControl testData)
+        {
+            // ------------------------------------------------------------------------------------------
+            // Header of sheet
+            // ------------------------------------------------------------------------------------------
+            var row = sheet.CreateRow(0);
+
+            var cell = row.CreateCell(0);
+            cell.CellStyle = HeaderCellStyles.BrownWhiteBoldCenter(workbook);
+            cell.SetCellValue("No.");
+
+            cell = row.CreateCell(1);
+            cell.CellStyle = HeaderCellStyles.BrownWhiteBoldCenter(workbook);
+            cell.SetCellValue("Angle");
+
+            cell = row.CreateCell(2);
+            cell.CellStyle = HeaderCellStyles.BrownWhiteBoldCenter(workbook);
+            cell.SetCellValue("Reference");
+
+            for (int sutIndex = 0; sutIndex < testData.Data.Length; sutIndex++)
+            {
+                cell = row.CreateCell(3 + sutIndex);
+                cell.CellStyle = HeaderCellStyles.BrownWhiteBoldCenter(workbook);
+                cell.SetCellValue($"S.U.T. {1 + sutIndex}");
+            }
+
+            // ------------------------------------------------------------------------------------------
+            // Test Data Rows
+            // ------------------------------------------------------------------------------------------
+            for (int dataIndex = 0; dataIndex < testData.Reference.X.Length; dataIndex++)
+            {
+                row = sheet.CreateRow(dataIndex + 1);
+
+                cell = row.CreateCell(0);
+                cell.CellStyle = HeaderCellStyles.ValueToCenter(workbook);
+                cell.SetCellValue(dataIndex + 1);
+
+                cell = row.CreateCell(1);
+                cell.CellStyle = HeaderCellStyles.ValueToRight(workbook);
+                cell.SetCellValue(testData.Reference.X[dataIndex]);
+
+                cell = row.CreateCell(2);
+                cell.CellStyle = HeaderCellStyles.ValueToRight(workbook);
+                cell.SetCellValue(testData.Reference.Y[dataIndex]);
+
+                for (int sutIndex = 0; sutIndex < testData.Data.Length; sutIndex++)
+                {
+                    cell = row.CreateCell(3 + sutIndex);
+                    cell.CellStyle = HeaderCellStyles.ValueToCenter(workbook);
+                    cell.SetCellValue(testData.Data[sutIndex].Y[dataIndex]);
+                }
+            }
+        }
+
         void AssignTestSummarySheetForSave(ref HSSFWorkbook workbook, ref ISheet sheet, BaseDataControl testData)
         {
-            //ListViewItem lvi;
-            //lvi = lsvData.Items[SelectedIndex];
-            //if (SelectedIndex == 0)
-            //{
-            //    lvi.SubItems[1].Text = "(" + BDC.Reference.Xm.ToString("0.00") + ", " + BDC.Reference.Ym.ToString("0.0000") + ")";
-            //}
-            //else
-            //{
-            //    lvi = lsvData.Items[SelectedIndex];
-            //    lvi.SubItems[1].Text = "(" + BDC.Data[SelectedIndex].Xm.ToString("0.00") + ", " + BDC.Data[SelectedIndex].Ym.ToString("0.0000") + ")";
-            //    lvi.SubItems[2].Text = BDC.Data[SelectedIndex].AngleOfRotation.ToString("0.00");
-            //}
-
             // ------------------------------------------------------------------------------------------
             // Header of sheet
             // ------------------------------------------------------------------------------------------
@@ -1212,7 +1252,7 @@ namespace Polarimeter2020
             cell.SetCellValue($"({testData.Reference.Xm.ToString("0.00")}, {testData.Reference.Ym.ToString("0.0000")})");
 
             // ------------------------------------------------------------------------------------------
-            // Test Summary Row
+            // Test Summary Rows
             // ------------------------------------------------------------------------------------------
             for (int sutIndex = 0; sutIndex < testData.Data.Length; sutIndex++)
             {
@@ -1383,6 +1423,7 @@ namespace Polarimeter2020
                 });
 
             AssignTestSummarySheetForSave(ref workbook, ref sheet2, BDC);
+            AssignTestDataSheetForSave(ref workbook, ref sheet2, BDC);
 
             ////จากนั้นสั่ง save ที่ @"d:\...............xls";
             //string filename = @"d:\BookPolarimeter10.xls";
