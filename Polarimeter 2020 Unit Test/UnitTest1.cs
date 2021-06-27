@@ -28,6 +28,8 @@ namespace Polarimeter_2020_Unit_Test
             headerCellStyle1.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
             headerCellStyle1.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
             headerCellStyle1.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
+            headerCellStyle1.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Right;
+            headerCellStyle1.VerticalAlignment = VerticalAlignment.Top;
 
             ICellStyle headerCellStyle2 = workbook.CreateCellStyle();
             headerCellStyle2.FillPattern = FillPattern.SolidForeground;
@@ -36,23 +38,34 @@ namespace Polarimeter_2020_Unit_Test
             headerCellStyle2.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
             headerCellStyle2.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
             headerCellStyle2.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
+            headerCellStyle2.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Right;
+            headerCellStyle2.VerticalAlignment = VerticalAlignment.Top;
 
+            // ------------------------------------------------------------------------------------------
+            // Date of test
+            // ------------------------------------------------------------------------------------------
             var row = sheet.CreateRow(0);
             var cell = row.CreateCell(0);
-            cell.SetCellValue("Date of creation");
+            cell.SetCellValue("Date of test");
             cell.CellStyle = headerCellStyle1;
 
             cell = row.CreateCell(1);
             cell.SetCellValue(DateTime.Now.ToString("dd/MM/yyyy"));  //วันที่
 
+            // ------------------------------------------------------------------------------------------
+            // Time of test
+            // ------------------------------------------------------------------------------------------
             row = sheet.CreateRow(1);
             cell = row.CreateCell(0);
-            cell.SetCellValue("Time of creation");
+            cell.SetCellValue("Time of test");
             cell.CellStyle = headerCellStyle1;
 
             cell = row.CreateCell(1);
             cell.SetCellValue(DateTime.Now.ToString("HH:mm"));
 
+            // ------------------------------------------------------------------------------------------
+            // DMM 34401A GPIB Address
+            // ------------------------------------------------------------------------------------------
             row = sheet.CreateRow(2);
             cell = row.CreateCell(0);
             cell.SetCellValue("DMM-34401A GPIB Address");
@@ -61,6 +74,10 @@ namespace Polarimeter_2020_Unit_Test
             cell = row.CreateCell(1);
             cell.SetCellValue(gpibAddrDMM34401A);
 
+
+            // ------------------------------------------------------------------------------------------
+            // MMC-2 GPIB Address
+            // ------------------------------------------------------------------------------------------
             row = sheet.CreateRow(3);
             cell = row.CreateCell(0);
             cell.SetCellValue("MMC-2 GPIB Address");
@@ -69,6 +86,15 @@ namespace Polarimeter_2020_Unit_Test
             cell = row.CreateCell(1);
             cell.SetCellValue(gpibAddrMMC2);
 
+            // ------------------------------------------------------------------------------------------
+            // Sample Name
+            // ------------------------------------------------------------------------------------------
+
+
+
+            // ------------------------------------------------------------------------------------------
+            // Finalize rows and columns style
+            // ------------------------------------------------------------------------------------------
             //sheet.SetColumnWidth(0, 30 * 256);
             sheet.AutoSizeColumn(0);
         }
