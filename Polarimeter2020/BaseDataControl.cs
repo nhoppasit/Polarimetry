@@ -12,8 +12,8 @@ public class BaseDataControl
     {
         public double[] X;
         public double[] Y;
-        public double Xm;
-        public double Ym;
+        public double Xmin;
+        public double Ymin;
         public double Xmax;
         public double Ymax;
         public double AngleOfRotation;
@@ -58,14 +58,14 @@ public class BaseDataControl
             Reference.Ymax = Yvalue;
         }
 
-        if (Y < Reference.Ym)
+        if (Y < Reference.Ymin)
         {
-            Reference.Ym = Y;
-            Reference.Xm = X;
+            Reference.Ymin = Y;
+            Reference.Xmin = X;
         }
         else
         {
-            if (Y > Reference.Ym)
+            if (Y > Reference.Ymin)
             {
                 if (Y > Reference.Ymax)
                 {
@@ -88,14 +88,14 @@ public class BaseDataControl
         if (Data == null)
         {
             strucCurveData Z = Data[RepeatID];
-            Data[RepeatID].Ym = 999999;
+            Data[RepeatID].Ymin = 999999;
         }
         else
         {
             if (Data.Length - 1 < RepeatID)
             {
                 strucCurveData Q = Data[RepeatID];
-                Data[RepeatID].Ym = 999999;
+                Data[RepeatID].Ymin = 999999;
             }
         }
 
@@ -111,15 +111,15 @@ public class BaseDataControl
             Data[RepeatID].Ymax = Ydata;
         }
 
-        if (Y < Data[RepeatID].Ym)
+        if (Y < Data[RepeatID].Ymin)
         {
-            Data[RepeatID].Ym = Y;
-            Data[RepeatID].Xm = X;
+            Data[RepeatID].Ymin = Y;
+            Data[RepeatID].Xmin = X;
             AnalyzeData(RepeatID);
         }
         else
         {
-            if (Y > Data[RepeatID].Ym)
+            if (Y > Data[RepeatID].Ymin)
             {
                 if (Y > Data[RepeatID].Ymax)
                 {
@@ -216,7 +216,7 @@ public class BaseDataControl
             {
                 return;
             }
-            Data[RepeatID].AngleOfRotation = Math.Abs(Data[RepeatID].Xm - Reference.Xm);
+            Data[RepeatID].AngleOfRotation = Math.Abs(Data[RepeatID].Xmin - Reference.Xmin);
         }
         catch (Exception ex)
         {
@@ -241,7 +241,7 @@ public class BaseDataControl
 
     public BaseDataControl()
     {
-        Reference.Ym = 9999999;
+        Reference.Ymin = 9999999;
     }
 
     #endregion

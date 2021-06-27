@@ -410,14 +410,14 @@ namespace Polarimeter2020
                 {
                     if (SelectedIndex == 0)
                     {
-                        BDC.Reference.Ym = 99999999;
+                        BDC.Reference.Ymin = 99999999;
                         BDC.Reference.Ymax = 0;
                     }
                     else if (BDC.Data != null)
                     {
                         if (SelectedIndex < BDC.Data.Length)
                         {
-                            BDC.Data[SelectedIndex].Ym = 99999999;
+                            BDC.Data[SelectedIndex].Ymin = 99999999;
                             BDC.Data[SelectedIndex].Ymax = 0;
                         }
                     }
@@ -503,21 +503,21 @@ namespace Polarimeter2020
                     if (chart4.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
                     {
                         if (SelectedIndex == 0)
-                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xmax, BDC.Reference.Ymax);
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xmin, BDC.Reference.Ymin);
                         else
-                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xmax, BDC.Data[CurrentPointIndex].Ymax);
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xmin, BDC.Data[CurrentPointIndex].Ymin);
                     }
                     else
                     {
                         if (SelectedIndex == 0)
                         {
-                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xmax;
-                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ymax;
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xmin;
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ymin;
                         }
                         else
                         {
-                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[SelectedIndex].Xmax;
-                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[SelectedIndex].Ymax;
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[SelectedIndex].Xmin;
+                            chart4.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[SelectedIndex].Ymin;
                         }
                     }
                     chart4.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Circle;
@@ -532,21 +532,21 @@ namespace Polarimeter2020
                     if (chart3.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
                     {
                         if (SelectedIndex == 0)
-                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xm, BDC.Reference.Ym);
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xmin, BDC.Reference.Ymin);
                         else
-                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xm, BDC.Data[CurrentPointIndex].Ym);
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xmin, BDC.Data[CurrentPointIndex].Ymin);
                     }
                     else
                     {
                         if (SelectedIndex == 0)
                         {
-                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xm;
-                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ym;
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xmin;
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ymin;
                         }
                         else
                         {
-                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[SelectedIndex].Xm;
-                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[SelectedIndex].Ym;
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[SelectedIndex].Xmin;
+                            chart3.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[SelectedIndex].Ymin;
                         }
                     }
                     chart3.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Circle;
@@ -561,21 +561,21 @@ namespace Polarimeter2020
                     if (chart2.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
                     {
                         if (SelectedIndex == 0)
-                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xm, BDC.Reference.Ym);
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xmin, BDC.Reference.Ymin);
                         else
-                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xm, BDC.Data[CurrentPointIndex].Ym);
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xmin, BDC.Data[CurrentPointIndex].Ymin);
                     }
                     else
                     {
                         if (SelectedIndex == 0)
                         {
-                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xm;
-                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ym;
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xmin;
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ymin;
                         }
                         else
                         {
-                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[SelectedIndex].Xm;
-                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[SelectedIndex].Ym;
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[SelectedIndex].Xmin;
+                            chart2.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[SelectedIndex].Ymin;
                         }
                     }
                     chart2.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Circle;
@@ -590,21 +590,21 @@ namespace Polarimeter2020
                     if (chart1.Series[SelectedIndex + lsvData.Items.Count].Points.Count <= 0) // จำนวนจุดของเส้นกราฟ นี้ น้อยกว่าหรือเท่ากับ ศูนย์
                     {
                         if (SelectedIndex == 0)
-                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xmax, BDC.Reference.Ymax);
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Reference.Xmin, BDC.Reference.Ymin);
                         else
-                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xmax, BDC.Data[CurrentPointIndex].Ymax);
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points.AddXY(BDC.Data[CurrentPointIndex].Xmin, BDC.Data[CurrentPointIndex].Ymin);
                     }
                     else
                     {
                         if (SelectedIndex == 0)
                         {
-                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xmax;
-                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ymax;
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Reference.Xmin;
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Reference.Ymin;
                         }
                         else
                         {
-                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[SelectedIndex].Xmax;
-                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[SelectedIndex].Ymax;
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].XValue = BDC.Data[SelectedIndex].Xmin;
+                            chart1.Series[SelectedIndex + lsvData.Items.Count].Points[0].YValues[0] = BDC.Data[SelectedIndex].Ymin;
                         }
                     }
                     chart1.Series[SelectedIndex + lsvData.Items.Count].MarkerStyle = MarkerStyle.Circle;
@@ -911,7 +911,7 @@ namespace Polarimeter2020
                 {
                     if (BDC.Reference.X != null)
                     {
-                        lblNullPoint.Text = BDC.Reference.Xm.ToString("0.0000") + " deg";
+                        lblNullPoint.Text = BDC.Reference.Xmin.ToString("0.0000") + " deg";
                         //e = true;
                     }
                     else
@@ -960,11 +960,11 @@ namespace Polarimeter2020
             {
                 if (lsvData.Items[SelectedIndex].Checked)
                 {
-                    lblNullPoint.Text = BDC.Data[SelectedIndex].Xm.ToString("0.0000") + " deg";
+                    lblNullPoint.Text = BDC.Data[SelectedIndex].Xmin.ToString("0.0000") + " deg";
                 }
                 else
                 {
-                    lblNullPoint.Text = BDC.Data[SelectedIndex].Xm.ToString() + "deg";
+                    lblNullPoint.Text = BDC.Data[SelectedIndex].Xmin.ToString() + "deg";
                 }
             }
             catch (Exception ex)
@@ -1004,12 +1004,12 @@ namespace Polarimeter2020
             lvi = lsvData.Items[SelectedIndex];
             if (SelectedIndex == 0)
             {
-                lvi.SubItems[1].Text = "(" + BDC.Reference.Xm.ToString("0.00") + ", " + BDC.Reference.Ym.ToString("0.0000") + ")";
+                lvi.SubItems[1].Text = "(" + BDC.Reference.Xmin.ToString("0.00") + ", " + BDC.Reference.Ymin.ToString("0.0000") + ")";
             }
             else
             {
                 lvi = lsvData.Items[SelectedIndex];
-                lvi.SubItems[1].Text = "(" + BDC.Data[SelectedIndex].Xm.ToString("0.00") + ", " + BDC.Data[SelectedIndex].Ym.ToString("0.0000") + ")";
+                lvi.SubItems[1].Text = "(" + BDC.Data[SelectedIndex].Xmin.ToString("0.00") + ", " + BDC.Data[SelectedIndex].Ymin.ToString("0.0000") + ")";
                 lvi.SubItems[2].Text = BDC.Data[SelectedIndex].AngleOfRotation.ToString("0.00");
             }
         }
@@ -1216,6 +1216,15 @@ namespace Polarimeter2020
                     catch { }
                 }
             }
+
+            sheet.AutoSizeColumn(0);
+            sheet.AutoSizeColumn(1);
+            sheet.AutoSizeColumn(2);
+            for (int sutIndex = 0; sutIndex < testData.Data.Length; sutIndex++)
+            {
+                sheet.AutoSizeColumn(3 + sutIndex);
+            }
+            sheet.SetDefaultColumnStyle(0, HeaderCellStyles.ValueToCenter(workbook));
         }
 
         void AssignTestSummarySheetForSave(ref HSSFWorkbook workbook, ref ISheet sheet, BaseDataControl testData)
@@ -1248,7 +1257,7 @@ namespace Polarimeter2020
 
             cell = row.CreateCell(1);
             cell.CellStyle = HeaderCellStyles.ValueToCenter(workbook);
-            cell.SetCellValue($"({testData.Reference.Xm.ToString("0.00")}, {testData.Reference.Ym.ToString("0.0000")})");
+            cell.SetCellValue($"({testData.Reference.Xmin.ToString("0.00")}, {testData.Reference.Ymin.ToString("0.0000")})");
 
             // ------------------------------------------------------------------------------------------
             // Test Summary Rows
@@ -1263,12 +1272,16 @@ namespace Polarimeter2020
 
                 cell = row.CreateCell(1);
                 cell.CellStyle = HeaderCellStyles.ValueToCenter(workbook);
-                cell.SetCellValue($"({testData.Data[sutIndex].Xm.ToString("0.00")}, {testData.Data[sutIndex].Ym.ToString("0.0000")})");
+                cell.SetCellValue($"({testData.Data[sutIndex].Xmin.ToString("0.00")}, {testData.Data[sutIndex].Ymin.ToString("0.0000")})");
 
                 cell = row.CreateCell(2);
                 cell.CellStyle = HeaderCellStyles.ValueToCenter(workbook);
                 cell.SetCellValue(testData.Data[sutIndex].AngleOfRotation.ToString("0.00"));
             }
+
+            sheet.AutoSizeColumn(0);
+            sheet.AutoSizeColumn(1);
+            sheet.AutoSizeColumn(2);
         }
 
         void AssignTestHeaderSheetForSave(ref HSSFWorkbook workbook, ref ISheet sheet, TestHeaderModel testHeader)
@@ -1388,6 +1401,7 @@ namespace Polarimeter2020
             // ------------------------------------------------------------------------------------------
             //sheet.SetColumnWidth(0, 30 * 256);
             sheet.AutoSizeColumn(0);
+            sheet.AutoSizeColumn(1);
         }
 
         private void SaveData()
