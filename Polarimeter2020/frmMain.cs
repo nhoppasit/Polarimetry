@@ -744,15 +744,11 @@ namespace Polarimeter2020
             // ***ต้องเช็คก่อนว่ามีไฟล์หรือไม่ ถ้ามีให้ลบ
             if (lsvData.Items.Count > 0)
             {
-                DialogResult result = MessageBox.Show("Data will be deleted. Do you want to save file?", "Save file", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Do you want to save file?", "Save file", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
                     //BDC.SaveFile();
                     SaveData();
-                }
-                else if (result == DialogResult.Cancel)
-                {
-                    MessageBox.Show("Good luck and Bye", " Don't Save?");
                 }
             }
         }
@@ -1178,7 +1174,7 @@ namespace Polarimeter2020
 
             cell = row.CreateCell(1);
             cell.CellStyle = HeaderCellStyles.BrownWhiteBoldCenter(workbook);
-            cell.SetCellValue("Angle");
+            cell.SetCellValue("Angle, Deg");
 
             cell = row.CreateCell(2);
             cell.CellStyle = HeaderCellStyles.BrownWhiteBoldCenter(workbook);
@@ -1188,7 +1184,7 @@ namespace Polarimeter2020
             {
                 cell = row.CreateCell(3 + sutIndex);
                 cell.CellStyle = HeaderCellStyles.BrownWhiteBoldCenter(workbook);
-                cell.SetCellValue($"S.U.T. {1 + sutIndex}");
+                cell.SetCellValue($"Sample {1 + sutIndex}, Volts");
             }
 
             // ------------------------------------------------------------------------------------------
@@ -1204,17 +1200,20 @@ namespace Polarimeter2020
 
                 cell = row.CreateCell(1);
                 cell.CellStyle = HeaderCellStyles.ValueToRight(workbook);
-                cell.SetCellValue(testData.Reference.X[dataIndex]);
+                try { cell.SetCellValue(testData.Reference.X[dataIndex]); }
+                catch { }
 
                 cell = row.CreateCell(2);
                 cell.CellStyle = HeaderCellStyles.ValueToRight(workbook);
-                cell.SetCellValue(testData.Reference.Y[dataIndex]);
+                try { cell.SetCellValue(testData.Reference.Y[dataIndex]); }
+                catch { }
 
                 for (int sutIndex = 0; sutIndex < testData.Data.Length; sutIndex++)
                 {
                     cell = row.CreateCell(3 + sutIndex);
                     cell.CellStyle = HeaderCellStyles.ValueToCenter(workbook);
-                    cell.SetCellValue(testData.Data[sutIndex].Y[dataIndex]);
+                    try { cell.SetCellValue(testData.Data[sutIndex].Y[dataIndex]); }
+                    catch { }
                 }
             }
         }
@@ -1260,7 +1259,7 @@ namespace Polarimeter2020
 
                 cell = row.CreateCell(0);
                 cell.CellStyle = HeaderCellStyles.ValueToCenter(workbook);
-                cell.SetCellValue(sutIndex + 1);
+                cell.SetCellValue($"Sample {sutIndex + 1}");
 
                 cell = row.CreateCell(1);
                 cell.CellStyle = HeaderCellStyles.ValueToCenter(workbook);
@@ -1423,14 +1422,14 @@ namespace Polarimeter2020
                 });
 
             AssignTestSummarySheetForSave(ref workbook, ref sheet2, BDC);
-            AssignTestDataSheetForSave(ref workbook, ref sheet2, BDC);
+            AssignTestDataSheetForSave(ref workbook, ref sheet3, BDC);
 
             ////จากนั้นสั่ง save ที่ @"d:\...............xls";
             //string filename = @"d:\BookPolarimeter10.xls";
             try
             {
-                using (var fileData = new FileStream(fullFilePath, FileMode.Open, FileAccess.Write, FileShare.ReadWrite))
-                //using (var fileData = new FileStream(fullFilePath, FileMode.Create))
+                //using (var fileData = new FileStream(fullFilePath, FileMode.Open, FileAccess.Write, FileShare.ReadWrite))
+                using (var fileData = new FileStream(fullFilePath, FileMode.Create))
                 {
                     workbook.Write(fileData);
 
